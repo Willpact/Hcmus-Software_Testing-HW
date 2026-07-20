@@ -35,7 +35,7 @@
 	- **Timestamp:** [05/06/2026 22:04]
 	- **Prompt:** "Hãy dựa vào file bài tập giúp tôi tạo ra một format cho bài report bằng md và sử dụng ngôn ngữ tiếng việt ( đính kèm file bài tập HW01)"
 - **AI output**:
-	- "Dưới đây là template Markdown (.md) chi tiết cho bài báo cáo của bạn, được cấu trúc dựa trên các yêu cầu bắt buộc và quy định chấm điểm từ file bài tập.  Bạn có thể copy toàn bộ nội dung bên dưới và dán vào file .md của mình. [file đính kèm.](<./evidence/AI Output/report.md>)"
+	- "Dưới đây là template Markdown (.md) chi tiết cho bài báo cáo của bạn, được cấu trúc dựa trên các yêu cầu bắt buộc và quy định chấm điểm từ file bài tập.  Bạn có thể copy toàn bộ nội dung bên dưới và dán vào file .md của mình. [file đính kèm.](<./evidence/AI_Output/report.md>)"
 - **Verdict**: **VALID**
 - **Reasoning**:
 	- "Về cơ bản thì Ai có thể tạo được một format đầy đủ với yêu cầu được đề ra"
@@ -64,7 +64,7 @@ File markdown đã được tạo xong! Đây là những gì có trong sơ đ�
 7. **Test Completion** — Kiểm tra exit criteria, lưu trữ tài liệu, bàn giao và lessons learned
 
 > 💡 **Lưu ý quan trọng theo ISTQB:** *Test Monitoring & Control* là hoạt động diễn ra **xuyên suốt** toàn bộ quy trình, không phải một bước tuần tự đơn thuần.
-[link đính kèm](./evidence/AI Output/ISTQB_Fundamental_Test_Process.md)
+[link đính kèm](./evidence/AI_Output/ISTQB_Fundamental_Test_Process.md)
 
 ```
 - **Verdict**: **INVALID**
@@ -342,7 +342,7 @@ Dưới đây là bộ 15 kịch bản kiểm thử dành cho sản phẩm nồi
 - **Tool & Prompt**:
 	- **Tool:** [Claude code Opus 4.8]
 	- **Timestamp:** [07/06/2026 15:36]
-	- **Prompt:** [File đính kèm](./evidence/AI%20Output/prompt%20log%20fixed.md)
+	- **Prompt:** [File đính kèm](./evidence/AI_Output/prompt_log_fixed.md)
 		```markdown
 		Tôi cần bạn sử dụng format sau:
 
@@ -377,7 +377,7 @@ Dưới đây là bộ 15 kịch bản kiểm thử dành cho sản phẩm nồi
 
 		Về thang Severity, tôi đánh giá theo tác động thực tế: nhóm gây sập diện rộng hoặc chiếm quyền hệ thống (CrowdStrike, XZ, LastPass, FAA, AT&T, Uber, MOVEit, MGM) là Critical; nhóm rò rỉ dữ liệu/lỗ hổng có điều kiện khai thác (Samsung, Spring4Shell, Firebase, Git, Toyota, AnyDesk, Okta, OpenSSL) là High; nhóm lỗi hành vi AI không gây thiệt hại hạ tầng trực tiếp (Sydney, Air Canada, Gemini, DAN) là Medium. Nếu bạn muốn dùng tiêu chí khác (ví dụ theo thiệt hại tài chính, hay theo điểm CVSS gốc), tôi có thể chỉnh lại.
 	```
-	[file đính kèm](./evidence/AI%20Output/Artifact%205%20output.md)
+	[file đính kèm](./evidence/AI_Output/Artifact_5_output.md)
 - **Verdict**: **VALID**
 - **Reasoning**:
 	- Khi bạn cung cấp các thông tin chính xác thì AI có thể tổng hợp và phân tích nó chính xác hơn

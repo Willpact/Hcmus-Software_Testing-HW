@@ -5,9 +5,7 @@
 * **MSSV:** 23127107
 
 **Các liên kết nộp bài**
-* **GitHub Repo (Chứa Artifacts & Issues):** `[Chèn link GitHub của bạn vào đây]`
-* **Link Playlist Video Youtube (Unlisted):** `[Chèn link danh sách video thực thi test case vào đây]`
-
+* **GitHub Repo (Chứa Artifacts & Issues):** [Github Repo](https://github.com/Willpact/Hcmus-Software_Testing-HW)
 ---
 
 ## 1. Requirement 1: QA/QC Job Market 2026+ (40 pts)
@@ -18,9 +16,9 @@
 * **Link tin tuyển dụng:** [Link tuyển dụng](https://www.linkedin.com/jobs/view/4417931013/)
 * **Ảnh chụp màn hình (Screenshot):**
 
-![Fresher Full-stack Test Engineer - part 1](./evidence/requirement%201/Fresher_Full-stack_Test_Engineer_QA_QC_Tester_01.png)
-![Fresher Full-stack Test Engineer - part 2](./evidence/requirement%201/Fresher_Full-stack_Test_Engineer_QA_QC_Tester_02.png)
-![Fresher Full-stack Test Engineer - part 3](./evidence/requirement%201/Fresher_Full-stack_Test_Engineer_QA_QC_Tester_03.png)
+![Fresher Full-stack Test Engineer - part 1](./evidence/requirement_1/Fresher_Full-stack_Test_Engineer_QA_QC_Tester_01.png)
+![Fresher Full-stack Test Engineer - part 2](./evidence/requirement_1/Fresher_Full-stack_Test_Engineer_QA_QC_Tester_02.png)
+![Fresher Full-stack Test Engineer - part 3](./evidence/requirement_1/Fresher_Full-stack_Test_Engineer_QA_QC_Tester_03.png)
 
 **Mô tả công việc (Job Description):**
 Tham gia xuyên suốt vào quy trình kiểm thử phần mềm, bao gồm tìm hiểu nghiệp vụ khách hàng, viết và thực thi các kịch bản kiểm thử (test cases/scripts). Đảm nhiệm việc báo cáo lỗi, theo dõi tiến độ, viết tài liệu và trực tiếp làm việc, demo sản phẩm với khách hàng cũng như đội ngũ nội bộ để đảm bảo chất lượng dự án.
@@ -45,9 +43,9 @@ Không tiết lộ *(chỉ đề cập mức lương hấp dẫn, có thưởng 
 * **Link tin tuyển dụng:** [Link tuyển dụng](https://www.linkedin.com/jobs/view/4413964352/)
 * **Ảnh chụp màn hình (Screenshot):**
 
-![QA - Software / Device (Fresher) - part 1](./evidence/requirement%201/QA_Software_Device_Fresher_01.png)
-![QA - Software / Device (Fresher) - part 2](./evidence/requirement%201/QA_Software_Device_Fresher_02.png)
-![QA - Software / Device (Fresher) - part 3](./evidence/requirement%201/QA_Software_Device_Fresher_03.png)
+![QA - Software / Device (Fresher) - part 1](./evidence/requirement_1/QA_Software_Device_Fresher_01.png)
+![QA - Software / Device (Fresher) - part 2](./evidence/requirement_1/QA_Software_Device_Fresher_02.png)
+![QA - Software / Device (Fresher) - part 3](./evidence/requirement_1/QA_Software_Device_Fresher_03.png)
 
 **Mô tả công việc (Job Description):**
 Thực hiện các quy trình kiểm thử (functional, regression, exploratory) cho nền tảng web, ứng dụng Android và thiết bị. Chịu trách nhiệm thiết kế, duy trì test cases, ghi nhận lỗi chi tiết (kèm các bước tái hiện, log, ảnh chụp màn hình) và phối hợp với đội ngũ kỹ sư để kiểm chứng việc sửa lỗi, đảm bảo chất lượng đầu ra cho sản phẩm.
@@ -70,8 +68,8 @@ Không tiết lộ *(JD chỉ ghi "Competitive Pay" - Lương cạnh tranh kèm 
 * **Link tin tuyển dụng:** [Link tuyển dụng](https://www.linkedin.com/jobs/view/4424062835/)
 * **Ảnh chụp màn hình (Screenshot):**
 
-![Manual/Automation Tester - Quality Analyst (QA QC) - part 1](./evidence/requirement%201/Manual_Automation_Tester_Quality_Analyst_QA_QC_01.png)
-![Manual/Automation Tester - Quality Analyst (QA QC) - part 2](./evidence/requirement%201/Manual_Automation_Tester_Quality_Analyst_QA_QC_02.png)
+![Manual/Automation Tester - Quality Analyst (QA QC) - part 1](./evidence/requirement_1/Manual_Automation_Tester_Quality_Analyst_QA_QC_01.png)
+![Manual/Automation Tester - Quality Analyst (QA QC) - part 2](./evidence/requirement_1/Manual_Automation_Tester_Quality_Analyst_QA_QC_02.png)
 
 **Mô tả công việc (Job Description):**
 Tập trung chủ yếu vào Kiểm thử Thủ công (Manual Test Focus). Phụ trách thiết kế, phát triển, lập tài liệu và thực thi các kịch bản kiểm thử chức năng (functional) và hồi quy (regression) cho các ứng dụng trên Windows. Làm việc theo mô hình Agile, thường xuyên họp và phối hợp với các bên liên quan cùng đội ngũ tại Việt Nam và Mỹ để làm rõ yêu cầu, khắc phục sự cố, cũng như ghi nhận và báo cáo lỗi.
@@ -95,9 +93,9 @@ Không tiết lộ *(JD chỉ ghi mức lương cực kỳ cạnh tranh - "Extre
 * **Link tin tuyển dụng:** [Link tuyển dụng](https://www.linkedin.com/jobs/view/4424530191/)
 * **Ảnh chụp màn hình (Screenshot):**
 
-![Quality Control Engineer - part 1](./evidence/requirement%201/Quality_Control_Engineer_01.png)
-![Quality Control Engineer - part 2](./evidence/requirement%201/Quality_Control_Engineer_02.png)
-![Quality Control Engineer - part 3](./evidence/requirement%201/Quality_Control_Engineer_03.png)
+![Quality Control Engineer - part 1](./evidence/requirement_1/Quality_Control_Engineer_01.png)
+![Quality Control Engineer - part 2](./evidence/requirement_1/Quality_Control_Engineer_02.png)
+![Quality Control Engineer - part 3](./evidence/requirement_1/Quality_Control_Engineer_03.png)
 
 **Mô tả công việc (Job Description):**
 Chịu trách nhiệm phát triển, thực thi và bảo trì các kế hoạch cũng như kịch bản kiểm thử (test plans/scripts). Thực hiện kiểm thử thủ công và tự động trên các ứng dụng web, mobile và desktop để tìm lỗi và đảm bảo chất lượng. Tham gia vào các quy trình kiểm thử hồi quy (regression), tích hợp (integration) và sau phát hành (post-release). Phân tích các chỉ số chất lượng, khắc phục sự cố và liên tục cải tiến quy trình QC.
@@ -121,8 +119,8 @@ Không tiết lộ *(JD chỉ ghi mức đãi ngộ cạnh tranh, kèm theo lư�
 * **Link tin tuyển dụng:** [Link tuyển dụng](https://www.linkedin.com/jobs/view/4422977983/)
 * **Ảnh chụp màn hình (Screenshot):**
 
-![Software Tester - part 1](./evidence/requirement%201/Software_Tester_01.png)
-![Software Tester - part 2](./evidence/requirement%201/Software_Tester_02.png)
+![Software Tester - part 1](./evidence/requirement_1/Software_Tester_01.png)
+![Software Tester - part 2](./evidence/requirement_1/Software_Tester_02.png)
 
 **Mô tả công việc (Job Description):**
 Phân tích và đọc hiểu các tài liệu yêu cầu hệ thống bằng tiếng Anh. Chịu trách nhiệm thiết kế kế hoạch kiểm thử (Test Plan), viết kịch bản chi tiết (Test Cases) và thực thi kiểm thử (cả Manual và Automation). Hỗ trợ đội dự án và khách hàng xuyên suốt các giai đoạn Unit Test, SIT, UAT, PREPRO và PROD. Đồng thời, đảm nhiệm việc viết tài liệu hướng dẫn người dùng (User Manual), cập nhật tài liệu kiểm thử và đảm bảo tuân thủ các chính sách bảo mật thông tin.
@@ -144,9 +142,9 @@ Không tiết lộ.
 * **Link tin tuyển dụng:** [Link tuyển dụng](https://www.linkedin.com/jobs/view/4424186414/)
 * **Ảnh chụp màn hình (Screenshot):**
 
-![Junior QA/QC Engineer (Web UI and Mobile) - part 1](./evidence/requirement%201/Junior_QA_QC_Engineer_Web_UI_and_Mobile_01.png)
-![Junior QA/QC Engineer (Web UI and Mobile) - part 2](./evidence/requirement%201/Junior_QA_QC_Engineer_Web_UI_and_Mobile_02.png)
-![Junior QA/QC Engineer (Web UI and Mobile) - part 3](./evidence/requirement%201/Junior_QA_QC_Engineer_Web_UI_and_Mobile_03.png)
+![Junior QA/QC Engineer (Web UI and Mobile) - part 1](./evidence/requirement_1/Junior_QA_QC_Engineer_Web_UI_and_Mobile_01.png)
+![Junior QA/QC Engineer (Web UI and Mobile) - part 2](./evidence/requirement_1/Junior_QA_QC_Engineer_Web_UI_and_Mobile_02.png)
+![Junior QA/QC Engineer (Web UI and Mobile) - part 3](./evidence/requirement_1/Junior_QA_QC_Engineer_Web_UI_and_Mobile_03.png)
 
 **Mô tả công việc (Job Description):**
 Chịu trách nhiệm thực hiện kiểm thử thủ công (manual) toàn diện cho các ứng dụng Web và Di động. Đảm nhận việc lên chi tiết kế hoạch (test plans), viết kịch bản kiểm thử, kiểm thử API và theo dõi báo cáo lỗi. Phối hợp chặt chẽ với đội ngũ lập trình để xử lý sự cố kịp thời, đồng thời chủ động phát triển và thực thi các kịch bản kiểm thử tự động (automation scripts) nhằm tối ưu hóa hiệu suất dự án.
@@ -170,9 +168,9 @@ Không tiết lộ *(JD chỉ đề cập các phúc lợi như thời gian làm
 * **Link tin tuyển dụng:** [Link tuyển dụng](https://www.linkedin.com/jobs/view/4422594474/)
 * **Ảnh chụp màn hình (Screenshot):**
 
-![Lead Quality Assurance Engineer - part 1](./evidence/requirement%201/Lead_Quality_Assurance_Engineer_01.png)
-![Lead Quality Assurance Engineer - part 2](./evidence/requirement%201/Lead_Quality_Assurance_Engineer_02.png)
-![Lead Quality Assurance Engineer - part 3](./evidence/requirement%201/Lead_Quality_Assurance_Engineer_03.png)
+![Lead Quality Assurance Engineer - part 1](./evidence/requirement_1/Lead_Quality_Assurance_Engineer_01.png)
+![Lead Quality Assurance Engineer - part 2](./evidence/requirement_1/Lead_Quality_Assurance_Engineer_02.png)
+![Lead Quality Assurance Engineer - part 3](./evidence/requirement_1/Lead_Quality_Assurance_Engineer_03.png)
 
 **Mô tả công việc (Job Description):**
 Lãnh đạo, định hướng và quản lý nguồn lực cho đội ngũ QA. Xác định, triển khai và tối ưu hóa các quy trình cũng như phương pháp kiểm thử xuyên suốt vòng đời dự án. Chịu trách nhiệm thiết kế, phát triển và bảo trì các framework kiểm thử tự động mạnh mẽ cho Web, Mobile hoặc API. Phối hợp chặt chẽ với Product Owners, Developers và Business Analysts để xem xét yêu cầu dự án, thiết lập tiêu chí nghiệm thu rõ ràng và quản lý quy trình xử lý lỗi.
@@ -195,9 +193,9 @@ Không tiết lộ *(JD chỉ ghi gói lương cạnh tranh kèm theo lương th
 * **Link tin tuyển dụng:** [Link tuyển dụng](https://www.linkedin.com/jobs/view/4421374293/)
 * **Ảnh chụp màn hình (Screenshot):**
 
-![HCM - Nhân viên QC/ Tester (Junior Level) - part 1](./evidence/requirement%201/HCM_Nhan_vien_QC_Tester_Junior_Level_01.png)
-![HCM - Nhân viên QC/ Tester (Junior Level) - part 2](./evidence/requirement%201/HCM_Nhan_vien_QC_Tester_Junior_Level_02.png)
-![HCM - Nhân viên QC/ Tester (Junior Level) - part 3](./evidence/requirement%201/HCM_Nhan_vien_QC_Tester_Junior_Level_03.png)
+![HCM - Nhân viên QC/ Tester (Junior Level) - part 1](./evidence/requirement_1/HCM_Nhan_vien_QC_Tester_Junior_Level_01.png)
+![HCM - Nhân viên QC/ Tester (Junior Level) - part 2](./evidence/requirement_1/HCM_Nhan_vien_QC_Tester_Junior_Level_02.png)
+![HCM - Nhân viên QC/ Tester (Junior Level) - part 3](./evidence/requirement_1/HCM_Nhan_vien_QC_Tester_Junior_Level_03.png)
 
 **Mô tả công việc (Job Description):**
 Phân tích yêu cầu, lập kế hoạch và kịch bản kiểm thử (test cases/designs) cho các tính năng nền tảng và tích hợp hệ thống. Thực hiện kiểm thử đa dạng từ API, workflow, các tiến trình ngầm (background processes) đến giao diện người dùng (UI/dashboard). Viết các kịch bản kiểm thử tự động (automation scripts) bằng Cypress hoặc Playwright nhằm tăng tốc quy trình. Phối hợp chặt chẽ với Product Owner (PO) để chốt tiêu chí nghiệm thu, đồng thời ghi nhận, quản lý lỗi (bugs) và tiếp nhận, xử lý phản hồi từ khách hàng.
@@ -220,8 +218,8 @@ Không tiết lộ *(JD chỉ ghi mức lương cạnh tranh kèm theo thưởng
 * **Link tin tuyển dụng:** [Link tuyển dụng](https://www.linkedin.com/jobs/view/4424081556/)
 * **Ảnh chụp màn hình (Screenshot):**
 
-![Senior Quality Engineer - part 1](./evidence/requirement%201/Senior_Quality_Engineer_01.png)
-![Senior Quality Engineer - part 2](./evidence/requirement%201/Senior_Quality_Engineer_02.png)
+![Senior Quality Engineer - part 1](./evidence/requirement_1/Senior_Quality_Engineer_01.png)
+![Senior Quality Engineer - part 2](./evidence/requirement_1/Senior_Quality_Engineer_02.png)
 
 **Mô tả công việc (Job Description):**
 Xác định và thực thi chiến lược kiểm thử ở nhiều cấp độ (functional, integration, system) theo hướng tiếp cận "shift-left" và dựa trên rủi ro (risk-based testing). Chịu trách nhiệm thiết kế, bảo trì framework kiểm thử tự động (Web, Mobile, API) và tích hợp trơn tru vào CI/CD pipeline. Đặc biệt, vị trí này yêu cầu ứng dụng mạnh mẽ các công cụ AI để tạo test case, dữ liệu kiểm thử, phân tích lỗi và không ngừng khám phá để đưa các cải tiến đột phá từ AI vào quy trình làm việc của đội ngũ QA.
@@ -244,9 +242,9 @@ Không tiết lộ.
 * **Link tin tuyển dụng:** [Link tuyển dụng](https://www.linkedin.com/jobs/view/4424041362/)
 * **Ảnh chụp màn hình (Screenshot):**
 
-![Senior QC Engineer (Automation) - part 1](./evidence/requirement%201/Senior_QC_Engineer_Automation_01.png)
-![Senior QC Engineer (Automation) - part 2](./evidence/requirement%201/Senior_QC_Engineer_Automation_02.png)
-![Senior QC Engineer (Automation) - part 3](./evidence/requirement%201/Senior_QC_Engineer_Automation_03.png)
+![Senior QC Engineer (Automation) - part 1](./evidence/requirement_1/Senior_QC_Engineer_Automation_01.png)
+![Senior QC Engineer (Automation) - part 2](./evidence/requirement_1/Senior_QC_Engineer_Automation_02.png)
+![Senior QC Engineer (Automation) - part 3](./evidence/requirement_1/Senior_QC_Engineer_Automation_03.png)
 
 **Mô tả công việc (Job Description):**
 Chịu trách nhiệm toàn diện về chất lượng sản phẩm trên các tầng API, Data và UI. Đảm nhận việc thiết kế, triển khai chiến lược kiểm thử và xây dựng/bảo trì các kịch bản tự động hóa (Automation tests), tích hợp trơn tru vào luồng CI/CD. Đảm bảo tính toàn vẹn của dữ liệu (data pipelines/flows), phân tích tận gốc (root cause) các lỗi hệ thống và phối hợp từ sớm với các đội ngũ Product/BA/Engineering theo phương pháp "shift-left". Quản lý, cải tiến quy trình kiểm thử và dẫn dắt (mentor) các thành viên Junior.
@@ -507,10 +505,10 @@ Không tiết lộ *(JD chỉ ghi mức lương cạnh tranh, tháng lương th�
 
 * **Ảnh chụp màn hình chat AI:**
 
-![AI chat screenshot 1](./evidence/requirement%203/Screenshot%202026-06-06%20214538.png)
-![AI chat screenshot 2](./evidence/requirement%203/Screenshot%202026-06-06%20214545.png)
-![AI chat screenshot 3](./evidence/requirement%203/Screenshot%202026-06-06%20214556.png)
-![AI chat screenshot 4](./evidence/requirement%203/Screenshot%202026-06-06%20214606.png)
+![AI chat screenshot 1](./evidence/requirement_3/Screenshot_2026-06-06_214538.png)
+![AI chat screenshot 2](./evidence/requirement_3/Screenshot_2026-06-06_214545.png)
+![AI chat screenshot 3](./evidence/requirement_3/Screenshot_2026-06-06_214556.png)
+![AI chat screenshot 4](./evidence/requirement_3/Screenshot_2026-06-06_214606.png)
 * **Giải thích:** `Em nghĩ với câu prompt này, AI có thể đã bỏ sót các trường hợp kiểm thử liên quan tới các vấn đề môi trường bên ngoài của nồi cơm. Khi ta prompt như thế thì nó chỉ quan tâm đến các trường hợp liên quan trực tiếp đến chức năng của sản phẩm. Vậy nên mới có trường hợp bị bỏ sót các test case.`
 
 ### 3.3. Thực thi và Báo cáo Lỗi (Defects)
@@ -547,7 +545,7 @@ Không tiết lộ *(JD chỉ ghi mức lương cạnh tranh, tháng lương th�
   - **Timestamp:** [05/06/2026 22:04]
   - **Prompt:** "Hãy dựa vào file bài tập giúp tôi tạo ra một format cho bài report bằng md và sử dụng ngôn ngữ tiếng việt ( đính kèm file bài tập HW01)"
 - **AI output**:
-  - "Dưới đây là template Markdown (.md) chi tiết cho bài báo cáo của bạn, được cấu trúc dựa trên các yêu cầu bắt buộc và quy định chấm điểm từ file bài tập.  Bạn có thể copy toàn bộ nội dung bên dưới và dán vào file .md của mình. [file đính kèm.](<./evidence/AI Output/report.md>)"
+  - "Dưới đây là template Markdown (.md) chi tiết cho bài báo cáo của bạn, được cấu trúc dựa trên các yêu cầu bắt buộc và quy định chấm điểm từ file bài tập.  Bạn có thể copy toàn bộ nội dung bên dưới và dán vào file .md của mình. [file đính kèm.](<./evidence/AI_Output/report.md>)"
 - **Verdict**: **VALID**
 - **Reasoning**:
   - "Về cơ bản thì Ai có thể tạo được một format đầy đủ với yêu cầu được đề ra"
@@ -576,7 +574,7 @@ File markdown đã được tạo xong! Đây là những gì có trong sơ đ�
 7. **Test Completion** — Kiểm tra exit criteria, lưu trữ tài liệu, bàn giao và lessons learned
 
 > 💡 **Lưu ý quan trọng theo ISTQB:** *Test Monitoring & Control* là hoạt động diễn ra **xuyên suốt** toàn bộ quy trình, không phải một bước tuần tự đơn thuần.
-[link đính kèm](./evidence/AI Output/ISTQB_Fundamental_Test_Process.md)
+[link đính kèm](./evidence/AI_Output/ISTQB_Fundamental_Test_Process.md)
 
 ```
 - **Verdict**: **INVALID**
@@ -855,7 +853,7 @@ File markdown đã được tạo xong! Đây là những gì có trong sơ đ�
 - **Tool & Prompt**:
   - **Tool:** [Claude code Opus 4.8]
   - **Timestamp:** [07/06/2026 15:36]
-  - **Prompt:** [File đính kèm](./evidence/AI%20Output/prompt%20log%20fixed.md)
+  - **Prompt:** [File đính kèm](./evidence/AI_Output/prompt_log_fixed.md)
       ```markdown
       Tôi cần bạn sử dụng format sau:
 
@@ -889,7 +887,7 @@ File markdown đã được tạo xong! Đây là những gì có trong sơ đ�
 
     Về thang Severity, tôi đánh giá theo tác động thực tế: nhóm gây sập diện rộng hoặc chiếm quyền hệ thống (CrowdStrike, XZ, LastPass, FAA, AT&T, Uber, MOVEit, MGM) là Critical; nhóm rò rỉ dữ liệu/lỗ hổng có điều kiện khai thác (Samsung, Spring4Shell, Firebase, Git, Toyota, AnyDesk, Okta, OpenSSL) là High; nhóm lỗi hành vi AI không gây thiệt hại hạ tầng trực tiếp (Sydney, Air Canada, Gemini, DAN) là Medium. Nếu bạn muốn dùng tiêu chí khác (ví dụ theo thiệt hại tài chính, hay theo điểm CVSS gốc), tôi có thể chỉnh lại.
   ```
-  [file đính kèm](./evidence/AI%20Output/Artifact%205%20output.md)
+  [file đính kèm](./evidence/AI_Output/Artifact_5_output.md)
 - **Verdict**: **VALID**
 - **Reasoning**:
   - Khi bạn cung cấp các thông tin chính xác thì AI có thể tổng hợp và phân tích nó chính xác hơn

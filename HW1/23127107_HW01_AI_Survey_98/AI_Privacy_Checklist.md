@@ -32,7 +32,7 @@ Purpose: Ensure personal and sensitive data is handled appropriately when using 
 - Consent obtained: Hiện không có dữ liệu người thật hay nhạy cảm; nếu có, cần thu consent bằng văn bản trước khi đưa vào prompt.
 - Anonymization / pseudonymization: Trước khi gửi dữ liệu thực, thay thế tên, mã số sinh viên, email bằng mã giả (ví dụ STUDENT_01) để giảm rủi ro rò rỉ.
 - Avoid sharing secrets: Tuyệt đối không chèn mật khẩu, khóa API, token, thông tin thẻ ngân hàng hoặc các bí mật khác vào prompt hoặc output được lưu trữ.
-- Storage controls: Tất cả input và output AI liên quan đã/ sẽ được lưu trong thư mục `evidence/AI Output/` trong workspace; quyền truy cập giới hạn cho chủ sở hữu dự án.
+- Storage controls: Tất cả input và output AI liên quan đã/ sẽ được lưu trong thư mục `evidence/AI_Output/` trong workspace; quyền truy cập giới hạn cho chủ sở hữu dự án.
 - Access control: Kiểm tra quyền chia sẻ repository và file trước khi công khai; chỉ chia sẻ artifacts với giảng viên hoặc nhóm khi cần thiết.
 - Retention policy: Giữ dữ liệu thô tối đa 12 tháng cho mục đích đánh giá và backup; sau đó xóa hoặc lưu trữ bản tóm tắt đã loại bỏ dữ liệu nhạy cảm.
 - Third-party sharing: Khi chia sẻ với nhà cung cấp AI (ví dụ Gemini, Claude), đã liệt kê nhà cung cấp trong báo cáo kiểm toán; không chia sẻ dữ liệu nhạy cảm với bên thứ ba.

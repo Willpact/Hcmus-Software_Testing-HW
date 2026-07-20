@@ -27,7 +27,7 @@ Ai giúp cho việc làm bài trở nên nhanh gọn. Nhưng mà chúng ta cũng
 | **User edits / post-processing** | - Chỉnh sửa lại format báo cáo (xóa các cite không cần thiết, tách phần `AI Collaboration Protocol` ra file riêng). - Sửa sơ đồ tư duy: làm rõ `Test Monitoring` vs `Test Control` là hoạt động song song xuyên suốt, tách `Confirmation Testing` và `Regression Testing`. - Sửa mục `Test Completion` (thêm "Đóng incident report" và chỉnh đối tượng bàn giao). - Xác minh và cập nhật các URL hỏng trong Artifact 4; giữ nguyên 15 test cases. |
 | **Data used (sensitive?)** | No — không sử dụng dữ liệu cá nhân nhạy cảm trong các prompts hoặc outputs được báo cáo. |
 | **Risk assessment** | Một số output chứa lỗi thực tế hoặc thiếu chính xác (ví dụ: sơ đồ mindmap đặt sai bản chất của "Test Monitoring & Control"; một số đường link trong danh sách lỗi bị chết). Có rủi ro hallucination khi AI sinh các URL hoặc trích dẫn không tồn tại. |
-| **Mitigation actions** | Manual verification and fixes: đã chỉnh sửa nội dung không chính xác theo ghi chú trong AI_Audit_Report.md, đã xác minh và sửa các URL hỏng, tách/ổn định format, và duyệt lại đầu vào/đầu ra trước khi nộp. Các artifact đã được điều chỉnh và lưu trong `evidence/AI Output/` theo báo cáo kiểm toán.
+| **Mitigation actions** | Manual verification and fixes: đã chỉnh sửa nội dung không chính xác theo ghi chú trong AI_Audit_Report.md, đã xác minh và sửa các URL hỏng, tách/ổn định format, và duyệt lại đầu vào/đầu ra trước khi nộp. Các artifact đã được điều chỉnh và lưu trong `evidence/AI_Output/` theo báo cáo kiểm toán.
 
 ---
 

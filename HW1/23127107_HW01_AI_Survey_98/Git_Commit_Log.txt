@@ -1,0 +1,12 @@
+4ad162a - Willpact, 2026-06-08 : chore: Add excel test case file of requerement 3
+1d5d167 - Willpact, 2026-06-08 : refactor: change folder name from `23127107_01_100` to `23127107_HW01_AI_98`
+e2104f8 - Willpact, 2026-06-08 : chore: Add the missing part of artifact 2
+c6b07e0 - Willpact, 2026-06-08 : chore: Add ISTQB_mindmap.md
+c174546 - Willpact, 2026-06-08 : chore: Add some evidence
+5823bd7 - Willpact, 2026-06-08 : chore: Add document of AI
+8631b38 - Willpact, 2026-06-07 : chore: Complete requirement 2 & 3
+29ac58b - Willpact, 2026-06-06 : chore: Add 15 test case of requirement 3
+bd8a925 - Willpact, 2026-06-06 : docs: Add AI templates from teacher
+c584001 - Willpact, 2026-06-06 : chore: Complete requirement 01
+51baa6e - Willpact, 2026-06-05 : chore: init report's format
+fcafb16 - Willpact, 2026-06-05 : Initial commit

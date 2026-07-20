@@ -20,7 +20,7 @@ Hãy dựa vào file bài tập giúp tôi tạo ra một format cho bài report
 - **AI Output:**
 
 ```text
-Dưới đây là template Markdown (.md) chi tiết cho bài báo cáo của bạn, được cấu trúc dựa trên các yêu cầu bắt buộc và quy định chấm điểm từ file bài tập.  Bạn có thể copy toàn bộ nội dung bên dưới và dán vào file .md của mình. [file đính kèm.](<./evidence/AI Output/report.md>)
+Dưới đây là template Markdown (.md) chi tiết cho bài báo cáo của bạn, được cấu trúc dựa trên các yêu cầu bắt buộc và quy định chấm điểm từ file bài tập.  Bạn có thể copy toàn bộ nội dung bên dưới và dán vào file .md của mình. [file đính kèm.](<./evidence/AI_Output/report.md>)
 ```
 
 ---
@@ -50,7 +50,7 @@ File markdown đã được tạo xong! Đây là những gì có trong sơ đ�
 7. **Test Completion** — Kiểm tra exit criteria, lưu trữ tài liệu, bàn giao và lessons learned
 
 > 💡 **Lưu ý quan trọng theo ISTQB:** *Test Monitoring & Control* là hoạt động diễn ra **xuyên suốt** toàn bộ quy trình, không phải một bước tuần tự đơn thuần.
-[link đính kèm](./evidence/AI Output/ISTQB_Fundamental_Test_Process.md)
+[link đính kèm](./evidence/AI_Output/ISTQB_Fundamental_Test_Process.md)
 
 ```
 
