@@ -1,0 +1,6 @@
+# Real participant details and raw recordings must not be published.
+task2-usability/private/*
+!task2-usability/private/README.md
+
+# Final archive is generated only after identity and real evidence are complete.
+*.zip
