@@ -1,0 +1,12 @@
+HW03 Git commit log
+Generated: 2026-07-28 01:12 +0700
+
+ee1b352 | 2026-07-28 01:11:57 +0700 | Willpact | Add HW03 report and AI audit scaffolding
+2b68088 | 2026-07-28 01:11:52 +0700 | Willpact | Add reusable GUI usability evaluation skill
+34b58ed | 2026-07-28 01:11:49 +0700 | Willpact | Add HW03 cross-platform execution kit
+8f4c9f9 | 2026-07-28 01:11:41 +0700 | Willpact | Prepare HW03 moderated usability study
+9ef3411 | 2026-07-28 01:11:35 +0700 | Willpact | Add HW03 GUI checklist execution and evidence
+
+The student must append one new commit for the pilot, each of the seven real
+usability sessions, final analysis, each cross-platform evidence batch, GitHub
+issue logging, student review, final report export, and packaging.
