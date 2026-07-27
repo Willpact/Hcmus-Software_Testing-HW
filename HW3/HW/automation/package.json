@@ -1,0 +1,12 @@
+{
+  "name": "hw03-gui-usability-automation",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Reproducible evidence collection for HW03 GUI and usability testing",
+  "scripts": {
+    "test:gui": "node gui-checklist-runner.cjs"
+  },
+  "dependencies": {
+    "playwright": "1.62.0"
+  }
+}

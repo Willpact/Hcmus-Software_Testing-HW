@@ -1,0 +1,7 @@
+tmp/
+automation/node_modules/
+eshop-sut/
+
+# Internal visual-QA sheets are not submission evidence.
+submission/**/_contact-sheet.png
+submission/**/cart-zoom-200.png
