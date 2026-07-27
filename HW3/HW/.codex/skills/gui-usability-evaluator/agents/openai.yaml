@@ -1,0 +1,7 @@
+interface:
+  display_name: "GUI and Usability Evaluator"
+  short_description: "Audit GUI checks and moderated usability evidence"
+  default_prompt: "Use $gui-usability-evaluator to design, execute, and audit a GUI checklist and usability study without fabricating human evidence."
+
+policy:
+  allow_implicit_invocation: false
