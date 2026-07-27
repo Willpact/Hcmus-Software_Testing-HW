@@ -16,7 +16,7 @@ attach the referenced screenshot, create the GitHub issue, and paste its URL.
 | BG-07 | GUI-048, GUI-055, GUI-056 | `home-network-error.png`, `product-not-found.png` | [ ] | TODO |
 | BG-08 | GUI-053 | `product-desktop.png`, `checkout.png` | [ ] | TODO |
 | BG-09 | GUI-054 | `search-injection.png` | [ ] | TODO |
-| BG-10 | GUI-057, GUI-058, GUI-059, GUI-060 | `first-click-cart.png`, `cart-duplicate-items.png`, `cart-after-checkout.png` | [ ] | TODO |
+| BG-10 | GUI-057, GUI-058, GUI-059, GUI-060, GUI-061, GUI-062, GUI-063 | `first-click-cart.png`, `cart-duplicate-items.png`, `cart-after-checkout.png`, `cart-empty.png`, `cart-filled.png` | [ ] | TODO |
 
 Not every Failed checklist row necessarily becomes a distinct defect. Dark mode,
 RTL support, or other enhancement checks must be compared with the SUT

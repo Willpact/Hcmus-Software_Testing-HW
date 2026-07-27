@@ -49,7 +49,7 @@ HW03. No participant data or results have been fabricated.
 
 ## 2. AI-first and human-review method
 
-Codex produced a 48-item initial checklist from the assignment and SUT
+Codex produced a 51-item initial checklist from the assignment and SUT
 requirements. Twelve additional items were prepared as `Student-review
 candidate`, covering dark mode, RTL, reflow, target size, assistive-technology
 feedback, search injection, network/not-found states, and cross-screen state.
@@ -97,8 +97,8 @@ port 3000 were redirected only inside Playwright test contexts.
 | IA-01 | 16 | 7 | 9 |
 | IA-02 | 20 | 5 | 15 |
 | IA-03 | 14 | 7 | 7 |
-| IA-04 | 10 | 1 | 9 |
-| **Total** | **60** | **20** | **40** |
+| IA-04 | 13 | 1 | 12 |
+| **Total** | **63** | **20** | **43** |
 
 The full checklist, notes, and evidence links are in:
 
@@ -119,6 +119,8 @@ descriptions:
 - The first Product Detail add-to-cart activation is ignored.
 - Adding the same Home product twice creates duplicate rows instead of increasing
   quantity.
+- Removing a cart row has no confirmation dialog, the empty Cart has no
+  illustration, and the summary uses “Tổng tạm tính” instead of “Tổng cộng”.
 - Cart state is lost after reload and remains after a simulated successful
   Checkout.
 - Home search feedback creates an HTML element from supplied markup.

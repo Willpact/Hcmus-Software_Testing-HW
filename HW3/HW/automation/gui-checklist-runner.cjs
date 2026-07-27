@@ -102,6 +102,9 @@ const checklist = [
   humanCandidate("GUI-058", "IA-04", "Product Detail", "The first add-to-cart activation changes cart state and gives feedback.", "A single click adds the item and produces immediate confirmation.", "This defect depends on the SUT's unusual first-click behavior and cannot be inferred from a generic checklist."),
   humanCandidate("GUI-059", "IA-04", "Home, Cart", "Adding the same product twice consolidates the row.", "One cart row remains and its quantity increases to 2.", "The AI did not inspect the app-specific CartContext state update strategy."),
   humanCandidate("GUI-060", "IA-04", "Checkout → Cart", "Successful checkout clears the cart.", "After a successful checkout, Cart shows the empty state.", "The AI checked the success message in isolation and missed the downstream cart state."),
+  ai("GUI-061", "IA-04", "Cart", "Removing a cart item requires confirmation.", "A confirmation dialog appears before the item is removed."),
+  ai("GUI-062", "IA-04", "Empty Cart", "Empty Cart shows a friendly message and illustration.", "The empty state contains both explanatory text and an icon/image."),
+  ai("GUI-063", "IA-04", "Cart", "Cart total uses the exact required label.", "The summary label is Tổng cộng, not Tổng tạm tính."),
 ];
 
 const results = new Map();
@@ -202,6 +205,7 @@ async function main() {
   record("GUI-002", allPositiveBlue, JSON.stringify(primaryColors), "Positive actions use mixed green, orange, and blue styling.", productEvidence);
 
   await page.goto(WEB_URL);
+  await page.locator("p.text-red-500").first().waitFor();
   const priceTexts = await page.locator("p.text-red-500").allTextContents();
   const homePricesValid = priceTexts.every((text) => /₫/.test(text) && !/\bVND\b/.test(text));
   record("GUI-004", homePricesValid, JSON.stringify(priceTexts), "Home prices use VND while other screens use ₫.", homeEvidence);
@@ -740,6 +744,28 @@ async function main() {
     emptyCartIllustration: { passed: emptyCartHasIllustration, actual: `illustration=${emptyCartHasIllustration}`, evidence: emptyCartEvidence },
     couponFeedback: { passed: feedbackClear, actual: dynamicFeedbackText.replace(/\s+/g, " ").slice(0, 300), evidence: checkoutEvidence },
   };
+
+  record(
+    "GUI-061",
+    supplemental.deleteConfirmation.passed,
+    supplemental.deleteConfirmation.actual,
+    "Remove deletes immediately without a confirmation dialog.",
+    supplemental.deleteConfirmation.evidence,
+  );
+  record(
+    "GUI-062",
+    supplemental.emptyCartIllustration.passed,
+    supplemental.emptyCartIllustration.actual,
+    "The empty Cart has text but no required illustration.",
+    supplemental.emptyCartIllustration.evidence,
+  );
+  record(
+    "GUI-063",
+    supplemental.cartTotalLabel.passed,
+    supplemental.cartTotalLabel.actual,
+    "Cart uses Tổng tạm tính instead of the required Tổng cộng.",
+    supplemental.cartTotalLabel.evidence,
+  );
 
   const missing = checklist
     .map((item) => item.id)

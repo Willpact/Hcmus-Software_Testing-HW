@@ -4,11 +4,11 @@
 > `Student-review candidate` must be reviewed, accepted/reworded, and owned by
 > the student before submission.
 
-- Executed at: 2026-07-27T18:03:08.372Z
+- Executed at: 2026-07-27T18:15:13.508Z
 - Browser: Chromium 150.0.4078.99
-- Total: 60
+- Total: 63
 - Passed: 20
-- Failed: 40
+- Failed: 43
 
 | ID | Screen(s) | Aspect | Checklist item | Expected result | Source | Why AI missed it | Status | Notes | Evidence |
 |---|---|---|---|---|---|---|---|---|---|
@@ -72,3 +72,6 @@
 | GUI-058 | Product Detail | IA-04 | The first add-to-cart activation changes cart state and gives feedback. | A single click adds the item and produces immediate confirmation. | Student-review candidate | This defect depends on the SUT's unusual first-click behavior and cannot be inferred from a generic checklist. | Failed | The first activation is ignored and gives no feedback. | evidence/first-click-cart.png |
 | GUI-059 | Home, Cart | IA-04 | Adding the same product twice consolidates the row. | One cart row remains and its quantity increases to 2. | Student-review candidate | The AI did not inspect the app-specific CartContext state update strategy. | Failed | Adding the same product twice creates duplicate rows. | evidence/cart-duplicate-items.png |
 | GUI-060 | Checkout → Cart | IA-04 | Successful checkout clears the cart. | After a successful checkout, Cart shows the empty state. | Student-review candidate | The AI checked the success message in isolation and missed the downstream cart state. | Failed | Successful checkout does not clear the in-memory cart. | evidence/cart-after-checkout.png |
+| GUI-061 | Cart | IA-04 | Removing a cart item requires confirmation. | A confirmation dialog appears before the item is removed. | AI draft |  | Failed | Remove deletes immediately without a confirmation dialog. | evidence/cart-filled.png |
+| GUI-062 | Empty Cart | IA-04 | Empty Cart shows a friendly message and illustration. | The empty state contains both explanatory text and an icon/image. | AI draft |  | Failed | The empty Cart has text but no required illustration. | evidence/cart-empty.png |
+| GUI-063 | Cart | IA-04 | Cart total uses the exact required label. | The summary label is Tổng cộng, not Tổng tạm tính. | AI draft |  | Failed | Cart uses Tổng tạm tính instead of the required Tổng cộng. | evidence/cart-filled.png |

@@ -1,14 +1,14 @@
 {
   "summary": {
-    "generatedAt": "2026-07-27T18:03:08.372Z",
+    "generatedAt": "2026-07-27T18:15:13.508Z",
     "webUrl": "http://127.0.0.1:5173",
     "backendUrl": "http://127.0.0.1:3001",
     "browser": "150.0.4078.99",
     "viewportDesktop": "1440x900",
     "viewportMobile": "320x568",
-    "total": 60,
+    "total": 63,
     "passed": 20,
-    "failed": 40,
+    "failed": 43,
     "byAspect": {
       "IA-01": {
         "total": 16,
@@ -26,9 +26,9 @@
         "failed": 7
       },
       "IA-04": {
-        "total": 10,
+        "total": 13,
         "passed": 1,
-        "failed": 9
+        "failed": 12
       }
     },
     "supplemental": {
@@ -839,6 +839,45 @@
       "actual": "cart rows after successful checkout=1",
       "notes": "Successful checkout does not clear the in-memory cart.",
       "evidence": "evidence/cart-after-checkout.png"
+    },
+    {
+      "id": "GUI-061",
+      "aspect": "IA-04",
+      "screens": "Cart",
+      "item": "Removing a cart item requires confirmation.",
+      "expected": "A confirmation dialog appears before the item is removed.",
+      "source": "AI draft",
+      "whyAiMissed": "",
+      "status": "Failed",
+      "actual": "confirmation dialog shown=false",
+      "notes": "Remove deletes immediately without a confirmation dialog.",
+      "evidence": "evidence/cart-filled.png"
+    },
+    {
+      "id": "GUI-062",
+      "aspect": "IA-04",
+      "screens": "Empty Cart",
+      "item": "Empty Cart shows a friendly message and illustration.",
+      "expected": "The empty state contains both explanatory text and an icon/image.",
+      "source": "AI draft",
+      "whyAiMissed": "",
+      "status": "Failed",
+      "actual": "illustration=false",
+      "notes": "The empty Cart has text but no required illustration.",
+      "evidence": "evidence/cart-empty.png"
+    },
+    {
+      "id": "GUI-063",
+      "aspect": "IA-04",
+      "screens": "Cart",
+      "item": "Cart total uses the exact required label.",
+      "expected": "The summary label is Tổng cộng, not Tổng tạm tính.",
+      "source": "AI draft",
+      "whyAiMissed": "",
+      "status": "Failed",
+      "actual": "Giỏ Hàng Sản phẩm Giá Số lượng Thành tiền Thao tác iPhone 15 Pro Max 30,000,000 ₫ 1 30,000,000 ₫ Xóa Tổng tạm tính: 30,000,000 ₫ ← Mua tiếp Tiến hành thanh toán",
+      "notes": "Cart uses Tổng tạm tính instead of the required Tổng cộng.",
+      "evidence": "evidence/cart-filled.png"
     }
   ]
 }

@@ -16,9 +16,9 @@
 |---|---:|
 | Screens covered by GUI checklist | 5 primary screens |
 | End-to-end flow selected | 1 |
-| GUI checklist items designed/executed | 60 / 60 |
+| GUI checklist items designed/executed | 63 / 63 |
 | GUI Passed | 20 |
-| GUI Failed | 40 |
+| GUI Failed | 43 |
 | Candidate defect groups awaiting student-written issues | 10 |
 | Real usability participants completed | 0 / 7 |
 | Pilot completed | 0 / 1 |
