@@ -1,0 +1,56 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: HW06 canonical API test-case schema
+description: Shared draft/approved test-case record. Values must remain evidence-based; execution fields do not imply real execution.
+type: object
+required:
+  - id
+  - api_id
+  - feature_id
+  - endpoint
+  - source
+  - requirement_ids
+  - technique
+  - title
+  - objective
+  - preconditions
+  - request
+  - test_data
+  - expected_status
+  - expected_schema
+  - expected_business_result
+  - expected_state
+  - audit_status
+  - audit_reason
+  - correction
+  - why_ai_missed
+  - execution_status
+  - failure_classification
+  - bug_id
+  - notes
+properties:
+  id: { type: string, description: Stable API-scoped ID; never reuse for different meaning. }
+  api_id: { type: string }
+  feature_id: { type: string }
+  endpoint: { type: string, description: HTTP method and endpoint path. }
+  source: { type: string, enum: [AI_GENERATED, STUDENT_ADDED] }
+  lifecycle_state: { type: string, enum: [DRAFT, STUDENT_EXTENSION_CANDIDATE, HUMAN_APPROVED, IMPLEMENTED, EXECUTED], default: DRAFT }
+  requirement_ids: { type: array, minItems: 1, items: { type: string } }
+  technique: { type: array, minItems: 1, items: { type: string, enum: [DOMAIN_PARTITION, BOUNDARY, STATE_TRANSITION, SECURITY, SCHEMA, BUSINESS_RULE] } }
+  title: { type: string }
+  objective: { type: string }
+  preconditions: { type: array, items: { type: string } }
+  request: { type: object, description: Method, path/query, headers, body, and auth variables; no secret values. }
+  test_data: { type: object, description: Named data values or references; no secrets. }
+  expected_status: { type: [integer, string, 'null'] }
+  expected_schema: { type: [object, string, 'null'] }
+  expected_business_result: { type: [string, 'null'] }
+  expected_state: { type: [string, object, 'null'] }
+  audit_status: { type: string, enum: [PENDING_HUMAN_REVIEW, VALID, INVALID, INCOMPLETE] }
+  audit_reason: { type: [string, 'null'] }
+  correction: { type: [string, object, 'null'] }
+  why_ai_missed: { type: [string, 'null'] }
+  execution_status: { type: string, enum: [NOT_IMPLEMENTED, REAL_EXECUTION_REQUIRED, NOT_EXECUTED, PASS, FAIL] }
+  failure_classification: { type: [string, 'null'], enum: [PASS, PRODUCT_DEFECT_CANDIDATE, TEST_DEFECT, TEST_DATA_DEFECT, ENVIRONMENT_DEFECT, SPEC_AMBIGUITY, NEEDS_HUMAN_REVIEW, 'null'] }
+  bug_id: { type: [string, 'null'] }
+  notes: { type: [string, 'null'] }
+additionalProperties: false
