@@ -11,7 +11,15 @@ Use this skill for one selected HW06 API after the student provides its feature,
 
 Read the shared [canonical test-case schema](references/canonical-test-case-schema.yaml) before producing or consuming a test case. The other HW06 skills use that same file; do not create a per-skill variant.
 
-When a substantive AI-generated design artifact is produced, use `log-ai-audit` if its log is initialized. Preserve the original candidate and record audit metadata through that skill; this workflow must not create a second audit log or fabricate timestamps, model metadata, or human decisions.
+For every substantive interaction, set `AUDIT_ENTRY_REQUIRED` before work. Immediately after an artifact, decision, analysis, correction, or review changes a HW06 deliverable, use `log-ai-audit`, verify the entry/external verbatim files, then set `AUDIT_ENTRY_WRITTEN` and `AUDIT_ENTRY_VERIFIED`. This guard is mandatory before any checkpoint or substantive phase transition; audit-log initialization is part of the blocked work, not a reason to skip audit. Preserve the original candidate and record audit metadata through that skill; this workflow must not create a second audit log or fabricate timestamps, model metadata, or human decisions.
+
+## Audit guard and human-review integration
+
+Audit included work immediately in this order: `PROMPT → AI WORK → ARTIFACT / DECISION / ANALYSIS → log-ai-audit → VERIFY AUDIT ENTRY EXISTS → CHECKPOINT / NEXT ACTION`. Included work covers API selection, requirement/security/state/schema analysis or review, test generation/audit/correction/coverage/extension, Postman/Newman/test data/execution/failure/bug/CI, generator design, reporting, AI critique, submission validation, and any decision that affects a HW06 deliverable. Mechanical housekeeping remains out of scope; if uncertain, audit.
+
+On a student decision or correction that affects an artifact, first apply the requested artifact change, then create/update the audit record with verbatim evidence, verify it, and only then advance state. If a write or verification fails, set `AUDIT_WRITE_FAILED`, `WORKFLOW_STATUS: BLOCKED`, and do not perform the next substantive phase. On resume, reuse a verified matching audit record (stable interaction identifier when available; otherwise exact prompt/output plus stage/artifact) instead of duplicating it.
+
+Audit log Git policy is fixed: update continuously, do not stage before the final audit phase, and commit only in the final HW06 audit commit. This workflow must never stage the audit log.
 
 ## Required input and evidence labels
 
@@ -36,13 +44,13 @@ If authoritative sources conflict or omit an assertion needed for a test, record
 
 ## State and approval gates
 
-Use these states in the workflow-status artifact: `API_SELECTED`, `REQUIREMENT_ANALYSIS_COMPLETE`, `REQUIREMENT_REVIEW_REQUIRED`, `TEST_GENERATION_COMPLETE`, `AI_AUDIT_COMPLETE`, `EXTENSION_CANDIDATES_COMPLETE`, `TEST_DESIGN_REVIEW_REQUIRED`, `TEST_DESIGN_APPROVED`, `POSTMAN_IMPLEMENTATION_REQUIRED`, `POSTMAN_IMPLEMENTATION_COMPLETE`, `AUTOMATION_REVIEW_REQUIRED`, `REAL_EXECUTION_REQUIRED`, `EXECUTION_COMPLETE`, `EXECUTION_REVIEW_REQUIRED`, and `API_COMPLETE`.
+Use these states in the workflow-status artifact: `API_SELECTED`, `AUDIT_ENTRY_REQUIRED`, `AUDIT_ENTRY_WRITTEN`, `AUDIT_ENTRY_VERIFIED`, `AUDIT_WRITE_FAILED`, `REQUIREMENT_ANALYSIS_COMPLETE`, `REQUIREMENT_REVIEW_REQUIRED`, `TEST_GENERATION_COMPLETE`, `AI_AUDIT_COMPLETE`, `EXTENSION_CANDIDATES_COMPLETE`, `TEST_DESIGN_REVIEW_REQUIRED`, `TEST_DESIGN_APPROVED`, `POSTMAN_IMPLEMENTATION_REQUIRED`, `POSTMAN_IMPLEMENTATION_COMPLETE`, `AUTOMATION_REVIEW_REQUIRED`, `REAL_EXECUTION_REQUIRED`, `EXECUTION_COMPLETE`, `EXECUTION_REVIEW_REQUIRED`, and `API_COMPLETE`.
 
 Required stops:
 
-- After extraction: emit `REQUIREMENT_REVIEW_REQUIRED`; advance only on explicit student approval.
-- After audit, corrections, coverage, and extension candidates: emit `TEST_DESIGN_REVIEW_REQUIRED`; advance only on an explicit approval such as `APPROVE TEST DESIGN`.
-- On approval, mark the exact approved revision `TEST_DESIGN_APPROVED` and return `POSTMAN_IMPLEMENTATION_REQUIRED`. Do not invoke `postman-api-runner` automatically.
+- After extraction: audit and verify, then emit `REQUIREMENT_REVIEW_REQUIRED`; advance only on explicit student approval.
+- After audit, corrections, coverage, and extension candidates: audit and verify, then emit `TEST_DESIGN_REVIEW_REQUIRED`; advance only on an explicit approval such as `APPROVE TEST DESIGN`.
+- On an approval/correction interaction: update the artifact if needed, audit and verify that interaction, then mark the exact approved revision `TEST_DESIGN_APPROVED` and return `POSTMAN_IMPLEMENTATION_REQUIRED`. Do not invoke `postman-api-runner` automatically.
 
 Never overwrite an approved revision. Write a separately versioned proposed revision and request review.
 

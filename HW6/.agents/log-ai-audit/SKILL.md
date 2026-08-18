@@ -56,10 +56,20 @@ Trước `INITIALIZE_AUDIT`, `CREATE_ENTRY` hoặc `UPDATE_REVIEW`, phân loại
 
 | `AUDIT_SCOPE` | Khi nào áp dụng | Hành động |
 |---|---|---|
-| `INCLUDED_HW06_ARTIFACT_INTERACTION` | AI trực tiếp tạo, phân tích, review hoặc sửa artifact/kết quả dùng cho bài HW06: requirement/API analysis, API test design, Postman collection/environment/data, Newman output/failure analysis, confirmed bug report candidate, AI-driven API test-generator design hoặc submission report/draft. | Ghi per-artifact entry khi có exact timestamp, verbatim prompt và verbatim output. |
-| `EXCLUDED_AGENT_SKILL_DEVELOPMENT` | AI tạo/sửa/repair `SKILL.md`, script/tooling skill, smoke/contract test, synthetic `TEST-ONLY` fixture, orchestration integration chỉ nhằm validate implementation skill, hay meta-discussion về Agent Skill. | Không tạo Artifact ID và không tạo audit entry. Đây không có nghĩa interaction không dùng AI; chỉ nằm ngoài per-artifact audit scope. |
+| `INCLUDED_HW06_ARTIFACT_INTERACTION` | AI trực tiếp tạo, phân tích, review hoặc sửa artifact/kết quả dùng cho bài HW06: API selection, requirement/security/state/schema analysis or review, test generation/audit/correction/coverage/extension, Postman/Newman/test-data/execution/failure/bug/CI work, API-generator design, report/AI critique/submission validation, hoặc bất kỳ quyết định nào ảnh hưởng thực tế tới deliverable. | Ghi per-artifact entry khi có exact timestamp, verbatim prompt và verbatim output. |
+| `EXCLUDED_MECHANICAL_INTERACTION` | Chỉ đọc path/list file, `git status`, move/copy không đổi nội dung, formatting thuần túy, hoặc housekeeping không tạo reasoning/substantive output. | Không tạo Artifact ID và không tạo audit entry. Nếu không chắc, coi là included. |
 
-Phân biệt bắt buộc: một Agent Skill được **phát triển** là excluded; chính skill đó được **invoke để tạo artifact HW06 thực** là included. Ví dụ, smoke test bằng fixture tổng hợp là excluded, còn test design hoặc Postman collection cho API HW06 là included theo artifact tương ứng.
+Việc phát triển skill thuần túy và fixture `TEST-ONLY` thường là mechanical/excluded; nhưng interaction tạo hoặc thay đổi policy, guard, workflow hay deliverable được user xác định là có ảnh hưởng thực tế phải là included. Một yêu cầu rõ ràng của user bắt buộc audit một interaction luôn được ưu tiên ghi audit.
+
+### Immediate timing, idempotency, and Git policy
+
+Với mỗi included interaction, sau khi AI tạo artifact/decision/analysis và **trước** checkpoint hoặc substantive phase kế tiếp, thực hiện theo thứ tự: `CREATE_ENTRY` → xác minh đúng Artifact ID/external-file reference tồn tại → chỉ khi đó mới đổi workflow state. Đặt `AUDIT_ENTRY_REQUIRED` khi bắt đầu xử lý; chỉ xóa guard sau `AUDIT_ENTRY_WRITTEN` và `AUDIT_ENTRY_VERIFIED`. Nếu ghi hoặc xác minh thất bại, trả về `AUDIT_WRITE_FAILED`, workflow `BLOCKED`, và không tiếp tục phase tiếp theo.
+
+Khi resume, tìm entry đã có bằng stable interaction identifier nếu môi trường cung cấp; nếu không, dùng tổ hợp exact prompt, exact output, workflow stage và related artifact. Entry trùng phải được verify/reuse, không append lại. Log luôn append-only; không overwrite history.
+
+Human decision/correction có ảnh hưởng artifact là included interaction riêng. Áp dụng decision/correction, `CREATE_ENTRY` hoặc `UPDATE_REVIEW` với exact evidence, xác minh entry, rồi mới advance checkpoint. Không tự coi `APPROVED`, `MODIFIED_AND_APPROVED`, `REJECTED`, hoặc `CORRECTION_REQUIRED` là Human Decision evidence nếu student chưa nói rõ.
+
+Git policy cố định cho HW06: `AUDIT_LOG_UPDATE: CONTINUOUS`; `AUDIT_LOG_STAGE: FORBIDDEN_BEFORE_FINAL_AUDIT_PHASE`; `AUDIT_LOG_COMMIT: FINAL_HW06_COMMIT_ONLY`. Không tự stage audit log; final commit gợi ý là `docs(HW6): finalize AI audit log`.
 
 Khi khởi tạo HW06 audit log, thêm scope note sau, không coi note là artifact entry:
 
@@ -110,13 +120,11 @@ Nếu log chưa tồn tại:
 
 1. đọc template;
 2. request missing Student Information;
-3. nếu thiếu:
-   `AUDIT_INITIALIZATION_INFORMATION_REQUIRED`
-4. tạo log;
-5. preserve all markers;
+3. nếu thiếu, trả `AUDIT_INITIALIZATION_INFORMATION_REQUIRED`; không bịa Student Information.
+4. Khi user yêu cầu immediate audit của interaction hiện tại, cho phép **provisional initialization**: tạo log từ template với Student Information để trống, ghi rõ pending information, preserve all markers, và chỉ tạo entry khi exact prompt, exact output và exact timestamp đều có. Đây không làm log submission-ready và không thay thế việc cung cấp Student Information.
+5. nếu Student Information đủ hoặc provisional initialization được user yêu cầu, tạo log;
 6. không tạo fake artifact entry;
-7. return:
-   `AUDIT_LOG_INITIALIZED`
+7. return `AUDIT_LOG_INITIALIZED` cùng trạng thái information pending nếu có.
 
 Nếu log đã tồn tại:
 
@@ -167,6 +175,7 @@ Khởi tạo hoặc validate current log.
 - next unique Artifact ID;
 - insert trước `AUDIT_ENTRIES_END`;
 - preserve prompt/output;
+- trước khi trả success, verify đúng một Artifact ID block và mọi external prompt/output path được tham chiếu đều tồn tại; nếu fail trả `AUDIT_WRITE_FAILED`;
 - default Review Status:
   `PENDING_HUMAN_REVIEW`
 - recalculates summary only from finalized entries.
