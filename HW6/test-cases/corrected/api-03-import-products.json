@@ -1,0 +1,2153 @@
+﻿{
+    "metadata":  {
+                     "api_id":  "API-03",
+                     "status":  "HUMAN_APPROVED_AI_CORRECTION",
+                     "source":  "AI_GENERATED",
+                     "raw_source":  "test-cases/generated/api-03-import-products.json",
+                     "raw_modified":  false,
+                     "execution_status":  "REAL_EXECUTION_REQUIRED"
+                 },
+    "summary":  {
+                    "raw_ai_generated":  40,
+                    "valid_after_audit":  25,
+                    "invalid_removed":  0,
+                    "incomplete_salvaged":  3,
+                    "incomplete_deferred":  12,
+                    "final_executable_ai_cases":  28
+                },
+    "technique_coverage":  {
+                               "DOMAIN_PARTITION":  8,
+                               "BOUNDARY":  2,
+                               "STATE_TRANSITION":  7,
+                               "SECURITY":  7,
+                               "SCHEMA":  2,
+                               "BUSINESS_RULE":  2
+                           },
+    "executable_cases":  [
+                             {
+                                 "original_ai_case_id":  "API03-AI-001",
+                                 "source":  "AI_GENERATED",
+                                 "audit_classification":  "VALID",
+                                 "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                                 "correction_summary":  "No semantic correction required; Human-approved audit classification retained.",
+                                 "requirement_ids":  [
+                                                         "API03-REQ-002",
+                                                         "API03-REQ-004",
+                                                         "API03-REQ-007",
+                                                         "API03-REQ-009"
+                                                     ],
+                                 "oracle_basis":  "AUTHORITATIVE",
+                                 "final_disposition":  "INCLUDED_EXECUTABLE",
+                                 "automation_note":  null,
+                                 "test_case":  {
+                                                   "id":  "API03-AI-001",
+                                                   "api_id":  "API-03",
+                                                   "feature_id":  "FR-16",
+                                                   "endpoint":  "POST /api/admin/import-products",
+                                                   "source":  "AI_GENERATED",
+                                                   "lifecycle_state":  "HUMAN_APPROVED",
+                                                   "requirement_ids":  [
+                                                                           "API03-REQ-002",
+                                                                           "API03-REQ-004",
+                                                                           "API03-REQ-007",
+                                                                           "API03-REQ-009"
+                                                                       ],
+                                                   "technique":  [
+                                                                     "DOMAIN_PARTITION",
+                                                                     "BUSINESS_RULE"
+                                                                 ],
+                                                   "primary_technique":  "DOMAIN_PARTITION",
+                                                   "secondary_techniques":  [
+                                                                                "BUSINESS_RULE"
+                                                                            ],
+                                                   "oracle_basis":  "AUTHORITATIVE",
+                                                   "gap_ids":  [
+
+                                                               ],
+                                                   "risk_ids":  [
+
+                                                                ],
+                                                   "observation_ids":  [
+
+                                                                       ],
+                                                   "title":  "Admin import một product hợp lệ",
+                                                   "objective":  "Kiểm tra JSON products array hợp lệ với admin JWT.",
+                                                   "preconditions":  [
+                                                                         "Admin JWT hợp lệ"
+                                                                     ],
+                                                   "request":  {
+                                                                   "method":  "POST",
+                                                                   "path":  "/api/admin/import-products",
+                                                                   "auth_profile":  "Bearer test JWT matching the stated precondition",
+                                                                   "content_type":  "application/json unless the case explicitly varies it",
+                                                                   "body_variation":  "products có một item name non-empty và price positive"
+                                                               },
+                                                   "test_data":  {
+                                                                     "description":  "one valid product",
+                                                                     "secret_policy":  "Use disposable fixtures or environment variables; do not store real secrets."
+                                                                 },
+                                                   "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_business_result":  "Batch hợp lệ đủ điều kiện import.",
+                                                   "expected_state":  "Toàn bộ một item được commit và report được tạo.",
+                                                   "audit_status":  "VALID",
+                                                   "audit_reason":  "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+                                                   "correction":  null,
+                                                   "why_ai_missed":  null,
+                                                   "execution_status":  "REAL_EXECUTION_REQUIRED",
+                                                   "failure_classification":  null,
+                                                   "bug_id":  null,
+                                                   "notes":  "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+                                               }
+                             },
+                             {
+                                 "original_ai_case_id":  "API03-AI-002",
+                                 "source":  "AI_GENERATED",
+                                 "audit_classification":  "VALID",
+                                 "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                                 "correction_summary":  "No semantic correction required; Human-approved audit classification retained.",
+                                 "requirement_ids":  [
+                                                         "API03-REQ-004",
+                                                         "API03-REQ-007",
+                                                         "API03-REQ-009"
+                                                     ],
+                                 "oracle_basis":  "AUTHORITATIVE",
+                                 "final_disposition":  "INCLUDED_EXECUTABLE",
+                                 "automation_note":  null,
+                                 "test_case":  {
+                                                   "id":  "API03-AI-002",
+                                                   "api_id":  "API-03",
+                                                   "feature_id":  "FR-16",
+                                                   "endpoint":  "POST /api/admin/import-products",
+                                                   "source":  "AI_GENERATED",
+                                                   "lifecycle_state":  "HUMAN_APPROVED",
+                                                   "requirement_ids":  [
+                                                                           "API03-REQ-004",
+                                                                           "API03-REQ-007",
+                                                                           "API03-REQ-009"
+                                                                       ],
+                                                   "technique":  [
+                                                                     "DOMAIN_PARTITION",
+                                                                     "BUSINESS_RULE"
+                                                                 ],
+                                                   "primary_technique":  "DOMAIN_PARTITION",
+                                                   "secondary_techniques":  [
+                                                                                "BUSINESS_RULE"
+                                                                            ],
+                                                   "oracle_basis":  "AUTHORITATIVE",
+                                                   "gap_ids":  [
+
+                                                               ],
+                                                   "risk_ids":  [
+
+                                                                ],
+                                                   "observation_ids":  [
+
+                                                                       ],
+                                                   "title":  "Admin import nhiều product hợp lệ",
+                                                   "objective":  "Kiểm tra feature multi-product và atomic commit cho batch hợp lệ.",
+                                                   "preconditions":  [
+                                                                         "Admin JWT hợp lệ"
+                                                                     ],
+                                                   "request":  {
+                                                                   "method":  "POST",
+                                                                   "path":  "/api/admin/import-products",
+                                                                   "auth_profile":  "Bearer test JWT matching the stated precondition",
+                                                                   "content_type":  "application/json unless the case explicitly varies it",
+                                                                   "body_variation":  "products có nhiều item hợp lệ"
+                                                               },
+                                                   "test_data":  {
+                                                                     "description":  "three valid products",
+                                                                     "secret_policy":  "Use disposable fixtures or environment variables; do not store real secrets."
+                                                                 },
+                                                   "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_business_result":  "Toàn bộ batch hợp lệ được xử lý như một import.",
+                                                   "expected_state":  "Tất cả item được commit; report phản ánh batch.",
+                                                   "audit_status":  "VALID",
+                                                   "audit_reason":  "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+                                                   "correction":  null,
+                                                   "why_ai_missed":  null,
+                                                   "execution_status":  "REAL_EXECUTION_REQUIRED",
+                                                   "failure_classification":  null,
+                                                   "bug_id":  null,
+                                                   "notes":  "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+                                               }
+                             },
+                             {
+                                 "original_ai_case_id":  "API03-AI-003",
+                                 "source":  "AI_GENERATED",
+                                 "audit_classification":  "INCOMPLETE",
+                                 "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                                 "correction_summary":  "Removed the transport-response assumption and added a no-import state assertion tied to the documented products array.",
+                                 "requirement_ids":  [
+                                                         "API03-REQ-004"
+                                                     ],
+                                 "oracle_basis":  "PARTIALLY_SPECIFIED",
+                                 "final_disposition":  "SALVAGED_TO_EXECUTABLE",
+                                 "automation_note":  null,
+                                 "test_case":  {
+                                                   "id":  "API03-AI-003",
+                                                   "api_id":  "API-03",
+                                                   "feature_id":  "FR-16",
+                                                   "endpoint":  "POST /api/admin/import-products",
+                                                   "source":  "AI_GENERATED",
+                                                   "lifecycle_state":  "HUMAN_APPROVED",
+                                                   "requirement_ids":  [
+                                                                           "API03-REQ-004"
+                                                                       ],
+                                                   "technique":  [
+                                                                     "DOMAIN_PARTITION",
+                                                                     "SCHEMA"
+                                                                 ],
+                                                   "primary_technique":  "DOMAIN_PARTITION",
+                                                   "secondary_techniques":  [
+                                                                                "SCHEMA"
+                                                                            ],
+                                                   "oracle_basis":  "PARTIALLY_SPECIFIED",
+                                                   "gap_ids":  [
+                                                                   "API03-RG-004"
+                                                               ],
+                                                   "risk_ids":  [
+
+                                                                ],
+                                                   "observation_ids":  [
+
+                                                                       ],
+                                                   "title":  "Thiếu products",
+                                                   "objective":  "Verify that a request without the documented products array cannot import product rows.",
+                                                   "preconditions":  [
+                                                                         "Admin JWT hợp lệ"
+                                                                     ],
+                                                   "request":  {
+                                                                   "method":  "POST",
+                                                                   "path":  "/api/admin/import-products",
+                                                                   "auth_profile":  "Bearer test JWT matching the stated precondition",
+                                                                   "content_type":  "application/json unless the case explicitly varies it",
+                                                                   "body_variation":  "bỏ products"
+                                                               },
+                                                   "test_data":  {
+                                                                     "description":  "empty object",
+                                                                     "secret_policy":  "Use disposable fixtures or environment variables; do not store real secrets."
+                                                                 },
+                                                   "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_business_result":  "No product row can be imported because the endpoint request contains no products array.",
+                                                   "expected_state":  "The products snapshot remains unchanged.",
+                                                   "audit_status":  "INCOMPLETE",
+                                                   "audit_reason":  "Concept/risk \u0027Thiếu products\u0027 có liên quan, nhưng raw case chưa có authoritative oracle, dependency hoặc validation point đủ để trở thành final executable pass/fail test.",
+                                                   "correction":  "Removed the transport-response assumption and added a no-import state assertion tied to the documented products array.",
+                                                   "why_ai_missed":  null,
+                                                   "execution_status":  "REAL_EXECUTION_REQUIRED",
+                                                   "failure_classification":  null,
+                                                   "bug_id":  null,
+                                                   "notes":  "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+                                               }
+                             },
+                             {
+                                 "original_ai_case_id":  "API03-AI-004",
+                                 "source":  "AI_GENERATED",
+                                 "audit_classification":  "INCOMPLETE",
+                                 "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                                 "correction_summary":  "Added a deterministic no-commit assertion for a non-array null representation.",
+                                 "requirement_ids":  [
+                                                         "API03-REQ-004"
+                                                     ],
+                                 "oracle_basis":  "PARTIALLY_SPECIFIED",
+                                 "final_disposition":  "SALVAGED_TO_EXECUTABLE",
+                                 "automation_note":  null,
+                                 "test_case":  {
+                                                   "id":  "API03-AI-004",
+                                                   "api_id":  "API-03",
+                                                   "feature_id":  "FR-16",
+                                                   "endpoint":  "POST /api/admin/import-products",
+                                                   "source":  "AI_GENERATED",
+                                                   "lifecycle_state":  "HUMAN_APPROVED",
+                                                   "requirement_ids":  [
+                                                                           "API03-REQ-004"
+                                                                       ],
+                                                   "technique":  [
+                                                                     "DOMAIN_PARTITION",
+                                                                     "SCHEMA"
+                                                                 ],
+                                                   "primary_technique":  "DOMAIN_PARTITION",
+                                                   "secondary_techniques":  [
+                                                                                "SCHEMA"
+                                                                            ],
+                                                   "oracle_basis":  "PARTIALLY_SPECIFIED",
+                                                   "gap_ids":  [
+                                                                   "API03-RG-004"
+                                                               ],
+                                                   "risk_ids":  [
+
+                                                                ],
+                                                   "observation_ids":  [
+
+                                                                       ],
+                                                   "title":  "products bằng null",
+                                                   "objective":  "Verify that products=null does not produce imported rows because products must use the documented array representation.",
+                                                   "preconditions":  [
+                                                                         "Admin JWT hợp lệ"
+                                                                     ],
+                                                   "request":  {
+                                                                   "method":  "POST",
+                                                                   "path":  "/api/admin/import-products",
+                                                                   "auth_profile":  "Bearer test JWT matching the stated precondition",
+                                                                   "content_type":  "application/json unless the case explicitly varies it",
+                                                                   "body_variation":  "products=null"
+                                                               },
+                                                   "test_data":  {
+                                                                     "description":  "null",
+                                                                     "secret_policy":  "Use disposable fixtures or environment variables; do not store real secrets."
+                                                                 },
+                                                   "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_business_result":  "No product is imported from a null value; exact status and response schema remain unspecified.",
+                                                   "expected_state":  "The products snapshot remains unchanged.",
+                                                   "audit_status":  "INCOMPLETE",
+                                                   "audit_reason":  "Concept/risk \u0027products bằng null\u0027 có liên quan, nhưng raw case chưa có authoritative oracle, dependency hoặc validation point đủ để trở thành final executable pass/fail test.",
+                                                   "correction":  "Added a deterministic no-commit assertion for a non-array null representation.",
+                                                   "why_ai_missed":  null,
+                                                   "execution_status":  "REAL_EXECUTION_REQUIRED",
+                                                   "failure_classification":  null,
+                                                   "bug_id":  null,
+                                                   "notes":  "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+                                               }
+                             },
+                             {
+                                 "original_ai_case_id":  "API03-AI-005",
+                                 "source":  "AI_GENERATED",
+                                 "audit_classification":  "INCOMPLETE",
+                                 "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                                 "correction_summary":  "Added a deterministic no-commit assertion for the wrong top-level products type.",
+                                 "requirement_ids":  [
+                                                         "API03-REQ-004"
+                                                     ],
+                                 "oracle_basis":  "PARTIALLY_SPECIFIED",
+                                 "final_disposition":  "SALVAGED_TO_EXECUTABLE",
+                                 "automation_note":  null,
+                                 "test_case":  {
+                                                   "id":  "API03-AI-005",
+                                                   "api_id":  "API-03",
+                                                   "feature_id":  "FR-16",
+                                                   "endpoint":  "POST /api/admin/import-products",
+                                                   "source":  "AI_GENERATED",
+                                                   "lifecycle_state":  "HUMAN_APPROVED",
+                                                   "requirement_ids":  [
+                                                                           "API03-REQ-004"
+                                                                       ],
+                                                   "technique":  [
+                                                                     "DOMAIN_PARTITION",
+                                                                     "SCHEMA"
+                                                                 ],
+                                                   "primary_technique":  "DOMAIN_PARTITION",
+                                                   "secondary_techniques":  [
+                                                                                "SCHEMA"
+                                                                            ],
+                                                   "oracle_basis":  "PARTIALLY_SPECIFIED",
+                                                   "gap_ids":  [
+                                                                   "API03-RG-004"
+                                                               ],
+                                                   "risk_ids":  [
+
+                                                                ],
+                                                   "observation_ids":  [
+
+                                                                       ],
+                                                   "title":  "products là object",
+                                                   "objective":  "Verify that products as an object does not produce imported rows because the endpoint documents an array.",
+                                                   "preconditions":  [
+                                                                         "Admin JWT hợp lệ"
+                                                                     ],
+                                                   "request":  {
+                                                                   "method":  "POST",
+                                                                   "path":  "/api/admin/import-products",
+                                                                   "auth_profile":  "Bearer test JWT matching the stated precondition",
+                                                                   "content_type":  "application/json unless the case explicitly varies it",
+                                                                   "body_variation":  "products={}"
+                                                               },
+                                                   "test_data":  {
+                                                                     "description":  "object value",
+                                                                     "secret_policy":  "Use disposable fixtures or environment variables; do not store real secrets."
+                                                                 },
+                                                   "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_business_result":  "No product is imported from a non-array object; exact status and response schema remain unspecified.",
+                                                   "expected_state":  "The products snapshot remains unchanged.",
+                                                   "audit_status":  "INCOMPLETE",
+                                                   "audit_reason":  "Concept/risk \u0027products là object\u0027 có liên quan, nhưng raw case chưa có authoritative oracle, dependency hoặc validation point đủ để trở thành final executable pass/fail test.",
+                                                   "correction":  "Added a deterministic no-commit assertion for the wrong top-level products type.",
+                                                   "why_ai_missed":  null,
+                                                   "execution_status":  "REAL_EXECUTION_REQUIRED",
+                                                   "failure_classification":  null,
+                                                   "bug_id":  null,
+                                                   "notes":  "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+                                               }
+                             },
+                             {
+                                 "original_ai_case_id":  "API03-AI-007",
+                                 "source":  "AI_GENERATED",
+                                 "audit_classification":  "VALID",
+                                 "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                                 "correction_summary":  "No semantic correction required; Human-approved audit classification retained.",
+                                 "requirement_ids":  [
+                                                         "API03-REQ-005",
+                                                         "API03-REQ-007"
+                                                     ],
+                                 "oracle_basis":  "AUTHORITATIVE",
+                                 "final_disposition":  "INCLUDED_EXECUTABLE",
+                                 "automation_note":  null,
+                                 "test_case":  {
+                                                   "id":  "API03-AI-007",
+                                                   "api_id":  "API-03",
+                                                   "feature_id":  "FR-16",
+                                                   "endpoint":  "POST /api/admin/import-products",
+                                                   "source":  "AI_GENERATED",
+                                                   "lifecycle_state":  "HUMAN_APPROVED",
+                                                   "requirement_ids":  [
+                                                                           "API03-REQ-005",
+                                                                           "API03-REQ-007"
+                                                                       ],
+                                                   "technique":  [
+                                                                     "DOMAIN_PARTITION",
+                                                                     "BUSINESS_RULE"
+                                                                 ],
+                                                   "primary_technique":  "DOMAIN_PARTITION",
+                                                   "secondary_techniques":  [
+                                                                                "BUSINESS_RULE"
+                                                                            ],
+                                                   "oracle_basis":  "AUTHORITATIVE",
+                                                   "gap_ids":  [
+
+                                                               ],
+                                                   "risk_ids":  [
+                                                                    "API03-ID-002"
+                                                                ],
+                                                   "observation_ids":  [
+
+                                                                       ],
+                                                   "title":  "Item thiếu name",
+                                                   "objective":  "Kiểm tra name non-empty trực tiếp của FR-16.",
+                                                   "preconditions":  [
+                                                                         "Admin JWT hợp lệ"
+                                                                     ],
+                                                   "request":  {
+                                                                   "method":  "POST",
+                                                                   "path":  "/api/admin/import-products",
+                                                                   "auth_profile":  "Bearer test JWT matching the stated precondition",
+                                                                   "content_type":  "application/json unless the case explicitly varies it",
+                                                                   "body_variation":  "một item có price nhưng không name"
+                                                               },
+                                                   "test_data":  {
+                                                                     "description":  "missing name",
+                                                                     "secret_policy":  "Use disposable fixtures or environment variables; do not store real secrets."
+                                                                 },
+                                                   "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_business_result":  "Không chấp nhận row thiếu name hợp lệ.",
+                                                   "expected_state":  "Nếu cùng batch có item khác, toàn batch rollback.",
+                                                   "audit_status":  "VALID",
+                                                   "audit_reason":  "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+                                                   "correction":  null,
+                                                   "why_ai_missed":  null,
+                                                   "execution_status":  "REAL_EXECUTION_REQUIRED",
+                                                   "failure_classification":  null,
+                                                   "bug_id":  null,
+                                                   "notes":  "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+                                               }
+                             },
+                             {
+                                 "original_ai_case_id":  "API03-AI-008",
+                                 "source":  "AI_GENERATED",
+                                 "audit_classification":  "VALID",
+                                 "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                                 "correction_summary":  "No semantic correction required; Human-approved audit classification retained.",
+                                 "requirement_ids":  [
+                                                         "API03-REQ-007"
+                                                     ],
+                                 "oracle_basis":  "AUTHORITATIVE",
+                                 "final_disposition":  "INCLUDED_EXECUTABLE",
+                                 "automation_note":  null,
+                                 "test_case":  {
+                                                   "id":  "API03-AI-008",
+                                                   "api_id":  "API-03",
+                                                   "feature_id":  "FR-16",
+                                                   "endpoint":  "POST /api/admin/import-products",
+                                                   "source":  "AI_GENERATED",
+                                                   "lifecycle_state":  "HUMAN_APPROVED",
+                                                   "requirement_ids":  [
+                                                                           "API03-REQ-007"
+                                                                       ],
+                                                   "technique":  [
+                                                                     "DOMAIN_PARTITION",
+                                                                     "BUSINESS_RULE"
+                                                                 ],
+                                                   "primary_technique":  "DOMAIN_PARTITION",
+                                                   "secondary_techniques":  [
+                                                                                "BUSINESS_RULE"
+                                                                            ],
+                                                   "oracle_basis":  "AUTHORITATIVE",
+                                                   "gap_ids":  [
+
+                                                               ],
+                                                   "risk_ids":  [
+                                                                    "API03-ID-002"
+                                                                ],
+                                                   "observation_ids":  [
+
+                                                                       ],
+                                                   "title":  "Item name rỗng",
+                                                   "objective":  "Kiểm tra chuỗi rỗng vi phạm non-empty.",
+                                                   "preconditions":  [
+                                                                         "Admin JWT hợp lệ"
+                                                                     ],
+                                                   "request":  {
+                                                                   "method":  "POST",
+                                                                   "path":  "/api/admin/import-products",
+                                                                   "auth_profile":  "Bearer test JWT matching the stated precondition",
+                                                                   "content_type":  "application/json unless the case explicitly varies it",
+                                                                   "body_variation":  "name=\"\", price positive"
+                                                               },
+                                                   "test_data":  {
+                                                                     "description":  "empty name",
+                                                                     "secret_policy":  "Use disposable fixtures or environment variables; do not store real secrets."
+                                                                 },
+                                                   "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_business_result":  "Row lỗi vì name không non-empty.",
+                                                   "expected_state":  "Toàn batch rollback.",
+                                                   "audit_status":  "VALID",
+                                                   "audit_reason":  "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+                                                   "correction":  null,
+                                                   "why_ai_missed":  null,
+                                                   "execution_status":  "REAL_EXECUTION_REQUIRED",
+                                                   "failure_classification":  null,
+                                                   "bug_id":  null,
+                                                   "notes":  "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+                                               }
+                             },
+                             {
+                                 "original_ai_case_id":  "API03-AI-009",
+                                 "source":  "AI_GENERATED",
+                                 "audit_classification":  "VALID",
+                                 "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                                 "correction_summary":  "No semantic correction required; Human-approved audit classification retained.",
+                                 "requirement_ids":  [
+                                                         "API03-REQ-007"
+                                                     ],
+                                 "oracle_basis":  "AUTHORITATIVE",
+                                 "final_disposition":  "INCLUDED_EXECUTABLE",
+                                 "automation_note":  null,
+                                 "test_case":  {
+                                                   "id":  "API03-AI-009",
+                                                   "api_id":  "API-03",
+                                                   "feature_id":  "FR-16",
+                                                   "endpoint":  "POST /api/admin/import-products",
+                                                   "source":  "AI_GENERATED",
+                                                   "lifecycle_state":  "HUMAN_APPROVED",
+                                                   "requirement_ids":  [
+                                                                           "API03-REQ-007"
+                                                                       ],
+                                                   "technique":  [
+                                                                     "BOUNDARY",
+                                                                     "BUSINESS_RULE"
+                                                                 ],
+                                                   "primary_technique":  "BOUNDARY",
+                                                   "secondary_techniques":  [
+                                                                                "BUSINESS_RULE"
+                                                                            ],
+                                                   "oracle_basis":  "AUTHORITATIVE",
+                                                   "gap_ids":  [
+
+                                                               ],
+                                                   "risk_ids":  [
+                                                                    "API03-ID-002"
+                                                                ],
+                                                   "observation_ids":  [
+
+                                                                       ],
+                                                   "title":  "Price bằng zero",
+                                                   "objective":  "Kiểm tra đúng biên không dương.",
+                                                   "preconditions":  [
+                                                                         "Admin JWT hợp lệ"
+                                                                     ],
+                                                   "request":  {
+                                                                   "method":  "POST",
+                                                                   "path":  "/api/admin/import-products",
+                                                                   "auth_profile":  "Bearer test JWT matching the stated precondition",
+                                                                   "content_type":  "application/json unless the case explicitly varies it",
+                                                                   "body_variation":  "price=0, name hợp lệ"
+                                                               },
+                                                   "test_data":  {
+                                                                     "description":  "zero price",
+                                                                     "secret_policy":  "Use disposable fixtures or environment variables; do not store real secrets."
+                                                                 },
+                                                   "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_business_result":  "Row lỗi vì price phải positive.",
+                                                   "expected_state":  "Toàn batch rollback.",
+                                                   "audit_status":  "VALID",
+                                                   "audit_reason":  "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+                                                   "correction":  null,
+                                                   "why_ai_missed":  null,
+                                                   "execution_status":  "REAL_EXECUTION_REQUIRED",
+                                                   "failure_classification":  null,
+                                                   "bug_id":  null,
+                                                   "notes":  "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+                                               }
+                             },
+                             {
+                                 "original_ai_case_id":  "API03-AI-010",
+                                 "source":  "AI_GENERATED",
+                                 "audit_classification":  "VALID",
+                                 "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                                 "correction_summary":  "No semantic correction required; Human-approved audit classification retained.",
+                                 "requirement_ids":  [
+                                                         "API03-REQ-007"
+                                                     ],
+                                 "oracle_basis":  "AUTHORITATIVE",
+                                 "final_disposition":  "INCLUDED_EXECUTABLE",
+                                 "automation_note":  null,
+                                 "test_case":  {
+                                                   "id":  "API03-AI-010",
+                                                   "api_id":  "API-03",
+                                                   "feature_id":  "FR-16",
+                                                   "endpoint":  "POST /api/admin/import-products",
+                                                   "source":  "AI_GENERATED",
+                                                   "lifecycle_state":  "HUMAN_APPROVED",
+                                                   "requirement_ids":  [
+                                                                           "API03-REQ-007"
+                                                                       ],
+                                                   "technique":  [
+                                                                     "DOMAIN_PARTITION",
+                                                                     "BUSINESS_RULE"
+                                                                 ],
+                                                   "primary_technique":  "DOMAIN_PARTITION",
+                                                   "secondary_techniques":  [
+                                                                                "BUSINESS_RULE"
+                                                                            ],
+                                                   "oracle_basis":  "AUTHORITATIVE",
+                                                   "gap_ids":  [
+
+                                                               ],
+                                                   "risk_ids":  [
+                                                                    "API03-ID-002"
+                                                                ],
+                                                   "observation_ids":  [
+
+                                                                       ],
+                                                   "title":  "Price âm",
+                                                   "objective":  "Kiểm tra lớp price negative.",
+                                                   "preconditions":  [
+                                                                         "Admin JWT hợp lệ"
+                                                                     ],
+                                                   "request":  {
+                                                                   "method":  "POST",
+                                                                   "path":  "/api/admin/import-products",
+                                                                   "auth_profile":  "Bearer test JWT matching the stated precondition",
+                                                                   "content_type":  "application/json unless the case explicitly varies it",
+                                                                   "body_variation":  "price=-1, name hợp lệ"
+                                                               },
+                                                   "test_data":  {
+                                                                     "description":  "negative price",
+                                                                     "secret_policy":  "Use disposable fixtures or environment variables; do not store real secrets."
+                                                                 },
+                                                   "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_business_result":  "Row lỗi vì price không positive.",
+                                                   "expected_state":  "Toàn batch rollback.",
+                                                   "audit_status":  "VALID",
+                                                   "audit_reason":  "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+                                                   "correction":  null,
+                                                   "why_ai_missed":  null,
+                                                   "execution_status":  "REAL_EXECUTION_REQUIRED",
+                                                   "failure_classification":  null,
+                                                   "bug_id":  null,
+                                                   "notes":  "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+                                               }
+                             },
+                             {
+                                 "original_ai_case_id":  "API03-AI-011",
+                                 "source":  "AI_GENERATED",
+                                 "audit_classification":  "VALID",
+                                 "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                                 "correction_summary":  "No semantic correction required; Human-approved audit classification retained.",
+                                 "requirement_ids":  [
+                                                         "API03-REQ-007"
+                                                     ],
+                                 "oracle_basis":  "AUTHORITATIVE",
+                                 "final_disposition":  "INCLUDED_EXECUTABLE",
+                                 "automation_note":  null,
+                                 "test_case":  {
+                                                   "id":  "API03-AI-011",
+                                                   "api_id":  "API-03",
+                                                   "feature_id":  "FR-16",
+                                                   "endpoint":  "POST /api/admin/import-products",
+                                                   "source":  "AI_GENERATED",
+                                                   "lifecycle_state":  "HUMAN_APPROVED",
+                                                   "requirement_ids":  [
+                                                                           "API03-REQ-007"
+                                                                       ],
+                                                   "technique":  [
+                                                                     "BOUNDARY",
+                                                                     "BUSINESS_RULE"
+                                                                 ],
+                                                   "primary_technique":  "BOUNDARY",
+                                                   "secondary_techniques":  [
+                                                                                "BUSINESS_RULE"
+                                                                            ],
+                                                   "oracle_basis":  "AUTHORITATIVE",
+                                                   "gap_ids":  [
+
+                                                               ],
+                                                   "risk_ids":  [
+
+                                                                ],
+                                                   "observation_ids":  [
+
+                                                                       ],
+                                                   "title":  "Price dương nhỏ",
+                                                   "objective":  "Kiểm tra phía hợp lệ ngay trên zero mà không tự định nghĩa precision tối đa.",
+                                                   "preconditions":  [
+                                                                         "Admin JWT hợp lệ"
+                                                                     ],
+                                                   "request":  {
+                                                                   "method":  "POST",
+                                                                   "path":  "/api/admin/import-products",
+                                                                   "auth_profile":  "Bearer test JWT matching the stated precondition",
+                                                                   "content_type":  "application/json unless the case explicitly varies it",
+                                                                   "body_variation":  "price positive nhỏ có representation hệ thống hỗ trợ"
+                                                               },
+                                                   "test_data":  {
+                                                                     "description":  "price=0.01",
+                                                                     "secret_policy":  "Use disposable fixtures or environment variables; do not store real secrets."
+                                                                 },
+                                                   "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_business_result":  "Price lớn hơn zero thỏa quy tắc positivity; numeric precision vẫn cần quan sát.",
+                                                   "expected_state":  "Nếu mọi row hợp lệ, toàn batch commit.",
+                                                   "audit_status":  "VALID",
+                                                   "audit_reason":  "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+                                                   "correction":  null,
+                                                   "why_ai_missed":  null,
+                                                   "execution_status":  "REAL_EXECUTION_REQUIRED",
+                                                   "failure_classification":  null,
+                                                   "bug_id":  null,
+                                                   "notes":  "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+                                               }
+                             },
+                             {
+                                 "original_ai_case_id":  "API03-AI-016",
+                                 "source":  "AI_GENERATED",
+                                 "audit_classification":  "VALID",
+                                 "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                                 "correction_summary":  "No semantic correction required; Human-approved audit classification retained.",
+                                 "requirement_ids":  [
+                                                         "API03-REQ-009"
+                                                     ],
+                                 "oracle_basis":  "AUTHORITATIVE",
+                                 "final_disposition":  "INCLUDED_EXECUTABLE",
+                                 "automation_note":  null,
+                                 "test_case":  {
+                                                   "id":  "API03-AI-016",
+                                                   "api_id":  "API-03",
+                                                   "feature_id":  "FR-16",
+                                                   "endpoint":  "POST /api/admin/import-products",
+                                                   "source":  "AI_GENERATED",
+                                                   "lifecycle_state":  "HUMAN_APPROVED",
+                                                   "requirement_ids":  [
+                                                                           "API03-REQ-009"
+                                                                       ],
+                                                   "technique":  [
+                                                                     "STATE_TRANSITION",
+                                                                     "BUSINESS_RULE"
+                                                                 ],
+                                                   "primary_technique":  "STATE_TRANSITION",
+                                                   "secondary_techniques":  [
+                                                                                "BUSINESS_RULE"
+                                                                            ],
+                                                   "oracle_basis":  "AUTHORITATIVE",
+                                                   "gap_ids":  [
+
+                                                               ],
+                                                   "risk_ids":  [
+                                                                    "API03-ID-003"
+                                                                ],
+                                                   "observation_ids":  [
+
+                                                                       ],
+                                                   "title":  "Batch valid commit toàn bộ",
+                                                   "objective":  "Kiểm tra pre-state sang post-state có toàn bộ rows khi không có lỗi.",
+                                                   "preconditions":  [
+                                                                         "Admin JWT hợp lệ",
+                                                                         "Snapshot products trước import"
+                                                                     ],
+                                                   "request":  {
+                                                                   "method":  "POST",
+                                                                   "path":  "/api/admin/import-products",
+                                                                   "auth_profile":  "Bearer test JWT matching the stated precondition",
+                                                                   "content_type":  "application/json unless the case explicitly varies it",
+                                                                   "body_variation":  "nhiều item đều valid"
+                                                               },
+                                                   "test_data":  {
+                                                                     "description":  "valid batch",
+                                                                     "secret_policy":  "Use disposable fixtures or environment variables; do not store real secrets."
+                                                                 },
+                                                   "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_business_result":  "Không có row error nên batch đủ điều kiện commit.",
+                                                   "expected_state":  "Post-state có toàn bộ item mới, không phải một phần.",
+                                                   "audit_status":  "VALID",
+                                                   "audit_reason":  "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+                                                   "correction":  null,
+                                                   "why_ai_missed":  null,
+                                                   "execution_status":  "REAL_EXECUTION_REQUIRED",
+                                                   "failure_classification":  null,
+                                                   "bug_id":  null,
+                                                   "notes":  "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+                                               }
+                             },
+                             {
+                                 "original_ai_case_id":  "API03-AI-017",
+                                 "source":  "AI_GENERATED",
+                                 "audit_classification":  "VALID",
+                                 "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                                 "correction_summary":  "No semantic correction required; Human-approved audit classification retained.",
+                                 "requirement_ids":  [
+                                                         "API03-REQ-007",
+                                                         "API03-REQ-009"
+                                                     ],
+                                 "oracle_basis":  "AUTHORITATIVE",
+                                 "final_disposition":  "INCLUDED_EXECUTABLE",
+                                 "automation_note":  null,
+                                 "test_case":  {
+                                                   "id":  "API03-AI-017",
+                                                   "api_id":  "API-03",
+                                                   "feature_id":  "FR-16",
+                                                   "endpoint":  "POST /api/admin/import-products",
+                                                   "source":  "AI_GENERATED",
+                                                   "lifecycle_state":  "HUMAN_APPROVED",
+                                                   "requirement_ids":  [
+                                                                           "API03-REQ-007",
+                                                                           "API03-REQ-009"
+                                                                       ],
+                                                   "technique":  [
+                                                                     "STATE_TRANSITION",
+                                                                     "BUSINESS_RULE"
+                                                                 ],
+                                                   "primary_technique":  "STATE_TRANSITION",
+                                                   "secondary_techniques":  [
+                                                                                "BUSINESS_RULE"
+                                                                            ],
+                                                   "oracle_basis":  "AUTHORITATIVE",
+                                                   "gap_ids":  [
+
+                                                               ],
+                                                   "risk_ids":  [
+                                                                    "API03-ID-003"
+                                                                ],
+                                                   "observation_ids":  [
+
+                                                                       ],
+                                                   "title":  "Row đầu invalid",
+                                                   "objective":  "Kiểm tra rollback khi lỗi nằm ở vị trí đầu.",
+                                                   "preconditions":  [
+                                                                         "Admin JWT hợp lệ",
+                                                                         "Snapshot trước import"
+                                                                     ],
+                                                   "request":  {
+                                                                   "method":  "POST",
+                                                                   "path":  "/api/admin/import-products",
+                                                                   "auth_profile":  "Bearer test JWT matching the stated precondition",
+                                                                   "content_type":  "application/json unless the case explicitly varies it",
+                                                                   "body_variation":  "row 1 name empty, rows sau valid"
+                                                               },
+                                                   "test_data":  {
+                                                                     "description":  "invalid first",
+                                                                     "secret_policy":  "Use disposable fixtures or environment variables; do not store real secrets."
+                                                                 },
+                                                   "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_business_result":  "Bất kỳ row lỗi làm toàn import thất bại.",
+                                                   "expected_state":  "Không item nào của batch được persist.",
+                                                   "audit_status":  "VALID",
+                                                   "audit_reason":  "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+                                                   "correction":  null,
+                                                   "why_ai_missed":  null,
+                                                   "execution_status":  "REAL_EXECUTION_REQUIRED",
+                                                   "failure_classification":  null,
+                                                   "bug_id":  null,
+                                                   "notes":  "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+                                               }
+                             },
+                             {
+                                 "original_ai_case_id":  "API03-AI-018",
+                                 "source":  "AI_GENERATED",
+                                 "audit_classification":  "VALID",
+                                 "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                                 "correction_summary":  "No semantic correction required; Human-approved audit classification retained.",
+                                 "requirement_ids":  [
+                                                         "API03-REQ-007",
+                                                         "API03-REQ-009"
+                                                     ],
+                                 "oracle_basis":  "AUTHORITATIVE",
+                                 "final_disposition":  "INCLUDED_EXECUTABLE",
+                                 "automation_note":  null,
+                                 "test_case":  {
+                                                   "id":  "API03-AI-018",
+                                                   "api_id":  "API-03",
+                                                   "feature_id":  "FR-16",
+                                                   "endpoint":  "POST /api/admin/import-products",
+                                                   "source":  "AI_GENERATED",
+                                                   "lifecycle_state":  "HUMAN_APPROVED",
+                                                   "requirement_ids":  [
+                                                                           "API03-REQ-007",
+                                                                           "API03-REQ-009"
+                                                                       ],
+                                                   "technique":  [
+                                                                     "STATE_TRANSITION",
+                                                                     "BUSINESS_RULE"
+                                                                 ],
+                                                   "primary_technique":  "STATE_TRANSITION",
+                                                   "secondary_techniques":  [
+                                                                                "BUSINESS_RULE"
+                                                                            ],
+                                                   "oracle_basis":  "AUTHORITATIVE",
+                                                   "gap_ids":  [
+
+                                                               ],
+                                                   "risk_ids":  [
+                                                                    "API03-ID-003"
+                                                                ],
+                                                   "observation_ids":  [
+
+                                                                       ],
+                                                   "title":  "Row giữa invalid",
+                                                   "objective":  "Kiểm tra không có partial persistence trước row lỗi giữa batch.",
+                                                   "preconditions":  [
+                                                                         "Admin JWT hợp lệ",
+                                                                         "Snapshot trước import"
+                                                                     ],
+                                                   "request":  {
+                                                                   "method":  "POST",
+                                                                   "path":  "/api/admin/import-products",
+                                                                   "auth_profile":  "Bearer test JWT matching the stated precondition",
+                                                                   "content_type":  "application/json unless the case explicitly varies it",
+                                                                   "body_variation":  "valid, invalid price zero, valid"
+                                                               },
+                                                   "test_data":  {
+                                                                     "description":  "invalid middle",
+                                                                     "secret_policy":  "Use disposable fixtures or environment variables; do not store real secrets."
+                                                                 },
+                                                   "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_business_result":  "Lỗi giữa batch làm rollback toàn bộ.",
+                                                   "expected_state":  "Không giữ các row valid đứng trước hoặc sau.",
+                                                   "audit_status":  "VALID",
+                                                   "audit_reason":  "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+                                                   "correction":  null,
+                                                   "why_ai_missed":  null,
+                                                   "execution_status":  "REAL_EXECUTION_REQUIRED",
+                                                   "failure_classification":  null,
+                                                   "bug_id":  null,
+                                                   "notes":  "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+                                               }
+                             },
+                             {
+                                 "original_ai_case_id":  "API03-AI-019",
+                                 "source":  "AI_GENERATED",
+                                 "audit_classification":  "VALID",
+                                 "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                                 "correction_summary":  "No semantic correction required; Human-approved audit classification retained.",
+                                 "requirement_ids":  [
+                                                         "API03-REQ-007",
+                                                         "API03-REQ-009"
+                                                     ],
+                                 "oracle_basis":  "AUTHORITATIVE",
+                                 "final_disposition":  "INCLUDED_EXECUTABLE",
+                                 "automation_note":  null,
+                                 "test_case":  {
+                                                   "id":  "API03-AI-019",
+                                                   "api_id":  "API-03",
+                                                   "feature_id":  "FR-16",
+                                                   "endpoint":  "POST /api/admin/import-products",
+                                                   "source":  "AI_GENERATED",
+                                                   "lifecycle_state":  "HUMAN_APPROVED",
+                                                   "requirement_ids":  [
+                                                                           "API03-REQ-007",
+                                                                           "API03-REQ-009"
+                                                                       ],
+                                                   "technique":  [
+                                                                     "STATE_TRANSITION",
+                                                                     "BUSINESS_RULE"
+                                                                 ],
+                                                   "primary_technique":  "STATE_TRANSITION",
+                                                   "secondary_techniques":  [
+                                                                                "BUSINESS_RULE"
+                                                                            ],
+                                                   "oracle_basis":  "AUTHORITATIVE",
+                                                   "gap_ids":  [
+
+                                                               ],
+                                                   "risk_ids":  [
+                                                                    "API03-ID-003"
+                                                                ],
+                                                   "observation_ids":  [
+
+                                                                       ],
+                                                   "title":  "Row cuối invalid",
+                                                   "objective":  "Kiểm tra rollback cả các insert trước row lỗi cuối.",
+                                                   "preconditions":  [
+                                                                         "Admin JWT hợp lệ",
+                                                                         "Snapshot trước import"
+                                                                     ],
+                                                   "request":  {
+                                                                   "method":  "POST",
+                                                                   "path":  "/api/admin/import-products",
+                                                                   "auth_profile":  "Bearer test JWT matching the stated precondition",
+                                                                   "content_type":  "application/json unless the case explicitly varies it",
+                                                                   "body_variation":  "các row đầu valid, row cuối name empty"
+                                                               },
+                                                   "test_data":  {
+                                                                     "description":  "invalid last",
+                                                                     "secret_policy":  "Use disposable fixtures or environment variables; do not store real secrets."
+                                                                 },
+                                                   "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_business_result":  "Lỗi cuối vẫn làm toàn batch thất bại.",
+                                                   "expected_state":  "Không item nào của batch được persist.",
+                                                   "audit_status":  "VALID",
+                                                   "audit_reason":  "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+                                                   "correction":  null,
+                                                   "why_ai_missed":  null,
+                                                   "execution_status":  "REAL_EXECUTION_REQUIRED",
+                                                   "failure_classification":  null,
+                                                   "bug_id":  null,
+                                                   "notes":  "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+                                               }
+                             },
+                             {
+                                 "original_ai_case_id":  "API03-AI-020",
+                                 "source":  "AI_GENERATED",
+                                 "audit_classification":  "VALID",
+                                 "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                                 "correction_summary":  "No semantic correction required; Human-approved audit classification retained.",
+                                 "requirement_ids":  [
+                                                         "API03-REQ-007",
+                                                         "API03-REQ-009"
+                                                     ],
+                                 "oracle_basis":  "AUTHORITATIVE",
+                                 "final_disposition":  "INCLUDED_EXECUTABLE",
+                                 "automation_note":  null,
+                                 "test_case":  {
+                                                   "id":  "API03-AI-020",
+                                                   "api_id":  "API-03",
+                                                   "feature_id":  "FR-16",
+                                                   "endpoint":  "POST /api/admin/import-products",
+                                                   "source":  "AI_GENERATED",
+                                                   "lifecycle_state":  "HUMAN_APPROVED",
+                                                   "requirement_ids":  [
+                                                                           "API03-REQ-007",
+                                                                           "API03-REQ-009"
+                                                                       ],
+                                                   "technique":  [
+                                                                     "STATE_TRANSITION",
+                                                                     "BUSINESS_RULE"
+                                                                 ],
+                                                   "primary_technique":  "STATE_TRANSITION",
+                                                   "secondary_techniques":  [
+                                                                                "BUSINESS_RULE"
+                                                                            ],
+                                                   "oracle_basis":  "AUTHORITATIVE",
+                                                   "gap_ids":  [
+
+                                                               ],
+                                                   "risk_ids":  [
+                                                                    "API03-ID-003"
+                                                                ],
+                                                   "observation_ids":  [
+
+                                                                       ],
+                                                   "title":  "Nhiều row invalid",
+                                                   "objective":  "Kiểm tra atomicity và report khi batch có nhiều lỗi.",
+                                                   "preconditions":  [
+                                                                         "Admin JWT hợp lệ",
+                                                                         "Snapshot trước import"
+                                                                     ],
+                                                   "request":  {
+                                                                   "method":  "POST",
+                                                                   "path":  "/api/admin/import-products",
+                                                                   "auth_profile":  "Bearer test JWT matching the stated precondition",
+                                                                   "content_type":  "application/json unless the case explicitly varies it",
+                                                                   "body_variation":  "một row empty name, một row negative price"
+                                                               },
+                                                   "test_data":  {
+                                                                     "description":  "multiple invalid",
+                                                                     "secret_policy":  "Use disposable fixtures or environment variables; do not store real secrets."
+                                                                 },
+                                                   "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_business_result":  "Batch không được partial commit; report cần counts/reasons.",
+                                                   "expected_state":  "Products state không đổi bởi batch.",
+                                                   "audit_status":  "VALID",
+                                                   "audit_reason":  "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+                                                   "correction":  null,
+                                                   "why_ai_missed":  null,
+                                                   "execution_status":  "REAL_EXECUTION_REQUIRED",
+                                                   "failure_classification":  null,
+                                                   "bug_id":  null,
+                                                   "notes":  "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+                                               }
+                             },
+                             {
+                                 "original_ai_case_id":  "API03-AI-021",
+                                 "source":  "AI_GENERATED",
+                                 "audit_classification":  "VALID",
+                                 "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                                 "correction_summary":  "No semantic correction required; Human-approved audit classification retained.",
+                                 "requirement_ids":  [
+                                                         "API03-REQ-009"
+                                                     ],
+                                 "oracle_basis":  "AUTHORITATIVE",
+                                 "final_disposition":  "INCLUDED_EXECUTABLE",
+                                 "automation_note":  null,
+                                 "test_case":  {
+                                                   "id":  "API03-AI-021",
+                                                   "api_id":  "API-03",
+                                                   "feature_id":  "FR-16",
+                                                   "endpoint":  "POST /api/admin/import-products",
+                                                   "source":  "AI_GENERATED",
+                                                   "lifecycle_state":  "HUMAN_APPROVED",
+                                                   "requirement_ids":  [
+                                                                           "API03-REQ-009"
+                                                                       ],
+                                                   "technique":  [
+                                                                     "STATE_TRANSITION",
+                                                                     "BUSINESS_RULE"
+                                                                 ],
+                                                   "primary_technique":  "STATE_TRANSITION",
+                                                   "secondary_techniques":  [
+                                                                                "BUSINESS_RULE"
+                                                                            ],
+                                                   "oracle_basis":  "AUTHORITATIVE",
+                                                   "gap_ids":  [
+
+                                                               ],
+                                                   "risk_ids":  [
+
+                                                                ],
+                                                   "observation_ids":  [
+
+                                                                       ],
+                                                   "title":  "Retry batch đã sửa",
+                                                   "objective":  "Kiểm tra sau rollback có thể gửi một batch mới hợp lệ mà không mang partial state cũ.",
+                                                   "preconditions":  [
+                                                                         "Một batch invalid đã rollback"
+                                                                     ],
+                                                   "request":  {
+                                                                   "method":  "POST",
+                                                                   "path":  "/api/admin/import-products",
+                                                                   "auth_profile":  "Bearer test JWT matching the stated precondition",
+                                                                   "content_type":  "application/json unless the case explicitly varies it",
+                                                                   "body_variation":  "gửi batch mới với tất cả lỗi đã sửa"
+                                                               },
+                                                   "test_data":  {
+                                                                     "description":  "corrected retry",
+                                                                     "secret_policy":  "Use disposable fixtures or environment variables; do not store real secrets."
+                                                                 },
+                                                   "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_business_result":  "Batch retry được đánh giá độc lập và nếu hợp lệ có thể commit toàn bộ.",
+                                                   "expected_state":  "Chỉ dữ liệu từ lần retry hợp lệ xuất hiện.",
+                                                   "audit_status":  "VALID",
+                                                   "audit_reason":  "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+                                                   "correction":  null,
+                                                   "why_ai_missed":  null,
+                                                   "execution_status":  "REAL_EXECUTION_REQUIRED",
+                                                   "failure_classification":  null,
+                                                   "bug_id":  null,
+                                                   "notes":  "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+                                               }
+                             },
+                             {
+                                 "original_ai_case_id":  "API03-AI-022",
+                                 "source":  "AI_GENERATED",
+                                 "audit_classification":  "VALID",
+                                 "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                                 "correction_summary":  "No semantic correction required; Human-approved audit classification retained.",
+                                 "requirement_ids":  [
+                                                         "API03-REQ-010"
+                                                     ],
+                                 "oracle_basis":  "PARTIALLY_SPECIFIED",
+                                 "final_disposition":  "INCLUDED_EXECUTABLE",
+                                 "automation_note":  null,
+                                 "test_case":  {
+                                                   "id":  "API03-AI-022",
+                                                   "api_id":  "API-03",
+                                                   "feature_id":  "FR-16",
+                                                   "endpoint":  "POST /api/admin/import-products",
+                                                   "source":  "AI_GENERATED",
+                                                   "lifecycle_state":  "HUMAN_APPROVED",
+                                                   "requirement_ids":  [
+                                                                           "API03-REQ-010"
+                                                                       ],
+                                                   "technique":  [
+                                                                     "STATE_TRANSITION",
+                                                                     "SCHEMA"
+                                                                 ],
+                                                   "primary_technique":  "STATE_TRANSITION",
+                                                   "secondary_techniques":  [
+                                                                                "SCHEMA"
+                                                                            ],
+                                                   "oracle_basis":  "PARTIALLY_SPECIFIED",
+                                                   "gap_ids":  [
+                                                                   "API03-RG-004"
+                                                               ],
+                                                   "risk_ids":  [
+
+                                                                ],
+                                                   "observation_ids":  [
+                                                                           "API03-ID-004"
+                                                                       ],
+                                                   "title":  "Report sau batch lỗi",
+                                                   "objective":  "Kiểm tra report có success/error counts và reasons mà không bịa field names.",
+                                                   "preconditions":  [
+                                                                         "Admin JWT hợp lệ",
+                                                                         "Batch có lỗi xác định"
+                                                                     ],
+                                                   "request":  {
+                                                                   "method":  "POST",
+                                                                   "path":  "/api/admin/import-products",
+                                                                   "auth_profile":  "Bearer test JWT matching the stated precondition",
+                                                                   "content_type":  "application/json unless the case explicitly varies it",
+                                                                   "body_variation":  "mixed invalid batch"
+                                                               },
+                                                   "test_data":  {
+                                                                     "description":  "known row errors",
+                                                                     "secret_policy":  "Use disposable fixtures or environment variables; do not store real secrets."
+                                                                 },
+                                                   "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_business_result":  "Report thể hiện số thành công/lỗi và lý do ở mức semantic; exact schema unspecified.",
+                                                   "expected_state":  "Atomic rollback vẫn được hậu kiểm độc lập.",
+                                                   "audit_status":  "VALID",
+                                                   "audit_reason":  "Transport details are unspecified, but the raw case retains a requirement-backed business/state oracle sufficient for execution.",
+                                                   "correction":  null,
+                                                   "why_ai_missed":  null,
+                                                   "execution_status":  "REAL_EXECUTION_REQUIRED",
+                                                   "failure_classification":  null,
+                                                   "bug_id":  null,
+                                                   "notes":  "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+                                               }
+                             },
+                             {
+                                 "original_ai_case_id":  "API03-AI-023",
+                                 "source":  "AI_GENERATED",
+                                 "audit_classification":  "VALID",
+                                 "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                                 "correction_summary":  "No semantic correction required; Human-approved audit classification retained.",
+                                 "requirement_ids":  [
+                                                         "API03-REQ-002",
+                                                         "API03-REQ-011"
+                                                     ],
+                                 "oracle_basis":  "AUTHORITATIVE",
+                                 "final_disposition":  "INCLUDED_EXECUTABLE",
+                                 "automation_note":  null,
+                                 "test_case":  {
+                                                   "id":  "API03-AI-023",
+                                                   "api_id":  "API-03",
+                                                   "feature_id":  "FR-16",
+                                                   "endpoint":  "POST /api/admin/import-products",
+                                                   "source":  "AI_GENERATED",
+                                                   "lifecycle_state":  "HUMAN_APPROVED",
+                                                   "requirement_ids":  [
+                                                                           "API03-REQ-002",
+                                                                           "API03-REQ-011"
+                                                                       ],
+                                                   "technique":  [
+                                                                     "SECURITY",
+                                                                     "SCHEMA"
+                                                                 ],
+                                                   "primary_technique":  "SECURITY",
+                                                   "secondary_techniques":  [
+                                                                                "SCHEMA"
+                                                                            ],
+                                                   "oracle_basis":  "AUTHORITATIVE",
+                                                   "gap_ids":  [
+
+                                                               ],
+                                                   "risk_ids":  [
+
+                                                                ],
+                                                   "observation_ids":  [
+
+                                                                       ],
+                                                   "title":  "Thiếu Authorization",
+                                                   "objective":  "Kiểm tra import không được thực hiện khi thiếu JWT.",
+                                                   "preconditions":  [
+                                                                         "Có snapshot products"
+                                                                     ],
+                                                   "request":  {
+                                                                   "method":  "POST",
+                                                                   "path":  "/api/admin/import-products",
+                                                                   "auth_profile":  "Authorization omitted",
+                                                                   "content_type":  "application/json unless the case explicitly varies it",
+                                                                   "body_variation":  "không gửi Authorization"
+                                                               },
+                                                   "test_data":  {
+                                                                     "description":  "valid products body",
+                                                                     "secret_policy":  "Use disposable fixtures or environment variables; do not store real secrets."
+                                                                 },
+                                                   "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_business_result":  "Không cho truy cập sensitive import endpoint.",
+                                                   "expected_state":  "Products state không đổi bởi import được phép.",
+                                                   "audit_status":  "VALID",
+                                                   "audit_reason":  "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+                                                   "correction":  null,
+                                                   "why_ai_missed":  null,
+                                                   "execution_status":  "REAL_EXECUTION_REQUIRED",
+                                                   "failure_classification":  null,
+                                                   "bug_id":  null,
+                                                   "notes":  "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+                                               }
+                             },
+                             {
+                                 "original_ai_case_id":  "API03-AI-024",
+                                 "source":  "AI_GENERATED",
+                                 "audit_classification":  "VALID",
+                                 "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                                 "correction_summary":  "No semantic correction required; Human-approved audit classification retained.",
+                                 "requirement_ids":  [
+                                                         "API03-REQ-002",
+                                                         "API03-REQ-011"
+                                                     ],
+                                 "oracle_basis":  "AUTHORITATIVE",
+                                 "final_disposition":  "INCLUDED_EXECUTABLE",
+                                 "automation_note":  null,
+                                 "test_case":  {
+                                                   "id":  "API03-AI-024",
+                                                   "api_id":  "API-03",
+                                                   "feature_id":  "FR-16",
+                                                   "endpoint":  "POST /api/admin/import-products",
+                                                   "source":  "AI_GENERATED",
+                                                   "lifecycle_state":  "HUMAN_APPROVED",
+                                                   "requirement_ids":  [
+                                                                           "API03-REQ-002",
+                                                                           "API03-REQ-011"
+                                                                       ],
+                                                   "technique":  [
+                                                                     "SECURITY",
+                                                                     "SCHEMA"
+                                                                 ],
+                                                   "primary_technique":  "SECURITY",
+                                                   "secondary_techniques":  [
+                                                                                "SCHEMA"
+                                                                            ],
+                                                   "oracle_basis":  "AUTHORITATIVE",
+                                                   "gap_ids":  [
+
+                                                               ],
+                                                   "risk_ids":  [
+
+                                                                ],
+                                                   "observation_ids":  [
+
+                                                                       ],
+                                                   "title":  "Bearer JWT malformed",
+                                                   "objective":  "Kiểm tra token không hợp lệ không đủ quyền import.",
+                                                   "preconditions":  [
+                                                                         "Có snapshot products"
+                                                                     ],
+                                                   "request":  {
+                                                                   "method":  "POST",
+                                                                   "path":  "/api/admin/import-products",
+                                                                   "auth_profile":  "Invalid authorization fixture described by case",
+                                                                   "content_type":  "application/json unless the case explicitly varies it",
+                                                                   "body_variation":  "Bearer malformed"
+                                                               },
+                                                   "test_data":  {
+                                                                     "description":  "token=abc",
+                                                                     "secret_policy":  "Use disposable fixtures or environment variables; do not store real secrets."
+                                                                 },
+                                                   "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_business_result":  "Không cho import với JWT không hợp lệ.",
+                                                   "expected_state":  "Products state không đổi.",
+                                                   "audit_status":  "VALID",
+                                                   "audit_reason":  "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+                                                   "correction":  null,
+                                                   "why_ai_missed":  null,
+                                                   "execution_status":  "REAL_EXECUTION_REQUIRED",
+                                                   "failure_classification":  null,
+                                                   "bug_id":  null,
+                                                   "notes":  "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+                                               }
+                             },
+                             {
+                                 "original_ai_case_id":  "API03-AI-025",
+                                 "source":  "AI_GENERATED",
+                                 "audit_classification":  "VALID",
+                                 "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                                 "correction_summary":  "No semantic correction required; Human-approved audit classification retained.",
+                                 "requirement_ids":  [
+                                                         "API03-REQ-002",
+                                                         "API03-REQ-011"
+                                                     ],
+                                 "oracle_basis":  "AUTHORITATIVE",
+                                 "final_disposition":  "INCLUDED_EXECUTABLE",
+                                 "automation_note":  null,
+                                 "test_case":  {
+                                                   "id":  "API03-AI-025",
+                                                   "api_id":  "API-03",
+                                                   "feature_id":  "FR-16",
+                                                   "endpoint":  "POST /api/admin/import-products",
+                                                   "source":  "AI_GENERATED",
+                                                   "lifecycle_state":  "HUMAN_APPROVED",
+                                                   "requirement_ids":  [
+                                                                           "API03-REQ-002",
+                                                                           "API03-REQ-011"
+                                                                       ],
+                                                   "technique":  [
+                                                                     "SECURITY",
+                                                                     "SCHEMA"
+                                                                 ],
+                                                   "primary_technique":  "SECURITY",
+                                                   "secondary_techniques":  [
+                                                                                "SCHEMA"
+                                                                            ],
+                                                   "oracle_basis":  "AUTHORITATIVE",
+                                                   "gap_ids":  [
+
+                                                               ],
+                                                   "risk_ids":  [
+
+                                                                ],
+                                                   "observation_ids":  [
+
+                                                                       ],
+                                                   "title":  "JWT hết hạn",
+                                                   "objective":  "Kiểm tra expired token không thỏa valid JWT.",
+                                                   "preconditions":  [
+                                                                         "Có expired fixture"
+                                                                     ],
+                                                   "request":  {
+                                                                   "method":  "POST",
+                                                                   "path":  "/api/admin/import-products",
+                                                                   "auth_profile":  "Bearer test JWT matching the stated precondition",
+                                                                   "content_type":  "application/json unless the case explicitly varies it",
+                                                                   "body_variation":  "Bearer expired và valid products"
+                                                               },
+                                                   "test_data":  {
+                                                                     "description":  "expired admin token",
+                                                                     "secret_policy":  "Use disposable fixtures or environment variables; do not store real secrets."
+                                                                 },
+                                                   "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_business_result":  "Không cho import với token hết hạn.",
+                                                   "expected_state":  "Products state không đổi.",
+                                                   "audit_status":  "VALID",
+                                                   "audit_reason":  "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+                                                   "correction":  null,
+                                                   "why_ai_missed":  null,
+                                                   "execution_status":  "REAL_EXECUTION_REQUIRED",
+                                                   "failure_classification":  null,
+                                                   "bug_id":  null,
+                                                   "notes":  "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+                                               }
+                             },
+                             {
+                                 "original_ai_case_id":  "API03-AI-026",
+                                 "source":  "AI_GENERATED",
+                                 "audit_classification":  "VALID",
+                                 "human_review_status":  "HUMAN_REVIEW_DECISION_APPLIED",
+                                 "correction_summary":  "No semantic correction required; Human-approved audit classification retained.",
+                                 "requirement_ids":  [
+                                                         "API03-REQ-002",
+                                                         "API03-REQ-003"
+                                                     ],
+                                 "oracle_basis":  "AUTHORITATIVE",
+                                 "final_disposition":  "INCLUDED_EXECUTABLE",
+                                 "automation_note":  null,
+                                 "test_case":  {
+                                                   "id":  "API03-AI-026",
+                                                   "api_id":  "API-03",
+                                                   "feature_id":  "FR-16",
+                                                   "endpoint":  "POST /api/admin/import-products",
+                                                   "source":  "AI_GENERATED",
+                                                   "lifecycle_state":  "HUMAN_APPROVED",
+                                                   "requirement_ids":  [
+                                                                           "API03-REQ-002",
+                                                                           "API03-REQ-003"
+                                                                       ],
+                                                   "technique":  [
+                                                                     "SECURITY",
+                                                                     "BUSINESS_RULE"
+                                                                 ],
+                                                   "primary_technique":  "SECURITY",
+                                                   "secondary_techniques":  [
+                                                                                "BUSINESS_RULE"
+                                                                            ],
+                                                   "oracle_basis":  "AUTHORITATIVE",
+                                                   "gap_ids":  [
+
+                                                               ],
+                                                   "risk_ids":  [
+                                                                    "API03-ID-001"
+                                                                ],
+                                                   "observation_ids":  [
+
+                                                                       ],
+                                                   "title":  "JWT user không phải admin",
+                                                   "objective":  "Kiểm tra role enforcement chứ không chỉ token existence.",
+                                                   "preconditions":  [
+                                                                         "Valid JWT role user",
+                                                                         "Snapshot products"
+                                                                     ],
+                                                   "request":  {
+                                                                   "method":  "POST",
+                                                                   "path":  "/api/admin/import-products",
+                                                                   "auth_profile":  "Bearer test JWT with role=user",
+                                                                   "content_type":  "application/json unless the case explicitly varies it",
+                                                                   "body_variation":  "Bearer user token, valid products"
+                                                               },
+                                                   "test_data":  {
+                                                                     "description":  "role=user",
+                                                                     "secret_policy":  "Use disposable fixtures or environment variables; do not store real secrets."
+                                                                 },
+                                                   "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_business_result":  "Không cho non-admin import.",
+                                                   "expected_state":  "Products state không đổi.",
+                                                   "audit_status":  "VALID",
+                                                   "audit_reason":  "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+                                                   "correction":  null,
+                                                   "why_ai_missed":  null,
+                                                   "execution_status":  "REAL_EXECUTION_REQUIRED",
+                                                   "failure_classification":  null,
+                                                   "bug_id":  null,
+                                                   "notes":  "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+                                               }
+                             },
+                             {
+                                 "original_ai_case_id":  "API03-AI-027",
+                                 "source":  "AI_GENERATED",
+                                 "audit_classification":  "VALID",
+                                 "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                                 "correction_summary":  "No semantic correction required; Human-approved audit classification retained.",
+                                 "requirement_ids":  [
+                                                         "API03-REQ-002",
+                                                         "API03-REQ-003"
+                                                     ],
+                                 "oracle_basis":  "AUTHORITATIVE",
+                                 "final_disposition":  "INCLUDED_EXECUTABLE",
+                                 "automation_note":  null,
+                                 "test_case":  {
+                                                   "id":  "API03-AI-027",
+                                                   "api_id":  "API-03",
+                                                   "feature_id":  "FR-16",
+                                                   "endpoint":  "POST /api/admin/import-products",
+                                                   "source":  "AI_GENERATED",
+                                                   "lifecycle_state":  "HUMAN_APPROVED",
+                                                   "requirement_ids":  [
+                                                                           "API03-REQ-002",
+                                                                           "API03-REQ-003"
+                                                                       ],
+                                                   "technique":  [
+                                                                     "SECURITY",
+                                                                     "BUSINESS_RULE"
+                                                                 ],
+                                                   "primary_technique":  "SECURITY",
+                                                   "secondary_techniques":  [
+                                                                                "BUSINESS_RULE"
+                                                                            ],
+                                                   "oracle_basis":  "AUTHORITATIVE",
+                                                   "gap_ids":  [
+
+                                                               ],
+                                                   "risk_ids":  [
+
+                                                                ],
+                                                   "observation_ids":  [
+
+                                                                       ],
+                                                   "title":  "JWT admin hợp lệ",
+                                                   "objective":  "Kiểm tra positive authorization partition.",
+                                                   "preconditions":  [
+                                                                         "Valid admin JWT"
+                                                                     ],
+                                                   "request":  {
+                                                                   "method":  "POST",
+                                                                   "path":  "/api/admin/import-products",
+                                                                   "auth_profile":  "Bearer test JWT matching the stated precondition",
+                                                                   "content_type":  "application/json unless the case explicitly varies it",
+                                                                   "body_variation":  "Bearer admin token, valid products"
+                                                               },
+                                                   "test_data":  {
+                                                                     "description":  "role=admin",
+                                                                     "secret_policy":  "Use disposable fixtures or environment variables; do not store real secrets."
+                                                                 },
+                                                   "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_business_result":  "Admin đã xác thực đủ điều kiện authorization; business validation vẫn áp dụng.",
+                                                   "expected_state":  "State phụ thuộc atomic validation của batch.",
+                                                   "audit_status":  "VALID",
+                                                   "audit_reason":  "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+                                                   "correction":  null,
+                                                   "why_ai_missed":  null,
+                                                   "execution_status":  "REAL_EXECUTION_REQUIRED",
+                                                   "failure_classification":  null,
+                                                   "bug_id":  null,
+                                                   "notes":  "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+                                               }
+                             },
+                             {
+                                 "original_ai_case_id":  "API03-AI-028",
+                                 "source":  "AI_GENERATED",
+                                 "audit_classification":  "VALID",
+                                 "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                                 "correction_summary":  "No semantic correction required; Human-approved audit classification retained.",
+                                 "requirement_ids":  [
+                                                         "API03-REQ-003"
+                                                     ],
+                                 "oracle_basis":  "SECURITY_EXPECTATION",
+                                 "final_disposition":  "INCLUDED_EXECUTABLE",
+                                 "automation_note":  null,
+                                 "test_case":  {
+                                                   "id":  "API03-AI-028",
+                                                   "api_id":  "API-03",
+                                                   "feature_id":  "FR-16",
+                                                   "endpoint":  "POST /api/admin/import-products",
+                                                   "source":  "AI_GENERATED",
+                                                   "lifecycle_state":  "HUMAN_APPROVED",
+                                                   "requirement_ids":  [
+                                                                           "API03-REQ-003"
+                                                                       ],
+                                                   "technique":  [
+                                                                     "SECURITY",
+                                                                     "SCHEMA"
+                                                                 ],
+                                                   "primary_technique":  "SECURITY",
+                                                   "secondary_techniques":  [
+                                                                                "SCHEMA"
+                                                                            ],
+                                                   "oracle_basis":  "SECURITY_EXPECTATION",
+                                                   "gap_ids":  [
+
+                                                               ],
+                                                   "risk_ids":  [
+                                                                    "API03-RISK-ROLE-TAMPERING"
+                                                                ],
+                                                   "observation_ids":  [
+
+                                                                       ],
+                                                   "title":  "Payload tự khai role admin",
+                                                   "objective":  "Kiểm tra field role trong body không thay thế role đã xác minh trong token.",
+                                                   "preconditions":  [
+                                                                         "JWT role user",
+                                                                         "Snapshot products"
+                                                                     ],
+                                                   "request":  {
+                                                                   "method":  "POST",
+                                                                   "path":  "/api/admin/import-products",
+                                                                   "auth_profile":  "Bearer test JWT with role=user",
+                                                                   "content_type":  "application/json unless the case explicitly varies it",
+                                                                   "body_variation":  "body thêm role=admin"
+                                                               },
+                                                   "test_data":  {
+                                                                     "description":  "mass-assignment attempt",
+                                                                     "secret_policy":  "Use disposable fixtures or environment variables; do not store real secrets."
+                                                                 },
+                                                   "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_business_result":  "Không được nâng quyền từ payload; role phải lấy từ token đã verify.",
+                                                   "expected_state":  "Products state không đổi.",
+                                                   "audit_status":  "VALID",
+                                                   "audit_reason":  "Applicable security invariant provides a meaningful pass/fail target even though exact HTTP status and response schema remain unspecified.",
+                                                   "correction":  null,
+                                                   "why_ai_missed":  null,
+                                                   "execution_status":  "REAL_EXECUTION_REQUIRED",
+                                                   "failure_classification":  null,
+                                                   "bug_id":  null,
+                                                   "notes":  "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+                                               }
+                             },
+                             {
+                                 "original_ai_case_id":  "API03-AI-029",
+                                 "source":  "AI_GENERATED",
+                                 "audit_classification":  "VALID",
+                                 "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                                 "correction_summary":  "No semantic correction required; Human-approved audit classification retained.",
+                                 "requirement_ids":  [
+                                                         "API03-REQ-007",
+                                                         "API03-REQ-011"
+                                                     ],
+                                 "oracle_basis":  "SECURITY_EXPECTATION",
+                                 "final_disposition":  "INCLUDED_EXECUTABLE",
+                                 "automation_note":  null,
+                                 "test_case":  {
+                                                   "id":  "API03-AI-029",
+                                                   "api_id":  "API-03",
+                                                   "feature_id":  "FR-16",
+                                                   "endpoint":  "POST /api/admin/import-products",
+                                                   "source":  "AI_GENERATED",
+                                                   "lifecycle_state":  "HUMAN_APPROVED",
+                                                   "requirement_ids":  [
+                                                                           "API03-REQ-007",
+                                                                           "API03-REQ-011"
+                                                                       ],
+                                                   "technique":  [
+                                                                     "SECURITY",
+                                                                     "SCHEMA"
+                                                                 ],
+                                                   "primary_technique":  "SECURITY",
+                                                   "secondary_techniques":  [
+                                                                                "SCHEMA"
+                                                                            ],
+                                                   "oracle_basis":  "SECURITY_EXPECTATION",
+                                                   "gap_ids":  [
+
+                                                               ],
+                                                   "risk_ids":  [
+                                                                    "API03-RISK-INJECTION"
+                                                                ],
+                                                   "observation_ids":  [
+                                                                           "API03-ID-005"
+                                                                       ],
+                                                   "title":  "Injection trong product name",
+                                                   "objective":  "Kiểm tra name được xử lý như dữ liệu và vẫn qua non-empty validation.",
+                                                   "preconditions":  [
+                                                                         "Admin JWT hợp lệ",
+                                                                         "Snapshot dữ liệu liên quan"
+                                                                     ],
+                                                   "request":  {
+                                                                   "method":  "POST",
+                                                                   "path":  "/api/admin/import-products",
+                                                                   "auth_profile":  "Bearer test JWT matching the stated precondition",
+                                                                   "content_type":  "application/json unless the case explicitly varies it",
+                                                                   "body_variation":  "name chứa SQL metacharacters, price positive"
+                                                               },
+                                                   "test_data":  {
+                                                                     "description":  "\"x\u0027); DROP TABLE products;--\"",
+                                                                     "secret_policy":  "Use disposable fixtures or environment variables; do not store real secrets."
+                                                                 },
+                                                   "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_business_result":  "Input không được thực thi như lệnh hoặc phá dữ liệu ngoài phạm vi; name vẫn là non-empty data.",
+                                                   "expected_state":  "Nếu batch được chấp nhận, chỉ atomic import side effect được phép.",
+                                                   "audit_status":  "VALID",
+                                                   "audit_reason":  "Applicable security invariant provides a meaningful pass/fail target even though exact HTTP status and response schema remain unspecified.",
+                                                   "correction":  null,
+                                                   "why_ai_missed":  null,
+                                                   "execution_status":  "REAL_EXECUTION_REQUIRED",
+                                                   "failure_classification":  null,
+                                                   "bug_id":  null,
+                                                   "notes":  "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+                                               }
+                             },
+                             {
+                                 "original_ai_case_id":  "API03-AI-031",
+                                 "source":  "AI_GENERATED",
+                                 "audit_classification":  "VALID",
+                                 "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                                 "correction_summary":  "No semantic correction required; Human-approved audit classification retained.",
+                                 "requirement_ids":  [
+                                                         "API03-REQ-001",
+                                                         "API03-REQ-004",
+                                                         "API03-REQ-005"
+                                                     ],
+                                 "oracle_basis":  "PARTIALLY_SPECIFIED",
+                                 "final_disposition":  "INCLUDED_EXECUTABLE",
+                                 "automation_note":  null,
+                                 "test_case":  {
+                                                   "id":  "API03-AI-031",
+                                                   "api_id":  "API-03",
+                                                   "feature_id":  "FR-16",
+                                                   "endpoint":  "POST /api/admin/import-products",
+                                                   "source":  "AI_GENERATED",
+                                                   "lifecycle_state":  "HUMAN_APPROVED",
+                                                   "requirement_ids":  [
+                                                                           "API03-REQ-001",
+                                                                           "API03-REQ-004",
+                                                                           "API03-REQ-005"
+                                                                       ],
+                                                   "technique":  [
+                                                                     "SCHEMA",
+                                                                     "DOMAIN_PARTITION"
+                                                                 ],
+                                                   "primary_technique":  "SCHEMA",
+                                                   "secondary_techniques":  [
+                                                                                "DOMAIN_PARTITION"
+                                                                            ],
+                                                   "oracle_basis":  "PARTIALLY_SPECIFIED",
+                                                   "gap_ids":  [
+                                                                   "API03-RG-004"
+                                                               ],
+                                                   "risk_ids":  [
+
+                                                                ],
+                                                   "observation_ids":  [
+
+                                                                       ],
+                                                   "title":  "JSON products với đủ field documented",
+                                                   "objective":  "Xác nhận endpoint representation là JSON array và item gồm các field tài liệu hóa.",
+                                                   "preconditions":  [
+                                                                         "Admin JWT hợp lệ"
+                                                                     ],
+                                                   "request":  {
+                                                                   "method":  "POST",
+                                                                   "path":  "/api/admin/import-products",
+                                                                   "auth_profile":  "Bearer test JWT matching the stated precondition",
+                                                                   "content_type":  "application/json unless the case explicitly varies it",
+                                                                   "body_variation":  "products item có name, price, description, imageUrl, category_id"
+                                                               },
+                                                   "test_data":  {
+                                                                     "description":  "documented JSON shape",
+                                                                     "secret_policy":  "Use disposable fixtures or environment variables; do not store real secrets."
+                                                                 },
+                                                   "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_business_result":  "Request phù hợp endpoint contract; requiredness và response schema còn chưa đầy đủ.",
+                                                   "expected_state":  "Nếu row hợp lệ, atomic state rule áp dụng.",
+                                                   "audit_status":  "VALID",
+                                                   "audit_reason":  "Transport details are unspecified, but the raw case retains a requirement-backed business/state oracle sufficient for execution.",
+                                                   "correction":  null,
+                                                   "why_ai_missed":  null,
+                                                   "execution_status":  "REAL_EXECUTION_REQUIRED",
+                                                   "failure_classification":  null,
+                                                   "bug_id":  null,
+                                                   "notes":  "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+                                               }
+                             },
+                             {
+                                 "original_ai_case_id":  "API03-AI-035",
+                                 "source":  "AI_GENERATED",
+                                 "audit_classification":  "VALID",
+                                 "human_review_status":  "HUMAN_REVIEW_DECISION_APPLIED",
+                                 "correction_summary":  "Traceability corrected so API03-REQ-004 is primary; API03-RG-001 is the related gap and API03-REQ-006 is supporting context.",
+                                 "requirement_ids":  [
+                                                         "API03-REQ-004",
+                                                         "API03-REQ-006"
+                                                     ],
+                                 "oracle_basis":  "PARTIALLY_SPECIFIED",
+                                 "final_disposition":  "INCLUDED_EXECUTABLE",
+                                 "automation_note":  null,
+                                 "test_case":  {
+                                                   "id":  "API03-AI-035",
+                                                   "api_id":  "API-03",
+                                                   "feature_id":  "FR-16",
+                                                   "endpoint":  "POST /api/admin/import-products",
+                                                   "source":  "AI_GENERATED",
+                                                   "lifecycle_state":  "HUMAN_APPROVED",
+                                                   "requirement_ids":  [
+                                                                           "API03-REQ-004",
+                                                                           "API03-REQ-006"
+                                                                       ],
+                                                   "technique":  [
+                                                                     "SCHEMA",
+                                                                     "DOMAIN_PARTITION"
+                                                                 ],
+                                                   "primary_technique":  "SCHEMA",
+                                                   "secondary_techniques":  [
+                                                                                "DOMAIN_PARTITION"
+                                                                            ],
+                                                   "oracle_basis":  "PARTIALLY_SPECIFIED",
+                                                   "gap_ids":  [
+                                                                   "API03-RG-001"
+                                                               ],
+                                                   "risk_ids":  [
+
+                                                                ],
+                                                   "observation_ids":  [
+
+                                                                       ],
+                                                   "title":  "Xác nhận boundary JSON của endpoint",
+                                                   "objective":  "Bao phủ gap CSV-vs-JSON bằng request JSON products chứ không giả định raw CSV.",
+                                                   "preconditions":  [
+                                                                         "Admin JWT hợp lệ"
+                                                                     ],
+                                                   "request":  {
+                                                                   "method":  "POST",
+                                                                   "path":  "/api/admin/import-products",
+                                                                   "auth_profile":  "Bearer test JWT matching the stated precondition",
+                                                                   "content_type":  "application/json unless the case explicitly varies it",
+                                                                   "body_variation":  "gửi JSON products array theo API spec"
+                                                               },
+                                                   "test_data":  {
+                                                                     "description":  "no raw CSV request",
+                                                                     "secret_policy":  "Use disposable fixtures or environment variables; do not store real secrets."
+                                                                 },
+                                                   "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_business_result":  "Selected endpoint được kiểm tra theo JSON contract; vị trí CSV parsing vẫn unresolved.",
+                                                   "expected_state":  "State theo atomic import rules.",
+                                                   "audit_status":  "VALID",
+                                                   "audit_reason":  "Transport details are unspecified, but the raw case retains a requirement-backed business/state oracle sufficient for execution.",
+                                                   "correction":  "Traceability corrected so API03-REQ-004 is primary; API03-RG-001 is the related gap and API03-REQ-006 is supporting context.",
+                                                   "why_ai_missed":  null,
+                                                   "execution_status":  "REAL_EXECUTION_REQUIRED",
+                                                   "failure_classification":  null,
+                                                   "bug_id":  null,
+                                                   "notes":  "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+                                               }
+                             },
+                             {
+                                 "original_ai_case_id":  "API03-AI-038",
+                                 "source":  "AI_GENERATED",
+                                 "audit_classification":  "VALID",
+                                 "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                                 "correction_summary":  "No semantic correction required; Human-approved audit classification retained.",
+                                 "requirement_ids":  [
+                                                         "API03-REQ-009",
+                                                         "API03-REQ-010"
+                                                     ],
+                                 "oracle_basis":  "AUTHORITATIVE",
+                                 "final_disposition":  "INCLUDED_EXECUTABLE",
+                                 "automation_note":  null,
+                                 "test_case":  {
+                                                   "id":  "API03-AI-038",
+                                                   "api_id":  "API-03",
+                                                   "feature_id":  "FR-16",
+                                                   "endpoint":  "POST /api/admin/import-products",
+                                                   "source":  "AI_GENERATED",
+                                                   "lifecycle_state":  "HUMAN_APPROVED",
+                                                   "requirement_ids":  [
+                                                                           "API03-REQ-009",
+                                                                           "API03-REQ-010"
+                                                                       ],
+                                                   "technique":  [
+                                                                     "BUSINESS_RULE",
+                                                                     "STATE_TRANSITION"
+                                                                 ],
+                                                   "primary_technique":  "BUSINESS_RULE",
+                                                   "secondary_techniques":  [
+                                                                                "STATE_TRANSITION"
+                                                                            ],
+                                                   "oracle_basis":  "AUTHORITATIVE",
+                                                   "gap_ids":  [
+
+                                                               ],
+                                                   "risk_ids":  [
+                                                                    "API03-ID-003"
+                                                                ],
+                                                   "observation_ids":  [
+
+                                                                       ],
+                                                   "title":  "All-or-nothing đối chiếu report",
+                                                   "objective":  "Đối chiếu report semantic với persistence để phát hiện partial import.",
+                                                   "preconditions":  [
+                                                                         "Admin JWT hợp lệ",
+                                                                         "Batch mixed validity",
+                                                                         "Snapshot trước"
+                                                                     ],
+                                                   "request":  {
+                                                                   "method":  "POST",
+                                                                   "path":  "/api/admin/import-products",
+                                                                   "auth_profile":  "Bearer test JWT matching the stated precondition",
+                                                                   "content_type":  "application/json unless the case explicitly varies it",
+                                                                   "body_variation":  "một valid và một invalid item"
+                                                               },
+                                                   "test_data":  {
+                                                                     "description":  "mixed batch",
+                                                                     "secret_policy":  "Use disposable fixtures or environment variables; do not store real secrets."
+                                                                 },
+                                                   "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_business_result":  "Report phải nêu counts/reasons và batch phải rollback toàn bộ do có lỗi.",
+                                                   "expected_state":  "Không item mới nào tồn tại dù report có success-row count trung gian.",
+                                                   "audit_status":  "VALID",
+                                                   "audit_reason":  "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+                                                   "correction":  null,
+                                                   "why_ai_missed":  null,
+                                                   "execution_status":  "REAL_EXECUTION_REQUIRED",
+                                                   "failure_classification":  null,
+                                                   "bug_id":  null,
+                                                   "notes":  "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+                                               }
+                             },
+                             {
+                                 "original_ai_case_id":  "API03-AI-039",
+                                 "source":  "AI_GENERATED",
+                                 "audit_classification":  "VALID",
+                                 "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                                 "correction_summary":  "No semantic correction required; Human-approved audit classification retained.",
+                                 "requirement_ids":  [
+                                                         "API03-REQ-010"
+                                                     ],
+                                 "oracle_basis":  "PARTIALLY_SPECIFIED",
+                                 "final_disposition":  "INCLUDED_EXECUTABLE",
+                                 "automation_note":  null,
+                                 "test_case":  {
+                                                   "id":  "API03-AI-039",
+                                                   "api_id":  "API-03",
+                                                   "feature_id":  "FR-16",
+                                                   "endpoint":  "POST /api/admin/import-products",
+                                                   "source":  "AI_GENERATED",
+                                                   "lifecycle_state":  "HUMAN_APPROVED",
+                                                   "requirement_ids":  [
+                                                                           "API03-REQ-010"
+                                                                       ],
+                                                   "technique":  [
+                                                                     "BUSINESS_RULE",
+                                                                     "SCHEMA"
+                                                                 ],
+                                                   "primary_technique":  "BUSINESS_RULE",
+                                                   "secondary_techniques":  [
+                                                                                "SCHEMA"
+                                                                            ],
+                                                   "oracle_basis":  "PARTIALLY_SPECIFIED",
+                                                   "gap_ids":  [
+                                                                   "API03-RG-004"
+                                                               ],
+                                                   "risk_ids":  [
+
+                                                                ],
+                                                   "observation_ids":  [
+
+                                                                       ],
+                                                   "title":  "Report batch thành công",
+                                                   "objective":  "Kiểm tra report có success/error counts và reasons ở mức semantic.",
+                                                   "preconditions":  [
+                                                                         "Admin JWT hợp lệ",
+                                                                         "Batch tất cả valid"
+                                                                     ],
+                                                   "request":  {
+                                                                   "method":  "POST",
+                                                                   "path":  "/api/admin/import-products",
+                                                                   "auth_profile":  "Bearer test JWT matching the stated precondition",
+                                                                   "content_type":  "application/json unless the case explicitly varies it",
+                                                                   "body_variation":  "valid batch"
+                                                               },
+                                                   "test_data":  {
+                                                                     "description":  "known input count",
+                                                                     "secret_policy":  "Use disposable fixtures or environment variables; do not store real secrets."
+                                                                 },
+                                                   "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_business_result":  "Report phản ánh số row thành công/lỗi và lý do phù hợp; exact keys/types unspecified.",
+                                                   "expected_state":  "Toàn batch commit.",
+                                                   "audit_status":  "VALID",
+                                                   "audit_reason":  "Transport details are unspecified, but the raw case retains a requirement-backed business/state oracle sufficient for execution.",
+                                                   "correction":  null,
+                                                   "why_ai_missed":  null,
+                                                   "execution_status":  "REAL_EXECUTION_REQUIRED",
+                                                   "failure_classification":  null,
+                                                   "bug_id":  null,
+                                                   "notes":  "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+                                               }
+                             }
+                         ],
+    "removed_cases":  [
+
+                      ],
+    "deferred_cases":  [
+                           {
+                               "original_ai_case_id":  "API03-AI-006",
+                               "source":  "AI_GENERATED",
+                               "audit_classification":  "INCOMPLETE",
+                               "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                               "final_disposition":  "DEFERRED_REQUIREMENT_GAP",
+                               "reason":  "Concept/risk \u0027products array rỗng\u0027 có liên quan, nhưng raw case chưa có authoritative oracle, dependency hoặc validation point đủ để trở thành final executable pass/fail test.",
+                               "proposed_correction":  "Human phải quyết định empty-batch semantics và report expectation trước khi final hóa."
+                           },
+                           {
+                               "original_ai_case_id":  "API03-AI-012",
+                               "source":  "AI_GENERATED",
+                               "audit_classification":  "INCOMPLETE",
+                               "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                               "final_disposition":  "DEFERRED_REQUIREMENT_GAP",
+                               "reason":  "Concept/risk \u0027Name dài đúng 255\u0027 có liên quan, nhưng raw case chưa có authoritative oracle, dependency hoặc validation point đủ để trở thành final executable pass/fail test.",
+                               "proposed_correction":  "Chỉ áp dụng boundary 255 nếu Human/source liên kết FR-15 với FR-16; nếu không thì defer khỏi final import suite."
+                           },
+                           {
+                               "original_ai_case_id":  "API03-AI-013",
+                               "source":  "AI_GENERATED",
+                               "audit_classification":  "INCOMPLETE",
+                               "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                               "final_disposition":  "DEFERRED_REQUIREMENT_GAP",
+                               "reason":  "Concept/risk \u0027Name dài 256\u0027 có liên quan, nhưng raw case chưa có authoritative oracle, dependency hoặc validation point đủ để trở thành final executable pass/fail test.",
+                               "proposed_correction":  "Không dùng \u003e255 làm rejection oracle cho tới khi FR-15 applicability được xác nhận."
+                           },
+                           {
+                               "original_ai_case_id":  "API03-AI-014",
+                               "source":  "AI_GENERATED",
+                               "audit_classification":  "INCOMPLETE",
+                               "human_review_status":  "HUMAN_REVIEW_DECISION_APPLIED",
+                               "final_disposition":  "DEFERRED_REQUIREMENT_GAP",
+                               "reason":  "Concept/risk \u0027Batch kích thước lớn\u0027 có liên quan, nhưng raw case chưa có authoritative oracle, dependency hoặc validation point đủ để trở thành final executable pass/fail test.",
+                               "proposed_correction":  "Cần authoritative capacity limit và reproducible large-batch fixture; không gọi một kích thước tự chọn là maximum."
+                           },
+                           {
+                               "original_ai_case_id":  "API03-AI-015",
+                               "source":  "AI_GENERATED",
+                               "audit_classification":  "INCOMPLETE",
+                               "human_review_status":  "HUMAN_REVIEW_DECISION_APPLIED",
+                               "final_disposition":  "DEFERRED_REQUIREMENT_GAP",
+                               "reason":  "Concept/risk \u0027Price có nhiều chữ số thập phân\u0027 có liên quan, nhưng raw case chưa có authoritative oracle, dependency hoặc validation point đủ để trở thành final executable pass/fail test.",
+                               "proposed_correction":  "Xác định price precision/rounding contract hoặc chuyển thành observation với persisted-value evidence."
+                           },
+                           {
+                               "original_ai_case_id":  "API03-AI-030",
+                               "source":  "AI_GENERATED",
+                               "audit_classification":  "INCOMPLETE",
+                               "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                               "final_disposition":  "DEFERRED_REQUIREMENT_GAP",
+                               "reason":  "Concept/risk \u0027Unexpected privileged fields\u0027 có liên quan, nhưng raw case chưa có authoritative oracle, dependency hoặc validation point đủ để trở thành final executable pass/fail test.",
+                               "proposed_correction":  "Xác định allowed/additional item fields và protected-field invariant trước khi dùng mass-assignment pass/fail oracle."
+                           },
+                           {
+                               "original_ai_case_id":  "API03-AI-032",
+                               "source":  "AI_GENERATED",
+                               "audit_classification":  "INCOMPLETE",
+                               "human_review_status":  "HUMAN_REVIEW_DECISION_APPLIED",
+                               "final_disposition":  "DEFERRED_REQUIREMENT_GAP",
+                               "reason":  "Concept/risk \u0027Thiếu optionality-unknown fields\u0027 có liên quan, nhưng raw case chưa có authoritative oracle, dependency hoặc validation point đủ để trở thành final executable pass/fail test.",
+                               "proposed_correction":  "Xác định optionality của description, imageUrl, category_id cho import; FR-15 không tự tạo direct oracle."
+                           },
+                           {
+                               "original_ai_case_id":  "API03-AI-033",
+                               "source":  "AI_GENERATED",
+                               "audit_classification":  "INCOMPLETE",
+                               "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                               "final_disposition":  "DEFERRED_REQUIREMENT_GAP",
+                               "reason":  "Concept/risk \u0027Sai type description\u0027 có liên quan, nhưng raw case chưa có authoritative oracle, dependency hoặc validation point đủ để trở thành final executable pass/fail test.",
+                               "proposed_correction":  "Xác định type constraint cho description hoặc giữ parser robustness observation."
+                           },
+                           {
+                               "original_ai_case_id":  "API03-AI-034",
+                               "source":  "AI_GENERATED",
+                               "audit_classification":  "INCOMPLETE",
+                               "human_review_status":  "HUMAN_REVIEW_DECISION_APPLIED",
+                               "final_disposition":  "DEFERRED_REQUIREMENT_GAP",
+                               "reason":  "Concept/risk \u0027category_id không tồn tại\u0027 có liên quan, nhưng raw case chưa có authoritative oracle, dependency hoặc validation point đủ để trở thành final executable pass/fail test.",
+                               "proposed_correction":  "Cần FR-16 category-reference rule; không suy diễn nonexistent category phải accept/reject."
+                           },
+                           {
+                               "original_ai_case_id":  "API03-AI-036",
+                               "source":  "AI_GENERATED",
+                               "audit_classification":  "INCOMPLETE",
+                               "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                               "final_disposition":  "DEFERRED_REQUIREMENT_GAP",
+                               "reason":  "Concept/risk \u0027Name chỉ whitespace\u0027 có liên quan, nhưng raw case chưa có authoritative oracle, dependency hoặc validation point đủ để trở thành final executable pass/fail test.",
+                               "proposed_correction":  "Xác định trim/whitespace semantics cho non-empty name trước khi có final oracle."
+                           },
+                           {
+                               "original_ai_case_id":  "API03-AI-037",
+                               "source":  "AI_GENERATED",
+                               "audit_classification":  "INCOMPLETE",
+                               "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                               "final_disposition":  "DEFERRED_REQUIREMENT_GAP",
+                               "reason":  "Concept/risk \u0027Price dạng chuỗi số\u0027 có liên quan, nhưng raw case chưa có authoritative oracle, dependency hoặc validation point đủ để trở thành final executable pass/fail test.",
+                               "proposed_correction":  "Xác định numeric type/coercion rule cho price; positivity một mình chưa quyết định string numeric."
+                           },
+                           {
+                               "original_ai_case_id":  "API03-AI-040",
+                               "source":  "AI_GENERATED",
+                               "audit_classification":  "INCOMPLETE",
+                               "human_review_status":  "HUMAN_REVIEW_DECISION_APPLIED",
+                               "final_disposition":  "DEFERRED_REQUIREMENT_GAP",
+                               "reason":  "Concept/risk \u0027Duplicate products trong cùng batch\u0027 có liên quan, nhưng raw case chưa có authoritative oracle, dependency hoặc validation point đủ để trở thành final executable pass/fail test.",
+                               "proposed_correction":  "Cần duplicate-product policy; nếu duplicate bị định nghĩa là error thì atomic rollback mới trở thành nhánh authoritative."
+                           }
+                       ]
+}

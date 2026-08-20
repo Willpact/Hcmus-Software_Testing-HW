@@ -1,0 +1,28 @@
+﻿# Cross-API Human-reviewed AI Test Audit
+
+- Status: `MODIFIED_AND_APPROVED`
+- Targeted review completed; raw generation unchanged.
+
+## Final classification
+- `AUDITED`: 120
+- `VALID`: 69
+- `INVALID`: 4
+- `INCOMPLETE`: 47
+- `PROPOSED_CORRECTIONS`: 51
+- `PROPOSED_REMOVALS`: 4
+- `SEMANTIC_DUPLICATES`: 2
+
+## Failure patterns
+
+| Pattern | Count | Affected APIs | Representative IDs |
+| --- | ---: | --- | --- |
+| `AMBIGUOUS_EXPECTED_RESULT` | 47 | `API-01, API-02, API-03` | `API01-AI-004, API01-AI-005, API01-AI-006, API01-AI-007, API01-AI-013` |
+| `REQUIREMENT_GAP_ASSUMPTION` | 43 | `API-01, API-02, API-03` | `API01-AI-004, API01-AI-005, API01-AI-013, API01-AI-017, API01-AI-025` |
+| `CROSS_FEATURE_OVERREACH` | 6 | `API-01, API-02, API-03` | `API01-AI-020, API02-AI-038, API03-AI-012, API03-AI-013, API03-AI-032` |
+| `SECURITY_REASONING_GAP` | 6 | `API-01, API-02, API-03` | `API01-AI-004, API01-AI-025, API01-AI-026, API02-AI-015, API02-AI-020` |
+| `MISSING_STATE_SETUP` | 4 | `API-01, API-02, API-03` | `API01-AI-013, API02-AI-019, API02-AI-020, API03-AI-014` |
+| `SEMANTIC_DUPLICATION` | 2 | `API-01, API-02` | `API01-AI-036, API02-AI-028` |
+| `TRACEABILITY_ISSUE` | 1 | `API-01` | `API01-AI-020` |
+| `UNSUPPORTED_PRECONDITION` | 1 | `API-01` | `API01-AI-040` |
+
+No implementation observation was promoted to an authoritative oracle.

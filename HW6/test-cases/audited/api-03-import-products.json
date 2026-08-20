@@ -1,0 +1,1621 @@
+﻿{
+    "metadata":  {
+                     "api_id":  "API-03",
+                     "raw_source":  "test-cases/generated/api-03-import-products.json",
+                     "audit_status":  "AI_TEST_AUDIT_REVIEW_REQUIRED",
+                     "human_review_status":  "MODIFIED_AND_APPROVED_WITH_TARGETED_CASE_DECISIONS",
+                     "raw_semantics_modified":  false,
+                     "final_correction_started":  false,
+                     "student_extension_started":  false,
+                     "execution_started":  false,
+                     "targeted_review_completed":  true
+                 },
+    "summary":  {
+                    "total":  40,
+                    "valid":  25,
+                    "invalid":  0,
+                    "incomplete":  15,
+                    "proposed_corrections":  15,
+                    "proposed_removals":  0,
+                    "semantic_duplicates":  0,
+                    "authoritative_oracle_issues":  15,
+                    "traceability_issues":  0,
+                    "state_setup_issues":  1,
+                    "security_reasoning_issues":  1,
+                    "cross_feature_overreach":  4,
+                    "unsupported_precondition":  0,
+                    "implementation_as_oracle":  0
+                },
+    "issue_counts":  {
+                         "AMBIGUOUS_EXPECTED_RESULT":  15,
+                         "CROSS_FEATURE_OVERREACH":  4,
+                         "MISSING_STATE_SETUP":  1,
+                         "REQUIREMENT_GAP_ASSUMPTION":  15,
+                         "SECURITY_REASONING_GAP":  1
+                     },
+    "audit_records":  [
+                          {
+                              "test_case_id":  "API03-AI-001",
+                              "raw_source":  "test-cases/generated/api-03-import-products.json#API03-AI-001",
+                              "classification":  "VALID",
+                              "classification_reason":  "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+                              "requirement_traceability":  {
+                                                               "requirement_ids":  [
+                                                                                       "API03-REQ-002",
+                                                                                       "API03-REQ-004",
+                                                                                       "API03-REQ-007",
+                                                                                       "API03-REQ-009"
+                                                                                   ],
+                                                               "gap_ids":  [
+
+                                                                           ],
+                                                               "risk_ids":  [
+
+                                                                            ],
+                                                               "observation_ids":  [
+
+                                                                                   ],
+                                                               "assessment":  "ALIGNED_WITH_APPROVED_ANALYSIS"
+                                                           },
+                              "oracle_review":  {
+                                                    "raw_oracle_basis":  "AUTHORITATIVE",
+                                                    "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "assessment":  "SUFFICIENT_FOR_BUSINESS_OR_SECURITY_PASS_FAIL",
+                                                    "notes":  "No unsupported status/schema was added; semantic oracle is sufficient."
+                                                },
+                              "duplicate_of":  null,
+                              "issues":  [
+
+                                         ],
+                              "proposed_correction":  null,
+                              "proposed_action":  "KEEP_AS_GENERATED",
+                              "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                              "human_review_decision":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                              "review_scope":  "PRESERVED_AI_AUDIT_CLASSIFICATION",
+                              "final_disposition":  "INCLUDED_EXECUTABLE"
+                          },
+                          {
+                              "test_case_id":  "API03-AI-002",
+                              "raw_source":  "test-cases/generated/api-03-import-products.json#API03-AI-002",
+                              "classification":  "VALID",
+                              "classification_reason":  "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+                              "requirement_traceability":  {
+                                                               "requirement_ids":  [
+                                                                                       "API03-REQ-004",
+                                                                                       "API03-REQ-007",
+                                                                                       "API03-REQ-009"
+                                                                                   ],
+                                                               "gap_ids":  [
+
+                                                                           ],
+                                                               "risk_ids":  [
+
+                                                                            ],
+                                                               "observation_ids":  [
+
+                                                                                   ],
+                                                               "assessment":  "ALIGNED_WITH_APPROVED_ANALYSIS"
+                                                           },
+                              "oracle_review":  {
+                                                    "raw_oracle_basis":  "AUTHORITATIVE",
+                                                    "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "assessment":  "SUFFICIENT_FOR_BUSINESS_OR_SECURITY_PASS_FAIL",
+                                                    "notes":  "No unsupported status/schema was added; semantic oracle is sufficient."
+                                                },
+                              "duplicate_of":  null,
+                              "issues":  [
+
+                                         ],
+                              "proposed_correction":  null,
+                              "proposed_action":  "KEEP_AS_GENERATED",
+                              "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                              "human_review_decision":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                              "review_scope":  "PRESERVED_AI_AUDIT_CLASSIFICATION",
+                              "final_disposition":  "INCLUDED_EXECUTABLE"
+                          },
+                          {
+                              "test_case_id":  "API03-AI-003",
+                              "raw_source":  "test-cases/generated/api-03-import-products.json#API03-AI-003",
+                              "classification":  "INCOMPLETE",
+                              "classification_reason":  "Concept/risk \u0027Thiếu products\u0027 có liên quan, nhưng raw case chưa có authoritative oracle, dependency hoặc validation point đủ để trở thành final executable pass/fail test.",
+                              "requirement_traceability":  {
+                                                               "requirement_ids":  [
+                                                                                       "API03-REQ-004"
+                                                                                   ],
+                                                               "gap_ids":  [
+                                                                               "API03-RG-004"
+                                                                           ],
+                                                               "risk_ids":  [
+
+                                                                            ],
+                                                               "observation_ids":  [
+
+                                                                                   ],
+                                                               "assessment":  "ALIGNED_WITH_APPROVED_ANALYSIS"
+                                                           },
+                              "oracle_review":  {
+                                                    "raw_oracle_basis":  "PARTIALLY_SPECIFIED",
+                                                    "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "assessment":  "INSUFFICIENT_FOR_FINAL_PASS_FAIL",
+                                                    "notes":  "Do not invent status/schema while resolving the listed issue."
+                                                },
+                              "duplicate_of":  null,
+                              "issues":  [
+                                             "AMBIGUOUS_EXPECTED_RESULT",
+                                             "REQUIREMENT_GAP_ASSUMPTION"
+                                         ],
+                              "proposed_correction":  "Xác định products requiredness và no-import state invariant khi field vắng; không tự đặt transport response.",
+                              "proposed_action":  "REVISE_BEFORE_FINAL_SUITE",
+                              "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                              "human_review_decision":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                              "review_scope":  "PRESERVED_AI_AUDIT_CLASSIFICATION",
+                              "final_disposition":  "SALVAGED_TO_EXECUTABLE"
+                          },
+                          {
+                              "test_case_id":  "API03-AI-004",
+                              "raw_source":  "test-cases/generated/api-03-import-products.json#API03-AI-004",
+                              "classification":  "INCOMPLETE",
+                              "classification_reason":  "Concept/risk \u0027products bằng null\u0027 có liên quan, nhưng raw case chưa có authoritative oracle, dependency hoặc validation point đủ để trở thành final executable pass/fail test.",
+                              "requirement_traceability":  {
+                                                               "requirement_ids":  [
+                                                                                       "API03-REQ-004"
+                                                                                   ],
+                                                               "gap_ids":  [
+                                                                               "API03-RG-004"
+                                                                           ],
+                                                               "risk_ids":  [
+
+                                                                            ],
+                                                               "observation_ids":  [
+
+                                                                                   ],
+                                                               "assessment":  "ALIGNED_WITH_APPROVED_ANALYSIS"
+                                                           },
+                              "oracle_review":  {
+                                                    "raw_oracle_basis":  "PARTIALLY_SPECIFIED",
+                                                    "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "assessment":  "INSUFFICIENT_FOR_FINAL_PASS_FAIL",
+                                                    "notes":  "Do not invent status/schema while resolving the listed issue."
+                                                },
+                              "duplicate_of":  null,
+                              "issues":  [
+                                             "AMBIGUOUS_EXPECTED_RESULT",
+                                             "REQUIREMENT_GAP_ASSUMPTION"
+                                         ],
+                              "proposed_correction":  "Bổ sung explicit no-commit state assertion cho non-array null và giữ status/schema unspecified.",
+                              "proposed_action":  "REVISE_BEFORE_FINAL_SUITE",
+                              "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                              "human_review_decision":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                              "review_scope":  "PRESERVED_AI_AUDIT_CLASSIFICATION",
+                              "final_disposition":  "SALVAGED_TO_EXECUTABLE"
+                          },
+                          {
+                              "test_case_id":  "API03-AI-005",
+                              "raw_source":  "test-cases/generated/api-03-import-products.json#API03-AI-005",
+                              "classification":  "INCOMPLETE",
+                              "classification_reason":  "Concept/risk \u0027products là object\u0027 có liên quan, nhưng raw case chưa có authoritative oracle, dependency hoặc validation point đủ để trở thành final executable pass/fail test.",
+                              "requirement_traceability":  {
+                                                               "requirement_ids":  [
+                                                                                       "API03-REQ-004"
+                                                                                   ],
+                                                               "gap_ids":  [
+                                                                               "API03-RG-004"
+                                                                           ],
+                                                               "risk_ids":  [
+
+                                                                            ],
+                                                               "observation_ids":  [
+
+                                                                                   ],
+                                                               "assessment":  "ALIGNED_WITH_APPROVED_ANALYSIS"
+                                                           },
+                              "oracle_review":  {
+                                                    "raw_oracle_basis":  "PARTIALLY_SPECIFIED",
+                                                    "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "assessment":  "INSUFFICIENT_FOR_FINAL_PASS_FAIL",
+                                                    "notes":  "Do not invent status/schema while resolving the listed issue."
+                                                },
+                              "duplicate_of":  null,
+                              "issues":  [
+                                             "AMBIGUOUS_EXPECTED_RESULT",
+                                             "REQUIREMENT_GAP_ASSUMPTION"
+                                         ],
+                              "proposed_correction":  "Bổ sung explicit no-commit state assertion cho object thay vì array và cách xác minh products state.",
+                              "proposed_action":  "REVISE_BEFORE_FINAL_SUITE",
+                              "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                              "human_review_decision":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                              "review_scope":  "PRESERVED_AI_AUDIT_CLASSIFICATION",
+                              "final_disposition":  "SALVAGED_TO_EXECUTABLE"
+                          },
+                          {
+                              "test_case_id":  "API03-AI-006",
+                              "raw_source":  "test-cases/generated/api-03-import-products.json#API03-AI-006",
+                              "classification":  "INCOMPLETE",
+                              "classification_reason":  "Concept/risk \u0027products array rỗng\u0027 có liên quan, nhưng raw case chưa có authoritative oracle, dependency hoặc validation point đủ để trở thành final executable pass/fail test.",
+                              "requirement_traceability":  {
+                                                               "requirement_ids":  [
+                                                                                       "API03-REQ-004",
+                                                                                       "API03-REQ-009"
+                                                                                   ],
+                                                               "gap_ids":  [
+                                                                               "API03-RG-002"
+                                                                           ],
+                                                               "risk_ids":  [
+
+                                                                            ],
+                                                               "observation_ids":  [
+
+                                                                                   ],
+                                                               "assessment":  "ALIGNED_WITH_APPROVED_ANALYSIS"
+                                                           },
+                              "oracle_review":  {
+                                                    "raw_oracle_basis":  "OBSERVABLE_ONLY",
+                                                    "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "assessment":  "INSUFFICIENT_FOR_FINAL_PASS_FAIL",
+                                                    "notes":  "Do not invent status/schema while resolving the listed issue."
+                                                },
+                              "duplicate_of":  null,
+                              "issues":  [
+                                             "AMBIGUOUS_EXPECTED_RESULT",
+                                             "REQUIREMENT_GAP_ASSUMPTION"
+                                         ],
+                              "proposed_correction":  "Human phải quyết định empty-batch semantics và report expectation trước khi final hóa.",
+                              "proposed_action":  "REVISE_BEFORE_FINAL_SUITE",
+                              "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                              "human_review_decision":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                              "review_scope":  "PRESERVED_AI_AUDIT_CLASSIFICATION",
+                              "final_disposition":  "DEFERRED_REQUIREMENT_GAP"
+                          },
+                          {
+                              "test_case_id":  "API03-AI-007",
+                              "raw_source":  "test-cases/generated/api-03-import-products.json#API03-AI-007",
+                              "classification":  "VALID",
+                              "classification_reason":  "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+                              "requirement_traceability":  {
+                                                               "requirement_ids":  [
+                                                                                       "API03-REQ-005",
+                                                                                       "API03-REQ-007"
+                                                                                   ],
+                                                               "gap_ids":  [
+
+                                                                           ],
+                                                               "risk_ids":  [
+                                                                                "API03-ID-002"
+                                                                            ],
+                                                               "observation_ids":  [
+
+                                                                                   ],
+                                                               "assessment":  "ALIGNED_WITH_APPROVED_ANALYSIS"
+                                                           },
+                              "oracle_review":  {
+                                                    "raw_oracle_basis":  "AUTHORITATIVE",
+                                                    "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "assessment":  "SUFFICIENT_FOR_BUSINESS_OR_SECURITY_PASS_FAIL",
+                                                    "notes":  "No unsupported status/schema was added; semantic oracle is sufficient."
+                                                },
+                              "duplicate_of":  null,
+                              "issues":  [
+
+                                         ],
+                              "proposed_correction":  null,
+                              "proposed_action":  "KEEP_AS_GENERATED",
+                              "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                              "human_review_decision":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                              "review_scope":  "PRESERVED_AI_AUDIT_CLASSIFICATION",
+                              "final_disposition":  "INCLUDED_EXECUTABLE"
+                          },
+                          {
+                              "test_case_id":  "API03-AI-008",
+                              "raw_source":  "test-cases/generated/api-03-import-products.json#API03-AI-008",
+                              "classification":  "VALID",
+                              "classification_reason":  "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+                              "requirement_traceability":  {
+                                                               "requirement_ids":  [
+                                                                                       "API03-REQ-007"
+                                                                                   ],
+                                                               "gap_ids":  [
+
+                                                                           ],
+                                                               "risk_ids":  [
+                                                                                "API03-ID-002"
+                                                                            ],
+                                                               "observation_ids":  [
+
+                                                                                   ],
+                                                               "assessment":  "ALIGNED_WITH_APPROVED_ANALYSIS"
+                                                           },
+                              "oracle_review":  {
+                                                    "raw_oracle_basis":  "AUTHORITATIVE",
+                                                    "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "assessment":  "SUFFICIENT_FOR_BUSINESS_OR_SECURITY_PASS_FAIL",
+                                                    "notes":  "No unsupported status/schema was added; semantic oracle is sufficient."
+                                                },
+                              "duplicate_of":  null,
+                              "issues":  [
+
+                                         ],
+                              "proposed_correction":  null,
+                              "proposed_action":  "KEEP_AS_GENERATED",
+                              "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                              "human_review_decision":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                              "review_scope":  "PRESERVED_AI_AUDIT_CLASSIFICATION",
+                              "final_disposition":  "INCLUDED_EXECUTABLE"
+                          },
+                          {
+                              "test_case_id":  "API03-AI-009",
+                              "raw_source":  "test-cases/generated/api-03-import-products.json#API03-AI-009",
+                              "classification":  "VALID",
+                              "classification_reason":  "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+                              "requirement_traceability":  {
+                                                               "requirement_ids":  [
+                                                                                       "API03-REQ-007"
+                                                                                   ],
+                                                               "gap_ids":  [
+
+                                                                           ],
+                                                               "risk_ids":  [
+                                                                                "API03-ID-002"
+                                                                            ],
+                                                               "observation_ids":  [
+
+                                                                                   ],
+                                                               "assessment":  "ALIGNED_WITH_APPROVED_ANALYSIS"
+                                                           },
+                              "oracle_review":  {
+                                                    "raw_oracle_basis":  "AUTHORITATIVE",
+                                                    "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "assessment":  "SUFFICIENT_FOR_BUSINESS_OR_SECURITY_PASS_FAIL",
+                                                    "notes":  "No unsupported status/schema was added; semantic oracle is sufficient."
+                                                },
+                              "duplicate_of":  null,
+                              "issues":  [
+
+                                         ],
+                              "proposed_correction":  null,
+                              "proposed_action":  "KEEP_AS_GENERATED",
+                              "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                              "human_review_decision":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                              "review_scope":  "PRESERVED_AI_AUDIT_CLASSIFICATION",
+                              "final_disposition":  "INCLUDED_EXECUTABLE"
+                          },
+                          {
+                              "test_case_id":  "API03-AI-010",
+                              "raw_source":  "test-cases/generated/api-03-import-products.json#API03-AI-010",
+                              "classification":  "VALID",
+                              "classification_reason":  "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+                              "requirement_traceability":  {
+                                                               "requirement_ids":  [
+                                                                                       "API03-REQ-007"
+                                                                                   ],
+                                                               "gap_ids":  [
+
+                                                                           ],
+                                                               "risk_ids":  [
+                                                                                "API03-ID-002"
+                                                                            ],
+                                                               "observation_ids":  [
+
+                                                                                   ],
+                                                               "assessment":  "ALIGNED_WITH_APPROVED_ANALYSIS"
+                                                           },
+                              "oracle_review":  {
+                                                    "raw_oracle_basis":  "AUTHORITATIVE",
+                                                    "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "assessment":  "SUFFICIENT_FOR_BUSINESS_OR_SECURITY_PASS_FAIL",
+                                                    "notes":  "No unsupported status/schema was added; semantic oracle is sufficient."
+                                                },
+                              "duplicate_of":  null,
+                              "issues":  [
+
+                                         ],
+                              "proposed_correction":  null,
+                              "proposed_action":  "KEEP_AS_GENERATED",
+                              "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                              "human_review_decision":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                              "review_scope":  "PRESERVED_AI_AUDIT_CLASSIFICATION",
+                              "final_disposition":  "INCLUDED_EXECUTABLE"
+                          },
+                          {
+                              "test_case_id":  "API03-AI-011",
+                              "raw_source":  "test-cases/generated/api-03-import-products.json#API03-AI-011",
+                              "classification":  "VALID",
+                              "classification_reason":  "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+                              "requirement_traceability":  {
+                                                               "requirement_ids":  [
+                                                                                       "API03-REQ-007"
+                                                                                   ],
+                                                               "gap_ids":  [
+
+                                                                           ],
+                                                               "risk_ids":  [
+
+                                                                            ],
+                                                               "observation_ids":  [
+
+                                                                                   ],
+                                                               "assessment":  "ALIGNED_WITH_APPROVED_ANALYSIS"
+                                                           },
+                              "oracle_review":  {
+                                                    "raw_oracle_basis":  "AUTHORITATIVE",
+                                                    "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "assessment":  "SUFFICIENT_FOR_BUSINESS_OR_SECURITY_PASS_FAIL",
+                                                    "notes":  "No unsupported status/schema was added; semantic oracle is sufficient."
+                                                },
+                              "duplicate_of":  null,
+                              "issues":  [
+
+                                         ],
+                              "proposed_correction":  null,
+                              "proposed_action":  "KEEP_AS_GENERATED",
+                              "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                              "human_review_decision":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                              "review_scope":  "PRESERVED_AI_AUDIT_CLASSIFICATION",
+                              "final_disposition":  "INCLUDED_EXECUTABLE"
+                          },
+                          {
+                              "test_case_id":  "API03-AI-012",
+                              "raw_source":  "test-cases/generated/api-03-import-products.json#API03-AI-012",
+                              "classification":  "INCOMPLETE",
+                              "classification_reason":  "Concept/risk \u0027Name dài đúng 255\u0027 có liên quan, nhưng raw case chưa có authoritative oracle, dependency hoặc validation point đủ để trở thành final executable pass/fail test.",
+                              "requirement_traceability":  {
+                                                               "requirement_ids":  [
+                                                                                       "API03-REQ-008"
+                                                                                   ],
+                                                               "gap_ids":  [
+                                                                               "API03-RG-003"
+                                                                           ],
+                                                               "risk_ids":  [
+
+                                                                            ],
+                                                               "observation_ids":  [
+
+                                                                                   ],
+                                                               "assessment":  "SUPPORTING_ONLY_REQUIRES_HUMAN_LINKAGE"
+                                                           },
+                              "oracle_review":  {
+                                                    "raw_oracle_basis":  "OBSERVABLE_ONLY",
+                                                    "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "assessment":  "INSUFFICIENT_FOR_FINAL_PASS_FAIL",
+                                                    "notes":  "Do not invent status/schema while resolving the listed issue."
+                                                },
+                              "duplicate_of":  null,
+                              "issues":  [
+                                             "AMBIGUOUS_EXPECTED_RESULT",
+                                             "REQUIREMENT_GAP_ASSUMPTION",
+                                             "CROSS_FEATURE_OVERREACH"
+                                         ],
+                              "proposed_correction":  "Chỉ áp dụng boundary 255 nếu Human/source liên kết FR-15 với FR-16; nếu không thì defer khỏi final import suite.",
+                              "proposed_action":  "REVISE_BEFORE_FINAL_SUITE",
+                              "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                              "human_review_decision":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                              "review_scope":  "PRESERVED_AI_AUDIT_CLASSIFICATION",
+                              "final_disposition":  "DEFERRED_REQUIREMENT_GAP"
+                          },
+                          {
+                              "test_case_id":  "API03-AI-013",
+                              "raw_source":  "test-cases/generated/api-03-import-products.json#API03-AI-013",
+                              "classification":  "INCOMPLETE",
+                              "classification_reason":  "Concept/risk \u0027Name dài 256\u0027 có liên quan, nhưng raw case chưa có authoritative oracle, dependency hoặc validation point đủ để trở thành final executable pass/fail test.",
+                              "requirement_traceability":  {
+                                                               "requirement_ids":  [
+                                                                                       "API03-REQ-008"
+                                                                                   ],
+                                                               "gap_ids":  [
+                                                                               "API03-RG-003"
+                                                                           ],
+                                                               "risk_ids":  [
+
+                                                                            ],
+                                                               "observation_ids":  [
+
+                                                                                   ],
+                                                               "assessment":  "SUPPORTING_ONLY_REQUIRES_HUMAN_LINKAGE"
+                                                           },
+                              "oracle_review":  {
+                                                    "raw_oracle_basis":  "OBSERVABLE_ONLY",
+                                                    "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "assessment":  "INSUFFICIENT_FOR_FINAL_PASS_FAIL",
+                                                    "notes":  "Do not invent status/schema while resolving the listed issue."
+                                                },
+                              "duplicate_of":  null,
+                              "issues":  [
+                                             "AMBIGUOUS_EXPECTED_RESULT",
+                                             "REQUIREMENT_GAP_ASSUMPTION",
+                                             "CROSS_FEATURE_OVERREACH"
+                                         ],
+                              "proposed_correction":  "Không dùng \u003e255 làm rejection oracle cho tới khi FR-15 applicability được xác nhận.",
+                              "proposed_action":  "REVISE_BEFORE_FINAL_SUITE",
+                              "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                              "human_review_decision":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                              "review_scope":  "PRESERVED_AI_AUDIT_CLASSIFICATION",
+                              "final_disposition":  "DEFERRED_REQUIREMENT_GAP"
+                          },
+                          {
+                              "test_case_id":  "API03-AI-014",
+                              "raw_source":  "test-cases/generated/api-03-import-products.json#API03-AI-014",
+                              "classification":  "INCOMPLETE",
+                              "classification_reason":  "Concept/risk \u0027Batch kích thước lớn\u0027 có liên quan, nhưng raw case chưa có authoritative oracle, dependency hoặc validation point đủ để trở thành final executable pass/fail test.",
+                              "requirement_traceability":  {
+                                                               "requirement_ids":  [
+                                                                                       "API03-REQ-004"
+                                                                                   ],
+                                                               "gap_ids":  [
+                                                                               "API03-RG-002"
+                                                                           ],
+                                                               "risk_ids":  [
+
+                                                                            ],
+                                                               "observation_ids":  [
+
+                                                                                   ],
+                                                               "assessment":  "ALIGNED_WITH_APPROVED_ANALYSIS"
+                                                           },
+                              "oracle_review":  {
+                                                    "raw_oracle_basis":  "OBSERVABLE_ONLY",
+                                                    "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "assessment":  "INSUFFICIENT_FOR_FINAL_PASS_FAIL",
+                                                    "notes":  "Do not invent status/schema while resolving the listed issue."
+                                                },
+                              "duplicate_of":  null,
+                              "issues":  [
+                                             "AMBIGUOUS_EXPECTED_RESULT",
+                                             "REQUIREMENT_GAP_ASSUMPTION",
+                                             "MISSING_STATE_SETUP"
+                                         ],
+                              "proposed_correction":  "Cần authoritative capacity limit và reproducible large-batch fixture; không gọi một kích thước tự chọn là maximum.",
+                              "proposed_action":  "REVISE_BEFORE_FINAL_SUITE",
+                              "human_review_status":  "HUMAN_REVIEW_DECISION_APPLIED",
+                              "human_review_decision":  "APPROVE_CLASSIFICATION",
+                              "review_scope":  "TARGETED_CASE_REVIEW",
+                              "final_disposition":  "DEFERRED_REQUIREMENT_GAP"
+                          },
+                          {
+                              "test_case_id":  "API03-AI-015",
+                              "raw_source":  "test-cases/generated/api-03-import-products.json#API03-AI-015",
+                              "classification":  "INCOMPLETE",
+                              "classification_reason":  "Concept/risk \u0027Price có nhiều chữ số thập phân\u0027 có liên quan, nhưng raw case chưa có authoritative oracle, dependency hoặc validation point đủ để trở thành final executable pass/fail test.",
+                              "requirement_traceability":  {
+                                                               "requirement_ids":  [
+                                                                                       "API03-REQ-007"
+                                                                                   ],
+                                                               "gap_ids":  [
+                                                                               "API03-RG-005"
+                                                                           ],
+                                                               "risk_ids":  [
+
+                                                                            ],
+                                                               "observation_ids":  [
+
+                                                                                   ],
+                                                               "assessment":  "ALIGNED_WITH_APPROVED_ANALYSIS"
+                                                           },
+                              "oracle_review":  {
+                                                    "raw_oracle_basis":  "OBSERVABLE_ONLY",
+                                                    "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "assessment":  "INSUFFICIENT_FOR_FINAL_PASS_FAIL",
+                                                    "notes":  "Do not invent status/schema while resolving the listed issue."
+                                                },
+                              "duplicate_of":  null,
+                              "issues":  [
+                                             "AMBIGUOUS_EXPECTED_RESULT",
+                                             "REQUIREMENT_GAP_ASSUMPTION"
+                                         ],
+                              "proposed_correction":  "Xác định price precision/rounding contract hoặc chuyển thành observation với persisted-value evidence.",
+                              "proposed_action":  "REVISE_BEFORE_FINAL_SUITE",
+                              "human_review_status":  "HUMAN_REVIEW_DECISION_APPLIED",
+                              "human_review_decision":  "APPROVE_CLASSIFICATION",
+                              "review_scope":  "TARGETED_CASE_REVIEW",
+                              "final_disposition":  "DEFERRED_REQUIREMENT_GAP"
+                          },
+                          {
+                              "test_case_id":  "API03-AI-016",
+                              "raw_source":  "test-cases/generated/api-03-import-products.json#API03-AI-016",
+                              "classification":  "VALID",
+                              "classification_reason":  "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+                              "requirement_traceability":  {
+                                                               "requirement_ids":  [
+                                                                                       "API03-REQ-009"
+                                                                                   ],
+                                                               "gap_ids":  [
+
+                                                                           ],
+                                                               "risk_ids":  [
+                                                                                "API03-ID-003"
+                                                                            ],
+                                                               "observation_ids":  [
+
+                                                                                   ],
+                                                               "assessment":  "ALIGNED_WITH_APPROVED_ANALYSIS"
+                                                           },
+                              "oracle_review":  {
+                                                    "raw_oracle_basis":  "AUTHORITATIVE",
+                                                    "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "assessment":  "SUFFICIENT_FOR_BUSINESS_OR_SECURITY_PASS_FAIL",
+                                                    "notes":  "No unsupported status/schema was added; semantic oracle is sufficient."
+                                                },
+                              "duplicate_of":  null,
+                              "issues":  [
+
+                                         ],
+                              "proposed_correction":  null,
+                              "proposed_action":  "KEEP_AS_GENERATED",
+                              "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                              "human_review_decision":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                              "review_scope":  "PRESERVED_AI_AUDIT_CLASSIFICATION",
+                              "final_disposition":  "INCLUDED_EXECUTABLE"
+                          },
+                          {
+                              "test_case_id":  "API03-AI-017",
+                              "raw_source":  "test-cases/generated/api-03-import-products.json#API03-AI-017",
+                              "classification":  "VALID",
+                              "classification_reason":  "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+                              "requirement_traceability":  {
+                                                               "requirement_ids":  [
+                                                                                       "API03-REQ-007",
+                                                                                       "API03-REQ-009"
+                                                                                   ],
+                                                               "gap_ids":  [
+
+                                                                           ],
+                                                               "risk_ids":  [
+                                                                                "API03-ID-003"
+                                                                            ],
+                                                               "observation_ids":  [
+
+                                                                                   ],
+                                                               "assessment":  "ALIGNED_WITH_APPROVED_ANALYSIS"
+                                                           },
+                              "oracle_review":  {
+                                                    "raw_oracle_basis":  "AUTHORITATIVE",
+                                                    "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "assessment":  "SUFFICIENT_FOR_BUSINESS_OR_SECURITY_PASS_FAIL",
+                                                    "notes":  "No unsupported status/schema was added; semantic oracle is sufficient."
+                                                },
+                              "duplicate_of":  null,
+                              "issues":  [
+
+                                         ],
+                              "proposed_correction":  null,
+                              "proposed_action":  "KEEP_AS_GENERATED",
+                              "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                              "human_review_decision":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                              "review_scope":  "PRESERVED_AI_AUDIT_CLASSIFICATION",
+                              "final_disposition":  "INCLUDED_EXECUTABLE"
+                          },
+                          {
+                              "test_case_id":  "API03-AI-018",
+                              "raw_source":  "test-cases/generated/api-03-import-products.json#API03-AI-018",
+                              "classification":  "VALID",
+                              "classification_reason":  "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+                              "requirement_traceability":  {
+                                                               "requirement_ids":  [
+                                                                                       "API03-REQ-007",
+                                                                                       "API03-REQ-009"
+                                                                                   ],
+                                                               "gap_ids":  [
+
+                                                                           ],
+                                                               "risk_ids":  [
+                                                                                "API03-ID-003"
+                                                                            ],
+                                                               "observation_ids":  [
+
+                                                                                   ],
+                                                               "assessment":  "ALIGNED_WITH_APPROVED_ANALYSIS"
+                                                           },
+                              "oracle_review":  {
+                                                    "raw_oracle_basis":  "AUTHORITATIVE",
+                                                    "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "assessment":  "SUFFICIENT_FOR_BUSINESS_OR_SECURITY_PASS_FAIL",
+                                                    "notes":  "No unsupported status/schema was added; semantic oracle is sufficient."
+                                                },
+                              "duplicate_of":  null,
+                              "issues":  [
+
+                                         ],
+                              "proposed_correction":  null,
+                              "proposed_action":  "KEEP_AS_GENERATED",
+                              "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                              "human_review_decision":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                              "review_scope":  "PRESERVED_AI_AUDIT_CLASSIFICATION",
+                              "final_disposition":  "INCLUDED_EXECUTABLE"
+                          },
+                          {
+                              "test_case_id":  "API03-AI-019",
+                              "raw_source":  "test-cases/generated/api-03-import-products.json#API03-AI-019",
+                              "classification":  "VALID",
+                              "classification_reason":  "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+                              "requirement_traceability":  {
+                                                               "requirement_ids":  [
+                                                                                       "API03-REQ-007",
+                                                                                       "API03-REQ-009"
+                                                                                   ],
+                                                               "gap_ids":  [
+
+                                                                           ],
+                                                               "risk_ids":  [
+                                                                                "API03-ID-003"
+                                                                            ],
+                                                               "observation_ids":  [
+
+                                                                                   ],
+                                                               "assessment":  "ALIGNED_WITH_APPROVED_ANALYSIS"
+                                                           },
+                              "oracle_review":  {
+                                                    "raw_oracle_basis":  "AUTHORITATIVE",
+                                                    "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "assessment":  "SUFFICIENT_FOR_BUSINESS_OR_SECURITY_PASS_FAIL",
+                                                    "notes":  "No unsupported status/schema was added; semantic oracle is sufficient."
+                                                },
+                              "duplicate_of":  null,
+                              "issues":  [
+
+                                         ],
+                              "proposed_correction":  null,
+                              "proposed_action":  "KEEP_AS_GENERATED",
+                              "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                              "human_review_decision":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                              "review_scope":  "PRESERVED_AI_AUDIT_CLASSIFICATION",
+                              "final_disposition":  "INCLUDED_EXECUTABLE"
+                          },
+                          {
+                              "test_case_id":  "API03-AI-020",
+                              "raw_source":  "test-cases/generated/api-03-import-products.json#API03-AI-020",
+                              "classification":  "VALID",
+                              "classification_reason":  "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+                              "requirement_traceability":  {
+                                                               "requirement_ids":  [
+                                                                                       "API03-REQ-007",
+                                                                                       "API03-REQ-009"
+                                                                                   ],
+                                                               "gap_ids":  [
+
+                                                                           ],
+                                                               "risk_ids":  [
+                                                                                "API03-ID-003"
+                                                                            ],
+                                                               "observation_ids":  [
+
+                                                                                   ],
+                                                               "assessment":  "ALIGNED_WITH_APPROVED_ANALYSIS"
+                                                           },
+                              "oracle_review":  {
+                                                    "raw_oracle_basis":  "AUTHORITATIVE",
+                                                    "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "assessment":  "SUFFICIENT_FOR_BUSINESS_OR_SECURITY_PASS_FAIL",
+                                                    "notes":  "No unsupported status/schema was added; semantic oracle is sufficient."
+                                                },
+                              "duplicate_of":  null,
+                              "issues":  [
+
+                                         ],
+                              "proposed_correction":  null,
+                              "proposed_action":  "KEEP_AS_GENERATED",
+                              "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                              "human_review_decision":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                              "review_scope":  "PRESERVED_AI_AUDIT_CLASSIFICATION",
+                              "final_disposition":  "INCLUDED_EXECUTABLE"
+                          },
+                          {
+                              "test_case_id":  "API03-AI-021",
+                              "raw_source":  "test-cases/generated/api-03-import-products.json#API03-AI-021",
+                              "classification":  "VALID",
+                              "classification_reason":  "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+                              "requirement_traceability":  {
+                                                               "requirement_ids":  [
+                                                                                       "API03-REQ-009"
+                                                                                   ],
+                                                               "gap_ids":  [
+
+                                                                           ],
+                                                               "risk_ids":  [
+
+                                                                            ],
+                                                               "observation_ids":  [
+
+                                                                                   ],
+                                                               "assessment":  "ALIGNED_WITH_APPROVED_ANALYSIS"
+                                                           },
+                              "oracle_review":  {
+                                                    "raw_oracle_basis":  "AUTHORITATIVE",
+                                                    "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "assessment":  "SUFFICIENT_FOR_BUSINESS_OR_SECURITY_PASS_FAIL",
+                                                    "notes":  "No unsupported status/schema was added; semantic oracle is sufficient."
+                                                },
+                              "duplicate_of":  null,
+                              "issues":  [
+
+                                         ],
+                              "proposed_correction":  null,
+                              "proposed_action":  "KEEP_AS_GENERATED",
+                              "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                              "human_review_decision":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                              "review_scope":  "PRESERVED_AI_AUDIT_CLASSIFICATION",
+                              "final_disposition":  "INCLUDED_EXECUTABLE"
+                          },
+                          {
+                              "test_case_id":  "API03-AI-022",
+                              "raw_source":  "test-cases/generated/api-03-import-products.json#API03-AI-022",
+                              "classification":  "VALID",
+                              "classification_reason":  "Transport details are unspecified, but the raw case retains a requirement-backed business/state oracle sufficient for execution.",
+                              "requirement_traceability":  {
+                                                               "requirement_ids":  [
+                                                                                       "API03-REQ-010"
+                                                                                   ],
+                                                               "gap_ids":  [
+                                                                               "API03-RG-004"
+                                                                           ],
+                                                               "risk_ids":  [
+
+                                                                            ],
+                                                               "observation_ids":  [
+                                                                                       "API03-ID-004"
+                                                                                   ],
+                                                               "assessment":  "ALIGNED_WITH_APPROVED_ANALYSIS"
+                                                           },
+                              "oracle_review":  {
+                                                    "raw_oracle_basis":  "PARTIALLY_SPECIFIED",
+                                                    "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "assessment":  "SUFFICIENT_FOR_BUSINESS_OR_SECURITY_PASS_FAIL",
+                                                    "notes":  "No unsupported status/schema was added; semantic oracle is sufficient."
+                                                },
+                              "duplicate_of":  null,
+                              "issues":  [
+
+                                         ],
+                              "proposed_correction":  null,
+                              "proposed_action":  "KEEP_AS_GENERATED",
+                              "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                              "human_review_decision":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                              "review_scope":  "PRESERVED_AI_AUDIT_CLASSIFICATION",
+                              "final_disposition":  "INCLUDED_EXECUTABLE"
+                          },
+                          {
+                              "test_case_id":  "API03-AI-023",
+                              "raw_source":  "test-cases/generated/api-03-import-products.json#API03-AI-023",
+                              "classification":  "VALID",
+                              "classification_reason":  "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+                              "requirement_traceability":  {
+                                                               "requirement_ids":  [
+                                                                                       "API03-REQ-002",
+                                                                                       "API03-REQ-011"
+                                                                                   ],
+                                                               "gap_ids":  [
+
+                                                                           ],
+                                                               "risk_ids":  [
+
+                                                                            ],
+                                                               "observation_ids":  [
+
+                                                                                   ],
+                                                               "assessment":  "ALIGNED_WITH_APPROVED_ANALYSIS"
+                                                           },
+                              "oracle_review":  {
+                                                    "raw_oracle_basis":  "AUTHORITATIVE",
+                                                    "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "assessment":  "SUFFICIENT_FOR_BUSINESS_OR_SECURITY_PASS_FAIL",
+                                                    "notes":  "No unsupported status/schema was added; semantic oracle is sufficient."
+                                                },
+                              "duplicate_of":  null,
+                              "issues":  [
+
+                                         ],
+                              "proposed_correction":  null,
+                              "proposed_action":  "KEEP_AS_GENERATED",
+                              "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                              "human_review_decision":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                              "review_scope":  "PRESERVED_AI_AUDIT_CLASSIFICATION",
+                              "final_disposition":  "INCLUDED_EXECUTABLE"
+                          },
+                          {
+                              "test_case_id":  "API03-AI-024",
+                              "raw_source":  "test-cases/generated/api-03-import-products.json#API03-AI-024",
+                              "classification":  "VALID",
+                              "classification_reason":  "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+                              "requirement_traceability":  {
+                                                               "requirement_ids":  [
+                                                                                       "API03-REQ-002",
+                                                                                       "API03-REQ-011"
+                                                                                   ],
+                                                               "gap_ids":  [
+
+                                                                           ],
+                                                               "risk_ids":  [
+
+                                                                            ],
+                                                               "observation_ids":  [
+
+                                                                                   ],
+                                                               "assessment":  "ALIGNED_WITH_APPROVED_ANALYSIS"
+                                                           },
+                              "oracle_review":  {
+                                                    "raw_oracle_basis":  "AUTHORITATIVE",
+                                                    "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "assessment":  "SUFFICIENT_FOR_BUSINESS_OR_SECURITY_PASS_FAIL",
+                                                    "notes":  "No unsupported status/schema was added; semantic oracle is sufficient."
+                                                },
+                              "duplicate_of":  null,
+                              "issues":  [
+
+                                         ],
+                              "proposed_correction":  null,
+                              "proposed_action":  "KEEP_AS_GENERATED",
+                              "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                              "human_review_decision":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                              "review_scope":  "PRESERVED_AI_AUDIT_CLASSIFICATION",
+                              "final_disposition":  "INCLUDED_EXECUTABLE"
+                          },
+                          {
+                              "test_case_id":  "API03-AI-025",
+                              "raw_source":  "test-cases/generated/api-03-import-products.json#API03-AI-025",
+                              "classification":  "VALID",
+                              "classification_reason":  "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+                              "requirement_traceability":  {
+                                                               "requirement_ids":  [
+                                                                                       "API03-REQ-002",
+                                                                                       "API03-REQ-011"
+                                                                                   ],
+                                                               "gap_ids":  [
+
+                                                                           ],
+                                                               "risk_ids":  [
+
+                                                                            ],
+                                                               "observation_ids":  [
+
+                                                                                   ],
+                                                               "assessment":  "ALIGNED_WITH_APPROVED_ANALYSIS"
+                                                           },
+                              "oracle_review":  {
+                                                    "raw_oracle_basis":  "AUTHORITATIVE",
+                                                    "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "assessment":  "SUFFICIENT_FOR_BUSINESS_OR_SECURITY_PASS_FAIL",
+                                                    "notes":  "No unsupported status/schema was added; semantic oracle is sufficient."
+                                                },
+                              "duplicate_of":  null,
+                              "issues":  [
+
+                                         ],
+                              "proposed_correction":  null,
+                              "proposed_action":  "KEEP_AS_GENERATED",
+                              "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                              "human_review_decision":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                              "review_scope":  "PRESERVED_AI_AUDIT_CLASSIFICATION",
+                              "final_disposition":  "INCLUDED_EXECUTABLE"
+                          },
+                          {
+                              "test_case_id":  "API03-AI-026",
+                              "raw_source":  "test-cases/generated/api-03-import-products.json#API03-AI-026",
+                              "classification":  "VALID",
+                              "classification_reason":  "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+                              "requirement_traceability":  {
+                                                               "requirement_ids":  [
+                                                                                       "API03-REQ-002",
+                                                                                       "API03-REQ-003"
+                                                                                   ],
+                                                               "gap_ids":  [
+
+                                                                           ],
+                                                               "risk_ids":  [
+                                                                                "API03-ID-001"
+                                                                            ],
+                                                               "observation_ids":  [
+
+                                                                                   ],
+                                                               "assessment":  "ALIGNED_WITH_APPROVED_ANALYSIS"
+                                                           },
+                              "oracle_review":  {
+                                                    "raw_oracle_basis":  "AUTHORITATIVE",
+                                                    "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "assessment":  "SUFFICIENT_FOR_BUSINESS_OR_SECURITY_PASS_FAIL",
+                                                    "notes":  "No unsupported status/schema was added; semantic oracle is sufficient."
+                                                },
+                              "duplicate_of":  null,
+                              "issues":  [
+
+                                         ],
+                              "proposed_correction":  null,
+                              "proposed_action":  "KEEP_AS_GENERATED",
+                              "human_review_status":  "HUMAN_REVIEW_DECISION_APPLIED",
+                              "human_review_decision":  "APPROVE_CLASSIFICATION",
+                              "review_scope":  "TARGETED_CASE_REVIEW",
+                              "final_disposition":  "INCLUDED_EXECUTABLE"
+                          },
+                          {
+                              "test_case_id":  "API03-AI-027",
+                              "raw_source":  "test-cases/generated/api-03-import-products.json#API03-AI-027",
+                              "classification":  "VALID",
+                              "classification_reason":  "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+                              "requirement_traceability":  {
+                                                               "requirement_ids":  [
+                                                                                       "API03-REQ-002",
+                                                                                       "API03-REQ-003"
+                                                                                   ],
+                                                               "gap_ids":  [
+
+                                                                           ],
+                                                               "risk_ids":  [
+
+                                                                            ],
+                                                               "observation_ids":  [
+
+                                                                                   ],
+                                                               "assessment":  "ALIGNED_WITH_APPROVED_ANALYSIS"
+                                                           },
+                              "oracle_review":  {
+                                                    "raw_oracle_basis":  "AUTHORITATIVE",
+                                                    "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "assessment":  "SUFFICIENT_FOR_BUSINESS_OR_SECURITY_PASS_FAIL",
+                                                    "notes":  "No unsupported status/schema was added; semantic oracle is sufficient."
+                                                },
+                              "duplicate_of":  null,
+                              "issues":  [
+
+                                         ],
+                              "proposed_correction":  null,
+                              "proposed_action":  "KEEP_AS_GENERATED",
+                              "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                              "human_review_decision":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                              "review_scope":  "PRESERVED_AI_AUDIT_CLASSIFICATION",
+                              "final_disposition":  "INCLUDED_EXECUTABLE"
+                          },
+                          {
+                              "test_case_id":  "API03-AI-028",
+                              "raw_source":  "test-cases/generated/api-03-import-products.json#API03-AI-028",
+                              "classification":  "VALID",
+                              "classification_reason":  "Applicable security invariant provides a meaningful pass/fail target even though exact HTTP status and response schema remain unspecified.",
+                              "requirement_traceability":  {
+                                                               "requirement_ids":  [
+                                                                                       "API03-REQ-003"
+                                                                                   ],
+                                                               "gap_ids":  [
+
+                                                                           ],
+                                                               "risk_ids":  [
+                                                                                "API03-RISK-ROLE-TAMPERING"
+                                                                            ],
+                                                               "observation_ids":  [
+
+                                                                                   ],
+                                                               "assessment":  "ALIGNED_WITH_APPROVED_ANALYSIS"
+                                                           },
+                              "oracle_review":  {
+                                                    "raw_oracle_basis":  "SECURITY_EXPECTATION",
+                                                    "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "assessment":  "SUFFICIENT_FOR_BUSINESS_OR_SECURITY_PASS_FAIL",
+                                                    "notes":  "No unsupported status/schema was added; semantic oracle is sufficient."
+                                                },
+                              "duplicate_of":  null,
+                              "issues":  [
+
+                                         ],
+                              "proposed_correction":  null,
+                              "proposed_action":  "KEEP_AS_GENERATED",
+                              "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                              "human_review_decision":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                              "review_scope":  "PRESERVED_AI_AUDIT_CLASSIFICATION",
+                              "final_disposition":  "INCLUDED_EXECUTABLE"
+                          },
+                          {
+                              "test_case_id":  "API03-AI-029",
+                              "raw_source":  "test-cases/generated/api-03-import-products.json#API03-AI-029",
+                              "classification":  "VALID",
+                              "classification_reason":  "Applicable security invariant provides a meaningful pass/fail target even though exact HTTP status and response schema remain unspecified.",
+                              "requirement_traceability":  {
+                                                               "requirement_ids":  [
+                                                                                       "API03-REQ-007",
+                                                                                       "API03-REQ-011"
+                                                                                   ],
+                                                               "gap_ids":  [
+
+                                                                           ],
+                                                               "risk_ids":  [
+                                                                                "API03-RISK-INJECTION"
+                                                                            ],
+                                                               "observation_ids":  [
+                                                                                       "API03-ID-005"
+                                                                                   ],
+                                                               "assessment":  "ALIGNED_WITH_APPROVED_ANALYSIS"
+                                                           },
+                              "oracle_review":  {
+                                                    "raw_oracle_basis":  "SECURITY_EXPECTATION",
+                                                    "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "assessment":  "SUFFICIENT_FOR_BUSINESS_OR_SECURITY_PASS_FAIL",
+                                                    "notes":  "No unsupported status/schema was added; semantic oracle is sufficient."
+                                                },
+                              "duplicate_of":  null,
+                              "issues":  [
+
+                                         ],
+                              "proposed_correction":  null,
+                              "proposed_action":  "KEEP_AS_GENERATED",
+                              "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                              "human_review_decision":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                              "review_scope":  "PRESERVED_AI_AUDIT_CLASSIFICATION",
+                              "final_disposition":  "INCLUDED_EXECUTABLE"
+                          },
+                          {
+                              "test_case_id":  "API03-AI-030",
+                              "raw_source":  "test-cases/generated/api-03-import-products.json#API03-AI-030",
+                              "classification":  "INCOMPLETE",
+                              "classification_reason":  "Concept/risk \u0027Unexpected privileged fields\u0027 có liên quan, nhưng raw case chưa có authoritative oracle, dependency hoặc validation point đủ để trở thành final executable pass/fail test.",
+                              "requirement_traceability":  {
+                                                               "requirement_ids":  [
+                                                                                       "API03-REQ-005"
+                                                                                   ],
+                                                               "gap_ids":  [
+                                                                               "API03-RG-003"
+                                                                           ],
+                                                               "risk_ids":  [
+                                                                                "API03-RISK-MASS-ASSIGNMENT"
+                                                                            ],
+                                                               "observation_ids":  [
+
+                                                                                   ],
+                                                               "assessment":  "ALIGNED_WITH_APPROVED_ANALYSIS"
+                                                           },
+                              "oracle_review":  {
+                                                    "raw_oracle_basis":  "OBSERVABLE_ONLY",
+                                                    "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "assessment":  "INSUFFICIENT_FOR_FINAL_PASS_FAIL",
+                                                    "notes":  "Do not invent status/schema while resolving the listed issue."
+                                                },
+                              "duplicate_of":  null,
+                              "issues":  [
+                                             "AMBIGUOUS_EXPECTED_RESULT",
+                                             "REQUIREMENT_GAP_ASSUMPTION",
+                                             "SECURITY_REASONING_GAP"
+                                         ],
+                              "proposed_correction":  "Xác định allowed/additional item fields và protected-field invariant trước khi dùng mass-assignment pass/fail oracle.",
+                              "proposed_action":  "REVISE_BEFORE_FINAL_SUITE",
+                              "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                              "human_review_decision":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                              "review_scope":  "PRESERVED_AI_AUDIT_CLASSIFICATION",
+                              "final_disposition":  "DEFERRED_REQUIREMENT_GAP"
+                          },
+                          {
+                              "test_case_id":  "API03-AI-031",
+                              "raw_source":  "test-cases/generated/api-03-import-products.json#API03-AI-031",
+                              "classification":  "VALID",
+                              "classification_reason":  "Transport details are unspecified, but the raw case retains a requirement-backed business/state oracle sufficient for execution.",
+                              "requirement_traceability":  {
+                                                               "requirement_ids":  [
+                                                                                       "API03-REQ-001",
+                                                                                       "API03-REQ-004",
+                                                                                       "API03-REQ-005"
+                                                                                   ],
+                                                               "gap_ids":  [
+                                                                               "API03-RG-004"
+                                                                           ],
+                                                               "risk_ids":  [
+
+                                                                            ],
+                                                               "observation_ids":  [
+
+                                                                                   ],
+                                                               "assessment":  "ALIGNED_WITH_APPROVED_ANALYSIS"
+                                                           },
+                              "oracle_review":  {
+                                                    "raw_oracle_basis":  "PARTIALLY_SPECIFIED",
+                                                    "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "assessment":  "SUFFICIENT_FOR_BUSINESS_OR_SECURITY_PASS_FAIL",
+                                                    "notes":  "No unsupported status/schema was added; semantic oracle is sufficient."
+                                                },
+                              "duplicate_of":  null,
+                              "issues":  [
+
+                                         ],
+                              "proposed_correction":  null,
+                              "proposed_action":  "KEEP_AS_GENERATED",
+                              "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                              "human_review_decision":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                              "review_scope":  "PRESERVED_AI_AUDIT_CLASSIFICATION",
+                              "final_disposition":  "INCLUDED_EXECUTABLE"
+                          },
+                          {
+                              "test_case_id":  "API03-AI-032",
+                              "raw_source":  "test-cases/generated/api-03-import-products.json#API03-AI-032",
+                              "classification":  "INCOMPLETE",
+                              "classification_reason":  "Concept/risk \u0027Thiếu optionality-unknown fields\u0027 có liên quan, nhưng raw case chưa có authoritative oracle, dependency hoặc validation point đủ để trở thành final executable pass/fail test.",
+                              "requirement_traceability":  {
+                                                               "requirement_ids":  [
+                                                                                       "API03-REQ-005"
+                                                                                   ],
+                                                               "gap_ids":  [
+                                                                               "API03-RG-003"
+                                                                           ],
+                                                               "risk_ids":  [
+
+                                                                            ],
+                                                               "observation_ids":  [
+
+                                                                                   ],
+                                                               "assessment":  "SUPPORTING_ONLY_REQUIRES_HUMAN_LINKAGE"
+                                                           },
+                              "oracle_review":  {
+                                                    "raw_oracle_basis":  "OBSERVABLE_ONLY",
+                                                    "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "assessment":  "INSUFFICIENT_FOR_FINAL_PASS_FAIL",
+                                                    "notes":  "Do not invent status/schema while resolving the listed issue."
+                                                },
+                              "duplicate_of":  null,
+                              "issues":  [
+                                             "AMBIGUOUS_EXPECTED_RESULT",
+                                             "REQUIREMENT_GAP_ASSUMPTION",
+                                             "CROSS_FEATURE_OVERREACH"
+                                         ],
+                              "proposed_correction":  "Xác định optionality của description, imageUrl, category_id cho import; FR-15 không tự tạo direct oracle.",
+                              "proposed_action":  "REVISE_BEFORE_FINAL_SUITE",
+                              "human_review_status":  "HUMAN_REVIEW_DECISION_APPLIED",
+                              "human_review_decision":  "APPROVE_CLASSIFICATION",
+                              "review_scope":  "TARGETED_CASE_REVIEW",
+                              "final_disposition":  "DEFERRED_REQUIREMENT_GAP"
+                          },
+                          {
+                              "test_case_id":  "API03-AI-033",
+                              "raw_source":  "test-cases/generated/api-03-import-products.json#API03-AI-033",
+                              "classification":  "INCOMPLETE",
+                              "classification_reason":  "Concept/risk \u0027Sai type description\u0027 có liên quan, nhưng raw case chưa có authoritative oracle, dependency hoặc validation point đủ để trở thành final executable pass/fail test.",
+                              "requirement_traceability":  {
+                                                               "requirement_ids":  [
+                                                                                       "API03-REQ-005"
+                                                                                   ],
+                                                               "gap_ids":  [
+                                                                               "API03-RG-003"
+                                                                           ],
+                                                               "risk_ids":  [
+
+                                                                            ],
+                                                               "observation_ids":  [
+
+                                                                                   ],
+                                                               "assessment":  "ALIGNED_WITH_APPROVED_ANALYSIS"
+                                                           },
+                              "oracle_review":  {
+                                                    "raw_oracle_basis":  "OBSERVABLE_ONLY",
+                                                    "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "assessment":  "INSUFFICIENT_FOR_FINAL_PASS_FAIL",
+                                                    "notes":  "Do not invent status/schema while resolving the listed issue."
+                                                },
+                              "duplicate_of":  null,
+                              "issues":  [
+                                             "AMBIGUOUS_EXPECTED_RESULT",
+                                             "REQUIREMENT_GAP_ASSUMPTION"
+                                         ],
+                              "proposed_correction":  "Xác định type constraint cho description hoặc giữ parser robustness observation.",
+                              "proposed_action":  "REVISE_BEFORE_FINAL_SUITE",
+                              "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                              "human_review_decision":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                              "review_scope":  "PRESERVED_AI_AUDIT_CLASSIFICATION",
+                              "final_disposition":  "DEFERRED_REQUIREMENT_GAP"
+                          },
+                          {
+                              "test_case_id":  "API03-AI-034",
+                              "raw_source":  "test-cases/generated/api-03-import-products.json#API03-AI-034",
+                              "classification":  "INCOMPLETE",
+                              "classification_reason":  "Concept/risk \u0027category_id không tồn tại\u0027 có liên quan, nhưng raw case chưa có authoritative oracle, dependency hoặc validation point đủ để trở thành final executable pass/fail test.",
+                              "requirement_traceability":  {
+                                                               "requirement_ids":  [
+                                                                                       "API03-REQ-005"
+                                                                                   ],
+                                                               "gap_ids":  [
+                                                                               "API03-RG-003"
+                                                                           ],
+                                                               "risk_ids":  [
+
+                                                                            ],
+                                                               "observation_ids":  [
+
+                                                                                   ],
+                                                               "assessment":  "SUPPORTING_ONLY_REQUIRES_HUMAN_LINKAGE"
+                                                           },
+                              "oracle_review":  {
+                                                    "raw_oracle_basis":  "OBSERVABLE_ONLY",
+                                                    "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "assessment":  "INSUFFICIENT_FOR_FINAL_PASS_FAIL",
+                                                    "notes":  "Do not invent status/schema while resolving the listed issue."
+                                                },
+                              "duplicate_of":  null,
+                              "issues":  [
+                                             "AMBIGUOUS_EXPECTED_RESULT",
+                                             "REQUIREMENT_GAP_ASSUMPTION",
+                                             "CROSS_FEATURE_OVERREACH"
+                                         ],
+                              "proposed_correction":  "Cần FR-16 category-reference rule; không suy diễn nonexistent category phải accept/reject.",
+                              "proposed_action":  "REVISE_BEFORE_FINAL_SUITE",
+                              "human_review_status":  "HUMAN_REVIEW_DECISION_APPLIED",
+                              "human_review_decision":  "APPROVE_CLASSIFICATION",
+                              "review_scope":  "TARGETED_CASE_REVIEW",
+                              "final_disposition":  "DEFERRED_REQUIREMENT_GAP"
+                          },
+                          {
+                              "test_case_id":  "API03-AI-035",
+                              "raw_source":  "test-cases/generated/api-03-import-products.json#API03-AI-035",
+                              "classification":  "VALID",
+                              "classification_reason":  "Transport details are unspecified, but the raw case retains a requirement-backed business/state oracle sufficient for execution.",
+                              "requirement_traceability":  {
+                                                               "requirement_ids":  [
+                                                                                       "API03-REQ-004",
+                                                                                       "API03-REQ-006"
+                                                                                   ],
+                                                               "gap_ids":  [
+                                                                               "API03-RG-001"
+                                                                           ],
+                                                               "risk_ids":  [
+
+                                                                            ],
+                                                               "observation_ids":  [
+
+                                                                                   ],
+                                                               "assessment":  "CORRECTED_PRIMARY_API_CONTRACT_WITH_SUPPORTING_CSV_CONTEXT",
+                                                               "primary_requirement":  "API03-REQ-004",
+                                                               "supporting_context":  [
+                                                                                          "API03-REQ-006"
+                                                                                      ]
+                                                           },
+                              "oracle_review":  {
+                                                    "raw_oracle_basis":  "PARTIALLY_SPECIFIED",
+                                                    "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "assessment":  "SUFFICIENT_FOR_BUSINESS_OR_SECURITY_PASS_FAIL",
+                                                    "notes":  "No unsupported status/schema was added; semantic oracle is sufficient."
+                                                },
+                              "duplicate_of":  null,
+                              "issues":  [
+
+                                         ],
+                              "proposed_correction":  "Traceability corrected: API03-REQ-004 is primary, API03-RG-001 is the related representation gap, and API03-REQ-006 remains supporting context.",
+                              "proposed_action":  "KEEP_AS_GENERATED",
+                              "human_review_status":  "HUMAN_REVIEW_DECISION_APPLIED",
+                              "human_review_decision":  "MODIFY_CORRECTION",
+                              "review_scope":  "TARGETED_CASE_REVIEW",
+                              "final_disposition":  "INCLUDED_EXECUTABLE"
+                          },
+                          {
+                              "test_case_id":  "API03-AI-036",
+                              "raw_source":  "test-cases/generated/api-03-import-products.json#API03-AI-036",
+                              "classification":  "INCOMPLETE",
+                              "classification_reason":  "Concept/risk \u0027Name chỉ whitespace\u0027 có liên quan, nhưng raw case chưa có authoritative oracle, dependency hoặc validation point đủ để trở thành final executable pass/fail test.",
+                              "requirement_traceability":  {
+                                                               "requirement_ids":  [
+                                                                                       "API03-REQ-007"
+                                                                                   ],
+                                                               "gap_ids":  [
+                                                                               "API03-RG-005"
+                                                                           ],
+                                                               "risk_ids":  [
+                                                                                "API03-ID-002"
+                                                                            ],
+                                                               "observation_ids":  [
+
+                                                                                   ],
+                                                               "assessment":  "ALIGNED_WITH_APPROVED_ANALYSIS"
+                                                           },
+                              "oracle_review":  {
+                                                    "raw_oracle_basis":  "OBSERVABLE_ONLY",
+                                                    "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "assessment":  "INSUFFICIENT_FOR_FINAL_PASS_FAIL",
+                                                    "notes":  "Do not invent status/schema while resolving the listed issue."
+                                                },
+                              "duplicate_of":  null,
+                              "issues":  [
+                                             "AMBIGUOUS_EXPECTED_RESULT",
+                                             "REQUIREMENT_GAP_ASSUMPTION"
+                                         ],
+                              "proposed_correction":  "Xác định trim/whitespace semantics cho non-empty name trước khi có final oracle.",
+                              "proposed_action":  "REVISE_BEFORE_FINAL_SUITE",
+                              "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                              "human_review_decision":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                              "review_scope":  "PRESERVED_AI_AUDIT_CLASSIFICATION",
+                              "final_disposition":  "DEFERRED_REQUIREMENT_GAP"
+                          },
+                          {
+                              "test_case_id":  "API03-AI-037",
+                              "raw_source":  "test-cases/generated/api-03-import-products.json#API03-AI-037",
+                              "classification":  "INCOMPLETE",
+                              "classification_reason":  "Concept/risk \u0027Price dạng chuỗi số\u0027 có liên quan, nhưng raw case chưa có authoritative oracle, dependency hoặc validation point đủ để trở thành final executable pass/fail test.",
+                              "requirement_traceability":  {
+                                                               "requirement_ids":  [
+                                                                                       "API03-REQ-007"
+                                                                                   ],
+                                                               "gap_ids":  [
+                                                                               "API03-RG-005"
+                                                                           ],
+                                                               "risk_ids":  [
+                                                                                "API03-ID-002"
+                                                                            ],
+                                                               "observation_ids":  [
+
+                                                                                   ],
+                                                               "assessment":  "ALIGNED_WITH_APPROVED_ANALYSIS"
+                                                           },
+                              "oracle_review":  {
+                                                    "raw_oracle_basis":  "OBSERVABLE_ONLY",
+                                                    "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "assessment":  "INSUFFICIENT_FOR_FINAL_PASS_FAIL",
+                                                    "notes":  "Do not invent status/schema while resolving the listed issue."
+                                                },
+                              "duplicate_of":  null,
+                              "issues":  [
+                                             "AMBIGUOUS_EXPECTED_RESULT",
+                                             "REQUIREMENT_GAP_ASSUMPTION"
+                                         ],
+                              "proposed_correction":  "Xác định numeric type/coercion rule cho price; positivity một mình chưa quyết định string numeric.",
+                              "proposed_action":  "REVISE_BEFORE_FINAL_SUITE",
+                              "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                              "human_review_decision":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                              "review_scope":  "PRESERVED_AI_AUDIT_CLASSIFICATION",
+                              "final_disposition":  "DEFERRED_REQUIREMENT_GAP"
+                          },
+                          {
+                              "test_case_id":  "API03-AI-038",
+                              "raw_source":  "test-cases/generated/api-03-import-products.json#API03-AI-038",
+                              "classification":  "VALID",
+                              "classification_reason":  "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+                              "requirement_traceability":  {
+                                                               "requirement_ids":  [
+                                                                                       "API03-REQ-009",
+                                                                                       "API03-REQ-010"
+                                                                                   ],
+                                                               "gap_ids":  [
+
+                                                                           ],
+                                                               "risk_ids":  [
+                                                                                "API03-ID-003"
+                                                                            ],
+                                                               "observation_ids":  [
+
+                                                                                   ],
+                                                               "assessment":  "ALIGNED_WITH_APPROVED_ANALYSIS"
+                                                           },
+                              "oracle_review":  {
+                                                    "raw_oracle_basis":  "AUTHORITATIVE",
+                                                    "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "assessment":  "SUFFICIENT_FOR_BUSINESS_OR_SECURITY_PASS_FAIL",
+                                                    "notes":  "No unsupported status/schema was added; semantic oracle is sufficient."
+                                                },
+                              "duplicate_of":  null,
+                              "issues":  [
+
+                                         ],
+                              "proposed_correction":  null,
+                              "proposed_action":  "KEEP_AS_GENERATED",
+                              "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                              "human_review_decision":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                              "review_scope":  "PRESERVED_AI_AUDIT_CLASSIFICATION",
+                              "final_disposition":  "INCLUDED_EXECUTABLE"
+                          },
+                          {
+                              "test_case_id":  "API03-AI-039",
+                              "raw_source":  "test-cases/generated/api-03-import-products.json#API03-AI-039",
+                              "classification":  "VALID",
+                              "classification_reason":  "Transport details are unspecified, but the raw case retains a requirement-backed business/state oracle sufficient for execution.",
+                              "requirement_traceability":  {
+                                                               "requirement_ids":  [
+                                                                                       "API03-REQ-010"
+                                                                                   ],
+                                                               "gap_ids":  [
+                                                                               "API03-RG-004"
+                                                                           ],
+                                                               "risk_ids":  [
+
+                                                                            ],
+                                                               "observation_ids":  [
+
+                                                                                   ],
+                                                               "assessment":  "ALIGNED_WITH_APPROVED_ANALYSIS"
+                                                           },
+                              "oracle_review":  {
+                                                    "raw_oracle_basis":  "PARTIALLY_SPECIFIED",
+                                                    "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "assessment":  "SUFFICIENT_FOR_BUSINESS_OR_SECURITY_PASS_FAIL",
+                                                    "notes":  "No unsupported status/schema was added; semantic oracle is sufficient."
+                                                },
+                              "duplicate_of":  null,
+                              "issues":  [
+
+                                         ],
+                              "proposed_correction":  null,
+                              "proposed_action":  "KEEP_AS_GENERATED",
+                              "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                              "human_review_decision":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                              "review_scope":  "PRESERVED_AI_AUDIT_CLASSIFICATION",
+                              "final_disposition":  "INCLUDED_EXECUTABLE"
+                          },
+                          {
+                              "test_case_id":  "API03-AI-040",
+                              "raw_source":  "test-cases/generated/api-03-import-products.json#API03-AI-040",
+                              "classification":  "INCOMPLETE",
+                              "classification_reason":  "Concept/risk \u0027Duplicate products trong cùng batch\u0027 có liên quan, nhưng raw case chưa có authoritative oracle, dependency hoặc validation point đủ để trở thành final executable pass/fail test.",
+                              "requirement_traceability":  {
+                                                               "requirement_ids":  [
+                                                                                       "API03-REQ-004"
+                                                                                   ],
+                                                               "gap_ids":  [
+                                                                               "API03-RG-002"
+                                                                           ],
+                                                               "risk_ids":  [
+
+                                                                            ],
+                                                               "observation_ids":  [
+
+                                                                                   ],
+                                                               "assessment":  "ALIGNED_WITH_APPROVED_ANALYSIS"
+                                                           },
+                              "oracle_review":  {
+                                                    "raw_oracle_basis":  "OBSERVABLE_ONLY",
+                                                    "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                    "assessment":  "INSUFFICIENT_FOR_FINAL_PASS_FAIL",
+                                                    "notes":  "Do not invent status/schema while resolving the listed issue."
+                                                },
+                              "duplicate_of":  null,
+                              "issues":  [
+                                             "AMBIGUOUS_EXPECTED_RESULT",
+                                             "REQUIREMENT_GAP_ASSUMPTION"
+                                         ],
+                              "proposed_correction":  "Cần duplicate-product policy; nếu duplicate bị định nghĩa là error thì atomic rollback mới trở thành nhánh authoritative.",
+                              "proposed_action":  "REVISE_BEFORE_FINAL_SUITE",
+                              "human_review_status":  "HUMAN_REVIEW_DECISION_APPLIED",
+                              "human_review_decision":  "APPROVE_CLASSIFICATION",
+                              "review_scope":  "TARGETED_CASE_REVIEW",
+                              "final_disposition":  "DEFERRED_REQUIREMENT_GAP"
+                          }
+                      ],
+    "future_extension_gaps":  [
+                                  {
+                                      "id":  "FUTURE_EXTENSION_GAP-08",
+                                      "api":  "API-03",
+                                      "summary":  "CSV parsing layer to JSON endpoint boundary."
+                                  },
+                                  {
+                                      "id":  "FUTURE_EXTENSION_GAP-09",
+                                      "api":  "API-03",
+                                      "summary":  "Maximum batch, duplicate-product, and price-precision policy."
+                                  },
+                                  {
+                                      "id":  "FUTURE_EXTENSION_GAP-10",
+                                      "api":  "API-03",
+                                      "summary":  "Import-specific category and optional-field validation contract."
+                                  }
+                              ]
+}

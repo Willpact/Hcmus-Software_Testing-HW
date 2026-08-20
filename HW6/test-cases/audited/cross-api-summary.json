@@ -1,0 +1,288 @@
+﻿{
+    "metadata":  {
+                     "status":  "MODIFIED_AND_APPROVED",
+                     "human_review_status":  "TARGETED_REVIEW_COMPLETED",
+                     "student_added_cases":  0
+                 },
+    "total_summary":  {
+                          "audited":  120,
+                          "valid":  69,
+                          "invalid":  4,
+                          "incomplete":  47,
+                          "proposed_corrections":  51,
+                          "proposed_removals":  4,
+                          "semantic_duplicates":  2
+                      },
+    "api_summaries":  [
+                          {
+                              "api":  "API-01",
+                              "audit_summary":  {
+                                                    "total":  40,
+                                                    "valid":  21,
+                                                    "invalid":  3,
+                                                    "incomplete":  16,
+                                                    "proposed_corrections":  19,
+                                                    "proposed_removals":  3,
+                                                    "semantic_duplicates":  1,
+                                                    "authoritative_oracle_issues":  16,
+                                                    "traceability_issues":  1,
+                                                    "state_setup_issues":  1,
+                                                    "security_reasoning_issues":  3,
+                                                    "cross_feature_overreach":  1,
+                                                    "unsupported_precondition":  1,
+                                                    "implementation_as_oracle":  0
+                                                },
+                              "corrected_summary":  {
+                                                        "raw_ai_generated":  40,
+                                                        "valid_after_audit":  21,
+                                                        "invalid_removed":  3,
+                                                        "incomplete_salvaged":  4,
+                                                        "incomplete_deferred":  12,
+                                                        "final_executable_ai_cases":  25
+                                                    },
+                              "technique_coverage":  {
+                                                         "DOMAIN_PARTITION":  8,
+                                                         "BOUNDARY":  4,
+                                                         "STATE_TRANSITION":  5,
+                                                         "SECURITY":  6,
+                                                         "SCHEMA":  1,
+                                                         "BUSINESS_RULE":  1
+                                                     }
+                          },
+                          {
+                              "api":  "API-02",
+                              "audit_summary":  {
+                                                    "total":  40,
+                                                    "valid":  23,
+                                                    "invalid":  1,
+                                                    "incomplete":  16,
+                                                    "proposed_corrections":  17,
+                                                    "proposed_removals":  1,
+                                                    "semantic_duplicates":  1,
+                                                    "authoritative_oracle_issues":  16,
+                                                    "traceability_issues":  0,
+                                                    "state_setup_issues":  2,
+                                                    "security_reasoning_issues":  2,
+                                                    "cross_feature_overreach":  1,
+                                                    "unsupported_precondition":  0,
+                                                    "implementation_as_oracle":  0
+                                                },
+                              "corrected_summary":  {
+                                                        "raw_ai_generated":  40,
+                                                        "valid_after_audit":  23,
+                                                        "invalid_removed":  1,
+                                                        "incomplete_salvaged":  2,
+                                                        "incomplete_deferred":  14,
+                                                        "final_executable_ai_cases":  25
+                                                    },
+                              "technique_coverage":  {
+                                                         "DOMAIN_PARTITION":  7,
+                                                         "BOUNDARY":  2,
+                                                         "STATE_TRANSITION":  4,
+                                                         "SECURITY":  7,
+                                                         "SCHEMA":  1,
+                                                         "BUSINESS_RULE":  4
+                                                     }
+                          },
+                          {
+                              "api":  "API-03",
+                              "audit_summary":  {
+                                                    "total":  40,
+                                                    "valid":  25,
+                                                    "invalid":  0,
+                                                    "incomplete":  15,
+                                                    "proposed_corrections":  15,
+                                                    "proposed_removals":  0,
+                                                    "semantic_duplicates":  0,
+                                                    "authoritative_oracle_issues":  15,
+                                                    "traceability_issues":  0,
+                                                    "state_setup_issues":  1,
+                                                    "security_reasoning_issues":  1,
+                                                    "cross_feature_overreach":  4,
+                                                    "unsupported_precondition":  0,
+                                                    "implementation_as_oracle":  0
+                                                },
+                              "corrected_summary":  {
+                                                        "raw_ai_generated":  40,
+                                                        "valid_after_audit":  25,
+                                                        "invalid_removed":  0,
+                                                        "incomplete_salvaged":  3,
+                                                        "incomplete_deferred":  12,
+                                                        "final_executable_ai_cases":  28
+                                                    },
+                              "technique_coverage":  {
+                                                         "DOMAIN_PARTITION":  8,
+                                                         "BOUNDARY":  2,
+                                                         "STATE_TRANSITION":  7,
+                                                         "SECURITY":  7,
+                                                         "SCHEMA":  2,
+                                                         "BUSINESS_RULE":  2
+                                                     }
+                          }
+                      ],
+    "failure_patterns":  [
+                             {
+                                 "pattern":  "AMBIGUOUS_EXPECTED_RESULT",
+                                 "count":  47,
+                                 "affected_apis":  [
+                                                       "API-01",
+                                                       "API-02",
+                                                       "API-03"
+                                                   ],
+                                 "representative_test_case_ids":  [
+                                                                      "API01-AI-004",
+                                                                      "API01-AI-005",
+                                                                      "API01-AI-006",
+                                                                      "API01-AI-007",
+                                                                      "API01-AI-013"
+                                                                  ]
+                             },
+                             {
+                                 "pattern":  "REQUIREMENT_GAP_ASSUMPTION",
+                                 "count":  43,
+                                 "affected_apis":  [
+                                                       "API-01",
+                                                       "API-02",
+                                                       "API-03"
+                                                   ],
+                                 "representative_test_case_ids":  [
+                                                                      "API01-AI-004",
+                                                                      "API01-AI-005",
+                                                                      "API01-AI-013",
+                                                                      "API01-AI-017",
+                                                                      "API01-AI-025"
+                                                                  ]
+                             },
+                             {
+                                 "pattern":  "CROSS_FEATURE_OVERREACH",
+                                 "count":  6,
+                                 "affected_apis":  [
+                                                       "API-01",
+                                                       "API-02",
+                                                       "API-03"
+                                                   ],
+                                 "representative_test_case_ids":  [
+                                                                      "API01-AI-020",
+                                                                      "API02-AI-038",
+                                                                      "API03-AI-012",
+                                                                      "API03-AI-013",
+                                                                      "API03-AI-032"
+                                                                  ]
+                             },
+                             {
+                                 "pattern":  "SECURITY_REASONING_GAP",
+                                 "count":  6,
+                                 "affected_apis":  [
+                                                       "API-01",
+                                                       "API-02",
+                                                       "API-03"
+                                                   ],
+                                 "representative_test_case_ids":  [
+                                                                      "API01-AI-004",
+                                                                      "API01-AI-025",
+                                                                      "API01-AI-026",
+                                                                      "API02-AI-015",
+                                                                      "API02-AI-020"
+                                                                  ]
+                             },
+                             {
+                                 "pattern":  "MISSING_STATE_SETUP",
+                                 "count":  4,
+                                 "affected_apis":  [
+                                                       "API-01",
+                                                       "API-02",
+                                                       "API-03"
+                                                   ],
+                                 "representative_test_case_ids":  [
+                                                                      "API01-AI-013",
+                                                                      "API02-AI-019",
+                                                                      "API02-AI-020",
+                                                                      "API03-AI-014"
+                                                                  ]
+                             },
+                             {
+                                 "pattern":  "SEMANTIC_DUPLICATION",
+                                 "count":  2,
+                                 "affected_apis":  [
+                                                       "API-01",
+                                                       "API-02"
+                                                   ],
+                                 "representative_test_case_ids":  [
+                                                                      "API01-AI-036",
+                                                                      "API02-AI-028"
+                                                                  ]
+                             },
+                             {
+                                 "pattern":  "TRACEABILITY_ISSUE",
+                                 "count":  1,
+                                 "affected_apis":  [
+                                                       "API-01"
+                                                   ],
+                                 "representative_test_case_ids":  [
+                                                                      "API01-AI-020"
+                                                                  ]
+                             },
+                             {
+                                 "pattern":  "UNSUPPORTED_PRECONDITION",
+                                 "count":  1,
+                                 "affected_apis":  [
+                                                       "API-01"
+                                                   ],
+                                 "representative_test_case_ids":  [
+                                                                      "API01-AI-040"
+                                                                  ]
+                             }
+                         ],
+    "future_extension_gaps":  [
+                                  {
+                                      "id":  "FUTURE_EXTENSION_GAP-01",
+                                      "api":  "API-01",
+                                      "summary":  "Authoritative API representation for password confirmation and mismatch."
+                                  },
+                                  {
+                                      "id":  "FUTURE_EXTENSION_GAP-02",
+                                      "api":  "API-01",
+                                      "summary":  "Deterministic OTP expiry fixture without inventing an expiry duration."
+                                  },
+                                  {
+                                      "id":  "FUTURE_EXTENSION_GAP-03",
+                                      "api":  "API-01",
+                                      "summary":  "Human-approved brute-force/rate-limit and user-enumeration acceptance criteria."
+                                  },
+                                  {
+                                      "id":  "FUTURE_EXTENSION_GAP-04",
+                                      "api":  "API-02",
+                                      "summary":  "Shipping-address requiredness, format, and length contract."
+                                  },
+                                  {
+                                      "id":  "FUTURE_EXTENSION_GAP-05",
+                                      "api":  "API-02",
+                                      "summary":  "Empty-cart and failure-side-effect contract."
+                                  },
+                                  {
+                                      "id":  "FUTURE_EXTENSION_GAP-06",
+                                      "api":  "API-02",
+                                      "summary":  "Replay/idempotency/concurrency behavior and observable order cardinality."
+                                  },
+                                  {
+                                      "id":  "FUTURE_EXTENSION_GAP-07",
+                                      "api":  "API-02",
+                                      "summary":  "Documented coupon-to-checkout integration boundary."
+                                  },
+                                  {
+                                      "id":  "FUTURE_EXTENSION_GAP-08",
+                                      "api":  "API-03",
+                                      "summary":  "CSV parsing layer to JSON endpoint boundary."
+                                  },
+                                  {
+                                      "id":  "FUTURE_EXTENSION_GAP-09",
+                                      "api":  "API-03",
+                                      "summary":  "Maximum batch, duplicate-product, and price-precision policy."
+                                  },
+                                  {
+                                      "id":  "FUTURE_EXTENSION_GAP-10",
+                                      "api":  "API-03",
+                                      "summary":  "Import-specific category and optional-field validation contract."
+                                  }
+                              ]
+}
