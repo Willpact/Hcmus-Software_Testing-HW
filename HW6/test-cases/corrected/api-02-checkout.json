@@ -1,0 +1,1994 @@
+﻿{
+    "metadata":  {
+                     "api_id":  "API-02",
+                     "status":  "HUMAN_APPROVED_AI_CORRECTION",
+                     "source":  "AI_GENERATED",
+                     "raw_source":  "test-cases/generated/api-02-checkout.json",
+                     "raw_modified":  false,
+                     "execution_status":  "REAL_EXECUTION_REQUIRED"
+                 },
+    "summary":  {
+                    "raw_ai_generated":  40,
+                    "valid_after_audit":  23,
+                    "invalid_removed":  1,
+                    "incomplete_salvaged":  2,
+                    "incomplete_deferred":  14,
+                    "final_executable_ai_cases":  25
+                },
+    "technique_coverage":  {
+                               "DOMAIN_PARTITION":  7,
+                               "BOUNDARY":  2,
+                               "STATE_TRANSITION":  4,
+                               "SECURITY":  7,
+                               "SCHEMA":  1,
+                               "BUSINESS_RULE":  4
+                           },
+    "executable_cases":  [
+                             {
+                                 "original_ai_case_id":  "API02-AI-001",
+                                 "source":  "AI_GENERATED",
+                                 "audit_classification":  "VALID",
+                                 "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                                 "correction_summary":  "No semantic correction required; Human-approved audit classification retained.",
+                                 "requirement_ids":  [
+                                                         "API02-REQ-002",
+                                                         "API02-REQ-005",
+                                                         "API02-REQ-006",
+                                                         "API02-REQ-007"
+                                                     ],
+                                 "oracle_basis":  "AUTHORITATIVE",
+                                 "final_disposition":  "INCLUDED_EXECUTABLE",
+                                 "automation_note":  null,
+                                 "test_case":  {
+                                                   "id":  "API02-AI-001",
+                                                   "api_id":  "API-02",
+                                                   "feature_id":  "FR-08",
+                                                   "endpoint":  "POST /api/checkout",
+                                                   "source":  "AI_GENERATED",
+                                                   "lifecycle_state":  "HUMAN_APPROVED",
+                                                   "requirement_ids":  [
+                                                                           "API02-REQ-002",
+                                                                           "API02-REQ-005",
+                                                                           "API02-REQ-006",
+                                                                           "API02-REQ-007"
+                                                                       ],
+                                                   "technique":  [
+                                                                     "DOMAIN_PARTITION",
+                                                                     "BUSINESS_RULE"
+                                                                 ],
+                                                   "primary_technique":  "DOMAIN_PARTITION",
+                                                   "secondary_techniques":  [
+                                                                                "BUSINESS_RULE"
+                                                                            ],
+                                                   "oracle_basis":  "AUTHORITATIVE",
+                                                   "gap_ids":  [
+
+                                                               ],
+                                                   "risk_ids":  [
+
+                                                                ],
+                                                   "observation_ids":  [
+
+                                                                       ],
+                                                   "title":  "Checkout hợp lệ với cart có hàng",
+                                                   "objective":  "Kiểm tra happy path dùng JWT hợp lệ và backend lấy tổng từ cart.",
+                                                   "preconditions":  [
+                                                                         "User đã đăng nhập",
+                                                                         "Cart của user có hàng"
+                                                                     ],
+                                                   "request":  {
+                                                                   "method":  "POST",
+                                                                   "path":  "/api/checkout",
+                                                                   "auth_profile":  "Bearer test JWT matching the stated precondition",
+                                                                   "content_type":  "application/json unless the case explicitly varies it",
+                                                                   "body_variation":  "Bearer hợp lệ, body có total_amount và shipping_address"
+                                                               },
+                                                   "test_data":  {
+                                                                     "description":  "client total bằng tổng cart để tránh nhiễu",
+                                                                     "secret_policy":  "Use disposable fixtures or environment variables; do not store real secrets."
+                                                                 },
+                                                   "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_business_result":  "Checkout đủ điều kiện; tổng có thẩm quyền là tổng backend tính từ cart.",
+                                                   "expected_state":  "Nếu thành công, cart của user được xóa.",
+                                                   "audit_status":  "VALID",
+                                                   "audit_reason":  "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+                                                   "correction":  null,
+                                                   "why_ai_missed":  null,
+                                                   "execution_status":  "REAL_EXECUTION_REQUIRED",
+                                                   "failure_classification":  null,
+                                                   "bug_id":  null,
+                                                   "notes":  "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+                                               }
+                             },
+                             {
+                                 "original_ai_case_id":  "API02-AI-002",
+                                 "source":  "AI_GENERATED",
+                                 "audit_classification":  "VALID",
+                                 "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                                 "correction_summary":  "No semantic correction required; Human-approved audit classification retained.",
+                                 "requirement_ids":  [
+                                                         "API02-REQ-005",
+                                                         "API02-REQ-006"
+                                                     ],
+                                 "oracle_basis":  "AUTHORITATIVE",
+                                 "final_disposition":  "INCLUDED_EXECUTABLE",
+                                 "automation_note":  null,
+                                 "test_case":  {
+                                                   "id":  "API02-AI-002",
+                                                   "api_id":  "API-02",
+                                                   "feature_id":  "FR-08",
+                                                   "endpoint":  "POST /api/checkout",
+                                                   "source":  "AI_GENERATED",
+                                                   "lifecycle_state":  "HUMAN_APPROVED",
+                                                   "requirement_ids":  [
+                                                                           "API02-REQ-005",
+                                                                           "API02-REQ-006"
+                                                                       ],
+                                                   "technique":  [
+                                                                     "DOMAIN_PARTITION",
+                                                                     "SECURITY"
+                                                                 ],
+                                                   "primary_technique":  "DOMAIN_PARTITION",
+                                                   "secondary_techniques":  [
+                                                                                "SECURITY"
+                                                                            ],
+                                                   "oracle_basis":  "AUTHORITATIVE",
+                                                   "gap_ids":  [
+
+                                                               ],
+                                                   "risk_ids":  [
+                                                                    "API02-ID-001"
+                                                                ],
+                                                   "observation_ids":  [
+
+                                                                       ],
+                                                   "title":  "Client total thấp hơn cart",
+                                                   "objective":  "Kiểm tra backend không tin giá trị total_amount bị giảm.",
+                                                   "preconditions":  [
+                                                                         "JWT hợp lệ",
+                                                                         "Cart có tổng đã biết"
+                                                                     ],
+                                                   "request":  {
+                                                                   "method":  "POST",
+                                                                   "path":  "/api/checkout",
+                                                                   "auth_profile":  "Bearer test JWT matching the stated precondition",
+                                                                   "content_type":  "application/json unless the case explicitly varies it",
+                                                                   "body_variation":  "total_amount nhỏ hơn tổng cart"
+                                                               },
+                                                   "test_data":  {
+                                                                     "description":  "cart=100, client=1",
+                                                                     "secret_policy":  "Use disposable fixtures or environment variables; do not store real secrets."
+                                                                 },
+                                                   "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_business_result":  "Kết quả checkout không được dùng 1 làm tổng có thẩm quyền; backend phải tính từ cart.",
+                                                   "expected_state":  "Nếu thành công, side effect cart tuân API02-REQ-007.",
+                                                   "audit_status":  "VALID",
+                                                   "audit_reason":  "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+                                                   "correction":  null,
+                                                   "why_ai_missed":  null,
+                                                   "execution_status":  "REAL_EXECUTION_REQUIRED",
+                                                   "failure_classification":  null,
+                                                   "bug_id":  null,
+                                                   "notes":  "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+                                               }
+                             },
+                             {
+                                 "original_ai_case_id":  "API02-AI-003",
+                                 "source":  "AI_GENERATED",
+                                 "audit_classification":  "VALID",
+                                 "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                                 "correction_summary":  "No semantic correction required; Human-approved audit classification retained.",
+                                 "requirement_ids":  [
+                                                         "API02-REQ-005",
+                                                         "API02-REQ-006"
+                                                     ],
+                                 "oracle_basis":  "AUTHORITATIVE",
+                                 "final_disposition":  "INCLUDED_EXECUTABLE",
+                                 "automation_note":  null,
+                                 "test_case":  {
+                                                   "id":  "API02-AI-003",
+                                                   "api_id":  "API-02",
+                                                   "feature_id":  "FR-08",
+                                                   "endpoint":  "POST /api/checkout",
+                                                   "source":  "AI_GENERATED",
+                                                   "lifecycle_state":  "HUMAN_APPROVED",
+                                                   "requirement_ids":  [
+                                                                           "API02-REQ-005",
+                                                                           "API02-REQ-006"
+                                                                       ],
+                                                   "technique":  [
+                                                                     "DOMAIN_PARTITION",
+                                                                     "SECURITY"
+                                                                 ],
+                                                   "primary_technique":  "DOMAIN_PARTITION",
+                                                   "secondary_techniques":  [
+                                                                                "SECURITY"
+                                                                            ],
+                                                   "oracle_basis":  "AUTHORITATIVE",
+                                                   "gap_ids":  [
+
+                                                               ],
+                                                   "risk_ids":  [
+                                                                    "API02-ID-001"
+                                                                ],
+                                                   "observation_ids":  [
+
+                                                                       ],
+                                                   "title":  "Client total cao hơn cart",
+                                                   "objective":  "Kiểm tra backend không tin giá trị total_amount bị tăng.",
+                                                   "preconditions":  [
+                                                                         "JWT hợp lệ",
+                                                                         "Cart có tổng đã biết"
+                                                                     ],
+                                                   "request":  {
+                                                                   "method":  "POST",
+                                                                   "path":  "/api/checkout",
+                                                                   "auth_profile":  "Bearer test JWT matching the stated precondition",
+                                                                   "content_type":  "application/json unless the case explicitly varies it",
+                                                                   "body_variation":  "total_amount lớn hơn tổng cart"
+                                                               },
+                                                   "test_data":  {
+                                                                     "description":  "cart=100, client=9999",
+                                                                     "secret_policy":  "Use disposable fixtures or environment variables; do not store real secrets."
+                                                                 },
+                                                   "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_business_result":  "Tổng có thẩm quyền vẫn phải do backend tính từ cart.",
+                                                   "expected_state":  "Nếu thành công, cart được xóa.",
+                                                   "audit_status":  "VALID",
+                                                   "audit_reason":  "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+                                                   "correction":  null,
+                                                   "why_ai_missed":  null,
+                                                   "execution_status":  "REAL_EXECUTION_REQUIRED",
+                                                   "failure_classification":  null,
+                                                   "bug_id":  null,
+                                                   "notes":  "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+                                               }
+                             },
+                             {
+                                 "original_ai_case_id":  "API02-AI-004",
+                                 "source":  "AI_GENERATED",
+                                 "audit_classification":  "VALID",
+                                 "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                                 "correction_summary":  "No semantic correction required; Human-approved audit classification retained.",
+                                 "requirement_ids":  [
+                                                         "API02-REQ-005",
+                                                         "API02-REQ-006"
+                                                     ],
+                                 "oracle_basis":  "AUTHORITATIVE",
+                                 "final_disposition":  "INCLUDED_EXECUTABLE",
+                                 "automation_note":  null,
+                                 "test_case":  {
+                                                   "id":  "API02-AI-004",
+                                                   "api_id":  "API-02",
+                                                   "feature_id":  "FR-08",
+                                                   "endpoint":  "POST /api/checkout",
+                                                   "source":  "AI_GENERATED",
+                                                   "lifecycle_state":  "HUMAN_APPROVED",
+                                                   "requirement_ids":  [
+                                                                           "API02-REQ-005",
+                                                                           "API02-REQ-006"
+                                                                       ],
+                                                   "technique":  [
+                                                                     "DOMAIN_PARTITION",
+                                                                     "SECURITY"
+                                                                 ],
+                                                   "primary_technique":  "DOMAIN_PARTITION",
+                                                   "secondary_techniques":  [
+                                                                                "SECURITY"
+                                                                            ],
+                                                   "oracle_basis":  "AUTHORITATIVE",
+                                                   "gap_ids":  [
+
+                                                               ],
+                                                   "risk_ids":  [
+                                                                    "API02-ID-001"
+                                                                ],
+                                                   "observation_ids":  [
+
+                                                                       ],
+                                                   "title":  "Client total bằng zero",
+                                                   "objective":  "Kiểm tra zero không thay thế tổng cart dương.",
+                                                   "preconditions":  [
+                                                                         "JWT hợp lệ",
+                                                                         "Cart có tổng dương"
+                                                                     ],
+                                                   "request":  {
+                                                                   "method":  "POST",
+                                                                   "path":  "/api/checkout",
+                                                                   "auth_profile":  "Bearer test JWT matching the stated precondition",
+                                                                   "content_type":  "application/json unless the case explicitly varies it",
+                                                                   "body_variation":  "total_amount=0"
+                                                               },
+                                                   "test_data":  {
+                                                                     "description":  "cart total dương",
+                                                                     "secret_policy":  "Use disposable fixtures or environment variables; do not store real secrets."
+                                                                 },
+                                                   "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_business_result":  "Backend không được nhận zero làm tổng checkout có thẩm quyền.",
+                                                   "expected_state":  "Nếu thành công, cart được xóa.",
+                                                   "audit_status":  "VALID",
+                                                   "audit_reason":  "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+                                                   "correction":  null,
+                                                   "why_ai_missed":  null,
+                                                   "execution_status":  "REAL_EXECUTION_REQUIRED",
+                                                   "failure_classification":  null,
+                                                   "bug_id":  null,
+                                                   "notes":  "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+                                               }
+                             },
+                             {
+                                 "original_ai_case_id":  "API02-AI-005",
+                                 "source":  "AI_GENERATED",
+                                 "audit_classification":  "VALID",
+                                 "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                                 "correction_summary":  "No semantic correction required; Human-approved audit classification retained.",
+                                 "requirement_ids":  [
+                                                         "API02-REQ-005",
+                                                         "API02-REQ-006"
+                                                     ],
+                                 "oracle_basis":  "AUTHORITATIVE",
+                                 "final_disposition":  "INCLUDED_EXECUTABLE",
+                                 "automation_note":  null,
+                                 "test_case":  {
+                                                   "id":  "API02-AI-005",
+                                                   "api_id":  "API-02",
+                                                   "feature_id":  "FR-08",
+                                                   "endpoint":  "POST /api/checkout",
+                                                   "source":  "AI_GENERATED",
+                                                   "lifecycle_state":  "HUMAN_APPROVED",
+                                                   "requirement_ids":  [
+                                                                           "API02-REQ-005",
+                                                                           "API02-REQ-006"
+                                                                       ],
+                                                   "technique":  [
+                                                                     "DOMAIN_PARTITION",
+                                                                     "SECURITY"
+                                                                 ],
+                                                   "primary_technique":  "DOMAIN_PARTITION",
+                                                   "secondary_techniques":  [
+                                                                                "SECURITY"
+                                                                            ],
+                                                   "oracle_basis":  "AUTHORITATIVE",
+                                                   "gap_ids":  [
+
+                                                               ],
+                                                   "risk_ids":  [
+                                                                    "API02-ID-001"
+                                                                ],
+                                                   "observation_ids":  [
+
+                                                                       ],
+                                                   "title":  "Client total âm",
+                                                   "objective":  "Kiểm tra giá trị âm không điều khiển tổng thanh toán.",
+                                                   "preconditions":  [
+                                                                         "JWT hợp lệ",
+                                                                         "Cart có tổng dương"
+                                                                     ],
+                                                   "request":  {
+                                                                   "method":  "POST",
+                                                                   "path":  "/api/checkout",
+                                                                   "auth_profile":  "Bearer test JWT matching the stated precondition",
+                                                                   "content_type":  "application/json unless the case explicitly varies it",
+                                                                   "body_variation":  "total_amount=-1"
+                                                               },
+                                                   "test_data":  {
+                                                                     "description":  "negative client total",
+                                                                     "secret_policy":  "Use disposable fixtures or environment variables; do not store real secrets."
+                                                                 },
+                                                   "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_business_result":  "Backend phải bỏ quyền quyết định khỏi giá trị client và tính từ cart.",
+                                                   "expected_state":  "Nếu thành công, cart được xóa.",
+                                                   "audit_status":  "VALID",
+                                                   "audit_reason":  "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+                                                   "correction":  null,
+                                                   "why_ai_missed":  null,
+                                                   "execution_status":  "REAL_EXECUTION_REQUIRED",
+                                                   "failure_classification":  null,
+                                                   "bug_id":  null,
+                                                   "notes":  "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+                                               }
+                             },
+                             {
+                                 "original_ai_case_id":  "API02-AI-006",
+                                 "source":  "AI_GENERATED",
+                                 "audit_classification":  "INCOMPLETE",
+                                 "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                                 "correction_summary":  "Converted unspecified type coercion into a two-outcome invariant that never permits client total authority.",
+                                 "requirement_ids":  [
+                                                         "API02-REQ-003",
+                                                         "API02-REQ-006"
+                                                     ],
+                                 "oracle_basis":  "PARTIALLY_SPECIFIED",
+                                 "final_disposition":  "SALVAGED_TO_EXECUTABLE",
+                                 "automation_note":  null,
+                                 "test_case":  {
+                                                   "id":  "API02-AI-006",
+                                                   "api_id":  "API-02",
+                                                   "feature_id":  "FR-08",
+                                                   "endpoint":  "POST /api/checkout",
+                                                   "source":  "AI_GENERATED",
+                                                   "lifecycle_state":  "HUMAN_APPROVED",
+                                                   "requirement_ids":  [
+                                                                           "API02-REQ-003",
+                                                                           "API02-REQ-006"
+                                                                       ],
+                                                   "technique":  [
+                                                                     "DOMAIN_PARTITION",
+                                                                     "SCHEMA"
+                                                                 ],
+                                                   "primary_technique":  "DOMAIN_PARTITION",
+                                                   "secondary_techniques":  [
+                                                                                "SCHEMA"
+                                                                            ],
+                                                   "oracle_basis":  "PARTIALLY_SPECIFIED",
+                                                   "gap_ids":  [
+                                                                   "API02-RG-001"
+                                                               ],
+                                                   "risk_ids":  [
+                                                                    "API02-ID-001"
+                                                                ],
+                                                   "observation_ids":  [
+
+                                                                       ],
+                                                   "title":  "Client total dạng chuỗi",
+                                                   "objective":  "Verify the cart-derived total invariant when client total_amount is a numeric string.",
+                                                   "preconditions":  [
+                                                                         "JWT hợp lệ",
+                                                                         "Cart có tổng đã biết"
+                                                                     ],
+                                                   "request":  {
+                                                                   "method":  "POST",
+                                                                   "path":  "/api/checkout",
+                                                                   "auth_profile":  "Bearer test JWT matching the stated precondition",
+                                                                   "content_type":  "application/json unless the case explicitly varies it",
+                                                                   "body_variation":  "total_amount là chuỗi số"
+                                                               },
+                                                   "test_data":  {
+                                                                     "description":  "string value \"100\"",
+                                                                     "secret_policy":  "Use disposable fixtures or environment variables; do not store real secrets."
+                                                                 },
+                                                   "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_business_result":  "Acceptable outcomes are rejection without successful-checkout side effects, or successful checkout using the backend cart-derived total; the client string never becomes authoritative.",
+                                                   "expected_state":  "If checkout succeeds the authenticated user cart is cleared; otherwise no success-side-effect claim is made.",
+                                                   "audit_status":  "INCOMPLETE",
+                                                   "audit_reason":  "Concept/risk \u0027Client total dạng chuỗi\u0027 có liên quan, nhưng raw case chưa có authoritative oracle, dependency hoặc validation point đủ để trở thành final executable pass/fail test.",
+                                                   "correction":  "Converted unspecified type coercion into a two-outcome invariant that never permits client total authority.",
+                                                   "why_ai_missed":  null,
+                                                   "execution_status":  "REAL_EXECUTION_REQUIRED",
+                                                   "failure_classification":  null,
+                                                   "bug_id":  null,
+                                                   "notes":  "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+                                               }
+                             },
+                             {
+                                 "original_ai_case_id":  "API02-AI-007",
+                                 "source":  "AI_GENERATED",
+                                 "audit_classification":  "INCOMPLETE",
+                                 "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                                 "correction_summary":  "Removed the requiredness assumption and retained the authoritative server-calculation invariant.",
+                                 "requirement_ids":  [
+                                                         "API02-REQ-003",
+                                                         "API02-REQ-006"
+                                                     ],
+                                 "oracle_basis":  "PARTIALLY_SPECIFIED",
+                                 "final_disposition":  "SALVAGED_TO_EXECUTABLE",
+                                 "automation_note":  null,
+                                 "test_case":  {
+                                                   "id":  "API02-AI-007",
+                                                   "api_id":  "API-02",
+                                                   "feature_id":  "FR-08",
+                                                   "endpoint":  "POST /api/checkout",
+                                                   "source":  "AI_GENERATED",
+                                                   "lifecycle_state":  "HUMAN_APPROVED",
+                                                   "requirement_ids":  [
+                                                                           "API02-REQ-003",
+                                                                           "API02-REQ-006"
+                                                                       ],
+                                                   "technique":  [
+                                                                     "DOMAIN_PARTITION",
+                                                                     "SCHEMA"
+                                                                 ],
+                                                   "primary_technique":  "DOMAIN_PARTITION",
+                                                   "secondary_techniques":  [
+                                                                                "SCHEMA"
+                                                                            ],
+                                                   "oracle_basis":  "PARTIALLY_SPECIFIED",
+                                                   "gap_ids":  [
+                                                                   "API02-RG-001"
+                                                               ],
+                                                   "risk_ids":  [
+                                                                    "API02-ID-003"
+                                                                ],
+                                                   "observation_ids":  [
+
+                                                                       ],
+                                                   "title":  "Thiếu total_amount",
+                                                   "objective":  "Verify the cart-derived total invariant when total_amount is omitted.",
+                                                   "preconditions":  [
+                                                                         "JWT hợp lệ",
+                                                                         "Cart có tổng đã biết"
+                                                                     ],
+                                                   "request":  {
+                                                                   "method":  "POST",
+                                                                   "path":  "/api/checkout",
+                                                                   "auth_profile":  "Bearer test JWT matching the stated precondition",
+                                                                   "content_type":  "application/json unless the case explicitly varies it",
+                                                                   "body_variation":  "bỏ total_amount"
+                                                               },
+                                                   "test_data":  {
+                                                                     "description":  "shipping_address có mặt",
+                                                                     "secret_policy":  "Use disposable fixtures or environment variables; do not store real secrets."
+                                                                 },
+                                                   "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_business_result":  "Acceptable outcomes are rejection without successful-checkout side effects, or successful checkout using the backend cart-derived total.",
+                                                   "expected_state":  "If checkout succeeds the authenticated user cart is cleared; otherwise no success-side-effect claim is made.",
+                                                   "audit_status":  "INCOMPLETE",
+                                                   "audit_reason":  "Concept/risk \u0027Thiếu total_amount\u0027 có liên quan, nhưng raw case chưa có authoritative oracle, dependency hoặc validation point đủ để trở thành final executable pass/fail test.",
+                                                   "correction":  "Removed the requiredness assumption and retained the authoritative server-calculation invariant.",
+                                                   "why_ai_missed":  null,
+                                                   "execution_status":  "REAL_EXECUTION_REQUIRED",
+                                                   "failure_classification":  null,
+                                                   "bug_id":  null,
+                                                   "notes":  "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+                                               }
+                             },
+                             {
+                                 "original_ai_case_id":  "API02-AI-009",
+                                 "source":  "AI_GENERATED",
+                                 "audit_classification":  "VALID",
+                                 "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                                 "correction_summary":  "No semantic correction required; Human-approved audit classification retained.",
+                                 "requirement_ids":  [
+                                                         "API02-REQ-005",
+                                                         "API02-REQ-006"
+                                                     ],
+                                 "oracle_basis":  "AUTHORITATIVE",
+                                 "final_disposition":  "INCLUDED_EXECUTABLE",
+                                 "automation_note":  null,
+                                 "test_case":  {
+                                                   "id":  "API02-AI-009",
+                                                   "api_id":  "API-02",
+                                                   "feature_id":  "FR-08",
+                                                   "endpoint":  "POST /api/checkout",
+                                                   "source":  "AI_GENERATED",
+                                                   "lifecycle_state":  "HUMAN_APPROVED",
+                                                   "requirement_ids":  [
+                                                                           "API02-REQ-005",
+                                                                           "API02-REQ-006"
+                                                                       ],
+                                                   "technique":  [
+                                                                     "BOUNDARY",
+                                                                     "BUSINESS_RULE"
+                                                                 ],
+                                                   "primary_technique":  "BOUNDARY",
+                                                   "secondary_techniques":  [
+                                                                                "BUSINESS_RULE"
+                                                                            ],
+                                                   "oracle_basis":  "AUTHORITATIVE",
+                                                   "gap_ids":  [
+
+                                                               ],
+                                                   "risk_ids":  [
+                                                                    "API02-ID-003"
+                                                                ],
+                                                   "observation_ids":  [
+
+                                                                       ],
+                                                   "title":  "Cart một dòng hàng",
+                                                   "objective":  "Kiểm tra nguồn tổng với cart nhỏ nhất có một dòng theo precondition context.",
+                                                   "preconditions":  [
+                                                                         "JWT hợp lệ",
+                                                                         "Cart có đúng một dòng"
+                                                                     ],
+                                                   "request":  {
+                                                                   "method":  "POST",
+                                                                   "path":  "/api/checkout",
+                                                                   "auth_profile":  "Bearer test JWT matching the stated precondition",
+                                                                   "content_type":  "application/json unless the case explicitly varies it",
+                                                                   "body_variation":  "body hợp lệ"
+                                                               },
+                                                   "test_data":  {
+                                                                     "description":  "one cart line",
+                                                                     "secret_policy":  "Use disposable fixtures or environment variables; do not store real secrets."
+                                                                 },
+                                                   "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_business_result":  "Backend tính tổng từ cart hiện tại.",
+                                                   "expected_state":  "Nếu thành công, cart chuyển sang rỗng.",
+                                                   "audit_status":  "VALID",
+                                                   "audit_reason":  "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+                                                   "correction":  null,
+                                                   "why_ai_missed":  null,
+                                                   "execution_status":  "REAL_EXECUTION_REQUIRED",
+                                                   "failure_classification":  null,
+                                                   "bug_id":  null,
+                                                   "notes":  "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+                                               }
+                             },
+                             {
+                                 "original_ai_case_id":  "API02-AI-010",
+                                 "source":  "AI_GENERATED",
+                                 "audit_classification":  "VALID",
+                                 "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                                 "correction_summary":  "No semantic correction required; Human-approved audit classification retained.",
+                                 "requirement_ids":  [
+                                                         "API02-REQ-005",
+                                                         "API02-REQ-006"
+                                                     ],
+                                 "oracle_basis":  "AUTHORITATIVE",
+                                 "final_disposition":  "INCLUDED_EXECUTABLE",
+                                 "automation_note":  null,
+                                 "test_case":  {
+                                                   "id":  "API02-AI-010",
+                                                   "api_id":  "API-02",
+                                                   "feature_id":  "FR-08",
+                                                   "endpoint":  "POST /api/checkout",
+                                                   "source":  "AI_GENERATED",
+                                                   "lifecycle_state":  "HUMAN_APPROVED",
+                                                   "requirement_ids":  [
+                                                                           "API02-REQ-005",
+                                                                           "API02-REQ-006"
+                                                                       ],
+                                                   "technique":  [
+                                                                     "BOUNDARY",
+                                                                     "BUSINESS_RULE"
+                                                                 ],
+                                                   "primary_technique":  "BOUNDARY",
+                                                   "secondary_techniques":  [
+                                                                                "BUSINESS_RULE"
+                                                                            ],
+                                                   "oracle_basis":  "AUTHORITATIVE",
+                                                   "gap_ids":  [
+
+                                                               ],
+                                                   "risk_ids":  [
+                                                                    "API02-ID-003"
+                                                                ],
+                                                   "observation_ids":  [
+
+                                                                       ],
+                                                   "title":  "Cart nhiều dòng hàng",
+                                                   "objective":  "Kiểm tra backend cộng toàn bộ cart thay vì lấy một phần.",
+                                                   "preconditions":  [
+                                                                         "JWT hợp lệ",
+                                                                         "Cart có nhiều dòng"
+                                                                     ],
+                                                   "request":  {
+                                                                   "method":  "POST",
+                                                                   "path":  "/api/checkout",
+                                                                   "auth_profile":  "Bearer test JWT matching the stated precondition",
+                                                                   "content_type":  "application/json unless the case explicitly varies it",
+                                                                   "body_variation":  "client total cố tình bằng riêng dòng đầu"
+                                                               },
+                                                   "test_data":  {
+                                                                     "description":  "multi-line cart",
+                                                                     "secret_policy":  "Use disposable fixtures or environment variables; do not store real secrets."
+                                                                 },
+                                                   "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_business_result":  "Tổng có thẩm quyền phản ánh cart đầy đủ theo FR-08, không phải client total.",
+                                                   "expected_state":  "Nếu thành công, toàn bộ cart được xóa.",
+                                                   "audit_status":  "VALID",
+                                                   "audit_reason":  "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+                                                   "correction":  null,
+                                                   "why_ai_missed":  null,
+                                                   "execution_status":  "REAL_EXECUTION_REQUIRED",
+                                                   "failure_classification":  null,
+                                                   "bug_id":  null,
+                                                   "notes":  "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+                                               }
+                             },
+                             {
+                                 "original_ai_case_id":  "API02-AI-014",
+                                 "source":  "AI_GENERATED",
+                                 "audit_classification":  "VALID",
+                                 "human_review_status":  "HUMAN_REVIEW_DECISION_APPLIED",
+                                 "correction_summary":  "No semantic correction required; Human-approved audit classification retained.",
+                                 "requirement_ids":  [
+                                                         "API02-REQ-005",
+                                                         "API02-REQ-007"
+                                                     ],
+                                 "oracle_basis":  "AUTHORITATIVE",
+                                 "final_disposition":  "INCLUDED_EXECUTABLE",
+                                 "automation_note":  null,
+                                 "test_case":  {
+                                                   "id":  "API02-AI-014",
+                                                   "api_id":  "API-02",
+                                                   "feature_id":  "FR-08",
+                                                   "endpoint":  "POST /api/checkout",
+                                                   "source":  "AI_GENERATED",
+                                                   "lifecycle_state":  "HUMAN_APPROVED",
+                                                   "requirement_ids":  [
+                                                                           "API02-REQ-005",
+                                                                           "API02-REQ-007"
+                                                                       ],
+                                                   "technique":  [
+                                                                     "STATE_TRANSITION",
+                                                                     "BUSINESS_RULE"
+                                                                 ],
+                                                   "primary_technique":  "STATE_TRANSITION",
+                                                   "secondary_techniques":  [
+                                                                                "BUSINESS_RULE"
+                                                                            ],
+                                                   "oracle_basis":  "AUTHORITATIVE",
+                                                   "gap_ids":  [
+
+                                                               ],
+                                                   "risk_ids":  [
+                                                                    "API02-ID-002"
+                                                                ],
+                                                   "observation_ids":  [
+
+                                                                       ],
+                                                   "title":  "Cart populated đến cleared",
+                                                   "objective":  "Kiểm tra trực tiếp chuyển trạng thái sau checkout thành công.",
+                                                   "preconditions":  [
+                                                                         "JWT hợp lệ",
+                                                                         "Cart có hàng và snapshot trước chạy"
+                                                                     ],
+                                                   "request":  {
+                                                                   "method":  "POST",
+                                                                   "path":  "/api/checkout",
+                                                                   "auth_profile":  "Bearer test JWT matching the stated precondition",
+                                                                   "content_type":  "application/json unless the case explicitly varies it",
+                                                                   "body_variation":  "body hợp lệ"
+                                                               },
+                                                   "test_data":  {
+                                                                     "description":  "cart snapshot before",
+                                                                     "secret_policy":  "Use disposable fixtures or environment variables; do not store real secrets."
+                                                                 },
+                                                   "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_business_result":  "Checkout thành công sử dụng tổng cart.",
+                                                   "expected_state":  "Cart của authenticated user trở thành rỗng.",
+                                                   "audit_status":  "VALID",
+                                                   "audit_reason":  "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+                                                   "correction":  null,
+                                                   "why_ai_missed":  null,
+                                                   "execution_status":  "REAL_EXECUTION_REQUIRED",
+                                                   "failure_classification":  null,
+                                                   "bug_id":  null,
+                                                   "notes":  "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+                                               }
+                             },
+                             {
+                                 "original_ai_case_id":  "API02-AI-016",
+                                 "source":  "AI_GENERATED",
+                                 "audit_classification":  "VALID",
+                                 "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                                 "correction_summary":  "No semantic correction required; Human-approved audit classification retained.",
+                                 "requirement_ids":  [
+                                                         "API02-REQ-005",
+                                                         "API02-REQ-006"
+                                                     ],
+                                 "oracle_basis":  "AUTHORITATIVE",
+                                 "final_disposition":  "INCLUDED_EXECUTABLE",
+                                 "automation_note":  null,
+                                 "test_case":  {
+                                                   "id":  "API02-AI-016",
+                                                   "api_id":  "API-02",
+                                                   "feature_id":  "FR-08",
+                                                   "endpoint":  "POST /api/checkout",
+                                                   "source":  "AI_GENERATED",
+                                                   "lifecycle_state":  "HUMAN_APPROVED",
+                                                   "requirement_ids":  [
+                                                                           "API02-REQ-005",
+                                                                           "API02-REQ-006"
+                                                                       ],
+                                                   "technique":  [
+                                                                     "STATE_TRANSITION",
+                                                                     "BUSINESS_RULE"
+                                                                 ],
+                                                   "primary_technique":  "STATE_TRANSITION",
+                                                   "secondary_techniques":  [
+                                                                                "BUSINESS_RULE"
+                                                                            ],
+                                                   "oracle_basis":  "AUTHORITATIVE",
+                                                   "gap_ids":  [
+
+                                                               ],
+                                                   "risk_ids":  [
+                                                                    "API02-ID-003"
+                                                                ],
+                                                   "observation_ids":  [
+
+                                                                       ],
+                                                   "title":  "Cart đổi trước thời điểm checkout",
+                                                   "objective":  "Kiểm tra tổng được tính từ trạng thái cart hiện tại chứ không từ snapshot client.",
+                                                   "preconditions":  [
+                                                                         "JWT hợp lệ",
+                                                                         "Client đã xem cart rồi cart thay đổi"
+                                                                     ],
+                                                   "request":  {
+                                                                   "method":  "POST",
+                                                                   "path":  "/api/checkout",
+                                                                   "auth_profile":  "Bearer test JWT matching the stated precondition",
+                                                                   "content_type":  "application/json unless the case explicitly varies it",
+                                                                   "body_variation":  "gửi total_amount cũ"
+                                                               },
+                                                   "test_data":  {
+                                                                     "description":  "old client total, new cart state",
+                                                                     "secret_policy":  "Use disposable fixtures or environment variables; do not store real secrets."
+                                                                 },
+                                                   "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_business_result":  "Backend dùng cart hiện tại để tính tổng.",
+                                                   "expected_state":  "Nếu thành công, cart hiện tại được xóa.",
+                                                   "audit_status":  "VALID",
+                                                   "audit_reason":  "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+                                                   "correction":  null,
+                                                   "why_ai_missed":  null,
+                                                   "execution_status":  "REAL_EXECUTION_REQUIRED",
+                                                   "failure_classification":  null,
+                                                   "bug_id":  null,
+                                                   "notes":  "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+                                               }
+                             },
+                             {
+                                 "original_ai_case_id":  "API02-AI-017",
+                                 "source":  "AI_GENERATED",
+                                 "audit_classification":  "VALID",
+                                 "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                                 "correction_summary":  "No semantic correction required; Human-approved audit classification retained.",
+                                 "requirement_ids":  [
+                                                         "API02-REQ-004",
+                                                         "API02-REQ-005"
+                                                     ],
+                                 "oracle_basis":  "AUTHORITATIVE",
+                                 "final_disposition":  "INCLUDED_EXECUTABLE",
+                                 "automation_note":  null,
+                                 "test_case":  {
+                                                   "id":  "API02-AI-017",
+                                                   "api_id":  "API-02",
+                                                   "feature_id":  "FR-08",
+                                                   "endpoint":  "POST /api/checkout",
+                                                   "source":  "AI_GENERATED",
+                                                   "lifecycle_state":  "HUMAN_APPROVED",
+                                                   "requirement_ids":  [
+                                                                           "API02-REQ-004",
+                                                                           "API02-REQ-005"
+                                                                       ],
+                                                   "technique":  [
+                                                                     "STATE_TRANSITION",
+                                                                     "SECURITY"
+                                                                 ],
+                                                   "primary_technique":  "STATE_TRANSITION",
+                                                   "secondary_techniques":  [
+                                                                                "SECURITY"
+                                                                            ],
+                                                   "oracle_basis":  "AUTHORITATIVE",
+                                                   "gap_ids":  [
+
+                                                               ],
+                                                   "risk_ids":  [
+                                                                    "API02-RISK-CROSS-USER"
+                                                                ],
+                                                   "observation_ids":  [
+
+                                                                       ],
+                                                   "title":  "Hai user có cart khác nhau",
+                                                   "objective":  "Kiểm tra checkout của user A không lấy tổng hoặc state cart của user B.",
+                                                   "preconditions":  [
+                                                                         "JWT A và B hợp lệ",
+                                                                         "Mỗi user có cart khác nhau"
+                                                                     ],
+                                                   "request":  {
+                                                                   "method":  "POST",
+                                                                   "path":  "/api/checkout",
+                                                                   "auth_profile":  "Bearer test JWT matching the stated precondition",
+                                                                   "content_type":  "application/json unless the case explicitly varies it",
+                                                                   "body_variation":  "checkout bằng JWT A"
+                                                               },
+                                                   "test_data":  {
+                                                                     "description":  "client total giống cart B để phát hiện nhầm",
+                                                                     "secret_policy":  "Use disposable fixtures or environment variables; do not store real secrets."
+                                                                 },
+                                                   "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_business_result":  "Tổng phải được tính từ cart gắn với authenticated user A.",
+                                                   "expected_state":  "Nếu thành công, chỉ cart A được xóa; cart B không bị tác động.",
+                                                   "audit_status":  "VALID",
+                                                   "audit_reason":  "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+                                                   "correction":  null,
+                                                   "why_ai_missed":  null,
+                                                   "execution_status":  "REAL_EXECUTION_REQUIRED",
+                                                   "failure_classification":  null,
+                                                   "bug_id":  null,
+                                                   "notes":  "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+                                               }
+                             },
+                             {
+                                 "original_ai_case_id":  "API02-AI-018",
+                                 "source":  "AI_GENERATED",
+                                 "audit_classification":  "VALID",
+                                 "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                                 "correction_summary":  "No semantic correction required; Human-approved audit classification retained.",
+                                 "requirement_ids":  [
+                                                         "API02-REQ-002",
+                                                         "API02-REQ-004"
+                                                     ],
+                                 "oracle_basis":  "AUTHORITATIVE",
+                                 "final_disposition":  "INCLUDED_EXECUTABLE",
+                                 "automation_note":  null,
+                                 "test_case":  {
+                                                   "id":  "API02-AI-018",
+                                                   "api_id":  "API-02",
+                                                   "feature_id":  "FR-08",
+                                                   "endpoint":  "POST /api/checkout",
+                                                   "source":  "AI_GENERATED",
+                                                   "lifecycle_state":  "HUMAN_APPROVED",
+                                                   "requirement_ids":  [
+                                                                           "API02-REQ-002",
+                                                                           "API02-REQ-004"
+                                                                       ],
+                                                   "technique":  [
+                                                                     "STATE_TRANSITION",
+                                                                     "SECURITY"
+                                                                 ],
+                                                   "primary_technique":  "STATE_TRANSITION",
+                                                   "secondary_techniques":  [
+                                                                                "SECURITY"
+                                                                            ],
+                                                   "oracle_basis":  "AUTHORITATIVE",
+                                                   "gap_ids":  [
+
+                                                               ],
+                                                   "risk_ids":  [
+
+                                                                ],
+                                                   "observation_ids":  [
+
+                                                                       ],
+                                                   "title":  "Auth thất bại trước checkout",
+                                                   "objective":  "Kiểm tra thiếu auth không tiến hành checkout.",
+                                                   "preconditions":  [
+                                                                         "Cart baseline tồn tại"
+                                                                     ],
+                                                   "request":  {
+                                                                   "method":  "POST",
+                                                                   "path":  "/api/checkout",
+                                                                   "auth_profile":  "Bearer test JWT matching the stated precondition",
+                                                                   "content_type":  "application/json unless the case explicitly varies it",
+                                                                   "body_variation":  "không gửi Authorization"
+                                                               },
+                                                   "test_data":  {
+                                                                     "description":  "body hợp lệ",
+                                                                     "secret_policy":  "Use disposable fixtures or environment variables; do not store real secrets."
+                                                                 },
+                                                   "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_business_result":  "Không cho user chưa xác thực checkout.",
+                                                   "expected_state":  "Cart baseline không bị clear bởi checkout thành công.",
+                                                   "audit_status":  "VALID",
+                                                   "audit_reason":  "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+                                                   "correction":  null,
+                                                   "why_ai_missed":  null,
+                                                   "execution_status":  "REAL_EXECUTION_REQUIRED",
+                                                   "failure_classification":  null,
+                                                   "bug_id":  null,
+                                                   "notes":  "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+                                               }
+                             },
+                             {
+                                 "original_ai_case_id":  "API02-AI-021",
+                                 "source":  "AI_GENERATED",
+                                 "audit_classification":  "VALID",
+                                 "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                                 "correction_summary":  "No semantic correction required; Human-approved audit classification retained.",
+                                 "requirement_ids":  [
+                                                         "API02-REQ-002",
+                                                         "API02-REQ-004",
+                                                         "API02-REQ-010"
+                                                     ],
+                                 "oracle_basis":  "AUTHORITATIVE",
+                                 "final_disposition":  "INCLUDED_EXECUTABLE",
+                                 "automation_note":  null,
+                                 "test_case":  {
+                                                   "id":  "API02-AI-021",
+                                                   "api_id":  "API-02",
+                                                   "feature_id":  "FR-08",
+                                                   "endpoint":  "POST /api/checkout",
+                                                   "source":  "AI_GENERATED",
+                                                   "lifecycle_state":  "HUMAN_APPROVED",
+                                                   "requirement_ids":  [
+                                                                           "API02-REQ-002",
+                                                                           "API02-REQ-004",
+                                                                           "API02-REQ-010"
+                                                                       ],
+                                                   "technique":  [
+                                                                     "SECURITY",
+                                                                     "SCHEMA"
+                                                                 ],
+                                                   "primary_technique":  "SECURITY",
+                                                   "secondary_techniques":  [
+                                                                                "SCHEMA"
+                                                                            ],
+                                                   "oracle_basis":  "AUTHORITATIVE",
+                                                   "gap_ids":  [
+
+                                                               ],
+                                                   "risk_ids":  [
+
+                                                                ],
+                                                   "observation_ids":  [
+
+                                                                       ],
+                                                   "title":  "Thiếu Authorization header",
+                                                   "objective":  "Kiểm tra sensitive checkout bắt buộc có JWT.",
+                                                   "preconditions":  [
+                                                                         "Cart test tồn tại"
+                                                                     ],
+                                                   "request":  {
+                                                                   "method":  "POST",
+                                                                   "path":  "/api/checkout",
+                                                                   "auth_profile":  "Authorization omitted",
+                                                                   "content_type":  "application/json unless the case explicitly varies it",
+                                                                   "body_variation":  "không Authorization"
+                                                               },
+                                                   "test_data":  {
+                                                                     "description":  "documented body",
+                                                                     "secret_policy":  "Use disposable fixtures or environment variables; do not store real secrets."
+                                                                 },
+                                                   "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_business_result":  "Không cho checkout khi không có JWT hợp lệ.",
+                                                   "expected_state":  "Không áp dụng side effect success lên cart.",
+                                                   "audit_status":  "VALID",
+                                                   "audit_reason":  "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+                                                   "correction":  null,
+                                                   "why_ai_missed":  null,
+                                                   "execution_status":  "REAL_EXECUTION_REQUIRED",
+                                                   "failure_classification":  null,
+                                                   "bug_id":  null,
+                                                   "notes":  "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+                                               }
+                             },
+                             {
+                                 "original_ai_case_id":  "API02-AI-022",
+                                 "source":  "AI_GENERATED",
+                                 "audit_classification":  "VALID",
+                                 "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                                 "correction_summary":  "No semantic correction required; Human-approved audit classification retained.",
+                                 "requirement_ids":  [
+                                                         "API02-REQ-002",
+                                                         "API02-REQ-010"
+                                                     ],
+                                 "oracle_basis":  "AUTHORITATIVE",
+                                 "final_disposition":  "INCLUDED_EXECUTABLE",
+                                 "automation_note":  null,
+                                 "test_case":  {
+                                                   "id":  "API02-AI-022",
+                                                   "api_id":  "API-02",
+                                                   "feature_id":  "FR-08",
+                                                   "endpoint":  "POST /api/checkout",
+                                                   "source":  "AI_GENERATED",
+                                                   "lifecycle_state":  "HUMAN_APPROVED",
+                                                   "requirement_ids":  [
+                                                                           "API02-REQ-002",
+                                                                           "API02-REQ-010"
+                                                                       ],
+                                                   "technique":  [
+                                                                     "SECURITY",
+                                                                     "SCHEMA"
+                                                                 ],
+                                                   "primary_technique":  "SECURITY",
+                                                   "secondary_techniques":  [
+                                                                                "SCHEMA"
+                                                                            ],
+                                                   "oracle_basis":  "AUTHORITATIVE",
+                                                   "gap_ids":  [
+
+                                                               ],
+                                                   "risk_ids":  [
+
+                                                                ],
+                                                   "observation_ids":  [
+
+                                                                       ],
+                                                   "title":  "Authorization sai scheme",
+                                                   "objective":  "Kiểm tra chuỗi auth không theo Bearer không thỏa contract.",
+                                                   "preconditions":  [
+                                                                         "Cart test tồn tại"
+                                                                     ],
+                                                   "request":  {
+                                                                   "method":  "POST",
+                                                                   "path":  "/api/checkout",
+                                                                   "auth_profile":  "Invalid authorization fixture described by case",
+                                                                   "content_type":  "application/json unless the case explicitly varies it",
+                                                                   "body_variation":  "Authorization dùng Basic"
+                                                               },
+                                                   "test_data":  {
+                                                                     "description":  "Basic placeholder",
+                                                                     "secret_policy":  "Use disposable fixtures or environment variables; do not store real secrets."
+                                                                 },
+                                                   "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_business_result":  "Không coi header này là valid bearer JWT.",
+                                                   "expected_state":  "Không clear cart do checkout thành công.",
+                                                   "audit_status":  "VALID",
+                                                   "audit_reason":  "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+                                                   "correction":  null,
+                                                   "why_ai_missed":  null,
+                                                   "execution_status":  "REAL_EXECUTION_REQUIRED",
+                                                   "failure_classification":  null,
+                                                   "bug_id":  null,
+                                                   "notes":  "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+                                               }
+                             },
+                             {
+                                 "original_ai_case_id":  "API02-AI-023",
+                                 "source":  "AI_GENERATED",
+                                 "audit_classification":  "VALID",
+                                 "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                                 "correction_summary":  "No semantic correction required; Human-approved audit classification retained.",
+                                 "requirement_ids":  [
+                                                         "API02-REQ-002",
+                                                         "API02-REQ-010"
+                                                     ],
+                                 "oracle_basis":  "AUTHORITATIVE",
+                                 "final_disposition":  "INCLUDED_EXECUTABLE",
+                                 "automation_note":  null,
+                                 "test_case":  {
+                                                   "id":  "API02-AI-023",
+                                                   "api_id":  "API-02",
+                                                   "feature_id":  "FR-08",
+                                                   "endpoint":  "POST /api/checkout",
+                                                   "source":  "AI_GENERATED",
+                                                   "lifecycle_state":  "HUMAN_APPROVED",
+                                                   "requirement_ids":  [
+                                                                           "API02-REQ-002",
+                                                                           "API02-REQ-010"
+                                                                       ],
+                                                   "technique":  [
+                                                                     "SECURITY",
+                                                                     "SCHEMA"
+                                                                 ],
+                                                   "primary_technique":  "SECURITY",
+                                                   "secondary_techniques":  [
+                                                                                "SCHEMA"
+                                                                            ],
+                                                   "oracle_basis":  "AUTHORITATIVE",
+                                                   "gap_ids":  [
+
+                                                               ],
+                                                   "risk_ids":  [
+
+                                                                ],
+                                                   "observation_ids":  [
+
+                                                                       ],
+                                                   "title":  "Bearer token malformed",
+                                                   "objective":  "Kiểm tra token không phải JWT hợp lệ.",
+                                                   "preconditions":  [
+                                                                         "Cart test tồn tại"
+                                                                     ],
+                                                   "request":  {
+                                                                   "method":  "POST",
+                                                                   "path":  "/api/checkout",
+                                                                   "auth_profile":  "Invalid authorization fixture described by case",
+                                                                   "content_type":  "application/json unless the case explicitly varies it",
+                                                                   "body_variation":  "Authorization Bearer malformed"
+                                                               },
+                                                   "test_data":  {
+                                                                     "description":  "token=abc",
+                                                                     "secret_policy":  "Use disposable fixtures or environment variables; do not store real secrets."
+                                                                 },
+                                                   "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_business_result":  "Không cho checkout với JWT không hợp lệ.",
+                                                   "expected_state":  "Cart không bị clear bởi checkout thành công.",
+                                                   "audit_status":  "VALID",
+                                                   "audit_reason":  "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+                                                   "correction":  null,
+                                                   "why_ai_missed":  null,
+                                                   "execution_status":  "REAL_EXECUTION_REQUIRED",
+                                                   "failure_classification":  null,
+                                                   "bug_id":  null,
+                                                   "notes":  "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+                                               }
+                             },
+                             {
+                                 "original_ai_case_id":  "API02-AI-024",
+                                 "source":  "AI_GENERATED",
+                                 "audit_classification":  "VALID",
+                                 "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                                 "correction_summary":  "No semantic correction required; Human-approved audit classification retained.",
+                                 "requirement_ids":  [
+                                                         "API02-REQ-002",
+                                                         "API02-REQ-010"
+                                                     ],
+                                 "oracle_basis":  "AUTHORITATIVE",
+                                 "final_disposition":  "INCLUDED_EXECUTABLE",
+                                 "automation_note":  null,
+                                 "test_case":  {
+                                                   "id":  "API02-AI-024",
+                                                   "api_id":  "API-02",
+                                                   "feature_id":  "FR-08",
+                                                   "endpoint":  "POST /api/checkout",
+                                                   "source":  "AI_GENERATED",
+                                                   "lifecycle_state":  "HUMAN_APPROVED",
+                                                   "requirement_ids":  [
+                                                                           "API02-REQ-002",
+                                                                           "API02-REQ-010"
+                                                                       ],
+                                                   "technique":  [
+                                                                     "SECURITY",
+                                                                     "STATE_TRANSITION"
+                                                                 ],
+                                                   "primary_technique":  "SECURITY",
+                                                   "secondary_techniques":  [
+                                                                                "STATE_TRANSITION"
+                                                                            ],
+                                                   "oracle_basis":  "AUTHORITATIVE",
+                                                   "gap_ids":  [
+
+                                                               ],
+                                                   "risk_ids":  [
+
+                                                                ],
+                                                   "observation_ids":  [
+
+                                                                       ],
+                                                   "title":  "Bearer token hết hạn",
+                                                   "objective":  "Kiểm tra expired JWT không thỏa yêu cầu valid token.",
+                                                   "preconditions":  [
+                                                                         "Có JWT expired trong môi trường test"
+                                                                     ],
+                                                   "request":  {
+                                                                   "method":  "POST",
+                                                                   "path":  "/api/checkout",
+                                                                   "auth_profile":  "Bearer test JWT matching the stated precondition",
+                                                                   "content_type":  "application/json unless the case explicitly varies it",
+                                                                   "body_variation":  "Authorization Bearer expired"
+                                                               },
+                                                   "test_data":  {
+                                                                     "description":  "expired token fixture",
+                                                                     "secret_policy":  "Use disposable fixtures or environment variables; do not store real secrets."
+                                                                 },
+                                                   "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_business_result":  "Không cho checkout với token hết hạn.",
+                                                   "expected_state":  "Cart không bị clear bởi checkout thành công.",
+                                                   "audit_status":  "VALID",
+                                                   "audit_reason":  "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+                                                   "correction":  null,
+                                                   "why_ai_missed":  null,
+                                                   "execution_status":  "REAL_EXECUTION_REQUIRED",
+                                                   "failure_classification":  null,
+                                                   "bug_id":  null,
+                                                   "notes":  "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+                                               }
+                             },
+                             {
+                                 "original_ai_case_id":  "API02-AI-025",
+                                 "source":  "AI_GENERATED",
+                                 "audit_classification":  "VALID",
+                                 "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                                 "correction_summary":  "No semantic correction required; Human-approved audit classification retained.",
+                                 "requirement_ids":  [
+                                                         "API02-REQ-005",
+                                                         "API02-REQ-006"
+                                                     ],
+                                 "oracle_basis":  "AUTHORITATIVE",
+                                 "final_disposition":  "INCLUDED_EXECUTABLE",
+                                 "automation_note":  null,
+                                 "test_case":  {
+                                                   "id":  "API02-AI-025",
+                                                   "api_id":  "API-02",
+                                                   "feature_id":  "FR-08",
+                                                   "endpoint":  "POST /api/checkout",
+                                                   "source":  "AI_GENERATED",
+                                                   "lifecycle_state":  "HUMAN_APPROVED",
+                                                   "requirement_ids":  [
+                                                                           "API02-REQ-005",
+                                                                           "API02-REQ-006"
+                                                                       ],
+                                                   "technique":  [
+                                                                     "SECURITY",
+                                                                     "BUSINESS_RULE"
+                                                                 ],
+                                                   "primary_technique":  "SECURITY",
+                                                   "secondary_techniques":  [
+                                                                                "BUSINESS_RULE"
+                                                                            ],
+                                                   "oracle_basis":  "AUTHORITATIVE",
+                                                   "gap_ids":  [
+
+                                                               ],
+                                                   "risk_ids":  [
+                                                                    "API02-ID-001"
+                                                                ],
+                                                   "observation_ids":  [
+
+                                                                       ],
+                                                   "title":  "Total dạng biểu thức injection",
+                                                   "objective":  "Kiểm tra input total không thể chi phối persistence hoặc vượt qua server recalculation.",
+                                                   "preconditions":  [
+                                                                         "JWT hợp lệ",
+                                                                         "Cart có tổng biết trước"
+                                                                     ],
+                                                   "request":  {
+                                                                   "method":  "POST",
+                                                                   "path":  "/api/checkout",
+                                                                   "auth_profile":  "Bearer test JWT matching the stated precondition",
+                                                                   "content_type":  "application/json unless the case explicitly varies it",
+                                                                   "body_variation":  "total_amount là chuỗi SQL-like"
+                                                               },
+                                                   "test_data":  {
+                                                                     "description":  "\"0 OR 1=1\"",
+                                                                     "secret_policy":  "Use disposable fixtures or environment variables; do not store real secrets."
+                                                                 },
+                                                   "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_business_result":  "Client input không được dùng làm tổng có thẩm quyền; truy vấn phải giữ ranh giới dữ liệu.",
+                                                   "expected_state":  "Không có thay đổi dữ liệu ngoài checkout được phép.",
+                                                   "audit_status":  "VALID",
+                                                   "audit_reason":  "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+                                                   "correction":  null,
+                                                   "why_ai_missed":  null,
+                                                   "execution_status":  "REAL_EXECUTION_REQUIRED",
+                                                   "failure_classification":  null,
+                                                   "bug_id":  null,
+                                                   "notes":  "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+                                               }
+                             },
+                             {
+                                 "original_ai_case_id":  "API02-AI-026",
+                                 "source":  "AI_GENERATED",
+                                 "audit_classification":  "VALID",
+                                 "human_review_status":  "HUMAN_REVIEW_DECISION_APPLIED",
+                                 "correction_summary":  "No semantic correction required; Human-approved audit classification retained.",
+                                 "requirement_ids":  [
+                                                         "API02-REQ-003",
+                                                         "API02-REQ-011"
+                                                     ],
+                                 "oracle_basis":  "SECURITY_EXPECTATION",
+                                 "final_disposition":  "INCLUDED_EXECUTABLE",
+                                 "automation_note":  null,
+                                 "test_case":  {
+                                                   "id":  "API02-AI-026",
+                                                   "api_id":  "API-02",
+                                                   "feature_id":  "FR-08",
+                                                   "endpoint":  "POST /api/checkout",
+                                                   "source":  "AI_GENERATED",
+                                                   "lifecycle_state":  "HUMAN_APPROVED",
+                                                   "requirement_ids":  [
+                                                                           "API02-REQ-003",
+                                                                           "API02-REQ-011"
+                                                                       ],
+                                                   "technique":  [
+                                                                     "SECURITY",
+                                                                     "SCHEMA"
+                                                                 ],
+                                                   "primary_technique":  "SECURITY",
+                                                   "secondary_techniques":  [
+                                                                                "SCHEMA"
+                                                                            ],
+                                                   "oracle_basis":  "SECURITY_EXPECTATION",
+                                                   "gap_ids":  [
+
+                                                               ],
+                                                   "risk_ids":  [
+                                                                    "API02-RISK-INJECTION"
+                                                                ],
+                                                   "observation_ids":  [
+                                                                           "API02-ID-004"
+                                                                       ],
+                                                   "title":  "Injection trong shipping_address",
+                                                   "objective":  "Kiểm tra địa chỉ được xử lý như dữ liệu, không như câu lệnh.",
+                                                   "preconditions":  [
+                                                                         "JWT hợp lệ",
+                                                                         "Cart có hàng"
+                                                                     ],
+                                                   "request":  {
+                                                                   "method":  "POST",
+                                                                   "path":  "/api/checkout",
+                                                                   "auth_profile":  "Bearer test JWT matching the stated precondition",
+                                                                   "content_type":  "application/json unless the case explicitly varies it",
+                                                                   "body_variation":  "shipping_address chứa metacharacters"
+                                                               },
+                                                   "test_data":  {
+                                                                     "description":  "\"x\u0027); DROP TABLE orders;--\"",
+                                                                     "secret_policy":  "Use disposable fixtures or environment variables; do not store real secrets."
+                                                                 },
+                                                   "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_business_result":  "Không được thực thi nội dung input như lệnh hoặc phá dữ liệu ngoài phạm vi.",
+                                                   "expected_state":  "Nếu checkout thành công, cart clear; dữ liệu khác còn nguyên.",
+                                                   "audit_status":  "VALID",
+                                                   "audit_reason":  "Applicable security invariant provides a meaningful pass/fail target even though exact HTTP status and response schema remain unspecified.",
+                                                   "correction":  null,
+                                                   "why_ai_missed":  null,
+                                                   "execution_status":  "REAL_EXECUTION_REQUIRED",
+                                                   "failure_classification":  null,
+                                                   "bug_id":  null,
+                                                   "notes":  "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+                                               }
+                             },
+                             {
+                                 "original_ai_case_id":  "API02-AI-027",
+                                 "source":  "AI_GENERATED",
+                                 "audit_classification":  "VALID",
+                                 "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                                 "correction_summary":  "No semantic correction required; Human-approved audit classification retained.",
+                                 "requirement_ids":  [
+                                                         "API02-REQ-002",
+                                                         "API02-REQ-004"
+                                                     ],
+                                 "oracle_basis":  "AUTHORITATIVE",
+                                 "final_disposition":  "INCLUDED_EXECUTABLE",
+                                 "automation_note":  null,
+                                 "test_case":  {
+                                                   "id":  "API02-AI-027",
+                                                   "api_id":  "API-02",
+                                                   "feature_id":  "FR-08",
+                                                   "endpoint":  "POST /api/checkout",
+                                                   "source":  "AI_GENERATED",
+                                                   "lifecycle_state":  "HUMAN_APPROVED",
+                                                   "requirement_ids":  [
+                                                                           "API02-REQ-002",
+                                                                           "API02-REQ-004"
+                                                                       ],
+                                                   "technique":  [
+                                                                     "SECURITY",
+                                                                     "STATE_TRANSITION"
+                                                                 ],
+                                                   "primary_technique":  "SECURITY",
+                                                   "secondary_techniques":  [
+                                                                                "STATE_TRANSITION"
+                                                                            ],
+                                                   "oracle_basis":  "AUTHORITATIVE",
+                                                   "gap_ids":  [
+
+                                                               ],
+                                                   "risk_ids":  [
+                                                                    "API02-RISK-CROSS-USER"
+                                                                ],
+                                                   "observation_ids":  [
+
+                                                                       ],
+                                                   "title":  "JWT user không khớp cart client tham chiếu",
+                                                   "objective":  "Kiểm tra identity từ JWT quyết định cart, không từ payload suy diễn.",
+                                                   "preconditions":  [
+                                                                         "User A và B có cart"
+                                                                     ],
+                                                   "request":  {
+                                                                   "method":  "POST",
+                                                                   "path":  "/api/checkout",
+                                                                   "auth_profile":  "Bearer test JWT matching the stated precondition",
+                                                                   "content_type":  "application/json unless the case explicitly varies it",
+                                                                   "body_variation":  "JWT A, payload thêm user_id B"
+                                                               },
+                                                   "test_data":  {
+                                                                     "description":  "unexpected user_id field",
+                                                                     "secret_policy":  "Use disposable fixtures or environment variables; do not store real secrets."
+                                                                 },
+                                                   "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_business_result":  "Checkout chỉ được gắn với user đã xác thực; không được tác động cart B.",
+                                                   "expected_state":  "Cart B không đổi.",
+                                                   "audit_status":  "VALID",
+                                                   "audit_reason":  "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+                                                   "correction":  null,
+                                                   "why_ai_missed":  null,
+                                                   "execution_status":  "REAL_EXECUTION_REQUIRED",
+                                                   "failure_classification":  null,
+                                                   "bug_id":  null,
+                                                   "notes":  "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+                                               }
+                             },
+                             {
+                                 "original_ai_case_id":  "API02-AI-029",
+                                 "source":  "AI_GENERATED",
+                                 "audit_classification":  "VALID",
+                                 "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                                 "correction_summary":  "No semantic correction required; Human-approved audit classification retained.",
+                                 "requirement_ids":  [
+                                                         "API02-REQ-001",
+                                                         "API02-REQ-002",
+                                                         "API02-REQ-003"
+                                                     ],
+                                 "oracle_basis":  "PARTIALLY_SPECIFIED",
+                                 "final_disposition":  "INCLUDED_EXECUTABLE",
+                                 "automation_note":  null,
+                                 "test_case":  {
+                                                   "id":  "API02-AI-029",
+                                                   "api_id":  "API-02",
+                                                   "feature_id":  "FR-08",
+                                                   "endpoint":  "POST /api/checkout",
+                                                   "source":  "AI_GENERATED",
+                                                   "lifecycle_state":  "HUMAN_APPROVED",
+                                                   "requirement_ids":  [
+                                                                           "API02-REQ-001",
+                                                                           "API02-REQ-002",
+                                                                           "API02-REQ-003"
+                                                                       ],
+                                                   "technique":  [
+                                                                     "SCHEMA",
+                                                                     "DOMAIN_PARTITION"
+                                                                 ],
+                                                   "primary_technique":  "SCHEMA",
+                                                   "secondary_techniques":  [
+                                                                                "DOMAIN_PARTITION"
+                                                                            ],
+                                                   "oracle_basis":  "PARTIALLY_SPECIFIED",
+                                                   "gap_ids":  [
+                                                                   "API02-RG-001"
+                                                               ],
+                                                   "risk_ids":  [
+
+                                                                ],
+                                                   "observation_ids":  [
+
+                                                                       ],
+                                                   "title":  "Request đúng header và body documented",
+                                                   "objective":  "Xác nhận shape cơ sở gồm Bearer, total_amount, shipping_address.",
+                                                   "preconditions":  [
+                                                                         "JWT hợp lệ",
+                                                                         "Cart có hàng"
+                                                                     ],
+                                                   "request":  {
+                                                                   "method":  "POST",
+                                                                   "path":  "/api/checkout",
+                                                                   "auth_profile":  "Bearer test JWT matching the stated precondition",
+                                                                   "content_type":  "application/json unless the case explicitly varies it",
+                                                                   "body_variation":  "JSON đúng hai field"
+                                                               },
+                                                   "test_data":  {
+                                                                     "description":  "documented shape",
+                                                                     "secret_policy":  "Use disposable fixtures or environment variables; do not store real secrets."
+                                                                 },
+                                                   "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_business_result":  "Request phù hợp contract đầu vào; response status/schema chưa được quy định.",
+                                                   "expected_state":  "Nếu thành công, cart clear.",
+                                                   "audit_status":  "VALID",
+                                                   "audit_reason":  "Transport details are unspecified, but the raw case retains a requirement-backed business/state oracle sufficient for execution.",
+                                                   "correction":  null,
+                                                   "why_ai_missed":  null,
+                                                   "execution_status":  "REAL_EXECUTION_REQUIRED",
+                                                   "failure_classification":  null,
+                                                   "bug_id":  null,
+                                                   "notes":  "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+                                               }
+                             },
+                             {
+                                 "original_ai_case_id":  "API02-AI-034",
+                                 "source":  "AI_GENERATED",
+                                 "audit_classification":  "VALID",
+                                 "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                                 "correction_summary":  "No semantic correction required; Human-approved audit classification retained.",
+                                 "requirement_ids":  [
+                                                         "API02-REQ-005",
+                                                         "API02-REQ-006"
+                                                     ],
+                                 "oracle_basis":  "AUTHORITATIVE",
+                                 "final_disposition":  "INCLUDED_EXECUTABLE",
+                                 "automation_note":  null,
+                                 "test_case":  {
+                                                   "id":  "API02-AI-034",
+                                                   "api_id":  "API-02",
+                                                   "feature_id":  "FR-08",
+                                                   "endpoint":  "POST /api/checkout",
+                                                   "source":  "AI_GENERATED",
+                                                   "lifecycle_state":  "HUMAN_APPROVED",
+                                                   "requirement_ids":  [
+                                                                           "API02-REQ-005",
+                                                                           "API02-REQ-006"
+                                                                       ],
+                                                   "technique":  [
+                                                                     "BUSINESS_RULE",
+                                                                     "SECURITY"
+                                                                 ],
+                                                   "primary_technique":  "BUSINESS_RULE",
+                                                   "secondary_techniques":  [
+                                                                                "SECURITY"
+                                                                            ],
+                                                   "oracle_basis":  "AUTHORITATIVE",
+                                                   "gap_ids":  [
+
+                                                               ],
+                                                   "risk_ids":  [
+                                                                    "API02-ID-001",
+                                                                    "API02-ID-003"
+                                                                ],
+                                                   "observation_ids":  [
+
+                                                                       ],
+                                                   "title":  "Backend recompute với client total khớp",
+                                                   "objective":  "Kiểm tra việc trùng giá trị không che mất nghĩa vụ đọc cart và tính lại.",
+                                                   "preconditions":  [
+                                                                         "JWT hợp lệ",
+                                                                         "Cart có tổng biết trước"
+                                                                     ],
+                                                   "request":  {
+                                                                   "method":  "POST",
+                                                                   "path":  "/api/checkout",
+                                                                   "auth_profile":  "Bearer test JWT matching the stated precondition",
+                                                                   "content_type":  "application/json unless the case explicitly varies it",
+                                                                   "body_variation":  "client total tình cờ bằng cart total"
+                                                               },
+                                                   "test_data":  {
+                                                                     "description":  "equal values",
+                                                                     "secret_policy":  "Use disposable fixtures or environment variables; do not store real secrets."
+                                                                 },
+                                                   "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_business_result":  "Cần evidence backend-derived total; equality alone không chứng minh client được tin.",
+                                                   "expected_state":  "Nếu thành công, cart clear.",
+                                                   "audit_status":  "VALID",
+                                                   "audit_reason":  "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+                                                   "correction":  null,
+                                                   "why_ai_missed":  null,
+                                                   "execution_status":  "REAL_EXECUTION_REQUIRED",
+                                                   "failure_classification":  null,
+                                                   "bug_id":  null,
+                                                   "notes":  "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+                                               }
+                             },
+                             {
+                                 "original_ai_case_id":  "API02-AI-035",
+                                 "source":  "AI_GENERATED",
+                                 "audit_classification":  "VALID",
+                                 "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                                 "correction_summary":  "No semantic correction required; Human-approved audit classification retained.",
+                                 "requirement_ids":  [
+                                                         "API02-REQ-005",
+                                                         "API02-REQ-006"
+                                                     ],
+                                 "oracle_basis":  "AUTHORITATIVE",
+                                 "final_disposition":  "INCLUDED_EXECUTABLE",
+                                 "automation_note":  null,
+                                 "test_case":  {
+                                                   "id":  "API02-AI-035",
+                                                   "api_id":  "API-02",
+                                                   "feature_id":  "FR-08",
+                                                   "endpoint":  "POST /api/checkout",
+                                                   "source":  "AI_GENERATED",
+                                                   "lifecycle_state":  "HUMAN_APPROVED",
+                                                   "requirement_ids":  [
+                                                                           "API02-REQ-005",
+                                                                           "API02-REQ-006"
+                                                                       ],
+                                                   "technique":  [
+                                                                     "BUSINESS_RULE",
+                                                                     "SECURITY"
+                                                                 ],
+                                                   "primary_technique":  "BUSINESS_RULE",
+                                                   "secondary_techniques":  [
+                                                                                "SECURITY"
+                                                                            ],
+                                                   "oracle_basis":  "AUTHORITATIVE",
+                                                   "gap_ids":  [
+
+                                                               ],
+                                                   "risk_ids":  [
+                                                                    "API02-ID-001"
+                                                                ],
+                                                   "observation_ids":  [
+
+                                                                       ],
+                                                   "title":  "Client total có phần thập phân khác",
+                                                   "objective":  "Kiểm tra tampering nhỏ không được dùng làm tổng có thẩm quyền.",
+                                                   "preconditions":  [
+                                                                         "JWT hợp lệ",
+                                                                         "Cart total biết trước"
+                                                                     ],
+                                                   "request":  {
+                                                                   "method":  "POST",
+                                                                   "path":  "/api/checkout",
+                                                                   "auth_profile":  "Bearer test JWT matching the stated precondition",
+                                                                   "content_type":  "application/json unless the case explicitly varies it",
+                                                                   "body_variation":  "client total lệch một phần nhỏ"
+                                                               },
+                                                   "test_data":  {
+                                                                     "description":  "cart=100, client=99.99",
+                                                                     "secret_policy":  "Use disposable fixtures or environment variables; do not store real secrets."
+                                                                 },
+                                                   "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_business_result":  "Backend dùng total tính từ cart.",
+                                                   "expected_state":  "Nếu thành công, cart clear.",
+                                                   "audit_status":  "VALID",
+                                                   "audit_reason":  "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+                                                   "correction":  null,
+                                                   "why_ai_missed":  null,
+                                                   "execution_status":  "REAL_EXECUTION_REQUIRED",
+                                                   "failure_classification":  null,
+                                                   "bug_id":  null,
+                                                   "notes":  "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+                                               }
+                             },
+                             {
+                                 "original_ai_case_id":  "API02-AI-036",
+                                 "source":  "AI_GENERATED",
+                                 "audit_classification":  "VALID",
+                                 "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                                 "correction_summary":  "No semantic correction required; Human-approved audit classification retained.",
+                                 "requirement_ids":  [
+                                                         "API02-REQ-007"
+                                                     ],
+                                 "oracle_basis":  "AUTHORITATIVE",
+                                 "final_disposition":  "INCLUDED_EXECUTABLE",
+                                 "automation_note":  null,
+                                 "test_case":  {
+                                                   "id":  "API02-AI-036",
+                                                   "api_id":  "API-02",
+                                                   "feature_id":  "FR-08",
+                                                   "endpoint":  "POST /api/checkout",
+                                                   "source":  "AI_GENERATED",
+                                                   "lifecycle_state":  "HUMAN_APPROVED",
+                                                   "requirement_ids":  [
+                                                                           "API02-REQ-007"
+                                                                       ],
+                                                   "technique":  [
+                                                                     "BUSINESS_RULE",
+                                                                     "STATE_TRANSITION"
+                                                                 ],
+                                                   "primary_technique":  "BUSINESS_RULE",
+                                                   "secondary_techniques":  [
+                                                                                "STATE_TRANSITION"
+                                                                            ],
+                                                   "oracle_basis":  "AUTHORITATIVE",
+                                                   "gap_ids":  [
+
+                                                               ],
+                                                   "risk_ids":  [
+                                                                    "API02-ID-002"
+                                                                ],
+                                                   "observation_ids":  [
+
+                                                                       ],
+                                                   "title":  "Clear đúng cart sau success",
+                                                   "objective":  "Kiểm tra side effect clear nhắm đúng authenticated user\u0027s cart.",
+                                                   "preconditions":  [
+                                                                         "User A và B đều có cart",
+                                                                         "Checkout A thành công"
+                                                                     ],
+                                                   "request":  {
+                                                                   "method":  "POST",
+                                                                   "path":  "/api/checkout",
+                                                                   "auth_profile":  "Bearer test JWT matching the stated precondition",
+                                                                   "content_type":  "application/json unless the case explicitly varies it",
+                                                                   "body_variation":  "hậu kiểm cả hai cart"
+                                                               },
+                                                   "test_data":  {
+                                                                     "description":  "two-user state",
+                                                                     "secret_policy":  "Use disposable fixtures or environment variables; do not store real secrets."
+                                                                 },
+                                                   "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_business_result":  "Checkout thành công của A không xác lập quy tắc cho B.",
+                                                   "expected_state":  "Cart A rỗng; cart B giữ nguyên.",
+                                                   "audit_status":  "VALID",
+                                                   "audit_reason":  "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+                                                   "correction":  null,
+                                                   "why_ai_missed":  null,
+                                                   "execution_status":  "REAL_EXECUTION_REQUIRED",
+                                                   "failure_classification":  null,
+                                                   "bug_id":  null,
+                                                   "notes":  "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+                                               }
+                             },
+                             {
+                                 "original_ai_case_id":  "API02-AI-037",
+                                 "source":  "AI_GENERATED",
+                                 "audit_classification":  "VALID",
+                                 "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                                 "correction_summary":  "No semantic correction required; Human-approved audit classification retained.",
+                                 "requirement_ids":  [
+                                                         "API02-REQ-005",
+                                                         "API02-REQ-006",
+                                                         "API02-REQ-008"
+                                                     ],
+                                 "oracle_basis":  "AUTHORITATIVE",
+                                 "final_disposition":  "INCLUDED_EXECUTABLE",
+                                 "automation_note":  null,
+                                 "test_case":  {
+                                                   "id":  "API02-AI-037",
+                                                   "api_id":  "API-02",
+                                                   "feature_id":  "FR-08",
+                                                   "endpoint":  "POST /api/checkout",
+                                                   "source":  "AI_GENERATED",
+                                                   "lifecycle_state":  "HUMAN_APPROVED",
+                                                   "requirement_ids":  [
+                                                                           "API02-REQ-005",
+                                                                           "API02-REQ-006",
+                                                                           "API02-REQ-008"
+                                                                       ],
+                                                   "technique":  [
+                                                                     "BUSINESS_RULE",
+                                                                     "DOMAIN_PARTITION"
+                                                                 ],
+                                                   "primary_technique":  "BUSINESS_RULE",
+                                                   "secondary_techniques":  [
+                                                                                "DOMAIN_PARTITION"
+                                                                            ],
+                                                   "oracle_basis":  "AUTHORITATIVE",
+                                                   "gap_ids":  [
+
+                                                               ],
+                                                   "risk_ids":  [
+
+                                                                ],
+                                                   "observation_ids":  [
+
+                                                                       ],
+                                                   "title":  "Cart có quantity nhiều hơn một",
+                                                   "objective":  "Dùng FR-07 chỉ làm precondition để kiểm tra total của FR-08 từ cart hiện tại.",
+                                                   "preconditions":  [
+                                                                         "JWT hợp lệ",
+                                                                         "Cart có một product quantity lớn hơn một"
+                                                                     ],
+                                                   "request":  {
+                                                                   "method":  "POST",
+                                                                   "path":  "/api/checkout",
+                                                                   "auth_profile":  "Bearer test JWT matching the stated precondition",
+                                                                   "content_type":  "application/json unless the case explicitly varies it",
+                                                                   "body_variation":  "client total chỉ tính quantity một"
+                                                               },
+                                                   "test_data":  {
+                                                                     "description":  "supporting cart setup",
+                                                                     "secret_policy":  "Use disposable fixtures or environment variables; do not store real secrets."
+                                                                 },
+                                                   "expected_status":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_schema":  "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+                                                   "expected_business_result":  "Backend total phản ánh cart hiện tại theo FR-08; không biến quy tắc merge FR-07 thành checkout oracle.",
+                                                   "expected_state":  "Nếu thành công, cart được xóa.",
+                                                   "audit_status":  "VALID",
+                                                   "audit_reason":  "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+                                                   "correction":  null,
+                                                   "why_ai_missed":  null,
+                                                   "execution_status":  "REAL_EXECUTION_REQUIRED",
+                                                   "failure_classification":  null,
+                                                   "bug_id":  null,
+                                                   "notes":  "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+                                               }
+                             }
+                         ],
+    "removed_cases":  [
+                          {
+                              "original_ai_case_id":  "API02-AI-028",
+                              "source":  "AI_GENERATED",
+                              "audit_classification":  "INVALID",
+                              "human_review_status":  "HUMAN_REVIEW_DECISION_APPLIED",
+                              "final_disposition":  "REMOVED_FROM_FINAL_EXECUTABLE_SUITE",
+                              "reason":  "Case gửi hai request trùng tuần tự gần nhau không tạo equivalence class khác rõ ràng so với replay sau success ở API02-AI-015; concurrency thực sự đã được tách ở API02-AI-020."
+                          }
+                      ],
+    "deferred_cases":  [
+                           {
+                               "original_ai_case_id":  "API02-AI-008",
+                               "source":  "AI_GENERATED",
+                               "audit_classification":  "INCOMPLETE",
+                               "human_review_status":  "HUMAN_REVIEW_DECISION_APPLIED",
+                               "final_disposition":  "DEFERRED_REQUIREMENT_GAP",
+                               "reason":  "Concept/risk \u0027Thiếu shipping_address\u0027 có liên quan, nhưng raw case chưa có authoritative oracle, dependency hoặc validation point đủ để trở thành final executable pass/fail test.",
+                               "proposed_correction":  "Cần authoritative shipping_address requiredness trước khi tạo pass/fail oracle; nếu chưa có thì giữ observation non-blocking."
+                           },
+                           {
+                               "original_ai_case_id":  "API02-AI-011",
+                               "source":  "AI_GENERATED",
+                               "audit_classification":  "INCOMPLETE",
+                               "human_review_status":  "HUMAN_REVIEW_DECISION_APPLIED",
+                               "final_disposition":  "DEFERRED_REQUIREMENT_GAP",
+                               "reason":  "Concept/risk \u0027Cart rỗng\u0027 có liên quan, nhưng raw case chưa có authoritative oracle, dependency hoặc validation point đủ để trở thành final executable pass/fail test.",
+                               "proposed_correction":  "Human phải xác định empty-cart behavior và state oracle; không tự đặt status, order creation hay error schema."
+                           },
+                           {
+                               "original_ai_case_id":  "API02-AI-012",
+                               "source":  "AI_GENERATED",
+                               "audit_classification":  "INCOMPLETE",
+                               "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                               "final_disposition":  "DEFERRED_REQUIREMENT_GAP",
+                               "reason":  "Concept/risk \u0027Địa chỉ chuỗi rỗng\u0027 có liên quan, nhưng raw case chưa có authoritative oracle, dependency hoặc validation point đủ để trở thành final executable pass/fail test.",
+                               "proposed_correction":  "Xác định empty-address rule hoặc defer; không tự coi chuỗi rỗng là valid/invalid."
+                           },
+                           {
+                               "original_ai_case_id":  "API02-AI-013",
+                               "source":  "AI_GENERATED",
+                               "audit_classification":  "INCOMPLETE",
+                               "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                               "final_disposition":  "DEFERRED_REQUIREMENT_GAP",
+                               "reason":  "Concept/risk \u0027Địa chỉ rất dài\u0027 có liên quan, nhưng raw case chưa có authoritative oracle, dependency hoặc validation point đủ để trở thành final executable pass/fail test.",
+                               "proposed_correction":  "Xác định address length limit từ authoritative source hoặc dùng robustness observation không blocking."
+                           },
+                           {
+                               "original_ai_case_id":  "API02-AI-015",
+                               "source":  "AI_GENERATED",
+                               "audit_classification":  "INCOMPLETE",
+                               "human_review_status":  "HUMAN_REVIEW_DECISION_APPLIED",
+                               "final_disposition":  "DEFERRED_REQUIREMENT_GAP",
+                               "reason":  "Concept/risk \u0027Gửi lại checkout sau thành công\u0027 có liên quan, nhưng raw case chưa có authoritative oracle, dependency hoặc validation point đủ để trở thành final executable pass/fail test.",
+                               "proposed_correction":  "Cần idempotency/replay policy và deterministic order-state observation trước khi case có final pass/fail result."
+                           },
+                           {
+                               "original_ai_case_id":  "API02-AI-019",
+                               "source":  "AI_GENERATED",
+                               "audit_classification":  "INCOMPLETE",
+                               "human_review_status":  "HUMAN_REVIEW_DECISION_APPLIED",
+                               "final_disposition":  "DEFERRED_REQUIREMENT_GAP",
+                               "reason":  "Concept/risk \u0027Input body lỗi và cart state\u0027 có liên quan, nhưng raw case chưa có authoritative oracle, dependency hoặc validation point đủ để trở thành final executable pass/fail test.",
+                               "proposed_correction":  "Xác định failure condition và expected cart effect; chỉ clear-on-success hiện là authoritative."
+                           },
+                           {
+                               "original_ai_case_id":  "API02-AI-020",
+                               "source":  "AI_GENERATED",
+                               "audit_classification":  "INCOMPLETE",
+                               "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                               "final_disposition":  "DEFERRED_REQUIREMENT_GAP",
+                               "reason":  "Concept/risk \u0027Hai checkout đồng thời\u0027 có liên quan, nhưng raw case chưa có authoritative oracle, dependency hoặc validation point đủ để trở thành final executable pass/fail test.",
+                               "proposed_correction":  "Bổ sung concurrency harness, synchronization point và Human-approved duplicate-order/idempotency oracle."
+                           },
+                           {
+                               "original_ai_case_id":  "API02-AI-030",
+                               "source":  "AI_GENERATED",
+                               "audit_classification":  "INCOMPLETE",
+                               "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                               "final_disposition":  "DEFERRED_REQUIREMENT_GAP",
+                               "reason":  "Concept/risk \u0027Body null\u0027 có liên quan, nhưng raw case chưa có authoritative oracle, dependency hoặc validation point đủ để trở thành final executable pass/fail test.",
+                               "proposed_correction":  "Xác định body requiredness/top-level type policy hoặc thêm invariant no-success-side-effect cho null body."
+                           },
+                           {
+                               "original_ai_case_id":  "API02-AI-031",
+                               "source":  "AI_GENERATED",
+                               "audit_classification":  "INCOMPLETE",
+                               "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                               "final_disposition":  "DEFERRED_REQUIREMENT_GAP",
+                               "reason":  "Concept/risk \u0027Body là array\u0027 có liên quan, nhưng raw case chưa có authoritative oracle, dependency hoặc validation point đủ để trở thành final executable pass/fail test.",
+                               "proposed_correction":  "Xác định object-only validation oracle hoặc thêm invariant no checkout success side effect cho array body."
+                           },
+                           {
+                               "original_ai_case_id":  "API02-AI-032",
+                               "source":  "AI_GENERATED",
+                               "audit_classification":  "INCOMPLETE",
+                               "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                               "final_disposition":  "DEFERRED_REQUIREMENT_GAP",
+                               "reason":  "Concept/risk \u0027Malformed JSON\u0027 có liên quan, nhưng raw case chưa có authoritative oracle, dependency hoặc validation point đủ để trở thành final executable pass/fail test.",
+                               "proposed_correction":  "Bổ sung observable parser outcome và cart-state invariant; không tự đặt malformed-JSON status/schema."
+                           },
+                           {
+                               "original_ai_case_id":  "API02-AI-033",
+                               "source":  "AI_GENERATED",
+                               "audit_classification":  "INCOMPLETE",
+                               "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                               "final_disposition":  "DEFERRED_REQUIREMENT_GAP",
+                               "reason":  "Concept/risk \u0027Sai Content-Type\u0027 có liên quan, nhưng raw case chưa có authoritative oracle, dependency hoặc validation point đủ để trở thành final executable pass/fail test.",
+                               "proposed_correction":  "Làm rõ supported Content-Type hoặc giữ non-blocking observation với cart-state evidence."
+                           },
+                           {
+                               "original_ai_case_id":  "API02-AI-038",
+                               "source":  "AI_GENERATED",
+                               "audit_classification":  "INCOMPLETE",
+                               "human_review_status":  "HUMAN_REVIEW_DECISION_APPLIED",
+                               "final_disposition":  "DEFERRED_REQUIREMENT_GAP",
+                               "reason":  "FR-09 is supporting/cross-feature context; no authoritative source defines coupon integration with POST /api/checkout.",
+                               "proposed_correction":  "Do not invent a coupon integration oracle; defer until a cross-feature checkout contract is approved."
+                           },
+                           {
+                               "original_ai_case_id":  "API02-AI-039",
+                               "source":  "AI_GENERATED",
+                               "audit_classification":  "INCOMPLETE",
+                               "human_review_status":  "HUMAN_REVIEW_DECISION_APPLIED",
+                               "final_disposition":  "DEFERRED_REQUIREMENT_GAP",
+                               "reason":  "Concept/risk \u0027Quan sát initial order status\u0027 có liên quan, nhưng raw case chưa có authoritative oracle, dependency hoặc validation point đủ để trở thành final executable pass/fail test.",
+                               "proposed_correction":  "Cần authoritative initial order-status contract trước khi có pass/fail oracle; implementation value chỉ được ghi observation."
+                           },
+                           {
+                               "original_ai_case_id":  "API02-AI-040",
+                               "source":  "AI_GENERATED",
+                               "audit_classification":  "INCOMPLETE",
+                               "human_review_status":  "AGGREGATE_METHOD_APPROVED_NOT_INDIVIDUALLY_REVIEWED",
+                               "final_disposition":  "DEFERRED_REQUIREMENT_GAP",
+                               "reason":  "Concept/risk \u0027Quan sát order-line persistence\u0027 có liên quan, nhưng raw case chưa có authoritative oracle, dependency hoặc validation point đủ để trở thành final executable pass/fail test.",
+                               "proposed_correction":  "Cần authoritative order-line persistence contract; nếu không có thì bỏ khỏi executable final suite và chỉ giữ research note."
+                           }
+                       ]
+}
