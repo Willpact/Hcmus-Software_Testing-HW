@@ -1,0 +1,445 @@
+{
+  "metadata": {
+    "api_id": "API-03",
+    "status": "STUDENT_EXTENSION_APPROVED",
+    "human_review_status": "APPROVED",
+    "minimum_required": 5,
+    "student_added_count": 6,
+    "corrected_executable_ai_cases": 28,
+    "deferred_requirement_gaps": 12,
+    "total_executable_preview": 33,
+    "meets_35_case_preview": false,
+    "postman_started": false,
+    "approved_existing_count": 4,
+    "rejected_count": 1,
+    "replacement_pending_count": 0,
+    "approved_student_added_count": 5
+  },
+  "student_cases": [
+    {
+      "test_case": {
+        "id": "API03-STU-001",
+        "api_id": "API-03",
+        "feature_id": "FR-16",
+        "endpoint": "POST /api/admin/import-products",
+        "source": "STUDENT_ADDED",
+        "lifecycle_state": "HUMAN_APPROVED",
+        "requirement_ids": [
+          "API03-REQ-002",
+          "API03-REQ-003",
+          "API03-REQ-009"
+        ],
+        "technique": [
+          "SECURITY",
+          "STATE_TRANSITION",
+          "BUSINESS_RULE"
+        ],
+        "primary_technique": "SECURITY",
+        "secondary_techniques": [
+          "STATE_TRANSITION",
+          "BUSINESS_RULE"
+        ],
+        "oracle_basis": "AUTHORITATIVE",
+        "gap_ids": [],
+        "risk_ids": [
+          "API03-RISK-AUTH-BEFORE-BATCH"
+        ],
+        "observation_ids": [],
+        "title": "Non-admin mixed batch cannot reach persistence",
+        "objective": "Verify authorization rejects a non-admin before a mixed-validity batch can create any partial product state.",
+        "preconditions": [
+          "Valid JWT with role=user",
+          "Products snapshot exists"
+        ],
+        "request": {
+          "method": "POST",
+          "path": "/api/admin/import-products",
+          "auth_profile": "Bearer admin/user fixtures specified by the sequence",
+          "content_type": "application/json",
+          "sequence_or_body_variation": "Non-admin JWT with one valid and one invalid product"
+        },
+        "test_data": {
+          "description": "Valid row plus empty-name row",
+          "secret_policy": "Use disposable isolated fixtures; no real secrets."
+        },
+        "expected_status": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_schema": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_business_result": "Non-admin is not authorized to import regardless of row composition.",
+        "expected_state": "No row from the batch is persisted.",
+        "audit_status": "PENDING_HUMAN_REVIEW",
+        "audit_reason": null,
+        "correction": null,
+        "why_ai_missed": "The AI tested non-admin authorization and mixed-batch atomicity separately, but not precedence of authorization over a batch that could expose partial processing.",
+        "execution_status": "NOT_IMPLEMENTED",
+        "failure_classification": null,
+        "bug_id": null,
+        "notes": "HUMAN_APPROVED_STUDENT_EXTENSION; NOT_IMPLEMENTED; NOT_EXECUTED"
+      },
+      "closest_ai_cases": [
+        "API03-AI-026",
+        "API03-AI-018"
+      ],
+      "difference_from_ai_generated_suite": "Combines role enforcement with mixed validity and verifies the unauthorized request never reaches persistence side effects.",
+      "why_ai_missed_category": "SECURITY_REASONING_GAP",
+      "why_ai_missed": "The AI tested non-admin authorization and mixed-batch atomicity separately, but not precedence of authorization over a batch that could expose partial processing.",
+      "human_review_status": "APPROVED",
+      "count_toward_student_extension": "YES"
+    },
+    {
+      "test_case": {
+        "id": "API03-STU-002",
+        "api_id": "API-03",
+        "feature_id": "FR-16",
+        "endpoint": "POST /api/admin/import-products",
+        "source": "STUDENT_ADDED",
+        "lifecycle_state": "HUMAN_APPROVED",
+        "requirement_ids": [
+          "API03-REQ-002",
+          "API03-REQ-003",
+          "API03-REQ-009"
+        ],
+        "technique": [
+          "SECURITY",
+          "STATE_TRANSITION",
+          "BUSINESS_RULE"
+        ],
+        "primary_technique": "SECURITY",
+        "secondary_techniques": [
+          "STATE_TRANSITION",
+          "BUSINESS_RULE"
+        ],
+        "oracle_basis": "AUTHORITATIVE",
+        "gap_ids": [],
+        "risk_ids": [
+          "API03-RISK-ROLE-BATCH-COMBINATION"
+        ],
+        "observation_ids": [],
+        "title": "Role-tampering payload with invalid batch",
+        "objective": "Verify body role=admin cannot elevate a user JWT even when the batch itself contains validation errors.",
+        "preconditions": [
+          "Valid JWT role=user",
+          "Products snapshot exists"
+        ],
+        "request": {
+          "method": "POST",
+          "path": "/api/admin/import-products",
+          "auth_profile": "Bearer admin/user fixtures specified by the sequence",
+          "content_type": "application/json",
+          "sequence_or_body_variation": "JWT user, body role=admin, products contain valid and zero-price rows"
+        },
+        "test_data": {
+          "description": "Role-tampering field plus mixed-validity products",
+          "secret_policy": "Use disposable isolated fixtures; no real secrets."
+        },
+        "expected_status": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_schema": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_business_result": "Role must come from the verified token; payload role and row errors cannot authorize import.",
+        "expected_state": "No product is persisted and no partial validation-side effect is allowed.",
+        "audit_status": "PENDING_HUMAN_REVIEW",
+        "audit_reason": null,
+        "correction": null,
+        "why_ai_missed": "The AI tested role tampering only with a valid products body and did not combine authorization bypass input with atomicity-sensitive invalid rows.",
+        "execution_status": "NOT_IMPLEMENTED",
+        "failure_classification": null,
+        "bug_id": null,
+        "notes": "HUMAN_APPROVED_STUDENT_EXTENSION; NOT_IMPLEMENTED; NOT_EXECUTED"
+      },
+      "closest_ai_cases": [
+        "API03-AI-028",
+        "API03-AI-018"
+      ],
+      "difference_from_ai_generated_suite": "Adds mixed validity to the role-escalation attempt and checks authorization/persistence ordering.",
+      "why_ai_missed_category": "SECURITY_REASONING_GAP",
+      "why_ai_missed": "The AI tested role tampering only with a valid products body and did not combine authorization bypass input with atomicity-sensitive invalid rows.",
+      "human_review_status": "APPROVED",
+      "count_toward_student_extension": "YES"
+    },
+    {
+      "test_case": {
+        "id": "API03-STU-003",
+        "api_id": "API-03",
+        "feature_id": "FR-16",
+        "endpoint": "POST /api/admin/import-products",
+        "source": "STUDENT_ADDED",
+        "lifecycle_state": "HUMAN_APPROVED",
+        "requirement_ids": [
+          "API03-REQ-007",
+          "API03-REQ-009",
+          "API03-REQ-011"
+        ],
+        "technique": [
+          "SECURITY",
+          "STATE_TRANSITION",
+          "BUSINESS_RULE"
+        ],
+        "primary_technique": "SECURITY",
+        "secondary_techniques": [
+          "STATE_TRANSITION",
+          "BUSINESS_RULE"
+        ],
+        "oracle_basis": "SECURITY_EXPECTATION",
+        "gap_ids": [],
+        "risk_ids": [
+          "API03-RISK-INJECTION-ROLLBACK"
+        ],
+        "observation_ids": [],
+        "title": "Injection-like name plus invalid-price rollback",
+        "objective": "Verify an injection-like non-empty name remains data, while a separate invalid price causes the entire admin batch to roll back.",
+        "preconditions": [
+          "Admin JWT valid",
+          "Products/database snapshot exists"
+        ],
+        "request": {
+          "method": "POST",
+          "path": "/api/admin/import-products",
+          "auth_profile": "Bearer admin/user fixtures specified by the sequence",
+          "content_type": "application/json",
+          "sequence_or_body_variation": "Row 1 has injection-like non-empty name and positive price; row 2 has valid name and price=0"
+        },
+        "test_data": {
+          "description": "Two-row mixed batch",
+          "secret_policy": "Use disposable isolated fixtures; no real secrets."
+        },
+        "expected_status": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_schema": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_business_result": "The injection-like name must not execute as a command; price=0 is invalid and triggers all-or-nothing rollback.",
+        "expected_state": "Neither row is persisted and unrelated database state remains intact.",
+        "audit_status": "PENDING_HUMAN_REVIEW",
+        "audit_reason": null,
+        "correction": null,
+        "why_ai_missed": "The AI covered injection input and invalid-row rollback separately, missing their combined transaction/security path.",
+        "execution_status": "NOT_IMPLEMENTED",
+        "failure_classification": null,
+        "bug_id": null,
+        "notes": "HUMAN_APPROVED_STUDENT_EXTENSION; NOT_IMPLEMENTED; NOT_EXECUTED"
+      },
+      "closest_ai_cases": [
+        "API03-AI-029",
+        "API03-AI-018"
+      ],
+      "difference_from_ai_generated_suite": "Combines parameterized-input resilience with a direct FR-16 validation error and atomic rollback.",
+      "why_ai_missed_category": "SECURITY_REASONING_GAP",
+      "why_ai_missed": "The AI covered injection input and invalid-row rollback separately, missing their combined transaction/security path.",
+      "human_review_status": "APPROVED",
+      "count_toward_student_extension": "YES"
+    },
+    {
+      "test_case": {
+        "id": "API03-STU-004",
+        "api_id": "API-03",
+        "feature_id": "FR-16",
+        "endpoint": "POST /api/admin/import-products",
+        "source": "STUDENT_ADDED",
+        "lifecycle_state": "HUMAN_APPROVED",
+        "requirement_ids": [
+          "API03-REQ-007",
+          "API03-REQ-009"
+        ],
+        "technique": [
+          "STATE_TRANSITION",
+          "BUSINESS_RULE"
+        ],
+        "primary_technique": "STATE_TRANSITION",
+        "secondary_techniques": [
+          "BUSINESS_RULE"
+        ],
+        "oracle_basis": "AUTHORITATIVE",
+        "gap_ids": [],
+        "risk_ids": [
+          "API03-RISK-TRANSACTION-SCOPE"
+        ],
+        "observation_ids": [],
+        "title": "Committed batch survives later invalid import rollback",
+        "objective": "Verify atomic rollback is scoped to the current import and does not undo products committed by an earlier valid import.",
+        "preconditions": [
+          "Admin JWT valid",
+          "Snapshot before both imports"
+        ],
+        "request": {
+          "method": "POST",
+          "path": "/api/admin/import-products",
+          "auth_profile": "Bearer admin/user fixtures specified by the sequence",
+          "content_type": "application/json",
+          "sequence_or_body_variation": "Import valid batch A, then import batch B containing an invalid row"
+        },
+        "test_data": {
+          "description": "Distinct product identifiers for A and B",
+          "secret_policy": "Use disposable isolated fixtures; no real secrets."
+        },
+        "expected_status": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_schema": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_business_result": "Batch A commits fully; batch B fails atomically because of its invalid row.",
+        "expected_state": "Products from A remain; no product from B is persisted.",
+        "audit_status": "PENDING_HUMAN_REVIEW",
+        "audit_reason": null,
+        "correction": null,
+        "why_ai_missed": "The AI tested rollback then corrected retry, but not the opposite sequence where a later rollback must preserve an earlier committed transaction.",
+        "execution_status": "NOT_IMPLEMENTED",
+        "failure_classification": null,
+        "bug_id": null,
+        "notes": "HUMAN_APPROVED_STUDENT_EXTENSION; NOT_IMPLEMENTED; NOT_EXECUTED"
+      },
+      "closest_ai_cases": [
+        "API03-AI-016",
+        "API03-AI-021"
+      ],
+      "difference_from_ai_generated_suite": "Reverses the sequence and checks transaction scope across two imports, not merely within one batch.",
+      "why_ai_missed_category": "STATEFUL_REASONING_GAP",
+      "why_ai_missed": "The AI tested rollback then corrected retry, but not the opposite sequence where a later rollback must preserve an earlier committed transaction.",
+      "human_review_status": "APPROVED",
+      "count_toward_student_extension": "YES"
+    },
+    {
+      "test_case": {
+        "id": "API03-STU-005",
+        "api_id": "API-03",
+        "feature_id": "FR-16",
+        "endpoint": "POST /api/admin/import-products",
+        "source": "STUDENT_ADDED",
+        "lifecycle_state": "STUDENT_EXTENSION_CANDIDATE",
+        "requirement_ids": [
+          "API03-REQ-007",
+          "API03-REQ-009",
+          "API03-REQ-010"
+        ],
+        "technique": [
+          "BUSINESS_RULE",
+          "STATE_TRANSITION",
+          "SCHEMA"
+        ],
+        "primary_technique": "BUSINESS_RULE",
+        "secondary_techniques": [
+          "STATE_TRANSITION",
+          "SCHEMA"
+        ],
+        "oracle_basis": "AUTHORITATIVE",
+        "gap_ids": [],
+        "risk_ids": [
+          "API03-RISK-MULTI-ERROR-REPORT"
+        ],
+        "observation_ids": [],
+        "title": "Two distinct row errors correlate with report and rollback",
+        "objective": "Verify a batch with two different invalid rows reports both semantic reasons/counts while committing none of the valid middle row.",
+        "preconditions": [
+          "Admin JWT valid",
+          "Products snapshot exists"
+        ],
+        "request": {
+          "method": "POST",
+          "path": "/api/admin/import-products",
+          "auth_profile": "Bearer admin/user fixtures specified by the sequence",
+          "content_type": "application/json",
+          "sequence_or_body_variation": "Empty-name row, valid middle row, negative-price row"
+        },
+        "test_data": {
+          "description": "Three rows with two distinct FR-16 violations",
+          "secret_policy": "Use disposable isolated fixtures; no real secrets."
+        },
+        "expected_status": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_schema": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_business_result": "Report semantics reflect two errors and their reasons; any row error requires entire-batch rollback. Exact JSON keys remain unspecified.",
+        "expected_state": "No row from the batch is persisted.",
+        "audit_status": "PENDING_HUMAN_REVIEW",
+        "audit_reason": null,
+        "correction": null,
+        "why_ai_missed": "The AI had multiple-invalid and report cases but did not explicitly correlate two distinct FR-16 violations with report semantics and the valid middle row's rollback.",
+        "execution_status": "NOT_IMPLEMENTED",
+        "failure_classification": null,
+        "bug_id": null,
+        "notes": "REJECTED_AS_STUDENT_EXTENSION; NOT_GENUINELY_MISSED_BY_AI; NOT_IMPLEMENTED; NOT_EXECUTED"
+      },
+      "closest_ai_cases": [
+        "API03-AI-020",
+        "API03-AI-038"
+      ],
+      "difference_from_ai_generated_suite": "Adds a report-to-input correlation assertion for two different invalid reasons while preserving exact-schema agnosticism.",
+      "why_ai_missed_category": "COVERAGE_BLIND_SPOT",
+      "why_ai_missed": "The AI had multiple-invalid and report cases but did not explicitly correlate two distinct FR-16 violations with report semantics and the valid middle row's rollback.",
+      "human_review_status": "REPLACE",
+      "final_disposition": "REJECTED_AS_STUDENT_EXTENSION",
+      "human_review_reason": "NOT_GENUINELY_MISSED_BY_AI",
+      "count_toward_student_extension": "NO"
+    },
+    {
+      "test_case": {
+        "id": "API03-STU-006",
+        "api_id": "API-03",
+        "feature_id": "FR-16",
+        "endpoint": "POST /api/admin/import-products",
+        "source": "STUDENT_ADDED",
+        "lifecycle_state": "HUMAN_APPROVED",
+        "requirement_ids": [
+          "API03-REQ-002",
+          "API03-REQ-003",
+          "API03-REQ-007",
+          "API03-REQ-009"
+        ],
+        "technique": [
+          "STATE_TRANSITION",
+          "SECURITY",
+          "BUSINESS_RULE"
+        ],
+        "primary_technique": "STATE_TRANSITION",
+        "secondary_techniques": [
+          "SECURITY",
+          "BUSINESS_RULE"
+        ],
+        "oracle_basis": "AUTHORITATIVE",
+        "gap_ids": [],
+        "risk_ids": [
+          "API03-RISK-CROSS-PRINCIPAL-TRANSACTION-ISOLATION"
+        ],
+        "observation_ids": [],
+        "title": "Prior admin commit survives later non-admin mixed batch",
+        "objective": "Verify a later non-admin mixed-batch attempt cannot roll back an earlier authorized commit or partially persist any attempted row.",
+        "preconditions": [
+          "Admin and non-admin JWT fixtures exist",
+          "Products snapshot exists",
+          "Batch A and batch B use distinct product identifiers"
+        ],
+        "request": {
+          "method": "POST",
+          "path": "/api/admin/import-products",
+          "auth_profile": "Bearer admin JWT for step 1 and Bearer non-admin JWT for step 2",
+          "content_type": "application/json",
+          "sequence_or_body_variation": "Admin imports valid batch A successfully; then a non-admin submits batch B containing one valid row and one zero-price row"
+        },
+        "test_data": {
+          "description": "Valid multi-row batch A; batch B has one positive-price row and one price=0 row",
+          "secret_policy": "Use disposable isolated fixtures; no real secrets."
+        },
+        "expected_status": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_schema": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_business_result": "Batch A commits under the admin request; the non-admin request cannot import batch B regardless of its mixed row validity.",
+        "expected_state": "Every product from batch A remains; no product from batch B is persisted; pre-existing unrelated products remain unchanged.",
+        "audit_status": "PENDING_HUMAN_REVIEW",
+        "audit_reason": null,
+        "correction": null,
+        "why_ai_missed": "Raw AI generation separated admin/non-admin authorization, atomic mixed-batch rollback, and cross-request transaction scope, so it did not test whether a later unauthorized request can corrupt a previously committed authorized state.",
+        "execution_status": "NOT_IMPLEMENTED",
+        "failure_classification": null,
+        "bug_id": null,
+        "notes": "HUMAN_APPROVED_STUDENT_EXTENSION; NOT_IMPLEMENTED; NOT_EXECUTED"
+      },
+      "replaces": "API03-STU-005",
+      "closest_ai_cases": [
+        "API03-AI-016",
+        "API03-AI-026",
+        "API03-AI-018"
+      ],
+      "closest_student_cases": [
+        "API03-STU-001",
+        "API03-STU-004"
+      ],
+      "difference_from_ai_generated_suite": "Existing cases cover a non-admin mixed batch with no prior commit and an admin valid-then-invalid sequence with no principal change; none verifies cross-principal transaction isolation across an authorized commit followed by an unauthorized mixed-batch attempt.",
+      "why_ai_missed_category": "COMBINATION_INTERACTION_GAP",
+      "why_ai_missed": "Raw AI generation separated admin/non-admin authorization, atomic mixed-batch rollback, and cross-request transaction scope, so it did not test whether a later unauthorized request can corrupt a previously committed authorized state.",
+      "genuinely_missed": "YES",
+      "oracle_review": "SUFFICIENT",
+      "execution_feasibility": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+      "ai_recommendation": "APPROVE",
+      "human_review_status": "APPROVED",
+      "count_toward_student_extension": "YES"
+    }
+  ]
+}

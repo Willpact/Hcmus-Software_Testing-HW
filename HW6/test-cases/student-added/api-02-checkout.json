@@ -1,0 +1,460 @@
+{
+  "metadata": {
+    "api_id": "API-02",
+    "status": "STUDENT_EXTENSION_APPROVED",
+    "human_review_status": "APPROVED",
+    "minimum_required": 5,
+    "student_added_count": 6,
+    "corrected_executable_ai_cases": 25,
+    "deferred_requirement_gaps": 14,
+    "total_executable_preview": 30,
+    "meets_35_case_preview": false,
+    "postman_started": false,
+    "approved_existing_count": 4,
+    "rejected_count": 1,
+    "replacement_pending_count": 0,
+    "approved_student_added_count": 5
+  },
+  "student_cases": [
+    {
+      "test_case": {
+        "id": "API02-STU-001",
+        "api_id": "API-02",
+        "feature_id": "FR-08",
+        "endpoint": "POST /api/checkout",
+        "source": "STUDENT_ADDED",
+        "lifecycle_state": "HUMAN_APPROVED",
+        "requirement_ids": [
+          "API02-REQ-002",
+          "API02-REQ-004",
+          "API02-REQ-005",
+          "API02-REQ-006",
+          "API02-REQ-007",
+          "API02-REQ-010"
+        ],
+        "technique": [
+          "STATE_TRANSITION",
+          "SECURITY",
+          "BUSINESS_RULE"
+        ],
+        "primary_technique": "STATE_TRANSITION",
+        "secondary_techniques": [
+          "SECURITY",
+          "BUSINESS_RULE"
+        ],
+        "oracle_basis": "AUTHORITATIVE",
+        "gap_ids": [],
+        "risk_ids": [
+          "API02-RISK-AUTH-RECOVERY"
+        ],
+        "observation_ids": [],
+        "title": "Unauthorized tampered checkout then authorized recovery",
+        "objective": "Verify an invalid-JWT checkout with a manipulated total causes no success side effects and does not prevent a later valid checkout of the same cart.",
+        "preconditions": [
+          "User A has a populated cart",
+          "Prepare invalid and valid JWT fixtures"
+        ],
+        "request": {
+          "method": "POST",
+          "path": "/api/checkout",
+          "auth_profile": "Bearer fixtures specified by the sequence",
+          "content_type": "application/json",
+          "sequence_or_body_variation": "Step 1 uses invalid JWT and low total; step 2 uses valid JWT against the unchanged cart"
+        },
+        "test_data": {
+          "description": "cart total=known positive; first client total=1; second body remains untrusted",
+          "secret_policy": "Use disposable isolated fixtures; no real secrets."
+        },
+        "expected_status": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_schema": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_business_result": "Step 1 cannot be an authenticated checkout; step 2 uses the backend cart-derived total.",
+        "expected_state": "Cart remains populated after step 1 and is cleared only after step 2 succeeds.",
+        "audit_status": "PENDING_HUMAN_REVIEW",
+        "audit_reason": null,
+        "correction": null,
+        "why_ai_missed": "The AI tested authentication failures and valid checkout separately but did not prove cart recoverability across an unauthorized tampered attempt.",
+        "execution_status": "NOT_IMPLEMENTED",
+        "failure_classification": null,
+        "bug_id": null,
+        "notes": "HUMAN_APPROVED_STUDENT_EXTENSION; NOT_IMPLEMENTED; NOT_EXECUTED"
+      },
+      "closest_ai_cases": [
+        "API02-AI-002",
+        "API02-AI-023",
+        "API02-AI-014"
+      ],
+      "difference_from_ai_generated_suite": "Adds a two-request recovery sequence and verifies the same cart survives unauthorized total manipulation before valid checkout.",
+      "why_ai_missed_category": "STATEFUL_REASONING_GAP",
+      "why_ai_missed": "The AI tested authentication failures and valid checkout separately but did not prove cart recoverability across an unauthorized tampered attempt.",
+      "human_review_status": "APPROVED",
+      "count_toward_student_extension": "YES"
+    },
+    {
+      "test_case": {
+        "id": "API02-STU-002",
+        "api_id": "API-02",
+        "feature_id": "FR-08",
+        "endpoint": "POST /api/checkout",
+        "source": "STUDENT_ADDED",
+        "lifecycle_state": "HUMAN_APPROVED",
+        "requirement_ids": [
+          "API02-REQ-004",
+          "API02-REQ-005",
+          "API02-REQ-006",
+          "API02-REQ-007"
+        ],
+        "technique": [
+          "SECURITY",
+          "BUSINESS_RULE",
+          "STATE_TRANSITION"
+        ],
+        "primary_technique": "SECURITY",
+        "secondary_techniques": [
+          "BUSINESS_RULE",
+          "STATE_TRANSITION"
+        ],
+        "oracle_basis": "AUTHORITATIVE",
+        "gap_ids": [],
+        "risk_ids": [
+          "API02-RISK-COMBINED-IDENTITY-TOTAL"
+        ],
+        "observation_ids": [],
+        "title": "Identity spoof combined with victim-cart total",
+        "objective": "Verify JWT A remains the identity authority when payload claims user B and client total equals B's different cart total.",
+        "preconditions": [
+          "Users A and B have different populated carts",
+          "JWT A is valid"
+        ],
+        "request": {
+          "method": "POST",
+          "path": "/api/checkout",
+          "auth_profile": "Bearer fixtures specified by the sequence",
+          "content_type": "application/json",
+          "sequence_or_body_variation": "JWT A with unexpected user_id=B and total_amount equal to cart B"
+        },
+        "test_data": {
+          "description": "cartA total differs from cartB total",
+          "secret_policy": "Use disposable isolated fixtures; no real secrets."
+        },
+        "expected_status": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_schema": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_business_result": "Checkout must use authenticated user A and derive total from cart A, not payload identity or cart B's client-matched value.",
+        "expected_state": "On success only cart A clears; cart B remains unchanged.",
+        "audit_status": "PENDING_HUMAN_REVIEW",
+        "audit_reason": null,
+        "correction": null,
+        "why_ai_missed": "The AI covered user-id spoofing and cross-user total isolation in separate cases but did not combine both attacker-controlled signals.",
+        "execution_status": "NOT_IMPLEMENTED",
+        "failure_classification": null,
+        "bug_id": null,
+        "notes": "HUMAN_APPROVED_STUDENT_EXTENSION; NOT_IMPLEMENTED; NOT_EXECUTED"
+      },
+      "closest_ai_cases": [
+        "API02-AI-017",
+        "API02-AI-027"
+      ],
+      "difference_from_ai_generated_suite": "Combines spoofed identity and a strategically chosen victim-cart total so both identity and total trust boundaries are tested together.",
+      "why_ai_missed_category": "SECURITY_REASONING_GAP",
+      "why_ai_missed": "The AI covered user-id spoofing and cross-user total isolation in separate cases but did not combine both attacker-controlled signals.",
+      "human_review_status": "APPROVED",
+      "count_toward_student_extension": "YES"
+    },
+    {
+      "test_case": {
+        "id": "API02-STU-003",
+        "api_id": "API-02",
+        "feature_id": "FR-08",
+        "endpoint": "POST /api/checkout",
+        "source": "STUDENT_ADDED",
+        "lifecycle_state": "HUMAN_APPROVED",
+        "requirement_ids": [
+          "API02-REQ-005",
+          "API02-REQ-006",
+          "API02-REQ-007",
+          "API02-REQ-011"
+        ],
+        "technique": [
+          "SECURITY",
+          "BUSINESS_RULE",
+          "STATE_TRANSITION"
+        ],
+        "primary_technique": "SECURITY",
+        "secondary_techniques": [
+          "BUSINESS_RULE",
+          "STATE_TRANSITION"
+        ],
+        "oracle_basis": "SECURITY_EXPECTATION",
+        "gap_ids": [],
+        "risk_ids": [
+          "API02-RISK-COMBINED-INJECTION"
+        ],
+        "observation_ids": [],
+        "title": "Simultaneous total and address injection payloads",
+        "objective": "Verify total and shipping-address metacharacters remain data while the authoritative total still comes from cart and no unintended database action occurs.",
+        "preconditions": [
+          "Authenticated user has a populated cart",
+          "Isolated database state can be inspected"
+        ],
+        "request": {
+          "method": "POST",
+          "path": "/api/checkout",
+          "auth_profile": "Bearer fixtures specified by the sequence",
+          "content_type": "application/json",
+          "sequence_or_body_variation": "total_amount contains expression-like text and shipping_address contains SQL metacharacters in one request"
+        },
+        "test_data": {
+          "description": "Combined payload plus before/after database snapshot",
+          "secret_policy": "Use disposable isolated fixtures; no real secrets."
+        },
+        "expected_status": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_schema": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_business_result": "No input string may execute as a command or become the authoritative total; any successful checkout uses the cart-derived total.",
+        "expected_state": "Unrelated database state remains intact; if checkout succeeds the authenticated cart clears.",
+        "audit_status": "PENDING_HUMAN_REVIEW",
+        "audit_reason": null,
+        "correction": null,
+        "why_ai_missed": "The AI tested total injection and address injection independently, missing their combined parser/persistence path with the total business invariant.",
+        "execution_status": "NOT_IMPLEMENTED",
+        "failure_classification": null,
+        "bug_id": null,
+        "notes": "HUMAN_APPROVED_STUDENT_EXTENSION; NOT_IMPLEMENTED; NOT_EXECUTED"
+      },
+      "closest_ai_cases": [
+        "API02-AI-025",
+        "API02-AI-026",
+        "API02-AI-034"
+      ],
+      "difference_from_ai_generated_suite": "Exercises both hostile fields in one request and jointly checks parameterized persistence, server total and cart side effect.",
+      "why_ai_missed_category": "SECURITY_REASONING_GAP",
+      "why_ai_missed": "The AI tested total injection and address injection independently, missing their combined parser/persistence path with the total business invariant.",
+      "human_review_status": "APPROVED",
+      "count_toward_student_extension": "YES"
+    },
+    {
+      "test_case": {
+        "id": "API02-STU-004",
+        "api_id": "API-02",
+        "feature_id": "FR-08",
+        "endpoint": "POST /api/checkout",
+        "source": "STUDENT_ADDED",
+        "lifecycle_state": "STUDENT_EXTENSION_CANDIDATE",
+        "requirement_ids": [
+          "API02-REQ-002",
+          "API02-REQ-004",
+          "API02-REQ-005",
+          "API02-REQ-007",
+          "API02-REQ-010"
+        ],
+        "technique": [
+          "STATE_TRANSITION",
+          "SECURITY",
+          "BUSINESS_RULE"
+        ],
+        "primary_technique": "STATE_TRANSITION",
+        "secondary_techniques": [
+          "SECURITY",
+          "BUSINESS_RULE"
+        ],
+        "oracle_basis": "AUTHORITATIVE",
+        "gap_ids": [],
+        "risk_ids": [
+          "API02-RISK-TOKEN-REFRESH-STATE"
+        ],
+        "observation_ids": [],
+        "title": "Expired JWT then refreshed valid checkout",
+        "objective": "Verify an expired-token attempt does not consume cart state and a later valid JWT can checkout that same cart.",
+        "preconditions": [
+          "User has populated cart",
+          "Expired and fresh valid JWT fixtures represent the same user"
+        ],
+        "request": {
+          "method": "POST",
+          "path": "/api/checkout",
+          "auth_profile": "Bearer fixtures specified by the sequence",
+          "content_type": "application/json",
+          "sequence_or_body_variation": "Step 1 checkout with expired JWT; step 2 checkout with fresh valid JWT"
+        },
+        "test_data": {
+          "description": "Same documented body for both requests",
+          "secret_policy": "Use disposable isolated fixtures; no real secrets."
+        },
+        "expected_status": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_schema": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_business_result": "Expired JWT cannot authorize checkout; fresh JWT checkout uses cart-derived business behavior.",
+        "expected_state": "Cart remains populated after expired-token attempt and clears only after the valid checkout succeeds.",
+        "audit_status": "PENDING_HUMAN_REVIEW",
+        "audit_reason": null,
+        "correction": null,
+        "why_ai_missed": "The AI covered expired JWT rejection but did not model authentication refresh/recovery while preserving checkout state.",
+        "execution_status": "NOT_IMPLEMENTED",
+        "failure_classification": null,
+        "bug_id": null,
+        "notes": "REJECTED_AS_STUDENT_EXTENSION; NOT_GENUINELY_MISSED_BY_AI; NOT_IMPLEMENTED; NOT_EXECUTED"
+      },
+      "closest_ai_cases": [
+        "API02-AI-024",
+        "API02-AI-014"
+      ],
+      "difference_from_ai_generated_suite": "Adds a fresh-token retry for the same cart and verifies authorization failure does not destroy later valid business state.",
+      "why_ai_missed_category": "CROSS_ENDPOINT_DEPENDENCY",
+      "why_ai_missed": "The AI covered expired JWT rejection but did not model authentication refresh/recovery while preserving checkout state.",
+      "human_review_status": "REPLACE",
+      "final_disposition": "REJECTED_AS_STUDENT_EXTENSION",
+      "human_review_reason": "NOT_GENUINELY_MISSED_BY_AI",
+      "count_toward_student_extension": "NO"
+    },
+    {
+      "test_case": {
+        "id": "API02-STU-005",
+        "api_id": "API-02",
+        "feature_id": "FR-08",
+        "endpoint": "POST /api/checkout",
+        "source": "STUDENT_ADDED",
+        "lifecycle_state": "HUMAN_APPROVED",
+        "requirement_ids": [
+          "API02-REQ-004",
+          "API02-REQ-005",
+          "API02-REQ-006",
+          "API02-REQ-007"
+        ],
+        "technique": [
+          "STATE_TRANSITION",
+          "SECURITY",
+          "BUSINESS_RULE"
+        ],
+        "primary_technique": "STATE_TRANSITION",
+        "secondary_techniques": [
+          "SECURITY",
+          "BUSINESS_RULE"
+        ],
+        "oracle_basis": "AUTHORITATIVE",
+        "gap_ids": [],
+        "risk_ids": [
+          "API02-RISK-BILATERAL-CART-ISOLATION"
+        ],
+        "observation_ids": [],
+        "title": "Two-user sequential checkout with swapped client totals",
+        "objective": "Verify two users checking out sequentially each use their own cart total even when each client submits the other's total.",
+        "preconditions": [
+          "Users A and B have different populated carts",
+          "Both JWTs valid"
+        ],
+        "request": {
+          "method": "POST",
+          "path": "/api/checkout",
+          "auth_profile": "Bearer fixtures specified by the sequence",
+          "content_type": "application/json",
+          "sequence_or_body_variation": "Checkout A with client total equal cart B, then checkout B with client total equal cart A's old total"
+        },
+        "test_data": {
+          "description": "cartA and cartB totals are distinct and deliberately swapped in bodies",
+          "secret_policy": "Use disposable isolated fixtures; no real secrets."
+        },
+        "expected_status": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_schema": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_business_result": "Each checkout must derive total from the authenticated user's current cart, never the swapped client value.",
+        "expected_state": "After A succeeds only cart A clears; after B succeeds cart B clears; each order remains user-scoped.",
+        "audit_status": "PENDING_HUMAN_REVIEW",
+        "audit_reason": null,
+        "correction": null,
+        "why_ai_missed": "The AI tested one-direction cross-user isolation but did not verify bilateral sequential state transitions with swapped trust-boundary values.",
+        "execution_status": "NOT_IMPLEMENTED",
+        "failure_classification": null,
+        "bug_id": null,
+        "notes": "HUMAN_APPROVED_STUDENT_EXTENSION; NOT_IMPLEMENTED; NOT_EXECUTED"
+      },
+      "closest_ai_cases": [
+        "API02-AI-017",
+        "API02-AI-036"
+      ],
+      "difference_from_ai_generated_suite": "Adds a second authenticated checkout and verifies user/cart isolation in both directions across changing cart states.",
+      "why_ai_missed_category": "COVERAGE_BLIND_SPOT",
+      "why_ai_missed": "The AI tested one-direction cross-user isolation but did not verify bilateral sequential state transitions with swapped trust-boundary values.",
+      "human_review_status": "APPROVED",
+      "count_toward_student_extension": "YES"
+    },
+    {
+      "test_case": {
+        "id": "API02-STU-006",
+        "api_id": "API-02",
+        "feature_id": "FR-08",
+        "endpoint": "POST /api/checkout",
+        "source": "STUDENT_ADDED",
+        "lifecycle_state": "HUMAN_APPROVED",
+        "requirement_ids": [
+          "API02-REQ-004",
+          "API02-REQ-005",
+          "API02-REQ-006",
+          "API02-REQ-007"
+        ],
+        "technique": [
+          "STATE_TRANSITION",
+          "SECURITY",
+          "BUSINESS_RULE"
+        ],
+        "primary_technique": "STATE_TRANSITION",
+        "secondary_techniques": [
+          "SECURITY",
+          "BUSINESS_RULE"
+        ],
+        "oracle_basis": "AUTHORITATIVE",
+        "gap_ids": [],
+        "risk_ids": [
+          "API02-RISK-CURRENT-CART-CROSS-USER-COLLISION"
+        ],
+        "observation_ids": [],
+        "title": "Current-cart authority under stale cross-user collision",
+        "objective": "Verify checkout uses authenticated user A's current cart after that cart changes, even when the payload claims user B and supplies a stale total that also equals cart B's total.",
+        "preconditions": [
+          "Users A and B have different populated carts",
+          "JWT A is valid",
+          "Cart A changes from total T-old to T-current immediately before checkout",
+          "Cart B total equals T-old and differs from T-current"
+        ],
+        "request": {
+          "method": "POST",
+          "path": "/api/checkout",
+          "auth_profile": "Bearer JWT A; use disposable two-user cart fixtures",
+          "content_type": "application/json",
+          "sequence_or_body_variation": "Capture T-old for cart A, mutate cart A to T-current, then send checkout with JWT A, unexpected user_id=B, and total_amount=T-old"
+        },
+        "test_data": {
+          "description": "T-current differs from T-old; cart B total equals T-old; disposable two-user carts",
+          "secret_policy": "Use disposable isolated fixtures; no real secrets."
+        },
+        "expected_status": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_schema": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_business_result": "On confirmed success, checkout derives the amount from current cart A, not the stale client value, spoofed user ID, or cart B.",
+        "expected_state": "Only cart A is cleared after confirmed success; cart B remains unchanged.",
+        "audit_status": "PENDING_HUMAN_REVIEW",
+        "audit_reason": null,
+        "correction": null,
+        "why_ai_missed": "Raw AI generation decomposed temporal cart recalculation and cross-user identity isolation into separate cases, so it did not exercise all three competing authorities—current cart A, spoofed user B, and stale client total—in one stateful request.",
+        "execution_status": "NOT_IMPLEMENTED",
+        "failure_classification": null,
+        "bug_id": null,
+        "notes": "HUMAN_APPROVED_STUDENT_EXTENSION; NOT_IMPLEMENTED; NOT_EXECUTED"
+      },
+      "replaces": "API02-STU-004",
+      "closest_ai_cases": [
+        "API02-AI-016",
+        "API02-AI-017",
+        "API02-AI-027",
+        "API02-AI-036"
+      ],
+      "closest_student_cases": [
+        "API02-STU-002",
+        "API02-STU-005"
+      ],
+      "difference_from_ai_generated_suite": "Raw and approved Student cases cover cart mutation, cross-user totals, identity spoofing, and correct cart clearing separately; none combines a temporal cart mutation with spoofed identity and a stale value deliberately colliding with another user's cart total.",
+      "why_ai_missed_category": "COMBINATION_INTERACTION_GAP",
+      "why_ai_missed": "Raw AI generation decomposed temporal cart recalculation and cross-user identity isolation into separate cases, so it did not exercise all three competing authorities—current cart A, spoofed user B, and stale client total—in one stateful request.",
+      "genuinely_missed": "YES",
+      "oracle_review": "SUFFICIENT",
+      "execution_feasibility": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+      "ai_recommendation": "APPROVE",
+      "human_review_status": "APPROVED",
+      "count_toward_student_extension": "YES"
+    }
+  ]
+}
