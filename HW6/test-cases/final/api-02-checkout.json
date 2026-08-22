@@ -1,0 +1,2193 @@
+{
+  "metadata": {
+    "api_id": "API-02",
+    "status": "POSTMAN_IMPLEMENTATION_REVIEW_REQUIRED",
+    "execution_status": "NOT_EXECUTED"
+  },
+  "summary": {
+    "raw_ai_generated": 40,
+    "ai_corrected_executable": 25,
+    "student_added_approved": 5,
+    "total_executable": 30,
+    "deferred": 14,
+    "invalid_removed": 1,
+    "execution_modes": {
+      "POSTMAN_DIRECT": 0,
+      "POSTMAN_WITH_PRECONDITION_SETUP": 8,
+      "POSTMAN_PLUS_EXTERNAL_VERIFICATION": 22
+    }
+  },
+  "cases": [
+    {
+      "case_id": "API02-AI-001",
+      "api_id": "API-02",
+      "source": "AI_CORRECTED",
+      "human_review_status": "APPROVED",
+      "final_disposition": "INCLUDED_EXECUTABLE",
+      "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+      "setup_requirements": [
+        "User đã đăng nhập",
+        "Cart của user có hàng",
+        "Use documented login/cart helpers with isolated user carts"
+      ],
+      "external_verification": "Read-only isolated verification: independently calculate cart total and inspect the persisted order total/user binding.",
+      "order_dependent": "NO",
+      "dependency": "NONE; reusable setup creates an isolated fixture before the testcase action.",
+      "postman_request": "[API02-AI-001] Checkout hợp lệ với cart có hàng",
+      "test_case": {
+        "id": "API02-AI-001",
+        "api_id": "API-02",
+        "feature_id": "FR-08",
+        "endpoint": "POST /api/checkout",
+        "source": "AI_GENERATED",
+        "lifecycle_state": "HUMAN_APPROVED",
+        "requirement_ids": [
+          "API02-REQ-002",
+          "API02-REQ-005",
+          "API02-REQ-006",
+          "API02-REQ-007"
+        ],
+        "technique": [
+          "DOMAIN_PARTITION",
+          "BUSINESS_RULE"
+        ],
+        "primary_technique": "DOMAIN_PARTITION",
+        "secondary_techniques": [
+          "BUSINESS_RULE"
+        ],
+        "oracle_basis": "AUTHORITATIVE",
+        "gap_ids": [],
+        "risk_ids": [],
+        "observation_ids": [],
+        "title": "Checkout hợp lệ với cart có hàng",
+        "objective": "Kiểm tra happy path dùng JWT hợp lệ và backend lấy tổng từ cart.",
+        "preconditions": [
+          "User đã đăng nhập",
+          "Cart của user có hàng"
+        ],
+        "request": {
+          "method": "POST",
+          "path": "/api/checkout",
+          "auth_profile": "Bearer test JWT matching the stated precondition",
+          "content_type": "application/json unless the case explicitly varies it",
+          "body_variation": "Bearer hợp lệ, body có total_amount và shipping_address"
+        },
+        "test_data": {
+          "description": "client total bằng tổng cart để tránh nhiễu",
+          "secret_policy": "Use disposable fixtures or environment variables; do not store real secrets."
+        },
+        "expected_status": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_schema": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_business_result": "Checkout đủ điều kiện; tổng có thẩm quyền là tổng backend tính từ cart.",
+        "expected_state": "Nếu thành công, cart của user được xóa.",
+        "audit_status": "VALID",
+        "audit_reason": "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+        "correction": null,
+        "why_ai_missed": null,
+        "execution_status": "REAL_EXECUTION_REQUIRED",
+        "failure_classification": null,
+        "bug_id": null,
+        "notes": "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+      }
+    },
+    {
+      "case_id": "API02-AI-002",
+      "api_id": "API-02",
+      "source": "AI_CORRECTED",
+      "human_review_status": "APPROVED",
+      "final_disposition": "INCLUDED_EXECUTABLE",
+      "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+      "setup_requirements": [
+        "JWT hợp lệ",
+        "Cart có tổng đã biết",
+        "Use documented login/cart helpers with isolated user carts"
+      ],
+      "external_verification": "Read-only isolated verification: independently calculate cart total and inspect the persisted order total/user binding.",
+      "order_dependent": "NO",
+      "dependency": "NONE; reusable setup creates an isolated fixture before the testcase action.",
+      "postman_request": "[API02-AI-002] Client total thấp hơn cart",
+      "test_case": {
+        "id": "API02-AI-002",
+        "api_id": "API-02",
+        "feature_id": "FR-08",
+        "endpoint": "POST /api/checkout",
+        "source": "AI_GENERATED",
+        "lifecycle_state": "HUMAN_APPROVED",
+        "requirement_ids": [
+          "API02-REQ-005",
+          "API02-REQ-006"
+        ],
+        "technique": [
+          "DOMAIN_PARTITION",
+          "SECURITY"
+        ],
+        "primary_technique": "DOMAIN_PARTITION",
+        "secondary_techniques": [
+          "SECURITY"
+        ],
+        "oracle_basis": "AUTHORITATIVE",
+        "gap_ids": [],
+        "risk_ids": [
+          "API02-ID-001"
+        ],
+        "observation_ids": [],
+        "title": "Client total thấp hơn cart",
+        "objective": "Kiểm tra backend không tin giá trị total_amount bị giảm.",
+        "preconditions": [
+          "JWT hợp lệ",
+          "Cart có tổng đã biết"
+        ],
+        "request": {
+          "method": "POST",
+          "path": "/api/checkout",
+          "auth_profile": "Bearer test JWT matching the stated precondition",
+          "content_type": "application/json unless the case explicitly varies it",
+          "body_variation": "total_amount nhỏ hơn tổng cart"
+        },
+        "test_data": {
+          "description": "cart=100, client=1",
+          "secret_policy": "Use disposable fixtures or environment variables; do not store real secrets."
+        },
+        "expected_status": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_schema": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_business_result": "Kết quả checkout không được dùng 1 làm tổng có thẩm quyền; backend phải tính từ cart.",
+        "expected_state": "Nếu thành công, side effect cart tuân API02-REQ-007.",
+        "audit_status": "VALID",
+        "audit_reason": "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+        "correction": null,
+        "why_ai_missed": null,
+        "execution_status": "REAL_EXECUTION_REQUIRED",
+        "failure_classification": null,
+        "bug_id": null,
+        "notes": "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+      }
+    },
+    {
+      "case_id": "API02-AI-003",
+      "api_id": "API-02",
+      "source": "AI_CORRECTED",
+      "human_review_status": "APPROVED",
+      "final_disposition": "INCLUDED_EXECUTABLE",
+      "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+      "setup_requirements": [
+        "JWT hợp lệ",
+        "Cart có tổng đã biết",
+        "Use documented login/cart helpers with isolated user carts"
+      ],
+      "external_verification": "Read-only isolated verification: independently calculate cart total and inspect the persisted order total/user binding.",
+      "order_dependent": "NO",
+      "dependency": "NONE; reusable setup creates an isolated fixture before the testcase action.",
+      "postman_request": "[API02-AI-003] Client total cao hơn cart",
+      "test_case": {
+        "id": "API02-AI-003",
+        "api_id": "API-02",
+        "feature_id": "FR-08",
+        "endpoint": "POST /api/checkout",
+        "source": "AI_GENERATED",
+        "lifecycle_state": "HUMAN_APPROVED",
+        "requirement_ids": [
+          "API02-REQ-005",
+          "API02-REQ-006"
+        ],
+        "technique": [
+          "DOMAIN_PARTITION",
+          "SECURITY"
+        ],
+        "primary_technique": "DOMAIN_PARTITION",
+        "secondary_techniques": [
+          "SECURITY"
+        ],
+        "oracle_basis": "AUTHORITATIVE",
+        "gap_ids": [],
+        "risk_ids": [
+          "API02-ID-001"
+        ],
+        "observation_ids": [],
+        "title": "Client total cao hơn cart",
+        "objective": "Kiểm tra backend không tin giá trị total_amount bị tăng.",
+        "preconditions": [
+          "JWT hợp lệ",
+          "Cart có tổng đã biết"
+        ],
+        "request": {
+          "method": "POST",
+          "path": "/api/checkout",
+          "auth_profile": "Bearer test JWT matching the stated precondition",
+          "content_type": "application/json unless the case explicitly varies it",
+          "body_variation": "total_amount lớn hơn tổng cart"
+        },
+        "test_data": {
+          "description": "cart=100, client=9999",
+          "secret_policy": "Use disposable fixtures or environment variables; do not store real secrets."
+        },
+        "expected_status": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_schema": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_business_result": "Tổng có thẩm quyền vẫn phải do backend tính từ cart.",
+        "expected_state": "Nếu thành công, cart được xóa.",
+        "audit_status": "VALID",
+        "audit_reason": "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+        "correction": null,
+        "why_ai_missed": null,
+        "execution_status": "REAL_EXECUTION_REQUIRED",
+        "failure_classification": null,
+        "bug_id": null,
+        "notes": "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+      }
+    },
+    {
+      "case_id": "API02-AI-004",
+      "api_id": "API-02",
+      "source": "AI_CORRECTED",
+      "human_review_status": "APPROVED",
+      "final_disposition": "INCLUDED_EXECUTABLE",
+      "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+      "setup_requirements": [
+        "JWT hợp lệ",
+        "Cart có tổng dương",
+        "Use documented login/cart helpers with isolated user carts"
+      ],
+      "external_verification": "Read-only isolated verification: independently calculate cart total and inspect the persisted order total/user binding.",
+      "order_dependent": "NO",
+      "dependency": "NONE; reusable setup creates an isolated fixture before the testcase action.",
+      "postman_request": "[API02-AI-004] Client total bằng zero",
+      "test_case": {
+        "id": "API02-AI-004",
+        "api_id": "API-02",
+        "feature_id": "FR-08",
+        "endpoint": "POST /api/checkout",
+        "source": "AI_GENERATED",
+        "lifecycle_state": "HUMAN_APPROVED",
+        "requirement_ids": [
+          "API02-REQ-005",
+          "API02-REQ-006"
+        ],
+        "technique": [
+          "DOMAIN_PARTITION",
+          "SECURITY"
+        ],
+        "primary_technique": "DOMAIN_PARTITION",
+        "secondary_techniques": [
+          "SECURITY"
+        ],
+        "oracle_basis": "AUTHORITATIVE",
+        "gap_ids": [],
+        "risk_ids": [
+          "API02-ID-001"
+        ],
+        "observation_ids": [],
+        "title": "Client total bằng zero",
+        "objective": "Kiểm tra zero không thay thế tổng cart dương.",
+        "preconditions": [
+          "JWT hợp lệ",
+          "Cart có tổng dương"
+        ],
+        "request": {
+          "method": "POST",
+          "path": "/api/checkout",
+          "auth_profile": "Bearer test JWT matching the stated precondition",
+          "content_type": "application/json unless the case explicitly varies it",
+          "body_variation": "total_amount=0"
+        },
+        "test_data": {
+          "description": "cart total dương",
+          "secret_policy": "Use disposable fixtures or environment variables; do not store real secrets."
+        },
+        "expected_status": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_schema": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_business_result": "Backend không được nhận zero làm tổng checkout có thẩm quyền.",
+        "expected_state": "Nếu thành công, cart được xóa.",
+        "audit_status": "VALID",
+        "audit_reason": "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+        "correction": null,
+        "why_ai_missed": null,
+        "execution_status": "REAL_EXECUTION_REQUIRED",
+        "failure_classification": null,
+        "bug_id": null,
+        "notes": "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+      }
+    },
+    {
+      "case_id": "API02-AI-005",
+      "api_id": "API-02",
+      "source": "AI_CORRECTED",
+      "human_review_status": "APPROVED",
+      "final_disposition": "INCLUDED_EXECUTABLE",
+      "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+      "setup_requirements": [
+        "JWT hợp lệ",
+        "Cart có tổng dương",
+        "Use documented login/cart helpers with isolated user carts"
+      ],
+      "external_verification": "Read-only isolated verification: independently calculate cart total and inspect the persisted order total/user binding.",
+      "order_dependent": "NO",
+      "dependency": "NONE; reusable setup creates an isolated fixture before the testcase action.",
+      "postman_request": "[API02-AI-005] Client total âm",
+      "test_case": {
+        "id": "API02-AI-005",
+        "api_id": "API-02",
+        "feature_id": "FR-08",
+        "endpoint": "POST /api/checkout",
+        "source": "AI_GENERATED",
+        "lifecycle_state": "HUMAN_APPROVED",
+        "requirement_ids": [
+          "API02-REQ-005",
+          "API02-REQ-006"
+        ],
+        "technique": [
+          "DOMAIN_PARTITION",
+          "SECURITY"
+        ],
+        "primary_technique": "DOMAIN_PARTITION",
+        "secondary_techniques": [
+          "SECURITY"
+        ],
+        "oracle_basis": "AUTHORITATIVE",
+        "gap_ids": [],
+        "risk_ids": [
+          "API02-ID-001"
+        ],
+        "observation_ids": [],
+        "title": "Client total âm",
+        "objective": "Kiểm tra giá trị âm không điều khiển tổng thanh toán.",
+        "preconditions": [
+          "JWT hợp lệ",
+          "Cart có tổng dương"
+        ],
+        "request": {
+          "method": "POST",
+          "path": "/api/checkout",
+          "auth_profile": "Bearer test JWT matching the stated precondition",
+          "content_type": "application/json unless the case explicitly varies it",
+          "body_variation": "total_amount=-1"
+        },
+        "test_data": {
+          "description": "negative client total",
+          "secret_policy": "Use disposable fixtures or environment variables; do not store real secrets."
+        },
+        "expected_status": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_schema": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_business_result": "Backend phải bỏ quyền quyết định khỏi giá trị client và tính từ cart.",
+        "expected_state": "Nếu thành công, cart được xóa.",
+        "audit_status": "VALID",
+        "audit_reason": "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+        "correction": null,
+        "why_ai_missed": null,
+        "execution_status": "REAL_EXECUTION_REQUIRED",
+        "failure_classification": null,
+        "bug_id": null,
+        "notes": "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+      }
+    },
+    {
+      "case_id": "API02-AI-006",
+      "api_id": "API-02",
+      "source": "AI_CORRECTED",
+      "human_review_status": "APPROVED",
+      "final_disposition": "INCLUDED_EXECUTABLE",
+      "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+      "setup_requirements": [
+        "JWT hợp lệ",
+        "Cart có tổng đã biết",
+        "Use documented login/cart helpers with isolated user carts"
+      ],
+      "external_verification": "Read-only isolated verification: independently calculate cart total and inspect the persisted order total/user binding.",
+      "order_dependent": "NO",
+      "dependency": "NONE; reusable setup creates an isolated fixture before the testcase action.",
+      "postman_request": "[API02-AI-006] Client total dạng chuỗi",
+      "test_case": {
+        "id": "API02-AI-006",
+        "api_id": "API-02",
+        "feature_id": "FR-08",
+        "endpoint": "POST /api/checkout",
+        "source": "AI_GENERATED",
+        "lifecycle_state": "HUMAN_APPROVED",
+        "requirement_ids": [
+          "API02-REQ-003",
+          "API02-REQ-006"
+        ],
+        "technique": [
+          "DOMAIN_PARTITION",
+          "SCHEMA"
+        ],
+        "primary_technique": "DOMAIN_PARTITION",
+        "secondary_techniques": [
+          "SCHEMA"
+        ],
+        "oracle_basis": "PARTIALLY_SPECIFIED",
+        "gap_ids": [
+          "API02-RG-001"
+        ],
+        "risk_ids": [
+          "API02-ID-001"
+        ],
+        "observation_ids": [],
+        "title": "Client total dạng chuỗi",
+        "objective": "Verify the cart-derived total invariant when client total_amount is a numeric string.",
+        "preconditions": [
+          "JWT hợp lệ",
+          "Cart có tổng đã biết"
+        ],
+        "request": {
+          "method": "POST",
+          "path": "/api/checkout",
+          "auth_profile": "Bearer test JWT matching the stated precondition",
+          "content_type": "application/json unless the case explicitly varies it",
+          "body_variation": "total_amount là chuỗi số"
+        },
+        "test_data": {
+          "description": "string value \"100\"",
+          "secret_policy": "Use disposable fixtures or environment variables; do not store real secrets."
+        },
+        "expected_status": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_schema": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_business_result": "Acceptable outcomes are rejection without successful-checkout side effects, or successful checkout using the backend cart-derived total; the client string never becomes authoritative.",
+        "expected_state": "If checkout succeeds the authenticated user cart is cleared; otherwise no success-side-effect claim is made.",
+        "audit_status": "INCOMPLETE",
+        "audit_reason": "Concept/risk 'Client total dạng chuỗi' có liên quan, nhưng raw case chưa có authoritative oracle, dependency hoặc validation point đủ để trở thành final executable pass/fail test.",
+        "correction": "Converted unspecified type coercion into a two-outcome invariant that never permits client total authority.",
+        "why_ai_missed": null,
+        "execution_status": "REAL_EXECUTION_REQUIRED",
+        "failure_classification": null,
+        "bug_id": null,
+        "notes": "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+      }
+    },
+    {
+      "case_id": "API02-AI-007",
+      "api_id": "API-02",
+      "source": "AI_CORRECTED",
+      "human_review_status": "APPROVED",
+      "final_disposition": "INCLUDED_EXECUTABLE",
+      "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+      "setup_requirements": [
+        "JWT hợp lệ",
+        "Cart có tổng đã biết",
+        "Use documented login/cart helpers with isolated user carts"
+      ],
+      "external_verification": "Read-only isolated verification: independently calculate cart total and inspect the persisted order total/user binding.",
+      "order_dependent": "NO",
+      "dependency": "NONE; reusable setup creates an isolated fixture before the testcase action.",
+      "postman_request": "[API02-AI-007] Thiếu total_amount",
+      "test_case": {
+        "id": "API02-AI-007",
+        "api_id": "API-02",
+        "feature_id": "FR-08",
+        "endpoint": "POST /api/checkout",
+        "source": "AI_GENERATED",
+        "lifecycle_state": "HUMAN_APPROVED",
+        "requirement_ids": [
+          "API02-REQ-003",
+          "API02-REQ-006"
+        ],
+        "technique": [
+          "DOMAIN_PARTITION",
+          "SCHEMA"
+        ],
+        "primary_technique": "DOMAIN_PARTITION",
+        "secondary_techniques": [
+          "SCHEMA"
+        ],
+        "oracle_basis": "PARTIALLY_SPECIFIED",
+        "gap_ids": [
+          "API02-RG-001"
+        ],
+        "risk_ids": [
+          "API02-ID-003"
+        ],
+        "observation_ids": [],
+        "title": "Thiếu total_amount",
+        "objective": "Verify the cart-derived total invariant when total_amount is omitted.",
+        "preconditions": [
+          "JWT hợp lệ",
+          "Cart có tổng đã biết"
+        ],
+        "request": {
+          "method": "POST",
+          "path": "/api/checkout",
+          "auth_profile": "Bearer test JWT matching the stated precondition",
+          "content_type": "application/json unless the case explicitly varies it",
+          "body_variation": "bỏ total_amount"
+        },
+        "test_data": {
+          "description": "shipping_address có mặt",
+          "secret_policy": "Use disposable fixtures or environment variables; do not store real secrets."
+        },
+        "expected_status": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_schema": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_business_result": "Acceptable outcomes are rejection without successful-checkout side effects, or successful checkout using the backend cart-derived total.",
+        "expected_state": "If checkout succeeds the authenticated user cart is cleared; otherwise no success-side-effect claim is made.",
+        "audit_status": "INCOMPLETE",
+        "audit_reason": "Concept/risk 'Thiếu total_amount' có liên quan, nhưng raw case chưa có authoritative oracle, dependency hoặc validation point đủ để trở thành final executable pass/fail test.",
+        "correction": "Removed the requiredness assumption and retained the authoritative server-calculation invariant.",
+        "why_ai_missed": null,
+        "execution_status": "REAL_EXECUTION_REQUIRED",
+        "failure_classification": null,
+        "bug_id": null,
+        "notes": "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+      }
+    },
+    {
+      "case_id": "API02-AI-009",
+      "api_id": "API-02",
+      "source": "AI_CORRECTED",
+      "human_review_status": "APPROVED",
+      "final_disposition": "INCLUDED_EXECUTABLE",
+      "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+      "setup_requirements": [
+        "JWT hợp lệ",
+        "Cart có đúng một dòng",
+        "Use documented login/cart helpers with isolated user carts"
+      ],
+      "external_verification": "Read-only isolated verification: independently calculate cart total and inspect the persisted order total/user binding.",
+      "order_dependent": "NO",
+      "dependency": "NONE; reusable setup creates an isolated fixture before the testcase action.",
+      "postman_request": "[API02-AI-009] Cart một dòng hàng",
+      "test_case": {
+        "id": "API02-AI-009",
+        "api_id": "API-02",
+        "feature_id": "FR-08",
+        "endpoint": "POST /api/checkout",
+        "source": "AI_GENERATED",
+        "lifecycle_state": "HUMAN_APPROVED",
+        "requirement_ids": [
+          "API02-REQ-005",
+          "API02-REQ-006"
+        ],
+        "technique": [
+          "BOUNDARY",
+          "BUSINESS_RULE"
+        ],
+        "primary_technique": "BOUNDARY",
+        "secondary_techniques": [
+          "BUSINESS_RULE"
+        ],
+        "oracle_basis": "AUTHORITATIVE",
+        "gap_ids": [],
+        "risk_ids": [
+          "API02-ID-003"
+        ],
+        "observation_ids": [],
+        "title": "Cart một dòng hàng",
+        "objective": "Kiểm tra nguồn tổng với cart nhỏ nhất có một dòng theo precondition context.",
+        "preconditions": [
+          "JWT hợp lệ",
+          "Cart có đúng một dòng"
+        ],
+        "request": {
+          "method": "POST",
+          "path": "/api/checkout",
+          "auth_profile": "Bearer test JWT matching the stated precondition",
+          "content_type": "application/json unless the case explicitly varies it",
+          "body_variation": "body hợp lệ"
+        },
+        "test_data": {
+          "description": "one cart line",
+          "secret_policy": "Use disposable fixtures or environment variables; do not store real secrets."
+        },
+        "expected_status": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_schema": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_business_result": "Backend tính tổng từ cart hiện tại.",
+        "expected_state": "Nếu thành công, cart chuyển sang rỗng.",
+        "audit_status": "VALID",
+        "audit_reason": "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+        "correction": null,
+        "why_ai_missed": null,
+        "execution_status": "REAL_EXECUTION_REQUIRED",
+        "failure_classification": null,
+        "bug_id": null,
+        "notes": "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+      }
+    },
+    {
+      "case_id": "API02-AI-010",
+      "api_id": "API-02",
+      "source": "AI_CORRECTED",
+      "human_review_status": "APPROVED",
+      "final_disposition": "INCLUDED_EXECUTABLE",
+      "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+      "setup_requirements": [
+        "JWT hợp lệ",
+        "Cart có nhiều dòng",
+        "Use documented login/cart helpers with isolated user carts"
+      ],
+      "external_verification": "Read-only isolated verification: independently calculate cart total and inspect the persisted order total/user binding.",
+      "order_dependent": "NO",
+      "dependency": "NONE; reusable setup creates an isolated fixture before the testcase action.",
+      "postman_request": "[API02-AI-010] Cart nhiều dòng hàng",
+      "test_case": {
+        "id": "API02-AI-010",
+        "api_id": "API-02",
+        "feature_id": "FR-08",
+        "endpoint": "POST /api/checkout",
+        "source": "AI_GENERATED",
+        "lifecycle_state": "HUMAN_APPROVED",
+        "requirement_ids": [
+          "API02-REQ-005",
+          "API02-REQ-006"
+        ],
+        "technique": [
+          "BOUNDARY",
+          "BUSINESS_RULE"
+        ],
+        "primary_technique": "BOUNDARY",
+        "secondary_techniques": [
+          "BUSINESS_RULE"
+        ],
+        "oracle_basis": "AUTHORITATIVE",
+        "gap_ids": [],
+        "risk_ids": [
+          "API02-ID-003"
+        ],
+        "observation_ids": [],
+        "title": "Cart nhiều dòng hàng",
+        "objective": "Kiểm tra backend cộng toàn bộ cart thay vì lấy một phần.",
+        "preconditions": [
+          "JWT hợp lệ",
+          "Cart có nhiều dòng"
+        ],
+        "request": {
+          "method": "POST",
+          "path": "/api/checkout",
+          "auth_profile": "Bearer test JWT matching the stated precondition",
+          "content_type": "application/json unless the case explicitly varies it",
+          "body_variation": "client total cố tình bằng riêng dòng đầu"
+        },
+        "test_data": {
+          "description": "multi-line cart",
+          "secret_policy": "Use disposable fixtures or environment variables; do not store real secrets."
+        },
+        "expected_status": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_schema": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_business_result": "Tổng có thẩm quyền phản ánh cart đầy đủ theo FR-08, không phải client total.",
+        "expected_state": "Nếu thành công, toàn bộ cart được xóa.",
+        "audit_status": "VALID",
+        "audit_reason": "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+        "correction": null,
+        "why_ai_missed": null,
+        "execution_status": "REAL_EXECUTION_REQUIRED",
+        "failure_classification": null,
+        "bug_id": null,
+        "notes": "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+      }
+    },
+    {
+      "case_id": "API02-AI-014",
+      "api_id": "API-02",
+      "source": "AI_CORRECTED",
+      "human_review_status": "APPROVED",
+      "final_disposition": "INCLUDED_EXECUTABLE",
+      "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+      "setup_requirements": [
+        "JWT hợp lệ",
+        "Cart có hàng và snapshot trước chạy",
+        "Use documented login/cart helpers with isolated user carts"
+      ],
+      "external_verification": "Read-only isolated verification: independently calculate cart total and inspect the persisted order total/user binding.",
+      "order_dependent": "YES",
+      "dependency": "Execute only the explicit state-transition sequence described by the testcase preconditions/objective using isolated fixtures.",
+      "postman_request": "[API02-AI-014] Cart populated đến cleared",
+      "test_case": {
+        "id": "API02-AI-014",
+        "api_id": "API-02",
+        "feature_id": "FR-08",
+        "endpoint": "POST /api/checkout",
+        "source": "AI_GENERATED",
+        "lifecycle_state": "HUMAN_APPROVED",
+        "requirement_ids": [
+          "API02-REQ-005",
+          "API02-REQ-007"
+        ],
+        "technique": [
+          "STATE_TRANSITION",
+          "BUSINESS_RULE"
+        ],
+        "primary_technique": "STATE_TRANSITION",
+        "secondary_techniques": [
+          "BUSINESS_RULE"
+        ],
+        "oracle_basis": "AUTHORITATIVE",
+        "gap_ids": [],
+        "risk_ids": [
+          "API02-ID-002"
+        ],
+        "observation_ids": [],
+        "title": "Cart populated đến cleared",
+        "objective": "Kiểm tra trực tiếp chuyển trạng thái sau checkout thành công.",
+        "preconditions": [
+          "JWT hợp lệ",
+          "Cart có hàng và snapshot trước chạy"
+        ],
+        "request": {
+          "method": "POST",
+          "path": "/api/checkout",
+          "auth_profile": "Bearer test JWT matching the stated precondition",
+          "content_type": "application/json unless the case explicitly varies it",
+          "body_variation": "body hợp lệ"
+        },
+        "test_data": {
+          "description": "cart snapshot before",
+          "secret_policy": "Use disposable fixtures or environment variables; do not store real secrets."
+        },
+        "expected_status": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_schema": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_business_result": "Checkout thành công sử dụng tổng cart.",
+        "expected_state": "Cart của authenticated user trở thành rỗng.",
+        "audit_status": "VALID",
+        "audit_reason": "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+        "correction": null,
+        "why_ai_missed": null,
+        "execution_status": "REAL_EXECUTION_REQUIRED",
+        "failure_classification": null,
+        "bug_id": null,
+        "notes": "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+      }
+    },
+    {
+      "case_id": "API02-AI-016",
+      "api_id": "API-02",
+      "source": "AI_CORRECTED",
+      "human_review_status": "APPROVED",
+      "final_disposition": "INCLUDED_EXECUTABLE",
+      "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+      "setup_requirements": [
+        "JWT hợp lệ",
+        "Client đã xem cart rồi cart thay đổi",
+        "Use documented login/cart helpers with isolated user carts"
+      ],
+      "external_verification": "Read-only isolated verification: independently calculate cart total and inspect the persisted order total/user binding.",
+      "order_dependent": "YES",
+      "dependency": "Execute only the explicit state-transition sequence described by the testcase preconditions/objective using isolated fixtures.",
+      "postman_request": "[API02-AI-016] Cart đổi trước thời điểm checkout",
+      "test_case": {
+        "id": "API02-AI-016",
+        "api_id": "API-02",
+        "feature_id": "FR-08",
+        "endpoint": "POST /api/checkout",
+        "source": "AI_GENERATED",
+        "lifecycle_state": "HUMAN_APPROVED",
+        "requirement_ids": [
+          "API02-REQ-005",
+          "API02-REQ-006"
+        ],
+        "technique": [
+          "STATE_TRANSITION",
+          "BUSINESS_RULE"
+        ],
+        "primary_technique": "STATE_TRANSITION",
+        "secondary_techniques": [
+          "BUSINESS_RULE"
+        ],
+        "oracle_basis": "AUTHORITATIVE",
+        "gap_ids": [],
+        "risk_ids": [
+          "API02-ID-003"
+        ],
+        "observation_ids": [],
+        "title": "Cart đổi trước thời điểm checkout",
+        "objective": "Kiểm tra tổng được tính từ trạng thái cart hiện tại chứ không từ snapshot client.",
+        "preconditions": [
+          "JWT hợp lệ",
+          "Client đã xem cart rồi cart thay đổi"
+        ],
+        "request": {
+          "method": "POST",
+          "path": "/api/checkout",
+          "auth_profile": "Bearer test JWT matching the stated precondition",
+          "content_type": "application/json unless the case explicitly varies it",
+          "body_variation": "gửi total_amount cũ"
+        },
+        "test_data": {
+          "description": "old client total, new cart state",
+          "secret_policy": "Use disposable fixtures or environment variables; do not store real secrets."
+        },
+        "expected_status": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_schema": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_business_result": "Backend dùng cart hiện tại để tính tổng.",
+        "expected_state": "Nếu thành công, cart hiện tại được xóa.",
+        "audit_status": "VALID",
+        "audit_reason": "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+        "correction": null,
+        "why_ai_missed": null,
+        "execution_status": "REAL_EXECUTION_REQUIRED",
+        "failure_classification": null,
+        "bug_id": null,
+        "notes": "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+      }
+    },
+    {
+      "case_id": "API02-AI-017",
+      "api_id": "API-02",
+      "source": "AI_CORRECTED",
+      "human_review_status": "APPROVED",
+      "final_disposition": "INCLUDED_EXECUTABLE",
+      "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+      "setup_requirements": [
+        "JWT A và B hợp lệ",
+        "Mỗi user có cart khác nhau",
+        "Use documented login/cart helpers with isolated user carts"
+      ],
+      "external_verification": "Read-only isolated verification: independently calculate cart total and inspect the persisted order total/user binding.",
+      "order_dependent": "YES",
+      "dependency": "Execute only the explicit state-transition sequence described by the testcase preconditions/objective using isolated fixtures.",
+      "postman_request": "[API02-AI-017] Hai user có cart khác nhau",
+      "test_case": {
+        "id": "API02-AI-017",
+        "api_id": "API-02",
+        "feature_id": "FR-08",
+        "endpoint": "POST /api/checkout",
+        "source": "AI_GENERATED",
+        "lifecycle_state": "HUMAN_APPROVED",
+        "requirement_ids": [
+          "API02-REQ-004",
+          "API02-REQ-005"
+        ],
+        "technique": [
+          "STATE_TRANSITION",
+          "SECURITY"
+        ],
+        "primary_technique": "STATE_TRANSITION",
+        "secondary_techniques": [
+          "SECURITY"
+        ],
+        "oracle_basis": "AUTHORITATIVE",
+        "gap_ids": [],
+        "risk_ids": [
+          "API02-RISK-CROSS-USER"
+        ],
+        "observation_ids": [],
+        "title": "Hai user có cart khác nhau",
+        "objective": "Kiểm tra checkout của user A không lấy tổng hoặc state cart của user B.",
+        "preconditions": [
+          "JWT A và B hợp lệ",
+          "Mỗi user có cart khác nhau"
+        ],
+        "request": {
+          "method": "POST",
+          "path": "/api/checkout",
+          "auth_profile": "Bearer test JWT matching the stated precondition",
+          "content_type": "application/json unless the case explicitly varies it",
+          "body_variation": "checkout bằng JWT A"
+        },
+        "test_data": {
+          "description": "client total giống cart B để phát hiện nhầm",
+          "secret_policy": "Use disposable fixtures or environment variables; do not store real secrets."
+        },
+        "expected_status": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_schema": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_business_result": "Tổng phải được tính từ cart gắn với authenticated user A.",
+        "expected_state": "Nếu thành công, chỉ cart A được xóa; cart B không bị tác động.",
+        "audit_status": "VALID",
+        "audit_reason": "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+        "correction": null,
+        "why_ai_missed": null,
+        "execution_status": "REAL_EXECUTION_REQUIRED",
+        "failure_classification": null,
+        "bug_id": null,
+        "notes": "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+      }
+    },
+    {
+      "case_id": "API02-AI-018",
+      "api_id": "API-02",
+      "source": "AI_CORRECTED",
+      "human_review_status": "APPROVED",
+      "final_disposition": "INCLUDED_EXECUTABLE",
+      "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+      "setup_requirements": [
+        "Cart baseline tồn tại",
+        "Use documented login/cart helpers with isolated user carts"
+      ],
+      "external_verification": "NONE",
+      "order_dependent": "YES",
+      "dependency": "Execute only the explicit state-transition sequence described by the testcase preconditions/objective using isolated fixtures.",
+      "postman_request": "[API02-AI-018] Auth thất bại trước checkout",
+      "test_case": {
+        "id": "API02-AI-018",
+        "api_id": "API-02",
+        "feature_id": "FR-08",
+        "endpoint": "POST /api/checkout",
+        "source": "AI_GENERATED",
+        "lifecycle_state": "HUMAN_APPROVED",
+        "requirement_ids": [
+          "API02-REQ-002",
+          "API02-REQ-004"
+        ],
+        "technique": [
+          "STATE_TRANSITION",
+          "SECURITY"
+        ],
+        "primary_technique": "STATE_TRANSITION",
+        "secondary_techniques": [
+          "SECURITY"
+        ],
+        "oracle_basis": "AUTHORITATIVE",
+        "gap_ids": [],
+        "risk_ids": [],
+        "observation_ids": [],
+        "title": "Auth thất bại trước checkout",
+        "objective": "Kiểm tra thiếu auth không tiến hành checkout.",
+        "preconditions": [
+          "Cart baseline tồn tại"
+        ],
+        "request": {
+          "method": "POST",
+          "path": "/api/checkout",
+          "auth_profile": "Bearer test JWT matching the stated precondition",
+          "content_type": "application/json unless the case explicitly varies it",
+          "body_variation": "không gửi Authorization"
+        },
+        "test_data": {
+          "description": "body hợp lệ",
+          "secret_policy": "Use disposable fixtures or environment variables; do not store real secrets."
+        },
+        "expected_status": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_schema": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_business_result": "Không cho user chưa xác thực checkout.",
+        "expected_state": "Cart baseline không bị clear bởi checkout thành công.",
+        "audit_status": "VALID",
+        "audit_reason": "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+        "correction": null,
+        "why_ai_missed": null,
+        "execution_status": "REAL_EXECUTION_REQUIRED",
+        "failure_classification": null,
+        "bug_id": null,
+        "notes": "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+      }
+    },
+    {
+      "case_id": "API02-AI-021",
+      "api_id": "API-02",
+      "source": "AI_CORRECTED",
+      "human_review_status": "APPROVED",
+      "final_disposition": "INCLUDED_EXECUTABLE",
+      "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+      "setup_requirements": [
+        "Cart test tồn tại",
+        "Use documented login/cart helpers with isolated user carts"
+      ],
+      "external_verification": "NONE",
+      "order_dependent": "NO",
+      "dependency": "NONE; reusable setup creates an isolated fixture before the testcase action.",
+      "postman_request": "[API02-AI-021] Thiếu Authorization header",
+      "test_case": {
+        "id": "API02-AI-021",
+        "api_id": "API-02",
+        "feature_id": "FR-08",
+        "endpoint": "POST /api/checkout",
+        "source": "AI_GENERATED",
+        "lifecycle_state": "HUMAN_APPROVED",
+        "requirement_ids": [
+          "API02-REQ-002",
+          "API02-REQ-004",
+          "API02-REQ-010"
+        ],
+        "technique": [
+          "SECURITY",
+          "SCHEMA"
+        ],
+        "primary_technique": "SECURITY",
+        "secondary_techniques": [
+          "SCHEMA"
+        ],
+        "oracle_basis": "AUTHORITATIVE",
+        "gap_ids": [],
+        "risk_ids": [],
+        "observation_ids": [],
+        "title": "Thiếu Authorization header",
+        "objective": "Kiểm tra sensitive checkout bắt buộc có JWT.",
+        "preconditions": [
+          "Cart test tồn tại"
+        ],
+        "request": {
+          "method": "POST",
+          "path": "/api/checkout",
+          "auth_profile": "Authorization omitted",
+          "content_type": "application/json unless the case explicitly varies it",
+          "body_variation": "không Authorization"
+        },
+        "test_data": {
+          "description": "documented body",
+          "secret_policy": "Use disposable fixtures or environment variables; do not store real secrets."
+        },
+        "expected_status": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_schema": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_business_result": "Không cho checkout khi không có JWT hợp lệ.",
+        "expected_state": "Không áp dụng side effect success lên cart.",
+        "audit_status": "VALID",
+        "audit_reason": "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+        "correction": null,
+        "why_ai_missed": null,
+        "execution_status": "REAL_EXECUTION_REQUIRED",
+        "failure_classification": null,
+        "bug_id": null,
+        "notes": "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+      }
+    },
+    {
+      "case_id": "API02-AI-022",
+      "api_id": "API-02",
+      "source": "AI_CORRECTED",
+      "human_review_status": "APPROVED",
+      "final_disposition": "INCLUDED_EXECUTABLE",
+      "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+      "setup_requirements": [
+        "Cart test tồn tại",
+        "Use documented login/cart helpers with isolated user carts"
+      ],
+      "external_verification": "NONE",
+      "order_dependent": "NO",
+      "dependency": "NONE; reusable setup creates an isolated fixture before the testcase action.",
+      "postman_request": "[API02-AI-022] Authorization sai scheme",
+      "test_case": {
+        "id": "API02-AI-022",
+        "api_id": "API-02",
+        "feature_id": "FR-08",
+        "endpoint": "POST /api/checkout",
+        "source": "AI_GENERATED",
+        "lifecycle_state": "HUMAN_APPROVED",
+        "requirement_ids": [
+          "API02-REQ-002",
+          "API02-REQ-010"
+        ],
+        "technique": [
+          "SECURITY",
+          "SCHEMA"
+        ],
+        "primary_technique": "SECURITY",
+        "secondary_techniques": [
+          "SCHEMA"
+        ],
+        "oracle_basis": "AUTHORITATIVE",
+        "gap_ids": [],
+        "risk_ids": [],
+        "observation_ids": [],
+        "title": "Authorization sai scheme",
+        "objective": "Kiểm tra chuỗi auth không theo Bearer không thỏa contract.",
+        "preconditions": [
+          "Cart test tồn tại"
+        ],
+        "request": {
+          "method": "POST",
+          "path": "/api/checkout",
+          "auth_profile": "Invalid authorization fixture described by case",
+          "content_type": "application/json unless the case explicitly varies it",
+          "body_variation": "Authorization dùng Basic"
+        },
+        "test_data": {
+          "description": "Basic placeholder",
+          "secret_policy": "Use disposable fixtures or environment variables; do not store real secrets."
+        },
+        "expected_status": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_schema": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_business_result": "Không coi header này là valid bearer JWT.",
+        "expected_state": "Không clear cart do checkout thành công.",
+        "audit_status": "VALID",
+        "audit_reason": "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+        "correction": null,
+        "why_ai_missed": null,
+        "execution_status": "REAL_EXECUTION_REQUIRED",
+        "failure_classification": null,
+        "bug_id": null,
+        "notes": "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+      }
+    },
+    {
+      "case_id": "API02-AI-023",
+      "api_id": "API-02",
+      "source": "AI_CORRECTED",
+      "human_review_status": "APPROVED",
+      "final_disposition": "INCLUDED_EXECUTABLE",
+      "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+      "setup_requirements": [
+        "Cart test tồn tại",
+        "Use documented login/cart helpers with isolated user carts"
+      ],
+      "external_verification": "NONE",
+      "order_dependent": "NO",
+      "dependency": "NONE; reusable setup creates an isolated fixture before the testcase action.",
+      "postman_request": "[API02-AI-023] Bearer token malformed",
+      "test_case": {
+        "id": "API02-AI-023",
+        "api_id": "API-02",
+        "feature_id": "FR-08",
+        "endpoint": "POST /api/checkout",
+        "source": "AI_GENERATED",
+        "lifecycle_state": "HUMAN_APPROVED",
+        "requirement_ids": [
+          "API02-REQ-002",
+          "API02-REQ-010"
+        ],
+        "technique": [
+          "SECURITY",
+          "SCHEMA"
+        ],
+        "primary_technique": "SECURITY",
+        "secondary_techniques": [
+          "SCHEMA"
+        ],
+        "oracle_basis": "AUTHORITATIVE",
+        "gap_ids": [],
+        "risk_ids": [],
+        "observation_ids": [],
+        "title": "Bearer token malformed",
+        "objective": "Kiểm tra token không phải JWT hợp lệ.",
+        "preconditions": [
+          "Cart test tồn tại"
+        ],
+        "request": {
+          "method": "POST",
+          "path": "/api/checkout",
+          "auth_profile": "Invalid authorization fixture described by case",
+          "content_type": "application/json unless the case explicitly varies it",
+          "body_variation": "Authorization Bearer malformed"
+        },
+        "test_data": {
+          "description": "token=abc",
+          "secret_policy": "Use disposable fixtures or environment variables; do not store real secrets."
+        },
+        "expected_status": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_schema": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_business_result": "Không cho checkout với JWT không hợp lệ.",
+        "expected_state": "Cart không bị clear bởi checkout thành công.",
+        "audit_status": "VALID",
+        "audit_reason": "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+        "correction": null,
+        "why_ai_missed": null,
+        "execution_status": "REAL_EXECUTION_REQUIRED",
+        "failure_classification": null,
+        "bug_id": null,
+        "notes": "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+      }
+    },
+    {
+      "case_id": "API02-AI-024",
+      "api_id": "API-02",
+      "source": "AI_CORRECTED",
+      "human_review_status": "APPROVED",
+      "final_disposition": "INCLUDED_EXECUTABLE",
+      "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+      "setup_requirements": [
+        "Có JWT expired trong môi trường test",
+        "Use documented login/cart helpers with isolated user carts"
+      ],
+      "external_verification": "NONE",
+      "order_dependent": "YES",
+      "dependency": "Execute only the explicit state-transition sequence described by the testcase preconditions/objective using isolated fixtures.",
+      "postman_request": "[API02-AI-024] Bearer token hết hạn",
+      "test_case": {
+        "id": "API02-AI-024",
+        "api_id": "API-02",
+        "feature_id": "FR-08",
+        "endpoint": "POST /api/checkout",
+        "source": "AI_GENERATED",
+        "lifecycle_state": "HUMAN_APPROVED",
+        "requirement_ids": [
+          "API02-REQ-002",
+          "API02-REQ-010"
+        ],
+        "technique": [
+          "SECURITY",
+          "STATE_TRANSITION"
+        ],
+        "primary_technique": "SECURITY",
+        "secondary_techniques": [
+          "STATE_TRANSITION"
+        ],
+        "oracle_basis": "AUTHORITATIVE",
+        "gap_ids": [],
+        "risk_ids": [],
+        "observation_ids": [],
+        "title": "Bearer token hết hạn",
+        "objective": "Kiểm tra expired JWT không thỏa yêu cầu valid token.",
+        "preconditions": [
+          "Có JWT expired trong môi trường test"
+        ],
+        "request": {
+          "method": "POST",
+          "path": "/api/checkout",
+          "auth_profile": "Bearer test JWT matching the stated precondition",
+          "content_type": "application/json unless the case explicitly varies it",
+          "body_variation": "Authorization Bearer expired"
+        },
+        "test_data": {
+          "description": "expired token fixture",
+          "secret_policy": "Use disposable fixtures or environment variables; do not store real secrets."
+        },
+        "expected_status": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_schema": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_business_result": "Không cho checkout với token hết hạn.",
+        "expected_state": "Cart không bị clear bởi checkout thành công.",
+        "audit_status": "VALID",
+        "audit_reason": "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+        "correction": null,
+        "why_ai_missed": null,
+        "execution_status": "REAL_EXECUTION_REQUIRED",
+        "failure_classification": null,
+        "bug_id": null,
+        "notes": "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+      }
+    },
+    {
+      "case_id": "API02-AI-025",
+      "api_id": "API-02",
+      "source": "AI_CORRECTED",
+      "human_review_status": "APPROVED",
+      "final_disposition": "INCLUDED_EXECUTABLE",
+      "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+      "setup_requirements": [
+        "JWT hợp lệ",
+        "Cart có tổng biết trước",
+        "Use documented login/cart helpers with isolated user carts"
+      ],
+      "external_verification": "Read-only isolated verification: independently calculate cart total and inspect the persisted order total/user binding.",
+      "order_dependent": "NO",
+      "dependency": "NONE; reusable setup creates an isolated fixture before the testcase action.",
+      "postman_request": "[API02-AI-025] Total dạng biểu thức injection",
+      "test_case": {
+        "id": "API02-AI-025",
+        "api_id": "API-02",
+        "feature_id": "FR-08",
+        "endpoint": "POST /api/checkout",
+        "source": "AI_GENERATED",
+        "lifecycle_state": "HUMAN_APPROVED",
+        "requirement_ids": [
+          "API02-REQ-005",
+          "API02-REQ-006"
+        ],
+        "technique": [
+          "SECURITY",
+          "BUSINESS_RULE"
+        ],
+        "primary_technique": "SECURITY",
+        "secondary_techniques": [
+          "BUSINESS_RULE"
+        ],
+        "oracle_basis": "AUTHORITATIVE",
+        "gap_ids": [],
+        "risk_ids": [
+          "API02-ID-001"
+        ],
+        "observation_ids": [],
+        "title": "Total dạng biểu thức injection",
+        "objective": "Kiểm tra input total không thể chi phối persistence hoặc vượt qua server recalculation.",
+        "preconditions": [
+          "JWT hợp lệ",
+          "Cart có tổng biết trước"
+        ],
+        "request": {
+          "method": "POST",
+          "path": "/api/checkout",
+          "auth_profile": "Bearer test JWT matching the stated precondition",
+          "content_type": "application/json unless the case explicitly varies it",
+          "body_variation": "total_amount là chuỗi SQL-like"
+        },
+        "test_data": {
+          "description": "\"0 OR 1=1\"",
+          "secret_policy": "Use disposable fixtures or environment variables; do not store real secrets."
+        },
+        "expected_status": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_schema": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_business_result": "Client input không được dùng làm tổng có thẩm quyền; truy vấn phải giữ ranh giới dữ liệu.",
+        "expected_state": "Không có thay đổi dữ liệu ngoài checkout được phép.",
+        "audit_status": "VALID",
+        "audit_reason": "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+        "correction": null,
+        "why_ai_missed": null,
+        "execution_status": "REAL_EXECUTION_REQUIRED",
+        "failure_classification": null,
+        "bug_id": null,
+        "notes": "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+      }
+    },
+    {
+      "case_id": "API02-AI-026",
+      "api_id": "API-02",
+      "source": "AI_CORRECTED",
+      "human_review_status": "APPROVED",
+      "final_disposition": "INCLUDED_EXECUTABLE",
+      "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+      "setup_requirements": [
+        "JWT hợp lệ",
+        "Cart có hàng",
+        "Use documented login/cart helpers with isolated user carts"
+      ],
+      "external_verification": "Read-only isolated verification: compare unrelated datastore objects before/after the injection-like address payload.",
+      "order_dependent": "NO",
+      "dependency": "NONE; reusable setup creates an isolated fixture before the testcase action.",
+      "postman_request": "[API02-AI-026] Injection trong shipping_address",
+      "test_case": {
+        "id": "API02-AI-026",
+        "api_id": "API-02",
+        "feature_id": "FR-08",
+        "endpoint": "POST /api/checkout",
+        "source": "AI_GENERATED",
+        "lifecycle_state": "HUMAN_APPROVED",
+        "requirement_ids": [
+          "API02-REQ-003",
+          "API02-REQ-011"
+        ],
+        "technique": [
+          "SECURITY",
+          "SCHEMA"
+        ],
+        "primary_technique": "SECURITY",
+        "secondary_techniques": [
+          "SCHEMA"
+        ],
+        "oracle_basis": "SECURITY_EXPECTATION",
+        "gap_ids": [],
+        "risk_ids": [
+          "API02-RISK-INJECTION"
+        ],
+        "observation_ids": [
+          "API02-ID-004"
+        ],
+        "title": "Injection trong shipping_address",
+        "objective": "Kiểm tra địa chỉ được xử lý như dữ liệu, không như câu lệnh.",
+        "preconditions": [
+          "JWT hợp lệ",
+          "Cart có hàng"
+        ],
+        "request": {
+          "method": "POST",
+          "path": "/api/checkout",
+          "auth_profile": "Bearer test JWT matching the stated precondition",
+          "content_type": "application/json unless the case explicitly varies it",
+          "body_variation": "shipping_address chứa metacharacters"
+        },
+        "test_data": {
+          "description": "\"x'); DROP TABLE orders;--\"",
+          "secret_policy": "Use disposable fixtures or environment variables; do not store real secrets."
+        },
+        "expected_status": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_schema": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_business_result": "Không được thực thi nội dung input như lệnh hoặc phá dữ liệu ngoài phạm vi.",
+        "expected_state": "Nếu checkout thành công, cart clear; dữ liệu khác còn nguyên.",
+        "audit_status": "VALID",
+        "audit_reason": "Applicable security invariant provides a meaningful pass/fail target even though exact HTTP status and response schema remain unspecified.",
+        "correction": null,
+        "why_ai_missed": null,
+        "execution_status": "REAL_EXECUTION_REQUIRED",
+        "failure_classification": null,
+        "bug_id": null,
+        "notes": "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+      }
+    },
+    {
+      "case_id": "API02-AI-027",
+      "api_id": "API-02",
+      "source": "AI_CORRECTED",
+      "human_review_status": "APPROVED",
+      "final_disposition": "INCLUDED_EXECUTABLE",
+      "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+      "setup_requirements": [
+        "User A và B có cart",
+        "Use documented login/cart helpers with isolated user carts"
+      ],
+      "external_verification": "NONE",
+      "order_dependent": "YES",
+      "dependency": "Execute only the explicit state-transition sequence described by the testcase preconditions/objective using isolated fixtures.",
+      "postman_request": "[API02-AI-027] JWT user không khớp cart client tham chiếu",
+      "test_case": {
+        "id": "API02-AI-027",
+        "api_id": "API-02",
+        "feature_id": "FR-08",
+        "endpoint": "POST /api/checkout",
+        "source": "AI_GENERATED",
+        "lifecycle_state": "HUMAN_APPROVED",
+        "requirement_ids": [
+          "API02-REQ-002",
+          "API02-REQ-004"
+        ],
+        "technique": [
+          "SECURITY",
+          "STATE_TRANSITION"
+        ],
+        "primary_technique": "SECURITY",
+        "secondary_techniques": [
+          "STATE_TRANSITION"
+        ],
+        "oracle_basis": "AUTHORITATIVE",
+        "gap_ids": [],
+        "risk_ids": [
+          "API02-RISK-CROSS-USER"
+        ],
+        "observation_ids": [],
+        "title": "JWT user không khớp cart client tham chiếu",
+        "objective": "Kiểm tra identity từ JWT quyết định cart, không từ payload suy diễn.",
+        "preconditions": [
+          "User A và B có cart"
+        ],
+        "request": {
+          "method": "POST",
+          "path": "/api/checkout",
+          "auth_profile": "Bearer test JWT matching the stated precondition",
+          "content_type": "application/json unless the case explicitly varies it",
+          "body_variation": "JWT A, payload thêm user_id B"
+        },
+        "test_data": {
+          "description": "unexpected user_id field",
+          "secret_policy": "Use disposable fixtures or environment variables; do not store real secrets."
+        },
+        "expected_status": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_schema": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_business_result": "Checkout chỉ được gắn với user đã xác thực; không được tác động cart B.",
+        "expected_state": "Cart B không đổi.",
+        "audit_status": "VALID",
+        "audit_reason": "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+        "correction": null,
+        "why_ai_missed": null,
+        "execution_status": "REAL_EXECUTION_REQUIRED",
+        "failure_classification": null,
+        "bug_id": null,
+        "notes": "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+      }
+    },
+    {
+      "case_id": "API02-AI-029",
+      "api_id": "API-02",
+      "source": "AI_CORRECTED",
+      "human_review_status": "APPROVED",
+      "final_disposition": "INCLUDED_EXECUTABLE",
+      "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+      "setup_requirements": [
+        "JWT hợp lệ",
+        "Cart có hàng",
+        "Use documented login/cart helpers with isolated user carts"
+      ],
+      "external_verification": "NONE",
+      "order_dependent": "NO",
+      "dependency": "NONE; reusable setup creates an isolated fixture before the testcase action.",
+      "postman_request": "[API02-AI-029] Request đúng header và body documented",
+      "test_case": {
+        "id": "API02-AI-029",
+        "api_id": "API-02",
+        "feature_id": "FR-08",
+        "endpoint": "POST /api/checkout",
+        "source": "AI_GENERATED",
+        "lifecycle_state": "HUMAN_APPROVED",
+        "requirement_ids": [
+          "API02-REQ-001",
+          "API02-REQ-002",
+          "API02-REQ-003"
+        ],
+        "technique": [
+          "SCHEMA",
+          "DOMAIN_PARTITION"
+        ],
+        "primary_technique": "SCHEMA",
+        "secondary_techniques": [
+          "DOMAIN_PARTITION"
+        ],
+        "oracle_basis": "PARTIALLY_SPECIFIED",
+        "gap_ids": [
+          "API02-RG-001"
+        ],
+        "risk_ids": [],
+        "observation_ids": [],
+        "title": "Request đúng header và body documented",
+        "objective": "Xác nhận shape cơ sở gồm Bearer, total_amount, shipping_address.",
+        "preconditions": [
+          "JWT hợp lệ",
+          "Cart có hàng"
+        ],
+        "request": {
+          "method": "POST",
+          "path": "/api/checkout",
+          "auth_profile": "Bearer test JWT matching the stated precondition",
+          "content_type": "application/json unless the case explicitly varies it",
+          "body_variation": "JSON đúng hai field"
+        },
+        "test_data": {
+          "description": "documented shape",
+          "secret_policy": "Use disposable fixtures or environment variables; do not store real secrets."
+        },
+        "expected_status": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_schema": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_business_result": "Request phù hợp contract đầu vào; response status/schema chưa được quy định.",
+        "expected_state": "Nếu thành công, cart clear.",
+        "audit_status": "VALID",
+        "audit_reason": "Transport details are unspecified, but the raw case retains a requirement-backed business/state oracle sufficient for execution.",
+        "correction": null,
+        "why_ai_missed": null,
+        "execution_status": "REAL_EXECUTION_REQUIRED",
+        "failure_classification": null,
+        "bug_id": null,
+        "notes": "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+      }
+    },
+    {
+      "case_id": "API02-AI-034",
+      "api_id": "API-02",
+      "source": "AI_CORRECTED",
+      "human_review_status": "APPROVED",
+      "final_disposition": "INCLUDED_EXECUTABLE",
+      "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+      "setup_requirements": [
+        "JWT hợp lệ",
+        "Cart có tổng biết trước",
+        "Use documented login/cart helpers with isolated user carts"
+      ],
+      "external_verification": "Read-only isolated verification: independently calculate cart total and inspect the persisted order total/user binding.",
+      "order_dependent": "NO",
+      "dependency": "NONE; reusable setup creates an isolated fixture before the testcase action.",
+      "postman_request": "[API02-AI-034] Backend recompute với client total khớp",
+      "test_case": {
+        "id": "API02-AI-034",
+        "api_id": "API-02",
+        "feature_id": "FR-08",
+        "endpoint": "POST /api/checkout",
+        "source": "AI_GENERATED",
+        "lifecycle_state": "HUMAN_APPROVED",
+        "requirement_ids": [
+          "API02-REQ-005",
+          "API02-REQ-006"
+        ],
+        "technique": [
+          "BUSINESS_RULE",
+          "SECURITY"
+        ],
+        "primary_technique": "BUSINESS_RULE",
+        "secondary_techniques": [
+          "SECURITY"
+        ],
+        "oracle_basis": "AUTHORITATIVE",
+        "gap_ids": [],
+        "risk_ids": [
+          "API02-ID-001",
+          "API02-ID-003"
+        ],
+        "observation_ids": [],
+        "title": "Backend recompute với client total khớp",
+        "objective": "Kiểm tra việc trùng giá trị không che mất nghĩa vụ đọc cart và tính lại.",
+        "preconditions": [
+          "JWT hợp lệ",
+          "Cart có tổng biết trước"
+        ],
+        "request": {
+          "method": "POST",
+          "path": "/api/checkout",
+          "auth_profile": "Bearer test JWT matching the stated precondition",
+          "content_type": "application/json unless the case explicitly varies it",
+          "body_variation": "client total tình cờ bằng cart total"
+        },
+        "test_data": {
+          "description": "equal values",
+          "secret_policy": "Use disposable fixtures or environment variables; do not store real secrets."
+        },
+        "expected_status": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_schema": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_business_result": "Cần evidence backend-derived total; equality alone không chứng minh client được tin.",
+        "expected_state": "Nếu thành công, cart clear.",
+        "audit_status": "VALID",
+        "audit_reason": "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+        "correction": null,
+        "why_ai_missed": null,
+        "execution_status": "REAL_EXECUTION_REQUIRED",
+        "failure_classification": null,
+        "bug_id": null,
+        "notes": "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+      }
+    },
+    {
+      "case_id": "API02-AI-035",
+      "api_id": "API-02",
+      "source": "AI_CORRECTED",
+      "human_review_status": "APPROVED",
+      "final_disposition": "INCLUDED_EXECUTABLE",
+      "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+      "setup_requirements": [
+        "JWT hợp lệ",
+        "Cart total biết trước",
+        "Use documented login/cart helpers with isolated user carts"
+      ],
+      "external_verification": "Read-only isolated verification: independently calculate cart total and inspect the persisted order total/user binding.",
+      "order_dependent": "NO",
+      "dependency": "NONE; reusable setup creates an isolated fixture before the testcase action.",
+      "postman_request": "[API02-AI-035] Client total có phần thập phân khác",
+      "test_case": {
+        "id": "API02-AI-035",
+        "api_id": "API-02",
+        "feature_id": "FR-08",
+        "endpoint": "POST /api/checkout",
+        "source": "AI_GENERATED",
+        "lifecycle_state": "HUMAN_APPROVED",
+        "requirement_ids": [
+          "API02-REQ-005",
+          "API02-REQ-006"
+        ],
+        "technique": [
+          "BUSINESS_RULE",
+          "SECURITY"
+        ],
+        "primary_technique": "BUSINESS_RULE",
+        "secondary_techniques": [
+          "SECURITY"
+        ],
+        "oracle_basis": "AUTHORITATIVE",
+        "gap_ids": [],
+        "risk_ids": [
+          "API02-ID-001"
+        ],
+        "observation_ids": [],
+        "title": "Client total có phần thập phân khác",
+        "objective": "Kiểm tra tampering nhỏ không được dùng làm tổng có thẩm quyền.",
+        "preconditions": [
+          "JWT hợp lệ",
+          "Cart total biết trước"
+        ],
+        "request": {
+          "method": "POST",
+          "path": "/api/checkout",
+          "auth_profile": "Bearer test JWT matching the stated precondition",
+          "content_type": "application/json unless the case explicitly varies it",
+          "body_variation": "client total lệch một phần nhỏ"
+        },
+        "test_data": {
+          "description": "cart=100, client=99.99",
+          "secret_policy": "Use disposable fixtures or environment variables; do not store real secrets."
+        },
+        "expected_status": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_schema": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_business_result": "Backend dùng total tính từ cart.",
+        "expected_state": "Nếu thành công, cart clear.",
+        "audit_status": "VALID",
+        "audit_reason": "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+        "correction": null,
+        "why_ai_missed": null,
+        "execution_status": "REAL_EXECUTION_REQUIRED",
+        "failure_classification": null,
+        "bug_id": null,
+        "notes": "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+      }
+    },
+    {
+      "case_id": "API02-AI-036",
+      "api_id": "API-02",
+      "source": "AI_CORRECTED",
+      "human_review_status": "APPROVED",
+      "final_disposition": "INCLUDED_EXECUTABLE",
+      "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+      "setup_requirements": [
+        "User A và B đều có cart",
+        "Checkout A thành công",
+        "Use documented login/cart helpers with isolated user carts"
+      ],
+      "external_verification": "NONE",
+      "order_dependent": "YES",
+      "dependency": "Execute only the explicit state-transition sequence described by the testcase preconditions/objective using isolated fixtures.",
+      "postman_request": "[API02-AI-036] Clear đúng cart sau success",
+      "test_case": {
+        "id": "API02-AI-036",
+        "api_id": "API-02",
+        "feature_id": "FR-08",
+        "endpoint": "POST /api/checkout",
+        "source": "AI_GENERATED",
+        "lifecycle_state": "HUMAN_APPROVED",
+        "requirement_ids": [
+          "API02-REQ-007"
+        ],
+        "technique": [
+          "BUSINESS_RULE",
+          "STATE_TRANSITION"
+        ],
+        "primary_technique": "BUSINESS_RULE",
+        "secondary_techniques": [
+          "STATE_TRANSITION"
+        ],
+        "oracle_basis": "AUTHORITATIVE",
+        "gap_ids": [],
+        "risk_ids": [
+          "API02-ID-002"
+        ],
+        "observation_ids": [],
+        "title": "Clear đúng cart sau success",
+        "objective": "Kiểm tra side effect clear nhắm đúng authenticated user's cart.",
+        "preconditions": [
+          "User A và B đều có cart",
+          "Checkout A thành công"
+        ],
+        "request": {
+          "method": "POST",
+          "path": "/api/checkout",
+          "auth_profile": "Bearer test JWT matching the stated precondition",
+          "content_type": "application/json unless the case explicitly varies it",
+          "body_variation": "hậu kiểm cả hai cart"
+        },
+        "test_data": {
+          "description": "two-user state",
+          "secret_policy": "Use disposable fixtures or environment variables; do not store real secrets."
+        },
+        "expected_status": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_schema": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_business_result": "Checkout thành công của A không xác lập quy tắc cho B.",
+        "expected_state": "Cart A rỗng; cart B giữ nguyên.",
+        "audit_status": "VALID",
+        "audit_reason": "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+        "correction": null,
+        "why_ai_missed": null,
+        "execution_status": "REAL_EXECUTION_REQUIRED",
+        "failure_classification": null,
+        "bug_id": null,
+        "notes": "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+      }
+    },
+    {
+      "case_id": "API02-AI-037",
+      "api_id": "API-02",
+      "source": "AI_CORRECTED",
+      "human_review_status": "APPROVED",
+      "final_disposition": "INCLUDED_EXECUTABLE",
+      "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+      "setup_requirements": [
+        "JWT hợp lệ",
+        "Cart có một product quantity lớn hơn một",
+        "Use documented login/cart helpers with isolated user carts"
+      ],
+      "external_verification": "Read-only isolated verification: independently calculate cart total and inspect the persisted order total/user binding.",
+      "order_dependent": "NO",
+      "dependency": "NONE; reusable setup creates an isolated fixture before the testcase action.",
+      "postman_request": "[API02-AI-037] Cart có quantity nhiều hơn một",
+      "test_case": {
+        "id": "API02-AI-037",
+        "api_id": "API-02",
+        "feature_id": "FR-08",
+        "endpoint": "POST /api/checkout",
+        "source": "AI_GENERATED",
+        "lifecycle_state": "HUMAN_APPROVED",
+        "requirement_ids": [
+          "API02-REQ-005",
+          "API02-REQ-006",
+          "API02-REQ-008"
+        ],
+        "technique": [
+          "BUSINESS_RULE",
+          "DOMAIN_PARTITION"
+        ],
+        "primary_technique": "BUSINESS_RULE",
+        "secondary_techniques": [
+          "DOMAIN_PARTITION"
+        ],
+        "oracle_basis": "AUTHORITATIVE",
+        "gap_ids": [],
+        "risk_ids": [],
+        "observation_ids": [],
+        "title": "Cart có quantity nhiều hơn một",
+        "objective": "Dùng FR-07 chỉ làm precondition để kiểm tra total của FR-08 từ cart hiện tại.",
+        "preconditions": [
+          "JWT hợp lệ",
+          "Cart có một product quantity lớn hơn một"
+        ],
+        "request": {
+          "method": "POST",
+          "path": "/api/checkout",
+          "auth_profile": "Bearer test JWT matching the stated precondition",
+          "content_type": "application/json unless the case explicitly varies it",
+          "body_variation": "client total chỉ tính quantity một"
+        },
+        "test_data": {
+          "description": "supporting cart setup",
+          "secret_policy": "Use disposable fixtures or environment variables; do not store real secrets."
+        },
+        "expected_status": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_schema": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_business_result": "Backend total phản ánh cart hiện tại theo FR-08; không biến quy tắc merge FR-07 thành checkout oracle.",
+        "expected_state": "Nếu thành công, cart được xóa.",
+        "audit_status": "VALID",
+        "audit_reason": "Objective, setup, request variation and business/state oracle trace to the approved authoritative analysis without promoting implementation behavior.",
+        "correction": null,
+        "why_ai_missed": null,
+        "execution_status": "REAL_EXECUTION_REQUIRED",
+        "failure_classification": null,
+        "bug_id": null,
+        "notes": "RAW_AI_GENERATION; AI_TEST_AUDIT_NOT_STARTED; NOT_EXECUTED"
+      }
+    },
+    {
+      "case_id": "API02-STU-001",
+      "api_id": "API-02",
+      "source": "STUDENT_ADDED",
+      "human_review_status": "APPROVED",
+      "final_disposition": "INCLUDED_EXECUTABLE",
+      "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+      "setup_requirements": [
+        "User A has a populated cart",
+        "Prepare invalid and valid JWT fixtures",
+        "Use documented login/cart helpers with isolated user carts"
+      ],
+      "external_verification": "Read-only isolated verification: independently calculate cart total and inspect the persisted order total/user binding.",
+      "order_dependent": "YES",
+      "dependency": "Execute only the explicit state-transition sequence described by the testcase preconditions/objective using isolated fixtures.",
+      "postman_request": "[API02-STU-001] Unauthorized tampered checkout then authorized recovery",
+      "test_case": {
+        "id": "API02-STU-001",
+        "api_id": "API-02",
+        "feature_id": "FR-08",
+        "endpoint": "POST /api/checkout",
+        "source": "STUDENT_ADDED",
+        "lifecycle_state": "HUMAN_APPROVED",
+        "requirement_ids": [
+          "API02-REQ-002",
+          "API02-REQ-004",
+          "API02-REQ-005",
+          "API02-REQ-006",
+          "API02-REQ-007",
+          "API02-REQ-010"
+        ],
+        "technique": [
+          "STATE_TRANSITION",
+          "SECURITY",
+          "BUSINESS_RULE"
+        ],
+        "primary_technique": "STATE_TRANSITION",
+        "secondary_techniques": [
+          "SECURITY",
+          "BUSINESS_RULE"
+        ],
+        "oracle_basis": "AUTHORITATIVE",
+        "gap_ids": [],
+        "risk_ids": [
+          "API02-RISK-AUTH-RECOVERY"
+        ],
+        "observation_ids": [],
+        "title": "Unauthorized tampered checkout then authorized recovery",
+        "objective": "Verify an invalid-JWT checkout with a manipulated total causes no success side effects and does not prevent a later valid checkout of the same cart.",
+        "preconditions": [
+          "User A has a populated cart",
+          "Prepare invalid and valid JWT fixtures"
+        ],
+        "request": {
+          "method": "POST",
+          "path": "/api/checkout",
+          "auth_profile": "Bearer fixtures specified by the sequence",
+          "content_type": "application/json",
+          "sequence_or_body_variation": "Step 1 uses invalid JWT and low total; step 2 uses valid JWT against the unchanged cart"
+        },
+        "test_data": {
+          "description": "cart total=known positive; first client total=1; second body remains untrusted",
+          "secret_policy": "Use disposable isolated fixtures; no real secrets."
+        },
+        "expected_status": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_schema": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_business_result": "Step 1 cannot be an authenticated checkout; step 2 uses the backend cart-derived total.",
+        "expected_state": "Cart remains populated after step 1 and is cleared only after step 2 succeeds.",
+        "audit_status": "PENDING_HUMAN_REVIEW",
+        "audit_reason": null,
+        "correction": null,
+        "why_ai_missed": "The AI tested authentication failures and valid checkout separately but did not prove cart recoverability across an unauthorized tampered attempt.",
+        "execution_status": "NOT_IMPLEMENTED",
+        "failure_classification": null,
+        "bug_id": null,
+        "notes": "HUMAN_APPROVED_STUDENT_EXTENSION; NOT_IMPLEMENTED; NOT_EXECUTED"
+      }
+    },
+    {
+      "case_id": "API02-STU-002",
+      "api_id": "API-02",
+      "source": "STUDENT_ADDED",
+      "human_review_status": "APPROVED",
+      "final_disposition": "INCLUDED_EXECUTABLE",
+      "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+      "setup_requirements": [
+        "Users A and B have different populated carts",
+        "JWT A is valid",
+        "Use documented login/cart helpers with isolated user carts"
+      ],
+      "external_verification": "Read-only isolated verification: independently calculate cart total and inspect the persisted order total/user binding.",
+      "order_dependent": "YES",
+      "dependency": "Execute only the explicit state-transition sequence described by the testcase preconditions/objective using isolated fixtures.",
+      "postman_request": "[API02-STU-002] Identity spoof combined with victim-cart total",
+      "test_case": {
+        "id": "API02-STU-002",
+        "api_id": "API-02",
+        "feature_id": "FR-08",
+        "endpoint": "POST /api/checkout",
+        "source": "STUDENT_ADDED",
+        "lifecycle_state": "HUMAN_APPROVED",
+        "requirement_ids": [
+          "API02-REQ-004",
+          "API02-REQ-005",
+          "API02-REQ-006",
+          "API02-REQ-007"
+        ],
+        "technique": [
+          "SECURITY",
+          "BUSINESS_RULE",
+          "STATE_TRANSITION"
+        ],
+        "primary_technique": "SECURITY",
+        "secondary_techniques": [
+          "BUSINESS_RULE",
+          "STATE_TRANSITION"
+        ],
+        "oracle_basis": "AUTHORITATIVE",
+        "gap_ids": [],
+        "risk_ids": [
+          "API02-RISK-COMBINED-IDENTITY-TOTAL"
+        ],
+        "observation_ids": [],
+        "title": "Identity spoof combined with victim-cart total",
+        "objective": "Verify JWT A remains the identity authority when payload claims user B and client total equals B's different cart total.",
+        "preconditions": [
+          "Users A and B have different populated carts",
+          "JWT A is valid"
+        ],
+        "request": {
+          "method": "POST",
+          "path": "/api/checkout",
+          "auth_profile": "Bearer fixtures specified by the sequence",
+          "content_type": "application/json",
+          "sequence_or_body_variation": "JWT A with unexpected user_id=B and total_amount equal to cart B"
+        },
+        "test_data": {
+          "description": "cartA total differs from cartB total",
+          "secret_policy": "Use disposable isolated fixtures; no real secrets."
+        },
+        "expected_status": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_schema": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_business_result": "Checkout must use authenticated user A and derive total from cart A, not payload identity or cart B's client-matched value.",
+        "expected_state": "On success only cart A clears; cart B remains unchanged.",
+        "audit_status": "PENDING_HUMAN_REVIEW",
+        "audit_reason": null,
+        "correction": null,
+        "why_ai_missed": "The AI covered user-id spoofing and cross-user total isolation in separate cases but did not combine both attacker-controlled signals.",
+        "execution_status": "NOT_IMPLEMENTED",
+        "failure_classification": null,
+        "bug_id": null,
+        "notes": "HUMAN_APPROVED_STUDENT_EXTENSION; NOT_IMPLEMENTED; NOT_EXECUTED"
+      }
+    },
+    {
+      "case_id": "API02-STU-003",
+      "api_id": "API-02",
+      "source": "STUDENT_ADDED",
+      "human_review_status": "APPROVED",
+      "final_disposition": "INCLUDED_EXECUTABLE",
+      "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+      "setup_requirements": [
+        "Authenticated user has a populated cart",
+        "Isolated database state can be inspected",
+        "Use documented login/cart helpers with isolated user carts"
+      ],
+      "external_verification": "Read-only isolated verification: independently calculate cart total and inspect the persisted order total/user binding; compare unrelated datastore objects before/after the injection-like address payload.",
+      "order_dependent": "YES",
+      "dependency": "Execute only the explicit state-transition sequence described by the testcase preconditions/objective using isolated fixtures.",
+      "postman_request": "[API02-STU-003] Simultaneous total and address injection payloads",
+      "test_case": {
+        "id": "API02-STU-003",
+        "api_id": "API-02",
+        "feature_id": "FR-08",
+        "endpoint": "POST /api/checkout",
+        "source": "STUDENT_ADDED",
+        "lifecycle_state": "HUMAN_APPROVED",
+        "requirement_ids": [
+          "API02-REQ-005",
+          "API02-REQ-006",
+          "API02-REQ-007",
+          "API02-REQ-011"
+        ],
+        "technique": [
+          "SECURITY",
+          "BUSINESS_RULE",
+          "STATE_TRANSITION"
+        ],
+        "primary_technique": "SECURITY",
+        "secondary_techniques": [
+          "BUSINESS_RULE",
+          "STATE_TRANSITION"
+        ],
+        "oracle_basis": "SECURITY_EXPECTATION",
+        "gap_ids": [],
+        "risk_ids": [
+          "API02-RISK-COMBINED-INJECTION"
+        ],
+        "observation_ids": [],
+        "title": "Simultaneous total and address injection payloads",
+        "objective": "Verify total and shipping-address metacharacters remain data while the authoritative total still comes from cart and no unintended database action occurs.",
+        "preconditions": [
+          "Authenticated user has a populated cart",
+          "Isolated database state can be inspected"
+        ],
+        "request": {
+          "method": "POST",
+          "path": "/api/checkout",
+          "auth_profile": "Bearer fixtures specified by the sequence",
+          "content_type": "application/json",
+          "sequence_or_body_variation": "total_amount contains expression-like text and shipping_address contains SQL metacharacters in one request"
+        },
+        "test_data": {
+          "description": "Combined payload plus before/after database snapshot",
+          "secret_policy": "Use disposable isolated fixtures; no real secrets."
+        },
+        "expected_status": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_schema": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_business_result": "No input string may execute as a command or become the authoritative total; any successful checkout uses the cart-derived total.",
+        "expected_state": "Unrelated database state remains intact; if checkout succeeds the authenticated cart clears.",
+        "audit_status": "PENDING_HUMAN_REVIEW",
+        "audit_reason": null,
+        "correction": null,
+        "why_ai_missed": "The AI tested total injection and address injection independently, missing their combined parser/persistence path with the total business invariant.",
+        "execution_status": "NOT_IMPLEMENTED",
+        "failure_classification": null,
+        "bug_id": null,
+        "notes": "HUMAN_APPROVED_STUDENT_EXTENSION; NOT_IMPLEMENTED; NOT_EXECUTED"
+      }
+    },
+    {
+      "case_id": "API02-STU-005",
+      "api_id": "API-02",
+      "source": "STUDENT_ADDED",
+      "human_review_status": "APPROVED",
+      "final_disposition": "INCLUDED_EXECUTABLE",
+      "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+      "setup_requirements": [
+        "Users A and B have different populated carts",
+        "Both JWTs valid",
+        "Use documented login/cart helpers with isolated user carts"
+      ],
+      "external_verification": "Read-only isolated verification: independently calculate cart total and inspect the persisted order total/user binding.",
+      "order_dependent": "YES",
+      "dependency": "Execute only the explicit state-transition sequence described by the testcase preconditions/objective using isolated fixtures.",
+      "postman_request": "[API02-STU-005] Two-user sequential checkout with swapped client totals",
+      "test_case": {
+        "id": "API02-STU-005",
+        "api_id": "API-02",
+        "feature_id": "FR-08",
+        "endpoint": "POST /api/checkout",
+        "source": "STUDENT_ADDED",
+        "lifecycle_state": "HUMAN_APPROVED",
+        "requirement_ids": [
+          "API02-REQ-004",
+          "API02-REQ-005",
+          "API02-REQ-006",
+          "API02-REQ-007"
+        ],
+        "technique": [
+          "STATE_TRANSITION",
+          "SECURITY",
+          "BUSINESS_RULE"
+        ],
+        "primary_technique": "STATE_TRANSITION",
+        "secondary_techniques": [
+          "SECURITY",
+          "BUSINESS_RULE"
+        ],
+        "oracle_basis": "AUTHORITATIVE",
+        "gap_ids": [],
+        "risk_ids": [
+          "API02-RISK-BILATERAL-CART-ISOLATION"
+        ],
+        "observation_ids": [],
+        "title": "Two-user sequential checkout with swapped client totals",
+        "objective": "Verify two users checking out sequentially each use their own cart total even when each client submits the other's total.",
+        "preconditions": [
+          "Users A and B have different populated carts",
+          "Both JWTs valid"
+        ],
+        "request": {
+          "method": "POST",
+          "path": "/api/checkout",
+          "auth_profile": "Bearer fixtures specified by the sequence",
+          "content_type": "application/json",
+          "sequence_or_body_variation": "Checkout A with client total equal cart B, then checkout B with client total equal cart A's old total"
+        },
+        "test_data": {
+          "description": "cartA and cartB totals are distinct and deliberately swapped in bodies",
+          "secret_policy": "Use disposable isolated fixtures; no real secrets."
+        },
+        "expected_status": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_schema": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_business_result": "Each checkout must derive total from the authenticated user's current cart, never the swapped client value.",
+        "expected_state": "After A succeeds only cart A clears; after B succeeds cart B clears; each order remains user-scoped.",
+        "audit_status": "PENDING_HUMAN_REVIEW",
+        "audit_reason": null,
+        "correction": null,
+        "why_ai_missed": "The AI tested one-direction cross-user isolation but did not verify bilateral sequential state transitions with swapped trust-boundary values.",
+        "execution_status": "NOT_IMPLEMENTED",
+        "failure_classification": null,
+        "bug_id": null,
+        "notes": "HUMAN_APPROVED_STUDENT_EXTENSION; NOT_IMPLEMENTED; NOT_EXECUTED"
+      }
+    },
+    {
+      "case_id": "API02-STU-006",
+      "api_id": "API-02",
+      "source": "STUDENT_ADDED",
+      "human_review_status": "APPROVED",
+      "final_disposition": "INCLUDED_EXECUTABLE",
+      "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+      "setup_requirements": [
+        "Users A and B have different populated carts",
+        "JWT A is valid",
+        "Cart A changes from total T-old to T-current immediately before checkout",
+        "Cart B total equals T-old and differs from T-current",
+        "Use documented login/cart helpers with isolated user carts"
+      ],
+      "external_verification": "Read-only isolated verification: independently calculate cart total and inspect the persisted order total/user binding.",
+      "order_dependent": "YES",
+      "dependency": "Execute only the explicit state-transition sequence described by the testcase preconditions/objective using isolated fixtures.",
+      "postman_request": "[API02-STU-006] Current-cart authority under stale cross-user collision",
+      "test_case": {
+        "id": "API02-STU-006",
+        "api_id": "API-02",
+        "feature_id": "FR-08",
+        "endpoint": "POST /api/checkout",
+        "source": "STUDENT_ADDED",
+        "lifecycle_state": "HUMAN_APPROVED",
+        "requirement_ids": [
+          "API02-REQ-004",
+          "API02-REQ-005",
+          "API02-REQ-006",
+          "API02-REQ-007"
+        ],
+        "technique": [
+          "STATE_TRANSITION",
+          "SECURITY",
+          "BUSINESS_RULE"
+        ],
+        "primary_technique": "STATE_TRANSITION",
+        "secondary_techniques": [
+          "SECURITY",
+          "BUSINESS_RULE"
+        ],
+        "oracle_basis": "AUTHORITATIVE",
+        "gap_ids": [],
+        "risk_ids": [
+          "API02-RISK-CURRENT-CART-CROSS-USER-COLLISION"
+        ],
+        "observation_ids": [],
+        "title": "Current-cart authority under stale cross-user collision",
+        "objective": "Verify checkout uses authenticated user A's current cart after that cart changes, even when the payload claims user B and supplies a stale total that also equals cart B's total.",
+        "preconditions": [
+          "Users A and B have different populated carts",
+          "JWT A is valid",
+          "Cart A changes from total T-old to T-current immediately before checkout",
+          "Cart B total equals T-old and differs from T-current"
+        ],
+        "request": {
+          "method": "POST",
+          "path": "/api/checkout",
+          "auth_profile": "Bearer JWT A; use disposable two-user cart fixtures",
+          "content_type": "application/json",
+          "sequence_or_body_variation": "Capture T-old for cart A, mutate cart A to T-current, then send checkout with JWT A, unexpected user_id=B, and total_amount=T-old"
+        },
+        "test_data": {
+          "description": "T-current differs from T-old; cart B total equals T-old; disposable two-user carts",
+          "secret_policy": "Use disposable isolated fixtures; no real secrets."
+        },
+        "expected_status": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_schema": "UNSPECIFIED_BY_AUTHORITATIVE_SOURCE",
+        "expected_business_result": "On confirmed success, checkout derives the amount from current cart A, not the stale client value, spoofed user ID, or cart B.",
+        "expected_state": "Only cart A is cleared after confirmed success; cart B remains unchanged.",
+        "audit_status": "PENDING_HUMAN_REVIEW",
+        "audit_reason": null,
+        "correction": null,
+        "why_ai_missed": "Raw AI generation decomposed temporal cart recalculation and cross-user identity isolation into separate cases, so it did not exercise all three competing authorities—current cart A, spoofed user B, and stale client total—in one stateful request.",
+        "execution_status": "NOT_IMPLEMENTED",
+        "failure_classification": null,
+        "bug_id": null,
+        "notes": "HUMAN_APPROVED_STUDENT_EXTENSION; NOT_IMPLEMENTED; NOT_EXECUTED"
+      }
+    }
+  ]
+}

@@ -1,0 +1,914 @@
+[
+  {
+    "case_id": "API02-AI-001",
+    "source": "AI_CORRECTED",
+    "method": "POST",
+    "path": "/api/checkout",
+    "auth": {
+      "type": "bearer",
+      "variable": "userToken"
+    },
+    "body": {
+      "total_amount": "{{clientTotal}}",
+      "shipping_address": "{{shippingAddress}}"
+    },
+    "body_variation": "Bearer hợp lệ, body có total_amount và shipping_address",
+    "requirements": [
+      "API02-REQ-002",
+      "API02-REQ-005",
+      "API02-REQ-006",
+      "API02-REQ-007"
+    ],
+    "business_oracle": "Checkout đủ điều kiện; tổng có thẩm quyền là tổng backend tính từ cart.",
+    "state_oracle": "Nếu thành công, cart của user được xóa.",
+    "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+    "setup_requirements": [
+      "User đã đăng nhập",
+      "Cart của user có hàng",
+      "Use documented login/cart helpers with isolated user carts"
+    ],
+    "external_verification": "Read-only isolated verification: independently calculate cart total and inspect the persisted order total/user binding.",
+    "order_dependent": "NO",
+    "dependency": "NONE; reusable setup creates an isolated fixture before the testcase action."
+  },
+  {
+    "case_id": "API02-AI-002",
+    "source": "AI_CORRECTED",
+    "method": "POST",
+    "path": "/api/checkout",
+    "auth": {
+      "type": "bearer",
+      "variable": "userToken"
+    },
+    "body": {
+      "total_amount": 1,
+      "shipping_address": "{{shippingAddress}}"
+    },
+    "body_variation": "total_amount nhỏ hơn tổng cart",
+    "requirements": [
+      "API02-REQ-005",
+      "API02-REQ-006"
+    ],
+    "business_oracle": "Kết quả checkout không được dùng 1 làm tổng có thẩm quyền; backend phải tính từ cart.",
+    "state_oracle": "Nếu thành công, side effect cart tuân API02-REQ-007.",
+    "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+    "setup_requirements": [
+      "JWT hợp lệ",
+      "Cart có tổng đã biết",
+      "Use documented login/cart helpers with isolated user carts"
+    ],
+    "external_verification": "Read-only isolated verification: independently calculate cart total and inspect the persisted order total/user binding.",
+    "order_dependent": "NO",
+    "dependency": "NONE; reusable setup creates an isolated fixture before the testcase action."
+  },
+  {
+    "case_id": "API02-AI-003",
+    "source": "AI_CORRECTED",
+    "method": "POST",
+    "path": "/api/checkout",
+    "auth": {
+      "type": "bearer",
+      "variable": "userToken"
+    },
+    "body": {
+      "total_amount": 999999999,
+      "shipping_address": "{{shippingAddress}}"
+    },
+    "body_variation": "total_amount lớn hơn tổng cart",
+    "requirements": [
+      "API02-REQ-005",
+      "API02-REQ-006"
+    ],
+    "business_oracle": "Tổng có thẩm quyền vẫn phải do backend tính từ cart.",
+    "state_oracle": "Nếu thành công, cart được xóa.",
+    "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+    "setup_requirements": [
+      "JWT hợp lệ",
+      "Cart có tổng đã biết",
+      "Use documented login/cart helpers with isolated user carts"
+    ],
+    "external_verification": "Read-only isolated verification: independently calculate cart total and inspect the persisted order total/user binding.",
+    "order_dependent": "NO",
+    "dependency": "NONE; reusable setup creates an isolated fixture before the testcase action."
+  },
+  {
+    "case_id": "API02-AI-004",
+    "source": "AI_CORRECTED",
+    "method": "POST",
+    "path": "/api/checkout",
+    "auth": {
+      "type": "bearer",
+      "variable": "userToken"
+    },
+    "body": {
+      "total_amount": 0,
+      "shipping_address": "{{shippingAddress}}"
+    },
+    "body_variation": "total_amount=0",
+    "requirements": [
+      "API02-REQ-005",
+      "API02-REQ-006"
+    ],
+    "business_oracle": "Backend không được nhận zero làm tổng checkout có thẩm quyền.",
+    "state_oracle": "Nếu thành công, cart được xóa.",
+    "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+    "setup_requirements": [
+      "JWT hợp lệ",
+      "Cart có tổng dương",
+      "Use documented login/cart helpers with isolated user carts"
+    ],
+    "external_verification": "Read-only isolated verification: independently calculate cart total and inspect the persisted order total/user binding.",
+    "order_dependent": "NO",
+    "dependency": "NONE; reusable setup creates an isolated fixture before the testcase action."
+  },
+  {
+    "case_id": "API02-AI-005",
+    "source": "AI_CORRECTED",
+    "method": "POST",
+    "path": "/api/checkout",
+    "auth": {
+      "type": "bearer",
+      "variable": "userToken"
+    },
+    "body": {
+      "total_amount": -1,
+      "shipping_address": "{{shippingAddress}}"
+    },
+    "body_variation": "total_amount=-1",
+    "requirements": [
+      "API02-REQ-005",
+      "API02-REQ-006"
+    ],
+    "business_oracle": "Backend phải bỏ quyền quyết định khỏi giá trị client và tính từ cart.",
+    "state_oracle": "Nếu thành công, cart được xóa.",
+    "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+    "setup_requirements": [
+      "JWT hợp lệ",
+      "Cart có tổng dương",
+      "Use documented login/cart helpers with isolated user carts"
+    ],
+    "external_verification": "Read-only isolated verification: independently calculate cart total and inspect the persisted order total/user binding.",
+    "order_dependent": "NO",
+    "dependency": "NONE; reusable setup creates an isolated fixture before the testcase action."
+  },
+  {
+    "case_id": "API02-AI-006",
+    "source": "AI_CORRECTED",
+    "method": "POST",
+    "path": "/api/checkout",
+    "auth": {
+      "type": "bearer",
+      "variable": "userToken"
+    },
+    "body": {
+      "total_amount": "200000",
+      "shipping_address": "{{shippingAddress}}"
+    },
+    "body_variation": "total_amount là chuỗi số",
+    "requirements": [
+      "API02-REQ-003",
+      "API02-REQ-006"
+    ],
+    "business_oracle": "Acceptable outcomes are rejection without successful-checkout side effects, or successful checkout using the backend cart-derived total; the client string never becomes authoritative.",
+    "state_oracle": "If checkout succeeds the authenticated user cart is cleared; otherwise no success-side-effect claim is made.",
+    "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+    "setup_requirements": [
+      "JWT hợp lệ",
+      "Cart có tổng đã biết",
+      "Use documented login/cart helpers with isolated user carts"
+    ],
+    "external_verification": "Read-only isolated verification: independently calculate cart total and inspect the persisted order total/user binding.",
+    "order_dependent": "NO",
+    "dependency": "NONE; reusable setup creates an isolated fixture before the testcase action."
+  },
+  {
+    "case_id": "API02-AI-007",
+    "source": "AI_CORRECTED",
+    "method": "POST",
+    "path": "/api/checkout",
+    "auth": {
+      "type": "bearer",
+      "variable": "userToken"
+    },
+    "body": {
+      "shipping_address": "{{shippingAddress}}"
+    },
+    "body_variation": "bỏ total_amount",
+    "requirements": [
+      "API02-REQ-003",
+      "API02-REQ-006"
+    ],
+    "business_oracle": "Acceptable outcomes are rejection without successful-checkout side effects, or successful checkout using the backend cart-derived total.",
+    "state_oracle": "If checkout succeeds the authenticated user cart is cleared; otherwise no success-side-effect claim is made.",
+    "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+    "setup_requirements": [
+      "JWT hợp lệ",
+      "Cart có tổng đã biết",
+      "Use documented login/cart helpers with isolated user carts"
+    ],
+    "external_verification": "Read-only isolated verification: independently calculate cart total and inspect the persisted order total/user binding.",
+    "order_dependent": "NO",
+    "dependency": "NONE; reusable setup creates an isolated fixture before the testcase action."
+  },
+  {
+    "case_id": "API02-AI-009",
+    "source": "AI_CORRECTED",
+    "method": "POST",
+    "path": "/api/checkout",
+    "auth": {
+      "type": "bearer",
+      "variable": "userToken"
+    },
+    "body": {
+      "total_amount": "{{clientTotal}}",
+      "shipping_address": "{{shippingAddress}}"
+    },
+    "body_variation": "body hợp lệ",
+    "requirements": [
+      "API02-REQ-005",
+      "API02-REQ-006"
+    ],
+    "business_oracle": "Backend tính tổng từ cart hiện tại.",
+    "state_oracle": "Nếu thành công, cart chuyển sang rỗng.",
+    "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+    "setup_requirements": [
+      "JWT hợp lệ",
+      "Cart có đúng một dòng",
+      "Use documented login/cart helpers with isolated user carts"
+    ],
+    "external_verification": "Read-only isolated verification: independently calculate cart total and inspect the persisted order total/user binding.",
+    "order_dependent": "NO",
+    "dependency": "NONE; reusable setup creates an isolated fixture before the testcase action."
+  },
+  {
+    "case_id": "API02-AI-010",
+    "source": "AI_CORRECTED",
+    "method": "POST",
+    "path": "/api/checkout",
+    "auth": {
+      "type": "bearer",
+      "variable": "userToken"
+    },
+    "body": {
+      "total_amount": "{{clientTotal}}",
+      "shipping_address": "{{shippingAddress}}"
+    },
+    "body_variation": "client total cố tình bằng riêng dòng đầu",
+    "requirements": [
+      "API02-REQ-005",
+      "API02-REQ-006"
+    ],
+    "business_oracle": "Tổng có thẩm quyền phản ánh cart đầy đủ theo FR-08, không phải client total.",
+    "state_oracle": "Nếu thành công, toàn bộ cart được xóa.",
+    "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+    "setup_requirements": [
+      "JWT hợp lệ",
+      "Cart có nhiều dòng",
+      "Use documented login/cart helpers with isolated user carts"
+    ],
+    "external_verification": "Read-only isolated verification: independently calculate cart total and inspect the persisted order total/user binding.",
+    "order_dependent": "NO",
+    "dependency": "NONE; reusable setup creates an isolated fixture before the testcase action."
+  },
+  {
+    "case_id": "API02-AI-014",
+    "source": "AI_CORRECTED",
+    "method": "POST",
+    "path": "/api/checkout",
+    "auth": {
+      "type": "bearer",
+      "variable": "userToken"
+    },
+    "body": {
+      "total_amount": "{{clientTotal}}",
+      "shipping_address": "{{shippingAddress}}"
+    },
+    "body_variation": "body hợp lệ",
+    "requirements": [
+      "API02-REQ-005",
+      "API02-REQ-007"
+    ],
+    "business_oracle": "Checkout thành công sử dụng tổng cart.",
+    "state_oracle": "Cart của authenticated user trở thành rỗng.",
+    "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+    "setup_requirements": [
+      "JWT hợp lệ",
+      "Cart có hàng và snapshot trước chạy",
+      "Use documented login/cart helpers with isolated user carts"
+    ],
+    "external_verification": "Read-only isolated verification: independently calculate cart total and inspect the persisted order total/user binding.",
+    "order_dependent": "YES",
+    "dependency": "Execute only the explicit state-transition sequence described by the testcase preconditions/objective using isolated fixtures."
+  },
+  {
+    "case_id": "API02-AI-016",
+    "source": "AI_CORRECTED",
+    "method": "POST",
+    "path": "/api/checkout",
+    "auth": {
+      "type": "bearer",
+      "variable": "userToken"
+    },
+    "body": {
+      "total_amount": "{{clientTotal}}",
+      "shipping_address": "{{shippingAddress}}"
+    },
+    "body_variation": "gửi total_amount cũ",
+    "requirements": [
+      "API02-REQ-005",
+      "API02-REQ-006"
+    ],
+    "business_oracle": "Backend dùng cart hiện tại để tính tổng.",
+    "state_oracle": "Nếu thành công, cart hiện tại được xóa.",
+    "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+    "setup_requirements": [
+      "JWT hợp lệ",
+      "Client đã xem cart rồi cart thay đổi",
+      "Use documented login/cart helpers with isolated user carts"
+    ],
+    "external_verification": "Read-only isolated verification: independently calculate cart total and inspect the persisted order total/user binding.",
+    "order_dependent": "YES",
+    "dependency": "Execute only the explicit state-transition sequence described by the testcase preconditions/objective using isolated fixtures."
+  },
+  {
+    "case_id": "API02-AI-017",
+    "source": "AI_CORRECTED",
+    "method": "POST",
+    "path": "/api/checkout",
+    "auth": {
+      "type": "bearer",
+      "variable": "userToken"
+    },
+    "body": {
+      "total_amount": "{{clientTotal}}",
+      "shipping_address": "{{shippingAddress}}"
+    },
+    "body_variation": "checkout bằng JWT A",
+    "requirements": [
+      "API02-REQ-004",
+      "API02-REQ-005"
+    ],
+    "business_oracle": "Tổng phải được tính từ cart gắn với authenticated user A.",
+    "state_oracle": "Nếu thành công, chỉ cart A được xóa; cart B không bị tác động.",
+    "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+    "setup_requirements": [
+      "JWT A và B hợp lệ",
+      "Mỗi user có cart khác nhau",
+      "Use documented login/cart helpers with isolated user carts"
+    ],
+    "external_verification": "Read-only isolated verification: independently calculate cart total and inspect the persisted order total/user binding.",
+    "order_dependent": "YES",
+    "dependency": "Execute only the explicit state-transition sequence described by the testcase preconditions/objective using isolated fixtures."
+  },
+  {
+    "case_id": "API02-AI-018",
+    "source": "AI_CORRECTED",
+    "method": "POST",
+    "path": "/api/checkout",
+    "auth": {
+      "type": "bearer",
+      "variable": "userToken"
+    },
+    "body": {
+      "total_amount": "{{clientTotal}}",
+      "shipping_address": "{{shippingAddress}}"
+    },
+    "body_variation": "không gửi Authorization",
+    "requirements": [
+      "API02-REQ-002",
+      "API02-REQ-004"
+    ],
+    "business_oracle": "Không cho user chưa xác thực checkout.",
+    "state_oracle": "Cart baseline không bị clear bởi checkout thành công.",
+    "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+    "setup_requirements": [
+      "Cart baseline tồn tại",
+      "Use documented login/cart helpers with isolated user carts"
+    ],
+    "external_verification": "NONE",
+    "order_dependent": "YES",
+    "dependency": "Execute only the explicit state-transition sequence described by the testcase preconditions/objective using isolated fixtures."
+  },
+  {
+    "case_id": "API02-AI-021",
+    "source": "AI_CORRECTED",
+    "method": "POST",
+    "path": "/api/checkout",
+    "auth": {
+      "type": "noauth"
+    },
+    "body": {
+      "total_amount": "{{clientTotal}}",
+      "shipping_address": "{{shippingAddress}}"
+    },
+    "body_variation": "không Authorization",
+    "requirements": [
+      "API02-REQ-002",
+      "API02-REQ-004",
+      "API02-REQ-010"
+    ],
+    "business_oracle": "Không cho checkout khi không có JWT hợp lệ.",
+    "state_oracle": "Không áp dụng side effect success lên cart.",
+    "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+    "setup_requirements": [
+      "Cart test tồn tại",
+      "Use documented login/cart helpers with isolated user carts"
+    ],
+    "external_verification": "NONE",
+    "order_dependent": "NO",
+    "dependency": "NONE; reusable setup creates an isolated fixture before the testcase action."
+  },
+  {
+    "case_id": "API02-AI-022",
+    "source": "AI_CORRECTED",
+    "method": "POST",
+    "path": "/api/checkout",
+    "auth": {
+      "type": "header",
+      "value": "Basic {{userToken}}"
+    },
+    "body": {
+      "total_amount": "{{clientTotal}}",
+      "shipping_address": "{{shippingAddress}}"
+    },
+    "body_variation": "Authorization dùng Basic",
+    "requirements": [
+      "API02-REQ-002",
+      "API02-REQ-010"
+    ],
+    "business_oracle": "Không coi header này là valid bearer JWT.",
+    "state_oracle": "Không clear cart do checkout thành công.",
+    "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+    "setup_requirements": [
+      "Cart test tồn tại",
+      "Use documented login/cart helpers with isolated user carts"
+    ],
+    "external_verification": "NONE",
+    "order_dependent": "NO",
+    "dependency": "NONE; reusable setup creates an isolated fixture before the testcase action."
+  },
+  {
+    "case_id": "API02-AI-023",
+    "source": "AI_CORRECTED",
+    "method": "POST",
+    "path": "/api/checkout",
+    "auth": {
+      "type": "header",
+      "value": "Bearer malformed.jwt.token"
+    },
+    "body": {
+      "total_amount": "{{clientTotal}}",
+      "shipping_address": "{{shippingAddress}}"
+    },
+    "body_variation": "Authorization Bearer malformed",
+    "requirements": [
+      "API02-REQ-002",
+      "API02-REQ-010"
+    ],
+    "business_oracle": "Không cho checkout với JWT không hợp lệ.",
+    "state_oracle": "Cart không bị clear bởi checkout thành công.",
+    "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+    "setup_requirements": [
+      "Cart test tồn tại",
+      "Use documented login/cart helpers with isolated user carts"
+    ],
+    "external_verification": "NONE",
+    "order_dependent": "NO",
+    "dependency": "NONE; reusable setup creates an isolated fixture before the testcase action."
+  },
+  {
+    "case_id": "API02-AI-024",
+    "source": "AI_CORRECTED",
+    "method": "POST",
+    "path": "/api/checkout",
+    "auth": {
+      "type": "header",
+      "value": "Bearer {{expiredUserToken}}"
+    },
+    "body": {
+      "total_amount": "{{clientTotal}}",
+      "shipping_address": "{{shippingAddress}}"
+    },
+    "body_variation": "Authorization Bearer expired",
+    "requirements": [
+      "API02-REQ-002",
+      "API02-REQ-010"
+    ],
+    "business_oracle": "Không cho checkout với token hết hạn.",
+    "state_oracle": "Cart không bị clear bởi checkout thành công.",
+    "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+    "setup_requirements": [
+      "Có JWT expired trong môi trường test",
+      "Use documented login/cart helpers with isolated user carts"
+    ],
+    "external_verification": "NONE",
+    "order_dependent": "YES",
+    "dependency": "Execute only the explicit state-transition sequence described by the testcase preconditions/objective using isolated fixtures."
+  },
+  {
+    "case_id": "API02-AI-025",
+    "source": "AI_CORRECTED",
+    "method": "POST",
+    "path": "/api/checkout",
+    "auth": {
+      "type": "bearer",
+      "variable": "userToken"
+    },
+    "body": {
+      "total_amount": "0); DROP TABLE orders; --",
+      "shipping_address": "{{shippingAddress}}"
+    },
+    "body_variation": "total_amount là chuỗi SQL-like",
+    "requirements": [
+      "API02-REQ-005",
+      "API02-REQ-006"
+    ],
+    "business_oracle": "Client input không được dùng làm tổng có thẩm quyền; truy vấn phải giữ ranh giới dữ liệu.",
+    "state_oracle": "Không có thay đổi dữ liệu ngoài checkout được phép.",
+    "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+    "setup_requirements": [
+      "JWT hợp lệ",
+      "Cart có tổng biết trước",
+      "Use documented login/cart helpers with isolated user carts"
+    ],
+    "external_verification": "Read-only isolated verification: independently calculate cart total and inspect the persisted order total/user binding.",
+    "order_dependent": "NO",
+    "dependency": "NONE; reusable setup creates an isolated fixture before the testcase action."
+  },
+  {
+    "case_id": "API02-AI-026",
+    "source": "AI_CORRECTED",
+    "method": "POST",
+    "path": "/api/checkout",
+    "auth": {
+      "type": "bearer",
+      "variable": "userToken"
+    },
+    "body": {
+      "total_amount": "{{clientTotal}}",
+      "shipping_address": "'; DROP TABLE users; --"
+    },
+    "body_variation": "shipping_address chứa metacharacters",
+    "requirements": [
+      "API02-REQ-003",
+      "API02-REQ-011"
+    ],
+    "business_oracle": "Không được thực thi nội dung input như lệnh hoặc phá dữ liệu ngoài phạm vi.",
+    "state_oracle": "Nếu checkout thành công, cart clear; dữ liệu khác còn nguyên.",
+    "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+    "setup_requirements": [
+      "JWT hợp lệ",
+      "Cart có hàng",
+      "Use documented login/cart helpers with isolated user carts"
+    ],
+    "external_verification": "Read-only isolated verification: compare unrelated datastore objects before/after the injection-like address payload.",
+    "order_dependent": "NO",
+    "dependency": "NONE; reusable setup creates an isolated fixture before the testcase action."
+  },
+  {
+    "case_id": "API02-AI-027",
+    "source": "AI_CORRECTED",
+    "method": "POST",
+    "path": "/api/checkout",
+    "auth": {
+      "type": "bearer",
+      "variable": "userToken"
+    },
+    "body": {
+      "total_amount": "{{clientTotal}}",
+      "shipping_address": "{{shippingAddress}}",
+      "user_id": "{{otherUserId}}"
+    },
+    "body_variation": "JWT A, payload thêm user_id B",
+    "requirements": [
+      "API02-REQ-002",
+      "API02-REQ-004"
+    ],
+    "business_oracle": "Checkout chỉ được gắn với user đã xác thực; không được tác động cart B.",
+    "state_oracle": "Cart B không đổi.",
+    "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+    "setup_requirements": [
+      "User A và B có cart",
+      "Use documented login/cart helpers with isolated user carts"
+    ],
+    "external_verification": "NONE",
+    "order_dependent": "YES",
+    "dependency": "Execute only the explicit state-transition sequence described by the testcase preconditions/objective using isolated fixtures."
+  },
+  {
+    "case_id": "API02-AI-029",
+    "source": "AI_CORRECTED",
+    "method": "POST",
+    "path": "/api/checkout",
+    "auth": {
+      "type": "bearer",
+      "variable": "userToken"
+    },
+    "body": {
+      "total_amount": "{{clientTotal}}",
+      "shipping_address": "{{shippingAddress}}"
+    },
+    "body_variation": "JSON đúng hai field",
+    "requirements": [
+      "API02-REQ-001",
+      "API02-REQ-002",
+      "API02-REQ-003"
+    ],
+    "business_oracle": "Request phù hợp contract đầu vào; response status/schema chưa được quy định.",
+    "state_oracle": "Nếu thành công, cart clear.",
+    "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+    "setup_requirements": [
+      "JWT hợp lệ",
+      "Cart có hàng",
+      "Use documented login/cart helpers with isolated user carts"
+    ],
+    "external_verification": "NONE",
+    "order_dependent": "NO",
+    "dependency": "NONE; reusable setup creates an isolated fixture before the testcase action."
+  },
+  {
+    "case_id": "API02-AI-034",
+    "source": "AI_CORRECTED",
+    "method": "POST",
+    "path": "/api/checkout",
+    "auth": {
+      "type": "bearer",
+      "variable": "userToken"
+    },
+    "body": {
+      "total_amount": "{{clientTotal}}",
+      "shipping_address": "{{shippingAddress}}"
+    },
+    "body_variation": "client total tình cờ bằng cart total",
+    "requirements": [
+      "API02-REQ-005",
+      "API02-REQ-006"
+    ],
+    "business_oracle": "Cần evidence backend-derived total; equality alone không chứng minh client được tin.",
+    "state_oracle": "Nếu thành công, cart clear.",
+    "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+    "setup_requirements": [
+      "JWT hợp lệ",
+      "Cart có tổng biết trước",
+      "Use documented login/cart helpers with isolated user carts"
+    ],
+    "external_verification": "Read-only isolated verification: independently calculate cart total and inspect the persisted order total/user binding.",
+    "order_dependent": "NO",
+    "dependency": "NONE; reusable setup creates an isolated fixture before the testcase action."
+  },
+  {
+    "case_id": "API02-AI-035",
+    "source": "AI_CORRECTED",
+    "method": "POST",
+    "path": "/api/checkout",
+    "auth": {
+      "type": "bearer",
+      "variable": "userToken"
+    },
+    "body": {
+      "total_amount": "{{clientTotal}}",
+      "shipping_address": "{{shippingAddress}}"
+    },
+    "body_variation": "client total lệch một phần nhỏ",
+    "requirements": [
+      "API02-REQ-005",
+      "API02-REQ-006"
+    ],
+    "business_oracle": "Backend dùng total tính từ cart.",
+    "state_oracle": "Nếu thành công, cart clear.",
+    "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+    "setup_requirements": [
+      "JWT hợp lệ",
+      "Cart total biết trước",
+      "Use documented login/cart helpers with isolated user carts"
+    ],
+    "external_verification": "Read-only isolated verification: independently calculate cart total and inspect the persisted order total/user binding.",
+    "order_dependent": "NO",
+    "dependency": "NONE; reusable setup creates an isolated fixture before the testcase action."
+  },
+  {
+    "case_id": "API02-AI-036",
+    "source": "AI_CORRECTED",
+    "method": "POST",
+    "path": "/api/checkout",
+    "auth": {
+      "type": "bearer",
+      "variable": "userToken"
+    },
+    "body": {
+      "total_amount": "{{clientTotal}}",
+      "shipping_address": "{{shippingAddress}}"
+    },
+    "body_variation": "hậu kiểm cả hai cart",
+    "requirements": [
+      "API02-REQ-007"
+    ],
+    "business_oracle": "Checkout thành công của A không xác lập quy tắc cho B.",
+    "state_oracle": "Cart A rỗng; cart B giữ nguyên.",
+    "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+    "setup_requirements": [
+      "User A và B đều có cart",
+      "Checkout A thành công",
+      "Use documented login/cart helpers with isolated user carts"
+    ],
+    "external_verification": "NONE",
+    "order_dependent": "YES",
+    "dependency": "Execute only the explicit state-transition sequence described by the testcase preconditions/objective using isolated fixtures."
+  },
+  {
+    "case_id": "API02-AI-037",
+    "source": "AI_CORRECTED",
+    "method": "POST",
+    "path": "/api/checkout",
+    "auth": {
+      "type": "bearer",
+      "variable": "userToken"
+    },
+    "body": {
+      "total_amount": "{{clientTotal}}",
+      "shipping_address": "{{shippingAddress}}"
+    },
+    "body_variation": "client total chỉ tính quantity một",
+    "requirements": [
+      "API02-REQ-005",
+      "API02-REQ-006",
+      "API02-REQ-008"
+    ],
+    "business_oracle": "Backend total phản ánh cart hiện tại theo FR-08; không biến quy tắc merge FR-07 thành checkout oracle.",
+    "state_oracle": "Nếu thành công, cart được xóa.",
+    "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+    "setup_requirements": [
+      "JWT hợp lệ",
+      "Cart có một product quantity lớn hơn một",
+      "Use documented login/cart helpers with isolated user carts"
+    ],
+    "external_verification": "Read-only isolated verification: independently calculate cart total and inspect the persisted order total/user binding.",
+    "order_dependent": "NO",
+    "dependency": "NONE; reusable setup creates an isolated fixture before the testcase action."
+  },
+  {
+    "case_id": "API02-STU-001",
+    "source": "STUDENT_ADDED",
+    "method": "POST",
+    "path": "/api/checkout",
+    "auth": {
+      "type": "header",
+      "value": "Bearer malformed.jwt.token"
+    },
+    "body": {
+      "total_amount": "{{clientTotal}}",
+      "shipping_address": "{{shippingAddress}}"
+    },
+    "body_variation": "Step 1 uses invalid JWT and low total; step 2 uses valid JWT against the unchanged cart",
+    "requirements": [
+      "API02-REQ-002",
+      "API02-REQ-004",
+      "API02-REQ-005",
+      "API02-REQ-006",
+      "API02-REQ-007",
+      "API02-REQ-010"
+    ],
+    "business_oracle": "Step 1 cannot be an authenticated checkout; step 2 uses the backend cart-derived total.",
+    "state_oracle": "Cart remains populated after step 1 and is cleared only after step 2 succeeds.",
+    "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+    "setup_requirements": [
+      "User A has a populated cart",
+      "Prepare invalid and valid JWT fixtures",
+      "Use documented login/cart helpers with isolated user carts"
+    ],
+    "external_verification": "Read-only isolated verification: independently calculate cart total and inspect the persisted order total/user binding.",
+    "order_dependent": "YES",
+    "dependency": "Execute only the explicit state-transition sequence described by the testcase preconditions/objective using isolated fixtures."
+  },
+  {
+    "case_id": "API02-STU-002",
+    "source": "STUDENT_ADDED",
+    "method": "POST",
+    "path": "/api/checkout",
+    "auth": {
+      "type": "bearer",
+      "variable": "userToken"
+    },
+    "body": {
+      "total_amount": "{{clientTotal}}",
+      "shipping_address": "{{shippingAddress}}",
+      "user_id": "{{otherUserId}}"
+    },
+    "body_variation": "JWT A with unexpected user_id=B and total_amount equal to cart B",
+    "requirements": [
+      "API02-REQ-004",
+      "API02-REQ-005",
+      "API02-REQ-006",
+      "API02-REQ-007"
+    ],
+    "business_oracle": "Checkout must use authenticated user A and derive total from cart A, not payload identity or cart B's client-matched value.",
+    "state_oracle": "On success only cart A clears; cart B remains unchanged.",
+    "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+    "setup_requirements": [
+      "Users A and B have different populated carts",
+      "JWT A is valid",
+      "Use documented login/cart helpers with isolated user carts"
+    ],
+    "external_verification": "Read-only isolated verification: independently calculate cart total and inspect the persisted order total/user binding.",
+    "order_dependent": "YES",
+    "dependency": "Execute only the explicit state-transition sequence described by the testcase preconditions/objective using isolated fixtures."
+  },
+  {
+    "case_id": "API02-STU-003",
+    "source": "STUDENT_ADDED",
+    "method": "POST",
+    "path": "/api/checkout",
+    "auth": {
+      "type": "bearer",
+      "variable": "userToken"
+    },
+    "body": {
+      "total_amount": "{{clientTotal}}",
+      "shipping_address": "'; DROP TABLE users; --"
+    },
+    "body_variation": "total_amount contains expression-like text and shipping_address contains SQL metacharacters in one request",
+    "requirements": [
+      "API02-REQ-005",
+      "API02-REQ-006",
+      "API02-REQ-007",
+      "API02-REQ-011"
+    ],
+    "business_oracle": "No input string may execute as a command or become the authoritative total; any successful checkout uses the cart-derived total.",
+    "state_oracle": "Unrelated database state remains intact; if checkout succeeds the authenticated cart clears.",
+    "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+    "setup_requirements": [
+      "Authenticated user has a populated cart",
+      "Isolated database state can be inspected",
+      "Use documented login/cart helpers with isolated user carts"
+    ],
+    "external_verification": "Read-only isolated verification: independently calculate cart total and inspect the persisted order total/user binding; compare unrelated datastore objects before/after the injection-like address payload.",
+    "order_dependent": "YES",
+    "dependency": "Execute only the explicit state-transition sequence described by the testcase preconditions/objective using isolated fixtures."
+  },
+  {
+    "case_id": "API02-STU-005",
+    "source": "STUDENT_ADDED",
+    "method": "POST",
+    "path": "/api/checkout",
+    "auth": {
+      "type": "bearer",
+      "variable": "userToken"
+    },
+    "body": {
+      "total_amount": "{{otherCartTotal}}",
+      "shipping_address": "{{shippingAddress}}"
+    },
+    "body_variation": "Checkout A with client total equal cart B, then checkout B with client total equal cart A's old total",
+    "requirements": [
+      "API02-REQ-004",
+      "API02-REQ-005",
+      "API02-REQ-006",
+      "API02-REQ-007"
+    ],
+    "business_oracle": "Each checkout must derive total from the authenticated user's current cart, never the swapped client value.",
+    "state_oracle": "After A succeeds only cart A clears; after B succeeds cart B clears; each order remains user-scoped.",
+    "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+    "setup_requirements": [
+      "Users A and B have different populated carts",
+      "Both JWTs valid",
+      "Use documented login/cart helpers with isolated user carts"
+    ],
+    "external_verification": "Read-only isolated verification: independently calculate cart total and inspect the persisted order total/user binding.",
+    "order_dependent": "YES",
+    "dependency": "Execute only the explicit state-transition sequence described by the testcase preconditions/objective using isolated fixtures."
+  },
+  {
+    "case_id": "API02-STU-006",
+    "source": "STUDENT_ADDED",
+    "method": "POST",
+    "path": "/api/checkout",
+    "auth": {
+      "type": "bearer",
+      "variable": "userToken"
+    },
+    "body": {
+      "total_amount": "{{otherCartTotal}}",
+      "shipping_address": "{{shippingAddress}}"
+    },
+    "body_variation": "Capture T-old for cart A, mutate cart A to T-current, then send checkout with JWT A, unexpected user_id=B, and total_amount=T-old",
+    "requirements": [
+      "API02-REQ-004",
+      "API02-REQ-005",
+      "API02-REQ-006",
+      "API02-REQ-007"
+    ],
+    "business_oracle": "On confirmed success, checkout derives the amount from current cart A, not the stale client value, spoofed user ID, or cart B.",
+    "state_oracle": "Only cart A is cleared after confirmed success; cart B remains unchanged.",
+    "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+    "setup_requirements": [
+      "Users A and B have different populated carts",
+      "JWT A is valid",
+      "Cart A changes from total T-old to T-current immediately before checkout",
+      "Cart B total equals T-old and differs from T-current",
+      "Use documented login/cart helpers with isolated user carts"
+    ],
+    "external_verification": "Read-only isolated verification: independently calculate cart total and inspect the persisted order total/user binding.",
+    "order_dependent": "YES",
+    "dependency": "Execute only the explicit state-transition sequence described by the testcase preconditions/objective using isolated fixtures."
+  }
+]

@@ -1,0 +1,1268 @@
+[
+  {
+    "case_id": "API03-AI-001",
+    "source": "AI_CORRECTED",
+    "method": "POST",
+    "path": "/api/admin/import-products",
+    "auth": {
+      "type": "bearer",
+      "variable": "adminToken"
+    },
+    "body": {
+      "products": [
+        {
+          "name": "HW06-{{testRunId}}-API03-AI-001-A",
+          "price": 10000,
+          "description": "Disposable fixture for API03-AI-001",
+          "imageUrl": "",
+          "category_id": "{{categoryId}}"
+        }
+      ]
+    },
+    "body_variation": "products có một item name non-empty và price positive",
+    "requirements": [
+      "API03-REQ-002",
+      "API03-REQ-004",
+      "API03-REQ-007",
+      "API03-REQ-009"
+    ],
+    "business_oracle": "Batch hợp lệ đủ điều kiện import.",
+    "state_oracle": "Toàn bộ một item được commit và report được tạo.",
+    "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+    "setup_requirements": [
+      "Admin JWT hợp lệ",
+      "Use documented login and GET /api/products baseline helper"
+    ],
+    "external_verification": "NONE",
+    "order_dependent": "NO",
+    "dependency": "NONE; reusable setup creates an isolated fixture before the testcase action."
+  },
+  {
+    "case_id": "API03-AI-002",
+    "source": "AI_CORRECTED",
+    "method": "POST",
+    "path": "/api/admin/import-products",
+    "auth": {
+      "type": "bearer",
+      "variable": "adminToken"
+    },
+    "body": {
+      "products": [
+        {
+          "name": "HW06-{{testRunId}}-API03-AI-002-A",
+          "price": 10000,
+          "description": "Disposable fixture for API03-AI-002",
+          "imageUrl": "",
+          "category_id": "{{categoryId}}"
+        },
+        {
+          "name": "HW06-{{testRunId}}-API03-AI-002-B",
+          "price": 10000,
+          "description": "Disposable fixture for API03-AI-002",
+          "imageUrl": "",
+          "category_id": "{{categoryId}}"
+        }
+      ]
+    },
+    "body_variation": "products có nhiều item hợp lệ",
+    "requirements": [
+      "API03-REQ-004",
+      "API03-REQ-007",
+      "API03-REQ-009"
+    ],
+    "business_oracle": "Toàn bộ batch hợp lệ được xử lý như một import.",
+    "state_oracle": "Tất cả item được commit; report phản ánh batch.",
+    "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+    "setup_requirements": [
+      "Admin JWT hợp lệ",
+      "Use documented login and GET /api/products baseline helper"
+    ],
+    "external_verification": "NONE",
+    "order_dependent": "NO",
+    "dependency": "NONE; reusable setup creates an isolated fixture before the testcase action."
+  },
+  {
+    "case_id": "API03-AI-003",
+    "source": "AI_CORRECTED",
+    "method": "POST",
+    "path": "/api/admin/import-products",
+    "auth": {
+      "type": "bearer",
+      "variable": "adminToken"
+    },
+    "body": {},
+    "body_variation": "bỏ products",
+    "requirements": [
+      "API03-REQ-004"
+    ],
+    "business_oracle": "No product row can be imported because the endpoint request contains no products array.",
+    "state_oracle": "The products snapshot remains unchanged.",
+    "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+    "setup_requirements": [
+      "Admin JWT hợp lệ",
+      "Use documented login and GET /api/products baseline helper"
+    ],
+    "external_verification": "NONE",
+    "order_dependent": "NO",
+    "dependency": "NONE; reusable setup creates an isolated fixture before the testcase action."
+  },
+  {
+    "case_id": "API03-AI-004",
+    "source": "AI_CORRECTED",
+    "method": "POST",
+    "path": "/api/admin/import-products",
+    "auth": {
+      "type": "bearer",
+      "variable": "adminToken"
+    },
+    "body": {
+      "products": null
+    },
+    "body_variation": "products=null",
+    "requirements": [
+      "API03-REQ-004"
+    ],
+    "business_oracle": "No product is imported from a null value; exact status and response schema remain unspecified.",
+    "state_oracle": "The products snapshot remains unchanged.",
+    "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+    "setup_requirements": [
+      "Admin JWT hợp lệ",
+      "Use documented login and GET /api/products baseline helper"
+    ],
+    "external_verification": "NONE",
+    "order_dependent": "NO",
+    "dependency": "NONE; reusable setup creates an isolated fixture before the testcase action."
+  },
+  {
+    "case_id": "API03-AI-005",
+    "source": "AI_CORRECTED",
+    "method": "POST",
+    "path": "/api/admin/import-products",
+    "auth": {
+      "type": "bearer",
+      "variable": "adminToken"
+    },
+    "body": {
+      "products": {
+        "name": "HW06-{{testRunId}}-API03-AI-005-A",
+        "price": 10000,
+        "description": "Disposable fixture for API03-AI-005",
+        "imageUrl": "",
+        "category_id": "{{categoryId}}"
+      }
+    },
+    "body_variation": "products={}",
+    "requirements": [
+      "API03-REQ-004"
+    ],
+    "business_oracle": "No product is imported from a non-array object; exact status and response schema remain unspecified.",
+    "state_oracle": "The products snapshot remains unchanged.",
+    "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+    "setup_requirements": [
+      "Admin JWT hợp lệ",
+      "Use documented login and GET /api/products baseline helper"
+    ],
+    "external_verification": "NONE",
+    "order_dependent": "NO",
+    "dependency": "NONE; reusable setup creates an isolated fixture before the testcase action."
+  },
+  {
+    "case_id": "API03-AI-007",
+    "source": "AI_CORRECTED",
+    "method": "POST",
+    "path": "/api/admin/import-products",
+    "auth": {
+      "type": "bearer",
+      "variable": "adminToken"
+    },
+    "body": {
+      "products": [
+        {
+          "price": 10000,
+          "description": "Disposable fixture for API03-AI-007",
+          "imageUrl": "",
+          "category_id": "{{categoryId}}"
+        }
+      ]
+    },
+    "body_variation": "một item có price nhưng không name",
+    "requirements": [
+      "API03-REQ-005",
+      "API03-REQ-007"
+    ],
+    "business_oracle": "Không chấp nhận row thiếu name hợp lệ.",
+    "state_oracle": "Nếu cùng batch có item khác, toàn batch rollback.",
+    "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+    "setup_requirements": [
+      "Admin JWT hợp lệ",
+      "Use documented login and GET /api/products baseline helper"
+    ],
+    "external_verification": "NONE",
+    "order_dependent": "NO",
+    "dependency": "NONE; reusable setup creates an isolated fixture before the testcase action."
+  },
+  {
+    "case_id": "API03-AI-008",
+    "source": "AI_CORRECTED",
+    "method": "POST",
+    "path": "/api/admin/import-products",
+    "auth": {
+      "type": "bearer",
+      "variable": "adminToken"
+    },
+    "body": {
+      "products": [
+        {
+          "name": "",
+          "price": 10000,
+          "description": "Disposable fixture for API03-AI-008",
+          "imageUrl": "",
+          "category_id": "{{categoryId}}"
+        }
+      ]
+    },
+    "body_variation": "name=\"\", price positive",
+    "requirements": [
+      "API03-REQ-007"
+    ],
+    "business_oracle": "Row lỗi vì name không non-empty.",
+    "state_oracle": "Toàn batch rollback.",
+    "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+    "setup_requirements": [
+      "Admin JWT hợp lệ",
+      "Use documented login and GET /api/products baseline helper"
+    ],
+    "external_verification": "NONE",
+    "order_dependent": "NO",
+    "dependency": "NONE; reusable setup creates an isolated fixture before the testcase action."
+  },
+  {
+    "case_id": "API03-AI-009",
+    "source": "AI_CORRECTED",
+    "method": "POST",
+    "path": "/api/admin/import-products",
+    "auth": {
+      "type": "bearer",
+      "variable": "adminToken"
+    },
+    "body": {
+      "products": [
+        {
+          "name": "HW06-{{testRunId}}-API03-AI-009-A",
+          "price": 0,
+          "description": "Disposable fixture for API03-AI-009",
+          "imageUrl": "",
+          "category_id": "{{categoryId}}"
+        }
+      ]
+    },
+    "body_variation": "price=0, name hợp lệ",
+    "requirements": [
+      "API03-REQ-007"
+    ],
+    "business_oracle": "Row lỗi vì price phải positive.",
+    "state_oracle": "Toàn batch rollback.",
+    "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+    "setup_requirements": [
+      "Admin JWT hợp lệ",
+      "Use documented login and GET /api/products baseline helper"
+    ],
+    "external_verification": "NONE",
+    "order_dependent": "NO",
+    "dependency": "NONE; reusable setup creates an isolated fixture before the testcase action."
+  },
+  {
+    "case_id": "API03-AI-010",
+    "source": "AI_CORRECTED",
+    "method": "POST",
+    "path": "/api/admin/import-products",
+    "auth": {
+      "type": "bearer",
+      "variable": "adminToken"
+    },
+    "body": {
+      "products": [
+        {
+          "name": "HW06-{{testRunId}}-API03-AI-010-A",
+          "price": -1,
+          "description": "Disposable fixture for API03-AI-010",
+          "imageUrl": "",
+          "category_id": "{{categoryId}}"
+        }
+      ]
+    },
+    "body_variation": "price=-1, name hợp lệ",
+    "requirements": [
+      "API03-REQ-007"
+    ],
+    "business_oracle": "Row lỗi vì price không positive.",
+    "state_oracle": "Toàn batch rollback.",
+    "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+    "setup_requirements": [
+      "Admin JWT hợp lệ",
+      "Use documented login and GET /api/products baseline helper"
+    ],
+    "external_verification": "NONE",
+    "order_dependent": "NO",
+    "dependency": "NONE; reusable setup creates an isolated fixture before the testcase action."
+  },
+  {
+    "case_id": "API03-AI-011",
+    "source": "AI_CORRECTED",
+    "method": "POST",
+    "path": "/api/admin/import-products",
+    "auth": {
+      "type": "bearer",
+      "variable": "adminToken"
+    },
+    "body": {
+      "products": [
+        {
+          "name": "HW06-{{testRunId}}-API03-AI-011-A",
+          "price": 0.01,
+          "description": "Disposable fixture for API03-AI-011",
+          "imageUrl": "",
+          "category_id": "{{categoryId}}"
+        }
+      ]
+    },
+    "body_variation": "price positive nhỏ có representation hệ thống hỗ trợ",
+    "requirements": [
+      "API03-REQ-007"
+    ],
+    "business_oracle": "Price lớn hơn zero thỏa quy tắc positivity; numeric precision vẫn cần quan sát.",
+    "state_oracle": "Nếu mọi row hợp lệ, toàn batch commit.",
+    "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+    "setup_requirements": [
+      "Admin JWT hợp lệ",
+      "Use documented login and GET /api/products baseline helper"
+    ],
+    "external_verification": "NONE",
+    "order_dependent": "NO",
+    "dependency": "NONE; reusable setup creates an isolated fixture before the testcase action."
+  },
+  {
+    "case_id": "API03-AI-016",
+    "source": "AI_CORRECTED",
+    "method": "POST",
+    "path": "/api/admin/import-products",
+    "auth": {
+      "type": "bearer",
+      "variable": "adminToken"
+    },
+    "body": {
+      "products": [
+        {
+          "name": "HW06-{{testRunId}}-API03-AI-016-A",
+          "price": 10000,
+          "description": "Disposable fixture for API03-AI-016",
+          "imageUrl": "",
+          "category_id": "{{categoryId}}"
+        }
+      ]
+    },
+    "body_variation": "nhiều item đều valid",
+    "requirements": [
+      "API03-REQ-009"
+    ],
+    "business_oracle": "Không có row error nên batch đủ điều kiện commit.",
+    "state_oracle": "Post-state có toàn bộ item mới, không phải một phần.",
+    "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+    "setup_requirements": [
+      "Admin JWT hợp lệ",
+      "Snapshot products trước import",
+      "Use documented login and GET /api/products baseline helper"
+    ],
+    "external_verification": "NONE",
+    "order_dependent": "YES",
+    "dependency": "Execute only the explicit state-transition sequence described by the testcase preconditions/objective using isolated fixtures."
+  },
+  {
+    "case_id": "API03-AI-017",
+    "source": "AI_CORRECTED",
+    "method": "POST",
+    "path": "/api/admin/import-products",
+    "auth": {
+      "type": "bearer",
+      "variable": "adminToken"
+    },
+    "body": {
+      "products": [
+        {
+          "name": "",
+          "price": 10000,
+          "description": "Disposable fixture for API03-AI-017",
+          "imageUrl": "",
+          "category_id": "{{categoryId}}"
+        },
+        {
+          "name": "HW06-{{testRunId}}-API03-AI-017-B",
+          "price": 10000,
+          "description": "Disposable fixture for API03-AI-017",
+          "imageUrl": "",
+          "category_id": "{{categoryId}}"
+        }
+      ]
+    },
+    "body_variation": "row 1 name empty, rows sau valid",
+    "requirements": [
+      "API03-REQ-007",
+      "API03-REQ-009"
+    ],
+    "business_oracle": "Bất kỳ row lỗi làm toàn import thất bại.",
+    "state_oracle": "Không item nào của batch được persist.",
+    "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+    "setup_requirements": [
+      "Admin JWT hợp lệ",
+      "Snapshot trước import",
+      "Use documented login and GET /api/products baseline helper"
+    ],
+    "external_verification": "NONE",
+    "order_dependent": "YES",
+    "dependency": "Execute only the explicit state-transition sequence described by the testcase preconditions/objective using isolated fixtures."
+  },
+  {
+    "case_id": "API03-AI-018",
+    "source": "AI_CORRECTED",
+    "method": "POST",
+    "path": "/api/admin/import-products",
+    "auth": {
+      "type": "bearer",
+      "variable": "adminToken"
+    },
+    "body": {
+      "products": [
+        {
+          "name": "HW06-{{testRunId}}-API03-AI-018-A",
+          "price": 10000,
+          "description": "Disposable fixture for API03-AI-018",
+          "imageUrl": "",
+          "category_id": "{{categoryId}}"
+        },
+        {
+          "name": "HW06-{{testRunId}}-API03-AI-018-B",
+          "price": -1,
+          "description": "Disposable fixture for API03-AI-018",
+          "imageUrl": "",
+          "category_id": "{{categoryId}}"
+        }
+      ]
+    },
+    "body_variation": "valid, invalid price zero, valid",
+    "requirements": [
+      "API03-REQ-007",
+      "API03-REQ-009"
+    ],
+    "business_oracle": "Lỗi giữa batch làm rollback toàn bộ.",
+    "state_oracle": "Không giữ các row valid đứng trước hoặc sau.",
+    "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+    "setup_requirements": [
+      "Admin JWT hợp lệ",
+      "Snapshot trước import",
+      "Use documented login and GET /api/products baseline helper"
+    ],
+    "external_verification": "NONE",
+    "order_dependent": "YES",
+    "dependency": "Execute only the explicit state-transition sequence described by the testcase preconditions/objective using isolated fixtures."
+  },
+  {
+    "case_id": "API03-AI-019",
+    "source": "AI_CORRECTED",
+    "method": "POST",
+    "path": "/api/admin/import-products",
+    "auth": {
+      "type": "bearer",
+      "variable": "adminToken"
+    },
+    "body": {
+      "products": [
+        {
+          "name": "HW06-{{testRunId}}-API03-AI-019-A",
+          "price": 10000,
+          "description": "Disposable fixture for API03-AI-019",
+          "imageUrl": "",
+          "category_id": "{{categoryId}}"
+        },
+        {
+          "name": "",
+          "price": 10000,
+          "description": "Disposable fixture for API03-AI-019",
+          "imageUrl": "",
+          "category_id": "{{categoryId}}"
+        }
+      ]
+    },
+    "body_variation": "các row đầu valid, row cuối name empty",
+    "requirements": [
+      "API03-REQ-007",
+      "API03-REQ-009"
+    ],
+    "business_oracle": "Lỗi cuối vẫn làm toàn batch thất bại.",
+    "state_oracle": "Không item nào của batch được persist.",
+    "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+    "setup_requirements": [
+      "Admin JWT hợp lệ",
+      "Snapshot trước import",
+      "Use documented login and GET /api/products baseline helper"
+    ],
+    "external_verification": "NONE",
+    "order_dependent": "YES",
+    "dependency": "Execute only the explicit state-transition sequence described by the testcase preconditions/objective using isolated fixtures."
+  },
+  {
+    "case_id": "API03-AI-020",
+    "source": "AI_CORRECTED",
+    "method": "POST",
+    "path": "/api/admin/import-products",
+    "auth": {
+      "type": "bearer",
+      "variable": "adminToken"
+    },
+    "body": {
+      "products": [
+        {
+          "name": "HW06-{{testRunId}}-API03-AI-020-A",
+          "price": 10000,
+          "description": "Disposable fixture for API03-AI-020",
+          "imageUrl": "",
+          "category_id": "{{categoryId}}"
+        },
+        {
+          "name": "",
+          "price": 10000,
+          "description": "Disposable fixture for API03-AI-020",
+          "imageUrl": "",
+          "category_id": "{{categoryId}}"
+        }
+      ]
+    },
+    "body_variation": "một row empty name, một row negative price",
+    "requirements": [
+      "API03-REQ-007",
+      "API03-REQ-009"
+    ],
+    "business_oracle": "Batch không được partial commit; report cần counts/reasons.",
+    "state_oracle": "Products state không đổi bởi batch.",
+    "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+    "setup_requirements": [
+      "Admin JWT hợp lệ",
+      "Snapshot trước import",
+      "Use documented login and GET /api/products baseline helper"
+    ],
+    "external_verification": "NONE",
+    "order_dependent": "YES",
+    "dependency": "Execute only the explicit state-transition sequence described by the testcase preconditions/objective using isolated fixtures."
+  },
+  {
+    "case_id": "API03-AI-021",
+    "source": "AI_CORRECTED",
+    "method": "POST",
+    "path": "/api/admin/import-products",
+    "auth": {
+      "type": "bearer",
+      "variable": "adminToken"
+    },
+    "body": {
+      "products": [
+        {
+          "name": "HW06-{{testRunId}}-API03-AI-021-A",
+          "price": 10000,
+          "description": "Disposable fixture for API03-AI-021",
+          "imageUrl": "",
+          "category_id": "{{categoryId}}"
+        }
+      ]
+    },
+    "body_variation": "gửi batch mới với tất cả lỗi đã sửa",
+    "requirements": [
+      "API03-REQ-009"
+    ],
+    "business_oracle": "Batch retry được đánh giá độc lập và nếu hợp lệ có thể commit toàn bộ.",
+    "state_oracle": "Chỉ dữ liệu từ lần retry hợp lệ xuất hiện.",
+    "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+    "setup_requirements": [
+      "Một batch invalid đã rollback",
+      "Use documented login and GET /api/products baseline helper"
+    ],
+    "external_verification": "NONE",
+    "order_dependent": "YES",
+    "dependency": "Execute only the explicit state-transition sequence described by the testcase preconditions/objective using isolated fixtures."
+  },
+  {
+    "case_id": "API03-AI-022",
+    "source": "AI_CORRECTED",
+    "method": "POST",
+    "path": "/api/admin/import-products",
+    "auth": {
+      "type": "bearer",
+      "variable": "adminToken"
+    },
+    "body": {
+      "products": [
+        {
+          "name": "HW06-{{testRunId}}-API03-AI-022-A",
+          "price": 10000,
+          "description": "Disposable fixture for API03-AI-022",
+          "imageUrl": "",
+          "category_id": "{{categoryId}}"
+        },
+        {
+          "name": "HW06-{{testRunId}}-API03-AI-022-B",
+          "price": -1,
+          "description": "Disposable fixture for API03-AI-022",
+          "imageUrl": "",
+          "category_id": "{{categoryId}}"
+        }
+      ]
+    },
+    "body_variation": "mixed invalid batch",
+    "requirements": [
+      "API03-REQ-010"
+    ],
+    "business_oracle": "Report thể hiện số thành công/lỗi và lý do ở mức semantic; exact schema unspecified.",
+    "state_oracle": "Atomic rollback vẫn được hậu kiểm độc lập.",
+    "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+    "setup_requirements": [
+      "Admin JWT hợp lệ",
+      "Batch có lỗi xác định",
+      "Use documented login and GET /api/products baseline helper"
+    ],
+    "external_verification": "NONE",
+    "order_dependent": "YES",
+    "dependency": "Execute only the explicit state-transition sequence described by the testcase preconditions/objective using isolated fixtures."
+  },
+  {
+    "case_id": "API03-AI-023",
+    "source": "AI_CORRECTED",
+    "method": "POST",
+    "path": "/api/admin/import-products",
+    "auth": {
+      "type": "noauth"
+    },
+    "body": {
+      "products": [
+        {
+          "name": "HW06-{{testRunId}}-API03-AI-023-A",
+          "price": 10000,
+          "description": "Disposable fixture for API03-AI-023",
+          "imageUrl": "",
+          "category_id": "{{categoryId}}"
+        }
+      ]
+    },
+    "body_variation": "không gửi Authorization",
+    "requirements": [
+      "API03-REQ-002",
+      "API03-REQ-011"
+    ],
+    "business_oracle": "Không cho truy cập sensitive import endpoint.",
+    "state_oracle": "Products state không đổi bởi import được phép.",
+    "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+    "setup_requirements": [
+      "Có snapshot products",
+      "Use documented login and GET /api/products baseline helper"
+    ],
+    "external_verification": "NONE",
+    "order_dependent": "NO",
+    "dependency": "NONE; reusable setup creates an isolated fixture before the testcase action."
+  },
+  {
+    "case_id": "API03-AI-024",
+    "source": "AI_CORRECTED",
+    "method": "POST",
+    "path": "/api/admin/import-products",
+    "auth": {
+      "type": "header",
+      "value": "Bearer malformed.jwt.token"
+    },
+    "body": {
+      "products": [
+        {
+          "name": "HW06-{{testRunId}}-API03-AI-024-A",
+          "price": 10000,
+          "description": "Disposable fixture for API03-AI-024",
+          "imageUrl": "",
+          "category_id": "{{categoryId}}"
+        }
+      ]
+    },
+    "body_variation": "Bearer malformed",
+    "requirements": [
+      "API03-REQ-002",
+      "API03-REQ-011"
+    ],
+    "business_oracle": "Không cho import với JWT không hợp lệ.",
+    "state_oracle": "Products state không đổi.",
+    "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+    "setup_requirements": [
+      "Có snapshot products",
+      "Use documented login and GET /api/products baseline helper"
+    ],
+    "external_verification": "NONE",
+    "order_dependent": "NO",
+    "dependency": "NONE; reusable setup creates an isolated fixture before the testcase action."
+  },
+  {
+    "case_id": "API03-AI-025",
+    "source": "AI_CORRECTED",
+    "method": "POST",
+    "path": "/api/admin/import-products",
+    "auth": {
+      "type": "header",
+      "value": "Bearer {{expiredUserToken}}"
+    },
+    "body": {
+      "products": [
+        {
+          "name": "HW06-{{testRunId}}-API03-AI-025-A",
+          "price": 10000,
+          "description": "Disposable fixture for API03-AI-025",
+          "imageUrl": "",
+          "category_id": "{{categoryId}}"
+        }
+      ]
+    },
+    "body_variation": "Bearer expired và valid products",
+    "requirements": [
+      "API03-REQ-002",
+      "API03-REQ-011"
+    ],
+    "business_oracle": "Không cho import với token hết hạn.",
+    "state_oracle": "Products state không đổi.",
+    "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+    "setup_requirements": [
+      "Có expired fixture",
+      "Use documented login and GET /api/products baseline helper"
+    ],
+    "external_verification": "NONE",
+    "order_dependent": "NO",
+    "dependency": "NONE; reusable setup creates an isolated fixture before the testcase action."
+  },
+  {
+    "case_id": "API03-AI-026",
+    "source": "AI_CORRECTED",
+    "method": "POST",
+    "path": "/api/admin/import-products",
+    "auth": {
+      "type": "bearer",
+      "variable": "userToken"
+    },
+    "body": {
+      "products": [
+        {
+          "name": "HW06-{{testRunId}}-API03-AI-026-A",
+          "price": 10000,
+          "description": "Disposable fixture for API03-AI-026",
+          "imageUrl": "",
+          "category_id": "{{categoryId}}"
+        }
+      ]
+    },
+    "body_variation": "Bearer user token, valid products",
+    "requirements": [
+      "API03-REQ-002",
+      "API03-REQ-003"
+    ],
+    "business_oracle": "Không cho non-admin import.",
+    "state_oracle": "Products state không đổi.",
+    "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+    "setup_requirements": [
+      "Valid JWT role user",
+      "Snapshot products",
+      "Use documented login and GET /api/products baseline helper"
+    ],
+    "external_verification": "NONE",
+    "order_dependent": "NO",
+    "dependency": "NONE; reusable setup creates an isolated fixture before the testcase action."
+  },
+  {
+    "case_id": "API03-AI-027",
+    "source": "AI_CORRECTED",
+    "method": "POST",
+    "path": "/api/admin/import-products",
+    "auth": {
+      "type": "bearer",
+      "variable": "adminToken"
+    },
+    "body": {
+      "products": [
+        {
+          "name": "HW06-{{testRunId}}-API03-AI-027-A",
+          "price": 10000,
+          "description": "Disposable fixture for API03-AI-027",
+          "imageUrl": "",
+          "category_id": "{{categoryId}}"
+        }
+      ]
+    },
+    "body_variation": "Bearer admin token, valid products",
+    "requirements": [
+      "API03-REQ-002",
+      "API03-REQ-003"
+    ],
+    "business_oracle": "Admin đã xác thực đủ điều kiện authorization; business validation vẫn áp dụng.",
+    "state_oracle": "State phụ thuộc atomic validation của batch.",
+    "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+    "setup_requirements": [
+      "Valid admin JWT",
+      "Use documented login and GET /api/products baseline helper"
+    ],
+    "external_verification": "NONE",
+    "order_dependent": "NO",
+    "dependency": "NONE; reusable setup creates an isolated fixture before the testcase action."
+  },
+  {
+    "case_id": "API03-AI-028",
+    "source": "AI_CORRECTED",
+    "method": "POST",
+    "path": "/api/admin/import-products",
+    "auth": {
+      "type": "bearer",
+      "variable": "userToken"
+    },
+    "body": {
+      "products": [
+        {
+          "name": "HW06-{{testRunId}}-API03-AI-028-A",
+          "price": 10000,
+          "description": "Disposable fixture for API03-AI-028",
+          "imageUrl": "",
+          "category_id": "{{categoryId}}",
+          "role": "admin"
+        }
+      ]
+    },
+    "body_variation": "body thêm role=admin",
+    "requirements": [
+      "API03-REQ-003"
+    ],
+    "business_oracle": "Không được nâng quyền từ payload; role phải lấy từ token đã verify.",
+    "state_oracle": "Products state không đổi.",
+    "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+    "setup_requirements": [
+      "JWT role user",
+      "Snapshot products",
+      "Use documented login and GET /api/products baseline helper"
+    ],
+    "external_verification": "NONE",
+    "order_dependent": "NO",
+    "dependency": "NONE; reusable setup creates an isolated fixture before the testcase action."
+  },
+  {
+    "case_id": "API03-AI-029",
+    "source": "AI_CORRECTED",
+    "method": "POST",
+    "path": "/api/admin/import-products",
+    "auth": {
+      "type": "bearer",
+      "variable": "adminToken"
+    },
+    "body": {
+      "products": [
+        {
+          "name": "'); DROP TABLE products; --",
+          "price": 10000,
+          "description": "Disposable fixture for API03-AI-029",
+          "imageUrl": "",
+          "category_id": "{{categoryId}}"
+        }
+      ]
+    },
+    "body_variation": "name chứa SQL metacharacters, price positive",
+    "requirements": [
+      "API03-REQ-007",
+      "API03-REQ-011"
+    ],
+    "business_oracle": "Input không được thực thi như lệnh hoặc phá dữ liệu ngoài phạm vi; name vẫn là non-empty data.",
+    "state_oracle": "Nếu batch được chấp nhận, chỉ atomic import side effect được phép.",
+    "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+    "setup_requirements": [
+      "Admin JWT hợp lệ",
+      "Snapshot dữ liệu liên quan",
+      "Use documented login and GET /api/products baseline helper"
+    ],
+    "external_verification": "Read-only product/database snapshot proving batch atomicity and unrelated-data integrity for injection-like input.",
+    "order_dependent": "NO",
+    "dependency": "NONE; reusable setup creates an isolated fixture before the testcase action."
+  },
+  {
+    "case_id": "API03-AI-031",
+    "source": "AI_CORRECTED",
+    "method": "POST",
+    "path": "/api/admin/import-products",
+    "auth": {
+      "type": "bearer",
+      "variable": "adminToken"
+    },
+    "body": {
+      "products": [
+        {
+          "name": "HW06-{{testRunId}}-API03-AI-031-A",
+          "price": 10000,
+          "description": "Disposable fixture for API03-AI-031",
+          "imageUrl": "",
+          "category_id": "{{categoryId}}"
+        }
+      ]
+    },
+    "body_variation": "products item có name, price, description, imageUrl, category_id",
+    "requirements": [
+      "API03-REQ-001",
+      "API03-REQ-004",
+      "API03-REQ-005"
+    ],
+    "business_oracle": "Request phù hợp endpoint contract; requiredness và response schema còn chưa đầy đủ.",
+    "state_oracle": "Nếu row hợp lệ, atomic state rule áp dụng.",
+    "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+    "setup_requirements": [
+      "Admin JWT hợp lệ",
+      "Use documented login and GET /api/products baseline helper"
+    ],
+    "external_verification": "NONE",
+    "order_dependent": "NO",
+    "dependency": "NONE; reusable setup creates an isolated fixture before the testcase action."
+  },
+  {
+    "case_id": "API03-AI-035",
+    "source": "AI_CORRECTED",
+    "method": "POST",
+    "path": "/api/admin/import-products",
+    "auth": {
+      "type": "bearer",
+      "variable": "adminToken"
+    },
+    "body": {
+      "products": [
+        {
+          "name": "HW06-{{testRunId}}-API03-AI-035-A",
+          "price": 10000,
+          "description": "Disposable fixture for API03-AI-035",
+          "imageUrl": "",
+          "category_id": "{{categoryId}}"
+        }
+      ]
+    },
+    "body_variation": "gửi JSON products array theo API spec",
+    "requirements": [
+      "API03-REQ-004",
+      "API03-REQ-006"
+    ],
+    "business_oracle": "Selected endpoint được kiểm tra theo JSON contract; vị trí CSV parsing vẫn unresolved.",
+    "state_oracle": "State theo atomic import rules.",
+    "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+    "setup_requirements": [
+      "Admin JWT hợp lệ",
+      "Use documented login and GET /api/products baseline helper"
+    ],
+    "external_verification": "NONE",
+    "order_dependent": "NO",
+    "dependency": "NONE; reusable setup creates an isolated fixture before the testcase action."
+  },
+  {
+    "case_id": "API03-AI-038",
+    "source": "AI_CORRECTED",
+    "method": "POST",
+    "path": "/api/admin/import-products",
+    "auth": {
+      "type": "bearer",
+      "variable": "adminToken"
+    },
+    "body": {
+      "products": [
+        {
+          "name": "HW06-{{testRunId}}-API03-AI-038-A",
+          "price": 10000,
+          "description": "Disposable fixture for API03-AI-038",
+          "imageUrl": "",
+          "category_id": "{{categoryId}}"
+        },
+        {
+          "name": "HW06-{{testRunId}}-API03-AI-038-B",
+          "price": -1,
+          "description": "Disposable fixture for API03-AI-038",
+          "imageUrl": "",
+          "category_id": "{{categoryId}}"
+        }
+      ]
+    },
+    "body_variation": "một valid và một invalid item",
+    "requirements": [
+      "API03-REQ-009",
+      "API03-REQ-010"
+    ],
+    "business_oracle": "Report phải nêu counts/reasons và batch phải rollback toàn bộ do có lỗi.",
+    "state_oracle": "Không item mới nào tồn tại dù report có success-row count trung gian.",
+    "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+    "setup_requirements": [
+      "Admin JWT hợp lệ",
+      "Batch mixed validity",
+      "Snapshot trước",
+      "Use documented login and GET /api/products baseline helper"
+    ],
+    "external_verification": "NONE",
+    "order_dependent": "YES",
+    "dependency": "Execute only the explicit state-transition sequence described by the testcase preconditions/objective using isolated fixtures."
+  },
+  {
+    "case_id": "API03-AI-039",
+    "source": "AI_CORRECTED",
+    "method": "POST",
+    "path": "/api/admin/import-products",
+    "auth": {
+      "type": "bearer",
+      "variable": "adminToken"
+    },
+    "body": {
+      "products": [
+        {
+          "name": "HW06-{{testRunId}}-API03-AI-039-A",
+          "price": 10000,
+          "description": "Disposable fixture for API03-AI-039",
+          "imageUrl": "",
+          "category_id": "{{categoryId}}"
+        }
+      ]
+    },
+    "body_variation": "valid batch",
+    "requirements": [
+      "API03-REQ-010"
+    ],
+    "business_oracle": "Report phản ánh số row thành công/lỗi và lý do phù hợp; exact keys/types unspecified.",
+    "state_oracle": "Toàn batch commit.",
+    "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+    "setup_requirements": [
+      "Admin JWT hợp lệ",
+      "Batch tất cả valid",
+      "Use documented login and GET /api/products baseline helper"
+    ],
+    "external_verification": "NONE",
+    "order_dependent": "NO",
+    "dependency": "NONE; reusable setup creates an isolated fixture before the testcase action."
+  },
+  {
+    "case_id": "API03-STU-001",
+    "source": "STUDENT_ADDED",
+    "method": "POST",
+    "path": "/api/admin/import-products",
+    "auth": {
+      "type": "bearer",
+      "variable": "userToken"
+    },
+    "body": {
+      "products": [
+        {
+          "name": "",
+          "price": 10000,
+          "description": "Disposable fixture for API03-STU-001",
+          "imageUrl": "",
+          "category_id": "{{categoryId}}"
+        },
+        {
+          "name": "HW06-{{testRunId}}-API03-STU-001-B",
+          "price": 10000,
+          "description": "Disposable fixture for API03-STU-001",
+          "imageUrl": "",
+          "category_id": "{{categoryId}}"
+        }
+      ]
+    },
+    "body_variation": "Non-admin JWT with one valid and one invalid product",
+    "requirements": [
+      "API03-REQ-002",
+      "API03-REQ-003",
+      "API03-REQ-009"
+    ],
+    "business_oracle": "Non-admin is not authorized to import regardless of row composition.",
+    "state_oracle": "No row from the batch is persisted.",
+    "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+    "setup_requirements": [
+      "Valid JWT with role=user",
+      "Products snapshot exists",
+      "Use documented login and GET /api/products baseline helper"
+    ],
+    "external_verification": "NONE",
+    "order_dependent": "YES",
+    "dependency": "Execute only the explicit state-transition sequence described by the testcase preconditions/objective using isolated fixtures."
+  },
+  {
+    "case_id": "API03-STU-002",
+    "source": "STUDENT_ADDED",
+    "method": "POST",
+    "path": "/api/admin/import-products",
+    "auth": {
+      "type": "bearer",
+      "variable": "userToken"
+    },
+    "body": {
+      "products": [
+        {
+          "name": "",
+          "price": 10000,
+          "description": "Disposable fixture for API03-STU-002",
+          "imageUrl": "",
+          "category_id": "{{categoryId}}"
+        },
+        {
+          "name": "HW06-{{testRunId}}-API03-STU-002-B",
+          "price": 10000,
+          "description": "Disposable fixture for API03-STU-002",
+          "imageUrl": "",
+          "category_id": "{{categoryId}}"
+        }
+      ]
+    },
+    "body_variation": "JWT user, body role=admin, products contain valid and zero-price rows",
+    "requirements": [
+      "API03-REQ-002",
+      "API03-REQ-003",
+      "API03-REQ-009"
+    ],
+    "business_oracle": "Role must come from the verified token; payload role and row errors cannot authorize import.",
+    "state_oracle": "No product is persisted and no partial validation-side effect is allowed.",
+    "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+    "setup_requirements": [
+      "Valid JWT role=user",
+      "Products snapshot exists",
+      "Use documented login and GET /api/products baseline helper"
+    ],
+    "external_verification": "NONE",
+    "order_dependent": "YES",
+    "dependency": "Execute only the explicit state-transition sequence described by the testcase preconditions/objective using isolated fixtures."
+  },
+  {
+    "case_id": "API03-STU-003",
+    "source": "STUDENT_ADDED",
+    "method": "POST",
+    "path": "/api/admin/import-products",
+    "auth": {
+      "type": "bearer",
+      "variable": "adminToken"
+    },
+    "body": {
+      "products": [
+        {
+          "name": "'); DROP TABLE products; --",
+          "price": 10000,
+          "description": "Disposable fixture for API03-STU-003",
+          "imageUrl": "",
+          "category_id": "{{categoryId}}"
+        },
+        {
+          "name": "HW06-{{testRunId}}-API03-STU-003-B",
+          "price": -1,
+          "description": "Disposable fixture for API03-STU-003",
+          "imageUrl": "",
+          "category_id": "{{categoryId}}"
+        }
+      ]
+    },
+    "body_variation": "Row 1 has injection-like non-empty name and positive price; row 2 has valid name and price=0",
+    "requirements": [
+      "API03-REQ-007",
+      "API03-REQ-009",
+      "API03-REQ-011"
+    ],
+    "business_oracle": "The injection-like name must not execute as a command; price=0 is invalid and triggers all-or-nothing rollback.",
+    "state_oracle": "Neither row is persisted and unrelated database state remains intact.",
+    "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+    "setup_requirements": [
+      "Admin JWT valid",
+      "Products/database snapshot exists",
+      "Use documented login and GET /api/products baseline helper"
+    ],
+    "external_verification": "Read-only product/database snapshot proving batch atomicity and unrelated-data integrity for injection-like input.",
+    "order_dependent": "YES",
+    "dependency": "Execute only the explicit state-transition sequence described by the testcase preconditions/objective using isolated fixtures."
+  },
+  {
+    "case_id": "API03-STU-004",
+    "source": "STUDENT_ADDED",
+    "method": "POST",
+    "path": "/api/admin/import-products",
+    "auth": {
+      "type": "bearer",
+      "variable": "adminToken"
+    },
+    "body": {
+      "products": [
+        {
+          "name": "HW06-{{testRunId}}-API03-STU-004-A",
+          "price": 10000,
+          "description": "Disposable fixture for API03-STU-004",
+          "imageUrl": "",
+          "category_id": "{{categoryId}}"
+        },
+        {
+          "name": "HW06-{{testRunId}}-API03-STU-004-B",
+          "price": -1,
+          "description": "Disposable fixture for API03-STU-004",
+          "imageUrl": "",
+          "category_id": "{{categoryId}}"
+        }
+      ]
+    },
+    "body_variation": "Import valid batch A, then import batch B containing an invalid row",
+    "requirements": [
+      "API03-REQ-007",
+      "API03-REQ-009"
+    ],
+    "business_oracle": "Batch A commits fully; batch B fails atomically because of its invalid row.",
+    "state_oracle": "Products from A remain; no product from B is persisted.",
+    "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+    "setup_requirements": [
+      "Admin JWT valid",
+      "Snapshot before both imports",
+      "Use documented login and GET /api/products baseline helper"
+    ],
+    "external_verification": "NONE",
+    "order_dependent": "YES",
+    "dependency": "Execute only the explicit state-transition sequence described by the testcase preconditions/objective using isolated fixtures."
+  },
+  {
+    "case_id": "API03-STU-006",
+    "source": "STUDENT_ADDED",
+    "method": "POST",
+    "path": "/api/admin/import-products",
+    "auth": {
+      "type": "bearer",
+      "variable": "adminToken"
+    },
+    "body": {
+      "products": [
+        {
+          "name": "HW06-{{testRunId}}-API03-STU-006-A",
+          "price": 10000,
+          "description": "Disposable fixture for API03-STU-006",
+          "imageUrl": "",
+          "category_id": "{{categoryId}}"
+        },
+        {
+          "name": "HW06-{{testRunId}}-API03-STU-006-B",
+          "price": -1,
+          "description": "Disposable fixture for API03-STU-006",
+          "imageUrl": "",
+          "category_id": "{{categoryId}}"
+        }
+      ]
+    },
+    "body_variation": "Admin imports valid batch A successfully; then a non-admin submits batch B containing one valid row and one zero-price row",
+    "requirements": [
+      "API03-REQ-002",
+      "API03-REQ-003",
+      "API03-REQ-007",
+      "API03-REQ-009"
+    ],
+    "business_oracle": "Batch A commits under the admin request; the non-admin request cannot import batch B regardless of its mixed row validity.",
+    "state_oracle": "Every product from batch A remains; no product from batch B is persisted; pre-existing unrelated products remain unchanged.",
+    "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+    "setup_requirements": [
+      "Admin and non-admin JWT fixtures exist",
+      "Products snapshot exists",
+      "Batch A and batch B use distinct product identifiers",
+      "Use documented login and GET /api/products baseline helper"
+    ],
+    "external_verification": "NONE",
+    "order_dependent": "YES",
+    "dependency": "Execute only the explicit state-transition sequence described by the testcase preconditions/objective using isolated fixtures."
+  }
+]
