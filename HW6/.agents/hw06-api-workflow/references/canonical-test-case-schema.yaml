@@ -36,6 +36,12 @@ properties:
   lifecycle_state: { type: string, enum: [DRAFT, STUDENT_EXTENSION_CANDIDATE, HUMAN_APPROVED, IMPLEMENTED, EXECUTED], default: DRAFT }
   requirement_ids: { type: array, minItems: 1, items: { type: string } }
   technique: { type: array, minItems: 1, items: { type: string, enum: [DOMAIN_PARTITION, BOUNDARY, STATE_TRANSITION, SECURITY, SCHEMA, BUSINESS_RULE] } }
+  primary_technique: { type: string, enum: [DOMAIN_PARTITION, BOUNDARY, STATE_TRANSITION, SECURITY, SCHEMA, BUSINESS_RULE], description: Exactly one primary technique for generated-case coverage accounting. }
+  secondary_techniques: { type: array, uniqueItems: true, items: { type: string, enum: [DOMAIN_PARTITION, BOUNDARY, STATE_TRANSITION, SECURITY, SCHEMA, BUSINESS_RULE] }, description: Optional secondary techniques; must not repeat primary_technique. }
+  oracle_basis: { type: string, enum: [AUTHORITATIVE, PARTIALLY_SPECIFIED, OBSERVABLE_ONLY, SECURITY_EXPECTATION], description: Evidence basis for the expected result without inventing status or response contracts. }
+  gap_ids: { type: array, uniqueItems: true, items: { type: string } }
+  risk_ids: { type: array, uniqueItems: true, items: { type: string } }
+  observation_ids: { type: array, uniqueItems: true, items: { type: string }, description: Trace links to implementation-only observations; never a requirement oracle. }
   title: { type: string }
   objective: { type: string }
   preconditions: { type: array, items: { type: string } }
@@ -45,12 +51,12 @@ properties:
   expected_schema: { type: [object, string, 'null'] }
   expected_business_result: { type: [string, 'null'] }
   expected_state: { type: [string, object, 'null'] }
-  audit_status: { type: string, enum: [PENDING_HUMAN_REVIEW, VALID, INVALID, INCOMPLETE] }
+  audit_status: { type: string, enum: [NOT_AUDITED, PENDING_HUMAN_REVIEW, VALID, INVALID, INCOMPLETE] }
   audit_reason: { type: [string, 'null'] }
   correction: { type: [string, object, 'null'] }
   why_ai_missed: { type: [string, 'null'] }
   execution_status: { type: string, enum: [NOT_IMPLEMENTED, REAL_EXECUTION_REQUIRED, NOT_EXECUTED, PASS, FAIL] }
-  failure_classification: { type: [string, 'null'], enum: [PASS, PRODUCT_DEFECT_CANDIDATE, TEST_DEFECT, TEST_DATA_DEFECT, ENVIRONMENT_DEFECT, SPEC_AMBIGUITY, NEEDS_HUMAN_REVIEW, 'null'] }
+  failure_classification: { type: [string, 'null'], enum: [PASS, PRODUCT_DEFECT_CANDIDATE, TEST_DEFECT, TEST_DATA_DEFECT, ENVIRONMENT_DEFECT, SPEC_AMBIGUITY, NEEDS_HUMAN_REVIEW, null] }
   bug_id: { type: [string, 'null'] }
   notes: { type: [string, 'null'] }
 additionalProperties: false

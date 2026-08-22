@@ -28,3 +28,15 @@ For detailed pseudocode and report-ready textual flow, read [references/generato
 Use `log-ai-audit` for a substantive generated artifact only when that audit workflow is initialized. Do not audit smoke fixtures as coursework artifacts.
 
 Run [scripts/smoke-test.ps1](scripts/smoke-test.ps1) for a synthetic generic-spec check. It validates generation shape and deduplication without contacting an API or creating a HW06 test design.
+
+## Validation rules
+
+Before returning a generator result, verify that every candidate has the shared canonical-schema fields, a requirement trace, a primary technique, `source: AI_GENERATED`, `lifecycle_state: DRAFT`, and a deterministic behavioral fingerprint. Report a review checkpoint rather than silently resolving an ambiguous requirement, a duplicate conflict, or a coverage gap. Validation never proves API behavior and never replaces a business/state oracle.
+
+## Usage / demonstration
+
+Provide one generic specification and an output directory, then invoke the logical pipeline in **Input, pipeline, and output**. The reusable design and pseudocode are in [references/generator-design.md](references/generator-design.md); a student-drawn-diagram handoff is in [diagram-handoff.md](diagram-handoff.md). The included smoke test demonstrates only generic schema/deduplication shape.
+
+## Limitations
+
+The skill cannot authenticate to a system, infer unstated requirements, execute requests, verify persistence, approve a case, or declare a Product Defect. It therefore emits candidates and an explicit Human review checkpoint, not final test results.
