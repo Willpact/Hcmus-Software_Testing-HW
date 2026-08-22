@@ -1,0 +1,82 @@
+name: HW06 API Newman
+
+on:
+  workflow_dispatch:
+    inputs:
+      run_mode:
+        description: 'normal runs the healthy target; intentional-fail is reserved for the documented temporary CI demonstration commit.'
+        required: true
+        default: normal
+        type: choice
+        options: [normal, intentional-fail]
+  push:
+    paths:
+      - 'HW6/.github/workflows/hw06-api-newman.yml'
+      - 'HW6/postman/**'
+      - 'HW6/test-cases/**'
+
+permissions:
+  contents: read
+
+jobs:
+  api-newman:
+    # The environment is deliberately stored only as a GitHub secret.  A missing
+    # secret skips this job rather than exposing a credential or fabricating a run.
+    if: ${{ secrets.HW06_RUNTIME_ENV_B64 != '' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: HW6
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Restore secret runtime environment
+        env:
+          HW06_RUNTIME_ENV_B64: ${{ secrets.HW06_RUNTIME_ENV_B64 }}
+        run: |
+          mkdir -p test-results/hw06/ci
+          printf '%s' "$HW06_RUNTIME_ENV_B64" | base64 --decode > test-results/hw06/ci/runtime-input.postman_environment.json
+          test -s test-results/hw06/ci/runtime-input.postman_environment.json
+
+      - name: Acquire the unchanged SUT dependency
+        run: |
+          git clone --depth 1 https://github.com/ttbhanh/eshop-sut ../eshop-sut
+          npm --prefix ../eshop-sut/backend ci --omit=optional || npm --prefix ../eshop-sut/backend install --omit=optional
+
+      - name: Install Newman tooling
+        run: |
+          mkdir -p .tools/newman
+          npm --prefix .tools/newman install --no-save newman@6.2.2 newman-reporter-htmlextra
+
+      - name: Prepare approved targeted run inputs
+        run: |
+          cp test-results/hw06/ci/runtime-input.postman_environment.json test-results/hw06/run-002/runtime-input.postman_environment.json
+          node postman/scripts/prepare-targeted-run-002.js
+
+      - name: Execute healthy API/Newman target
+        if: ${{ inputs.run_mode != 'intentional-fail' }}
+        run: node postman/scripts/orchestrate-run-002.js
+
+      - name: Intentional CI demonstration failure
+        if: ${{ inputs.run_mode == 'intentional-fail' }}
+        run: |
+          echo 'INTENTIONAL_CI_DEMONSTRATION_FAILURE: this mode proves GitHub Actions failure reporting only.'
+          exit 1
+
+      - name: Upload safe CI outputs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hw06-ci-${{ github.run_id }}
+          path: |
+            HW6/test-results/hw06/run-002/newman.json
+            HW6/test-results/hw06/run-002/newman.html
+            HW6/test-results/hw06/run-002/runner-result.json
+            HW6/test-results/hw06/run-002/orchestration-result.json
+          if-no-files-found: warn
+

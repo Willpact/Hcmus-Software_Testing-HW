@@ -19,5 +19,5 @@
 - Phương thức chụp ảnh: `GENUINE_WINDOWS_TERMINAL_NATIVE_CAPTURE`.
 - Evidence đã capture: `17` ảnh thật (`9` request/response; `8` external/state); xem `../evidence-capture-result.md`.
 - Workflow nội dung có bị ảnh chặn hay không: `NO`
-- Số GitHub Issue đã tạo: `0` tại thời điểm cập nhật index này; xem `../github-issue-readiness.md` để biết trạng thái online hiện tại.
+- Số GitHub Issue đã tạo: `9/9`; số/URL thật ở `../github-issue-readiness.md`.
 - `API01-AI-016`: `EXCLUDED — BLOCKED_TEST_DATA / LEGITIMATE_EXPIRED_OTP_FIXTURE_UNAVAILABLE / PRODUCT_INFERENCE: NO`
