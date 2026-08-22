@@ -4,5 +4,4 @@ AI hỗ trợ HW06 chủ yếu ở ba lớp: phân rã specification của ba AP
 
 Hai run thật cho thấy một giới hạn quan trọng: `run-001` và `run-002` đều có Newman assertion failures bằng `0`, nhưng vẫn xác nhận chín Product Defect. Newman ở đây chứng minh request/response đã diễn ra; nó không tự là business oracle. Với `DEF-01`, HTTP `200` chỉ cho thấy checkout chạy, còn mismatch giữa `total_amount = 1` đã lưu và cart total `400000` mới là bằng chứng quyết định. Tương tự, DEF-04–DEF-09 cần SQLite read-only hoặc external post-state để xác nhận persistence/side effect.
 
-Nếu tin output AI mà không Human review, có thể nhầm response thành đúng business behavior, ghi lộ token/password, tách một root cause thành nhiều issue, hoặc báo sai “Newman test failed”. Vì vậy AI hữu ích nhất như trợ lý tạo cấu trúc, tìm coverage gap và chuẩn bị evidence an toàn; Human vẫn phải xác nhận requirement, oracle, snapshot state, screenshot, diagram và quyết định submit.
-
+Nếu tin output AI mà không Human review, có thể nhầm response thành đúng business behavior, ghi lộ token/password, tách một root cause thành nhiều issue, hoặc đánh đồng business/state fail với lỗi assertion của Newman. Vì vậy AI hữu ích nhất như trợ lý tạo cấu trúc, tìm coverage gap và chuẩn bị evidence an toàn; Human vẫn phải xác nhận requirement, oracle, snapshot state, screenshot, diagram và quyết định submit.
