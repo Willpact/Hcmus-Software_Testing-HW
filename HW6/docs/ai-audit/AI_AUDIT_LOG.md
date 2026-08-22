@@ -1925,6 +1925,12 @@ Entries with `PENDING_HUMAN_REVIEW` are not included in finalized verdict totals
 - Reason: `PROMPT_CONTENT_MISSING`; `AI_OUTPUT_CONTENT_MISSING`; `TIMESTAMP_NOT_VERIFIABLE`
 - Action: no Artifact ID was created, no historical content was reconstructed, and the screenshot-capture exception remains `AI_AUDIT_USED: NO`.
 
+- Interaction: CI workflow correction after GitHub reported two push-triggered workflow failures with no jobs/log, followed by a manual-dispatch-only guard.
+- Evidence: the resulting workflow commit and GitHub run URLs are preserved, but no immutable repository-local record contains exact current-session prompt/output/timestamp for a full per-artifact audit entry.
+- Status: `BACKFILL_GAP`
+- Reason: `PROMPT_CONTENT_MISSING`; `AI_OUTPUT_CONTENT_MISSING`; `TIMESTAMP_NOT_VERIFIABLE`
+- Action: no Artifact ID was created and no run was relabelled as intentional or PASS; Human must create genuine CI evidence after setting the required secret.
+
 ---
 
 ## 6. Conclusion — When Should AI Be Used or Not?
