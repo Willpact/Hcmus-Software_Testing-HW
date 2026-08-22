@@ -1931,6 +1931,12 @@ Entries with `PENDING_HUMAN_REVIEW` are not included in finalized verdict totals
 - Reason: `PROMPT_CONTENT_MISSING`; `AI_OUTPUT_CONTENT_MISSING`; `TIMESTAMP_NOT_VERIFIABLE`
 - Action: no Artifact ID was created and no run was relabelled as intentional or PASS; Human must create genuine CI evidence after setting the required secret.
 
+- Interaction: final AI Critique wording correction to remove a prohibited Newman-failure phrase while preserving the business/state-oracle lesson.
+- Evidence: the resulting Git commit preserves the artifact diff, but an immutable repository-local transcript of exact current-session prompt/output/timestamp is unavailable for a full per-artifact audit entry.
+- Status: `BACKFILL_GAP`
+- Reason: `PROMPT_CONTENT_MISSING`; `AI_OUTPUT_CONTENT_MISSING`; `TIMESTAMP_NOT_VERIFIABLE`
+- Action: no Artifact ID was created; the correction does not alter execution history, defect classification, or any assertion count.
+
 ---
 
 ## 6. Conclusion — When Should AI Be Used or Not?
