@@ -6,6 +6,8 @@
 
 `PASS_RUN: NO`, `INTENTIONAL_FAIL_RUN: NO`, `FINAL_STATE_HEALTHY: NO` vì repository hiện không có secret `HW06_RUNTIME_ENV_B64`; không có CI result nào được tạo hay suy diễn trong tài liệu này.
 
+Hai run push đầu tiên (https://github.com/Willpact/Hcmus-Software_Testing-HW/actions/runs/32592624334 và https://github.com/Willpact/Hcmus-Software_Testing-HW/actions/runs/32592678214) kết thúc `failure` không có job/log. Chúng là lỗi cấu hình workflow ban đầu, **không phải** intentional FAIL evidence. Workflow đã được sửa thành manual dispatch-only để không tự tạo failure khi chưa có secret.
+
 ## Guard bí mật
 
 Secret `HW06_RUNTIME_ENV_B64` là base64 của môi trường Postman runtime dùng disposable fixtures. Nó không được commit, in log, upload dưới dạng environment file, hay thêm vào issue. Workflow chỉ upload Newman reports và result metadata khi chúng tồn tại.
