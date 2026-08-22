@@ -1,0 +1,40 @@
+{
+  "status": "BLOCKED_FOR_EXTERNAL_INSTALL",
+  "root_blocker": "SANDBOX_PACKAGE_INSTALL_RESTRICTION",
+  "node_version": "v22.18.0",
+  "npm_version": "10.9.3",
+  "newman_available": false,
+  "html_reporter_available": false,
+  "install_target": ".tools/newman/",
+  "cache_path": ".tools/npm-cache/",
+  "npm_prefix_path": ".tools/npm-prefix/",
+  "temp_path": ".tools/tmp/",
+  "strategies": [
+    {
+      "name": "EXISTING_LOCAL_DEPENDENCY",
+      "result": "NOT_FOUND",
+      "classification": "LOCAL_DEPENDENCY_ABSENT"
+    },
+    {
+      "name": "LOCAL_NPM_CACHE",
+      "result": "FAILED",
+      "error_code": "ENOTCACHED",
+      "classification": "PACKAGE_NOT_CACHED_USABLY"
+    },
+    {
+      "name": "LOCAL_REGISTRY_INSTALL",
+      "result": "FAILED",
+      "error_code": "EACCES",
+      "classification": "REGISTRY_DENIED",
+      "registry_reachable": false
+    }
+  ],
+  "sut_started": false,
+  "real_requests_executed": 0,
+  "final_executable_testcases": 93,
+  "testcases_executed": 0,
+  "pre_execution_blocked": 93,
+  "runtime_environment_defects": 0,
+  "raw_preflights_modified": false,
+  "install_manifest": "docs/runtime/newman-tooling-install-manifest.md"
+}

@@ -1,0 +1,10 @@
+{
+  "status": "REPORTING_SEMANTICS_CORRECTED",
+  "raw_preflights_modified": false,
+  "final_executable_testcases": 93,
+  "testcases_executed": 0,
+  "pre_execution_blocked": 93,
+  "runtime_environment_defects": 0,
+  "root_blocker_count": 1,
+  "root_blocker": "LOCAL_NEWMAN_TOOLING_UNAVAILABLE"
+}
