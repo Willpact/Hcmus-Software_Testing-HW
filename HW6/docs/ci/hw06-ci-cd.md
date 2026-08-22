@@ -2,7 +2,7 @@
 
 ## Trạng thái hiện tại
 
-`WORKFLOW_READY: YES` — [workflow](../../.github/workflows/hw06-api-newman.yml) đã dùng Newman `6.2.2`, lấy SUT không sửa đổi từ `ttbhanh/eshop-sut`, và chỉ nhận runtime environment qua GitHub Secret.
+`WORKFLOW_READY: YES` — [workflow](../../../.github/workflows/hw06-api-newman.yml) đã dùng Newman `6.2.2`, lấy SUT không sửa đổi từ `ttbhanh/eshop-sut`, và chỉ nhận runtime environment qua GitHub Secret.
 
 `PASS_RUN: NO`, `INTENTIONAL_FAIL_RUN: NO`, `FINAL_STATE_HEALTHY: NO` vì repository hiện không có secret `HW06_RUNTIME_ENV_B64`; không có CI result nào được tạo hay suy diễn trong tài liệu này.
 
@@ -29,4 +29,3 @@ Secret `HW06_RUNTIME_ENV_B64` là base64 của môi trường Postman runtime d�
 
 - Workflow được review tĩnh: syntax YAML, `workflow_dispatch`, secret guard, dependency checkout, Newman tooling và artifact paths.
 - Không chạy Newman, không khởi động SUT và không gọi GitHub Actions từ máy cục bộ trong overnight run.
-
