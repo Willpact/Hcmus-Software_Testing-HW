@@ -46,8 +46,10 @@ jobs:
           npm --prefix .tools/newman install --no-save newman@6.2.2 newman-reporter-htmlextra
       - name: Prepare approved targeted run inputs
         run: |
+          mkdir -p test-results/hw06/runtime
           mkdir -p test-results/hw06/run-002
-          cp test-results/hw06/ci/runtime-input.postman_environment.json test-results/hw06/run-002/runtime-input.postman_environment.json
+          cp test-results/hw06/ci/runtime-input.postman_environment.json \
+            test-results/hw06/runtime/HW06-Local.runtime.postman_environment.json
           node postman/scripts/prepare-targeted-run-002.js
       - name: Execute healthy API/Newman target
         if: ${{ inputs.run_mode != 'intentional-fail' }}
