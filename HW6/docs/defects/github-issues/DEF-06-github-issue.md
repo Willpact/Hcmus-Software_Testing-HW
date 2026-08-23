@@ -1,4 +1,4 @@
-# [HW06][DEF-06] API import sản phẩm không kiểm tra quyền Admin
+# [HW06][API Testing][BUG][Import Products API] API import sản phẩm không kiểm tra quyền Admin
 
 ## Mã lỗi
 

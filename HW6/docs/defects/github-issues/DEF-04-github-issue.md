@@ -1,4 +1,4 @@
-# [HW06][DEF-04] Import sản phẩm chấp nhận giá không dương
+# [HW06][API Testing][BUG][Import Products API] API import sản phẩm chấp nhận giá không dương
 
 ## Mã lỗi
 

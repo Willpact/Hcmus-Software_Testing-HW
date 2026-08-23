@@ -1,4 +1,4 @@
-# [HW06][DEF-07] Reset mật khẩu vẫn thành công khi thiếu mật khẩu mới
+# [HW06][API Testing][BUG][Password Reset API] Reset mật khẩu vẫn thành công khi thiếu mật khẩu mới
 
 ## Mã lỗi
 

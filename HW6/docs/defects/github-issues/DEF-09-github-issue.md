@@ -1,4 +1,4 @@
-# [HW06][DEF-09] Mật khẩu mới được lưu dưới dạng plaintext
+# [HW06][API Testing][BUG][Password Reset API] Mật khẩu mới được lưu dưới dạng plaintext
 
 ## Mã lỗi
 

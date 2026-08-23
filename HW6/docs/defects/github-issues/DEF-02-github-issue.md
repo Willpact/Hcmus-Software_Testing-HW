@@ -1,4 +1,4 @@
-# [HW06][DEF-02] Giỏ hàng không được xóa sau khi checkout thành công
+# [HW06][API Testing][BUG][Checkout API] Giỏ hàng không được xóa sau khi checkout thành công
 
 ## Mã lỗi
 

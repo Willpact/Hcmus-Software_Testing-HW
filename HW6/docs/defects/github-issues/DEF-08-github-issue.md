@@ -1,4 +1,4 @@
-# [HW06][DEF-08] Quy tắc độ mạnh mật khẩu không được kiểm tra khi reset
+# [HW06][API Testing][BUG][Password Reset API] Quy tắc độ mạnh mật khẩu không được kiểm tra khi reset
 
 ## Mã lỗi
 

@@ -22,17 +22,17 @@ Không bắt buộc hai nhóm evidence nằm trong cùng một ảnh. Không gh�
 
 ## Matrix yêu cầu screenshot
 
-| DEFECT_ID | REQUIREMENT | NEWMAN CAPTURE | EXTERNAL/STATE CAPTURE |
-| --- | --- | --- | --- |
-| DEF-01 | BOTH | `API02-AI-002`: `total_amount = 1`, HTTP `200`, `Checkout successful` | Order ID `3`: persisted total `1` so với cart total tính độc lập `400000` |
-| DEF-02 | BOTH | `API02-AI-014`: checkout thành công | Postcheck: cart chính còn `2` dòng, cart thứ hai còn `1` dòng |
-| DEF-03 | NEWMAN | `API02-AI-022`: Basic scheme đã che JWT, HTTP `200`, `Checkout successful` | Không yêu cầu |
-| DEF-04 | BOTH | `API03-AI-009`: `price = 0`, HTTP `200`, `inserted = 1`, `errors = 0` | SQLite: product giá `0` persisted |
-| DEF-05 | BOTH | `API03-AI-017`: dòng đầu tên rỗng, dòng hai hợp lệ; HTTP `200`, `inserted = 1`, `errors = 1` | SQLite: dòng hợp lệ thứ hai persisted từ batch không hợp lệ |
-| DEF-06 | BOTH | `API03-AI-026`: ngữ cảnh non-admin đã che JWT; HTTP `200`, `inserted = 1`, `errors = 0` | SQLite: product của request non-admin persisted |
-| DEF-07 | BOTH | `API01-AI-007`: body thiếu `newPassword`; HTTP `200`, `Password reset successfully` | Database đổi, token bị consume và retry hợp lệ nhận HTTP `400` |
-| DEF-08 | BOTH | `API01-AI-018`: chỉ hiện đặc tính mật khẩu yếu, không hiện giá trị; HTTP `200`, success body | `WEAK_PLAINTEXT`, database đổi và token bị consume; không hiện password |
-| DEF-09 | BOTH | `API01-AI-035`: reset thực thi, HTTP `200`; chỉ là execution context | Kết quả read-only: `user_found = true`, `PLAINTEXT_EQUAL = YES`, `password_value_logged = false` |
+| DEFECT_ID | REQUIREMENT | NEWMAN CAPTURE                                                                               | EXTERNAL/STATE CAPTURE                                                                           |
+| --------- | ----------- | -------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| DEF-01    | BOTH        | `API02-AI-002`: `total_amount = 1`, HTTP `200`, `Checkout successful`                        | Order ID `3`: persisted total `1` so với cart total tính độc lập `400000`                        |
+| DEF-02    | BOTH        | `API02-AI-014`: checkout thành công                                                          | Postcheck: cart chính còn `2` dòng, cart thứ hai còn `1` dòng                                    |
+| DEF-03    | NEWMAN      | `API02-AI-022`: Basic scheme đã che JWT, HTTP `200`, `Checkout successful`                   | Không yêu cầu                                                                                    |
+| DEF-04    | BOTH        | `API03-AI-009`: `price = 0`, HTTP `200`, `inserted = 1`, `errors = 0`                        | SQLite: product giá `0` persisted                                                                |
+| DEF-05    | BOTH        | `API03-AI-017`: dòng đầu tên rỗng, dòng hai hợp lệ; HTTP `200`, `inserted = 1`, `errors = 1` | SQLite: dòng hợp lệ thứ hai persisted từ batch không hợp lệ                                      |
+| DEF-06    | BOTH        | `API03-AI-026`: ngữ cảnh non-admin đã che JWT; HTTP `200`, `inserted = 1`, `errors = 0`      | SQLite: product của request non-admin persisted                                                  |
+| DEF-07    | BOTH        | `API01-AI-007`: body thiếu `newPassword`; HTTP `200`, `Password reset successfully`          | Database đổi, token bị consume và retry hợp lệ nhận HTTP `400`                                   |
+| DEF-08    | BOTH        | `API01-AI-018`: chỉ hiện đặc tính mật khẩu yếu, không hiện giá trị; HTTP `200`, success body | `WEAK_PLAINTEXT`, database đổi và token bị consume; không hiện password                          |
+| DEF-09    | BOTH        | `API01-AI-035`: reset thực thi, HTTP `200`; chỉ là execution context                         | Kết quả read-only: `user_found = true`, `PLAINTEXT_EQUAL = YES`, `password_value_logged = false` |
 
 ## Nguồn mở để chụp
 

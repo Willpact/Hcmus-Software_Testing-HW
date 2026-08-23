@@ -1,4 +1,4 @@
-# [HW06][DEF-01] Checkout tin tưởng giá trị tổng tiền do client gửi lên
+# [HW06][API Testing][BUG][Checkout API] Checkout tin tưởng total_amount do client gửi lên
 
 ## Mã lỗi
 

@@ -1,4 +1,4 @@
-# [HW06][DEF-03] Checkout không bắt buộc đúng Bearer authorization scheme
+# [HW06][API Testing][BUG][Checkout API] Checkout không bắt buộc đúng Bearer authorization scheme
 
 ## Mã lỗi
 
