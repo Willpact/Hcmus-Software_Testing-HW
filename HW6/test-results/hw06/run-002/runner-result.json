@@ -1,0 +1,16 @@
+{
+  "status": "COMPLETED",
+  "run_id": "run-002",
+  "started_at": "2026-08-22T14:09:40.583Z",
+  "ended_at": "2026-08-22T14:09:56.855Z",
+  "duration_seconds": 16.272,
+  "requests_executed": 179,
+  "assertions": 116,
+  "assertion_failures": 0,
+  "skipped_requests": 0,
+  "reports": [
+    "newman.json",
+    "newman.html"
+  ],
+  "secrets_logged": false
+}

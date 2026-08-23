@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "expected": 37,
+  "listed": 37,
+  "unique": 37,
+  "collection_stable_ids": 37,
+  "total_collection_requests": 180,
+  "x_student_id_static_coverage": "180/180",
+  "intentionally_skipped": [
+    "API01-AI-016"
+  ],
+  "product_defect_cases_from_run_001_included": 0
+}

@@ -1,0 +1,43 @@
+{
+  "run_id": "run-002",
+  "pending": 0,
+  "blocked": 0,
+  "completed": 3,
+  "cases": [
+    {
+      "case_id": "API01-AI-027",
+      "status": "PASS",
+      "mechanism": "Synchronous read-only SQLite file hash immediately before/after the exact request",
+      "evidence": {
+        "request_db_hash_before": "3BB2F5AA9868E817711E18132D124D3B4569324409CE0A0DD7DACD7B911B252C",
+        "request_db_hash_after": "3BB2F5AA9868E817711E18132D124D3B4569324409CE0A0DD7DACD7B911B252C",
+        "datastore_unchanged_during_action": true
+      },
+      "final_recommendation": "EXTERNAL_VERIFICATION_RESOLVED_PASS"
+    },
+    {
+      "case_id": "API01-AI-035",
+      "status": "FAIL",
+      "mechanism": "Read-only SQLite comparison without recording the password value",
+      "evidence": {
+        "user_found": true,
+        "plaintext_equal": true,
+        "password_value_logged": false
+      },
+      "final_recommendation": "NEW_PRODUCT_DEFECT_CANDIDATE_RC-01-N03"
+    },
+    {
+      "case_id": "API02-STU-001",
+      "status": "FAIL",
+      "mechanism": "HTTP cart snapshots before, after invalid JWT, and after valid checkout",
+      "evidence": {
+        "before_lines": 1,
+        "after_invalid_lines": 1,
+        "after_valid_lines": 1,
+        "invalid_status": 403,
+        "valid_status": 200
+      },
+      "final_recommendation": "MAP_TO_CONFIRMED_RC-02-02"
+    }
+  ]
+}

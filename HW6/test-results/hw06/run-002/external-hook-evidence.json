@@ -1,0 +1,515 @@
+{
+  "run_id": "run-002",
+  "db_path": "test-results/hw06/run-002/runtime-db/database.sqlite",
+  "secrets_logged": false,
+  "stable_case_db_hashes": {
+    "API01-AI-002": {
+      "sha256_before": "1D564F84F6F0C3A5CE90211AB4A08C92E10E5B65F53F575A13CF8E0A2A8F1E62",
+      "sha256_after": "1D564F84F6F0C3A5CE90211AB4A08C92E10E5B65F53F575A13CF8E0A2A8F1E62"
+    },
+    "API01-AI-007": {
+      "sha256_before": "D20CF041E8753BEBB7AC817FE7D5920C7CE48F3048FF4245C6AAFA3AFFAA914C",
+      "sha256_after": "01B30215D8B0C824D7079A5ACDB7EA0788FC485450E56FC5C4F8D93F73C30B6C"
+    },
+    "API01-AI-009": {
+      "sha256_before": "4EA7F987CD42DE4428D6E27F4199CF83B357AE3A0B7EB37F36E533268CF53560",
+      "sha256_after": "7F71967987BEC236EBAD8827B78E643FC50897A7431FFD3C22A998462322FA59"
+    },
+    "API01-AI-010": {
+      "sha256_before": "907728586A8723FCACFDD07726AC91F4BBA311DBB6CC20E432C7CD7EDB251AD8",
+      "sha256_after": "5A7D5EA7D7112A337AB6FB226CC410F8A0F8814B12CD4322E962EA2715F1273E"
+    },
+    "API01-AI-012": {
+      "sha256_before": "F494CC7AD953CCD30CADE1E47479CF7FB4E391E5F244946B5DAC2CD51DA38332",
+      "sha256_after": "3C8D62C55D5E1134071BBC8165B17A067DF34B5506E11C381F022A446E9748B8"
+    },
+    "API01-AI-014": {
+      "sha256_before": "B3B60403CA324C6D76C9F570846A1C6F590612AC71AEF88239E5A14A3EBB508D",
+      "sha256_after": "DC8BC1ACFDDEA798C4CE5CA10C8596A7B8D764890B708F6439C341B7A9608CE1"
+    },
+    "API01-AI-016": {
+      "sha256_before": "DC8BC1ACFDDEA798C4CE5CA10C8596A7B8D764890B708F6439C341B7A9608CE1",
+      "sha256_after": "DC8BC1ACFDDEA798C4CE5CA10C8596A7B8D764890B708F6439C341B7A9608CE1"
+    },
+    "API01-AI-018": {
+      "sha256_before": "B4C00A6C5FBF0D5D4B4006E670BA113D017482A7D6A9C17A7B5374E55D4AFC95",
+      "sha256_after": "A29C38B5E80C03499363B861906732B9E178E1F6CE999EBC1EB552E25D8576EA"
+    },
+    "API01-AI-019": {
+      "sha256_before": "A3A0C8ED1739C8B13562F1723F95EF155B9CCB0C0B94C92A266D93378135DF86",
+      "sha256_after": "A3A0C8ED1739C8B13562F1723F95EF155B9CCB0C0B94C92A266D93378135DF86"
+    },
+    "API01-AI-021": {
+      "sha256_before": "52206E08FDF27F02B3AF152542B6AFAFCD8F437422AC2FDA13B6BCF78242D516",
+      "sha256_after": "8ECA54C63C020FD24574C8435A8F06ABE24602303B8EA9CD0253F6FBDBB8E9C0"
+    },
+    "API01-AI-022": {
+      "sha256_before": "2053AA5158E80DF3220017524A9C7AF1812C8780E0192C73CF1C4F47B3B4E55C",
+      "sha256_after": "DDC7242073B5AA4D1F0AF9E2921C311CFA8906AEC55A3C493E617446AA24C877"
+    },
+    "API01-AI-023": {
+      "sha256_before": "BFAB23281277E7F4C558231FE0F6C81C50CA3097B76C790376B2D06A7E18C4ED",
+      "sha256_after": "981C1E27008F87F3CEEB04082233627742F9736867935DB313726B26C0CF881C"
+    },
+    "API01-AI-024": {
+      "sha256_before": "F89D64FBAAA475C154E95D95EB5881DE964C9C26ADCE56375B63214375EC7997",
+      "sha256_after": "3BB2F5AA9868E817711E18132D124D3B4569324409CE0A0DD7DACD7B911B252C"
+    },
+    "API01-AI-027": {
+      "sha256_before": "3BB2F5AA9868E817711E18132D124D3B4569324409CE0A0DD7DACD7B911B252C",
+      "sha256_after": "3BB2F5AA9868E817711E18132D124D3B4569324409CE0A0DD7DACD7B911B252C"
+    },
+    "API01-AI-029": {
+      "sha256_before": "880D9C298647A495046A124BDF2BBF9341640A4AB69103C08D8A5799739EAAB4",
+      "sha256_after": "D6EB930EAAD46EFC2836EDAABEB0FB3E5720CFEA488F57C41EC9B1B7755BA094"
+    },
+    "API01-AI-035": {
+      "sha256_before": "8D9BEB65780FCBBD2312FA6DED033979CE593DEBEA78ACA55D9C7D15E8EE01DB",
+      "sha256_after": "F9D0FE3934853AAF8A7EC5F5DE0EC841EA46792854AD3DF972397F151D7DF37B"
+    },
+    "API01-STU-001": {
+      "sha256_before": "26E2191527074D3B61BD92B9D9D92888108DF74690EF9991AC2E9A10AB40781F",
+      "sha256_after": "27B729D2C8002F8F96E42849A8D9AF161986F059B849EF4EE1B8F145097AA3D5"
+    },
+    "API01-STU-002": {
+      "sha256_before": "9445EC0EF9CCEC0C138E45A1ECC92D2C455A8D514261CA00590DE34918697426",
+      "sha256_after": "9445EC0EF9CCEC0C138E45A1ECC92D2C455A8D514261CA00590DE34918697426"
+    },
+    "API01-STU-003": {
+      "sha256_before": "29F7D35BC36A9E5D99827C26673D3CDA88F84ABB98ADDF198110D0954EDB719C",
+      "sha256_after": "A434DE43800D275790E5E1DFB6F9A33663348C2B07BFEF0163F556326FA1EA46"
+    },
+    "API01-STU-004": {
+      "sha256_before": "C007969BE74D5C342FB034C8EEF7447DD5BC4921B09E876AC3FAADAE9E726F8B",
+      "sha256_after": "690F1C77205721AB00DD4798A3A11BE2D8E35630B9C7CA6127F63EA3F810F631"
+    },
+    "API01-STU-005": {
+      "sha256_before": "7E4E127766F317770D08FD978FC53B88E6D652A35DE3D711EE2BEEFB17EBD3E5",
+      "sha256_after": "0AD04B11159FD9FD2F3387F1CCF7B0694A788253B5D68955DBDF877232CA7963"
+    },
+    "API02-AI-001": {
+      "sha256_before": "C1DC808A5C3BD58232CED2A122909B1B0938E2C8A1F16E53EA0571F6BE924B65",
+      "sha256_after": "30A9FC014A841577B57BCCABDAD1A904EB5B96E75EC4D7893A67CAE1160DC489"
+    },
+    "API02-AI-009": {
+      "sha256_before": "03FC41DDD7D3226EEF5FED2AA1D9A1982B7005666E94BDCCDC3549F818D730C4",
+      "sha256_after": "DED3AE4DE091F8ED480B120A0BA7D7A6A29FA5FD0A31E20D6DF57F9F325C0145"
+    },
+    "API02-AI-016": {
+      "sha256_before": "84B5CF3A7E4F71A98975EC55FD11160340734B1587B0C084F9DDB651129C4878",
+      "sha256_after": "7963BA458BB5D626DE1499939309CD13D026D7F08FB64C69F7B409562B4D2732"
+    },
+    "API02-AI-018": {
+      "sha256_before": "0FD9068BABD2F74215F219DCDAA8DA7D0511FE4078622D11718BA518FEDCD933",
+      "sha256_after": "0FD9068BABD2F74215F219DCDAA8DA7D0511FE4078622D11718BA518FEDCD933"
+    },
+    "API02-AI-024": {
+      "sha256_before": "19B2CDE345D8F623A3ACC5457137E1C446941086E0B60FFED77A86EBF6B5FC94",
+      "sha256_after": "19B2CDE345D8F623A3ACC5457137E1C446941086E0B60FFED77A86EBF6B5FC94"
+    },
+    "API02-AI-034": {
+      "sha256_before": "C59884A8542BBDC9DD33F3C1DDA8AB96CFA7D25C5DC3C98695825EE2C67F1E33",
+      "sha256_after": "5237D74DD387C2BBC02069D0C79ADFD8B6BE4D183A96B32C33518D433A64FF32"
+    },
+    "API02-AI-035": {
+      "sha256_before": "D7600D6166C2C3E9ABCC8ABE240BA796F45C8DFA90915507C77070BBF939D7DE",
+      "sha256_after": "1DC74695BF377BF7DB6BD7CE902651BA53316563AEF38DA16B4DA556D96CD033"
+    },
+    "API02-STU-001": {
+      "sha256_before": "A43EFF8A0E76651F2AB20B294983D4CE712987007092C51F6D5441A773D5DB3D",
+      "sha256_after": "9D1A331ED7B90A1A3A5E06CB5760B33B611182721B2CAAEB2A08A2CE286EA4EB"
+    },
+    "API02-STU-002": {
+      "sha256_before": "1A20F8CAE7B6E1DA073C8D2F3FEFC5CE9741EBCD08C00128263F5CE94F7C99E5",
+      "sha256_after": "3E43DB26EEC7BC91F3A9CC404EDECDE0333E7BD3B9991CF1C4FE5E1099F7B0B1"
+    },
+    "API02-STU-003": {
+      "sha256_before": "51C6ABB5388B099EA6EBB79315F0D1D187654765200AA960904470023A2E1D37",
+      "sha256_after": "58A9B7E0C5FEAF519E3561F6FF3BAA6D88362FD9612654DD2F7D67AFC18583DD"
+    },
+    "API02-STU-005": {
+      "sha256_before": "4C6F6482C85D7A4A0D98A22A6E9225B6EB4C1F1EEF70375513BBAB060EF93633",
+      "sha256_after": "172E85EB6C10FE97DFDAC487E4525C7D0056DF1774943E0F73E0D37546B43904"
+    },
+    "API02-STU-006": {
+      "sha256_before": "957ACDEAFA7FDC32BE0946CD078FADABC20E508D4B325512D27A76AC5355F26F",
+      "sha256_after": "13ABE45D44C509989B1E713115BB5895FA82BBBBF274DC58C925AB833763293F"
+    },
+    "API03-AI-016": {
+      "sha256_before": "13ABE45D44C509989B1E713115BB5895FA82BBBBF274DC58C925AB833763293F",
+      "sha256_after": "1E7BAFB84D457C34371DFB85417482B8EFFC4303FA8B0AF3100622F21C26B6FD"
+    },
+    "API03-AI-025": {
+      "sha256_before": "1E7BAFB84D457C34371DFB85417482B8EFFC4303FA8B0AF3100622F21C26B6FD",
+      "sha256_after": "1E7BAFB84D457C34371DFB85417482B8EFFC4303FA8B0AF3100622F21C26B6FD"
+    },
+    "API03-STU-004": {
+      "sha256_before": "48D21F092DC6BECB0AAA4D54AD5ACCDF7DE66365CDB017681EA5C62A6B9DB79A",
+      "sha256_after": "FC6C02C0FB26F7D4B632B85D8438D157992A930B9BC770F89594FE0CAAB526B9"
+    },
+    "API03-STU-006": {
+      "sha256_before": "02789A0AE12B43AC492043A22C791B8E8E489DBA3741712E980A70B6BEA3D336",
+      "sha256_after": "1EBC40E842743CB8F42B30C4DE8A64C2E87B2BA50BF83231C05C742AA85B391D"
+    }
+  },
+  "api01_user_states": [
+    {
+      "id": 3,
+      "email": "hw06-20260822140813205-api01-ai-002-a@example.test",
+      "password_state": "NEW_STRONG",
+      "reset_token_present": false
+    },
+    {
+      "id": 4,
+      "email": "hw06-20260822140813205-api01-ai-002-b@example.test",
+      "password_state": "OLD",
+      "reset_token_present": false
+    },
+    {
+      "id": 5,
+      "email": "hw06-20260822140813205-api01-ai-007-a@example.test",
+      "password_state": "OTHER",
+      "reset_token_present": false
+    },
+    {
+      "id": 6,
+      "email": "hw06-20260822140813205-api01-ai-009-a@example.test",
+      "password_state": "OTHER",
+      "reset_token_present": false
+    },
+    {
+      "id": 7,
+      "email": "hw06-20260822140813205-api01-ai-010-a@example.test",
+      "password_state": "OTHER",
+      "reset_token_present": false
+    },
+    {
+      "id": 8,
+      "email": "hw06-20260822140813205-api01-ai-012-a@example.test",
+      "password_state": "NEW_STRONG",
+      "reset_token_present": false
+    },
+    {
+      "id": 9,
+      "email": "hw06-20260822140813205-api01-ai-014-a@example.test",
+      "password_state": "NEW_STRONG",
+      "reset_token_present": false
+    },
+    {
+      "id": 10,
+      "email": "hw06-20260822140813205-api01-ai-018-a@example.test",
+      "password_state": "WEAK_PLAINTEXT",
+      "reset_token_present": false
+    },
+    {
+      "id": 11,
+      "email": "hw06-20260822140813205-api01-ai-019-a@example.test",
+      "password_state": "NEW_STRONG",
+      "reset_token_present": false
+    },
+    {
+      "id": 12,
+      "email": "hw06-20260822140813205-api01-ai-021-a@example.test",
+      "password_state": "OTHER",
+      "reset_token_present": false
+    },
+    {
+      "id": 13,
+      "email": "hw06-20260822140813205-api01-ai-022-a@example.test",
+      "password_state": "OTHER",
+      "reset_token_present": false
+    },
+    {
+      "id": 14,
+      "email": "hw06-20260822140813205-api01-ai-023-a@example.test",
+      "password_state": "OTHER",
+      "reset_token_present": false
+    },
+    {
+      "id": 15,
+      "email": "hw06-20260822140813205-api01-ai-024-a@example.test",
+      "password_state": "OTHER",
+      "reset_token_present": false
+    },
+    {
+      "id": 16,
+      "email": "hw06-20260822140813205-api01-ai-029-a@example.test",
+      "password_state": "NEW_STRONG",
+      "reset_token_present": false
+    },
+    {
+      "id": 17,
+      "email": "hw06-20260822140813205-api01-ai-035-a@example.test",
+      "password_state": "NEW_STRONG",
+      "reset_token_present": false
+    },
+    {
+      "id": 18,
+      "email": "hw06-20260822140813205-api01-stu-001-a@example.test",
+      "password_state": "NEW_STRONG",
+      "reset_token_present": false
+    },
+    {
+      "id": 19,
+      "email": "hw06-20260822140813205-api01-stu-001-b@example.test",
+      "password_state": "OLD",
+      "reset_token_present": false
+    },
+    {
+      "id": 20,
+      "email": "hw06-20260822140813205-api01-stu-002-a@example.test",
+      "password_state": "WEAK_PLAINTEXT",
+      "reset_token_present": false
+    },
+    {
+      "id": 21,
+      "email": "hw06-20260822140813205-api01-stu-003-a@example.test",
+      "password_state": "NEW_STRONG",
+      "reset_token_present": false
+    },
+    {
+      "id": 22,
+      "email": "hw06-20260822140813205-api01-stu-004-a@example.test",
+      "password_state": "NEW_STRONG",
+      "reset_token_present": false
+    },
+    {
+      "id": 23,
+      "email": "hw06-20260822140813205-api01-stu-004-b@example.test",
+      "password_state": "NEW_STRONG",
+      "reset_token_present": false
+    },
+    {
+      "id": 24,
+      "email": "hw06-20260822140813205-api01-stu-005-a@example.test",
+      "password_state": "NEW_STRONG",
+      "reset_token_present": false
+    },
+    {
+      "id": 25,
+      "email": "hw06-20260822140813205-api01-stu-005-b@example.test",
+      "password_state": "NEW_STRONG",
+      "reset_token_present": false
+    },
+    {
+      "id": 26,
+      "email": "hw06-20260822140813205-api02-ai-001-a@example.test",
+      "password_state": "OLD",
+      "reset_token_present": false
+    },
+    {
+      "id": 27,
+      "email": "hw06-20260822140813205-api02-ai-009-a@example.test",
+      "password_state": "OLD",
+      "reset_token_present": false
+    },
+    {
+      "id": 28,
+      "email": "hw06-20260822140813205-api02-ai-016-a@example.test",
+      "password_state": "OLD",
+      "reset_token_present": false
+    },
+    {
+      "id": 29,
+      "email": "hw06-20260822140813205-api02-ai-018-a@example.test",
+      "password_state": "OLD",
+      "reset_token_present": false
+    },
+    {
+      "id": 30,
+      "email": "hw06-20260822140813205-api02-ai-024-a@example.test",
+      "password_state": "OLD",
+      "reset_token_present": false
+    },
+    {
+      "id": 31,
+      "email": "hw06-20260822140813205-api02-ai-034-a@example.test",
+      "password_state": "OLD",
+      "reset_token_present": false
+    },
+    {
+      "id": 32,
+      "email": "hw06-20260822140813205-api02-ai-035-a@example.test",
+      "password_state": "OLD",
+      "reset_token_present": false
+    },
+    {
+      "id": 33,
+      "email": "hw06-20260822140813205-api02-stu-001-a@example.test",
+      "password_state": "OLD",
+      "reset_token_present": false
+    },
+    {
+      "id": 34,
+      "email": "hw06-20260822140813205-api02-stu-002-a@example.test",
+      "password_state": "OLD",
+      "reset_token_present": false
+    },
+    {
+      "id": 35,
+      "email": "hw06-20260822140813205-api02-stu-002-b@example.test",
+      "password_state": "OLD",
+      "reset_token_present": false
+    },
+    {
+      "id": 36,
+      "email": "hw06-20260822140813205-api02-stu-003-a@example.test",
+      "password_state": "OLD",
+      "reset_token_present": false
+    },
+    {
+      "id": 37,
+      "email": "hw06-20260822140813205-api02-stu-005-a@example.test",
+      "password_state": "OLD",
+      "reset_token_present": false
+    },
+    {
+      "id": 38,
+      "email": "hw06-20260822140813205-api02-stu-005-b@example.test",
+      "password_state": "OLD",
+      "reset_token_present": false
+    },
+    {
+      "id": 39,
+      "email": "hw06-20260822140813205-api02-stu-006-a@example.test",
+      "password_state": "OLD",
+      "reset_token_present": false
+    },
+    {
+      "id": 40,
+      "email": "hw06-20260822140813205-api02-stu-006-b@example.test",
+      "password_state": "OLD",
+      "reset_token_present": false
+    }
+  ],
+  "api01_ai_035": {
+    "user_found": true,
+    "plaintext_equal": true,
+    "password_value_logged": false
+  },
+  "api01_ai_027": {
+    "request_db_hash_before": "3BB2F5AA9868E817711E18132D124D3B4569324409CE0A0DD7DACD7B911B252C",
+    "request_db_hash_after": "3BB2F5AA9868E817711E18132D124D3B4569324409CE0A0DD7DACD7B911B252C",
+    "datastore_unchanged_during_action": true
+  },
+  "orders": [
+    {
+      "id": 1,
+      "email": "hw06-20260822140813205-api02-ai-001-a@example.test",
+      "total_amount": 200000,
+      "shipping_address": "HW06 disposable address 20260821204959"
+    },
+    {
+      "id": 2,
+      "email": "hw06-20260822140813205-api02-ai-009-a@example.test",
+      "total_amount": 24690,
+      "shipping_address": "HW06 disposable address 20260821204959"
+    },
+    {
+      "id": 3,
+      "email": "hw06-20260822140813205-api02-ai-016-a@example.test",
+      "total_amount": 100000,
+      "shipping_address": "HW06 disposable address 20260821204959"
+    },
+    {
+      "id": 4,
+      "email": "hw06-20260822140813205-api02-ai-034-a@example.test",
+      "total_amount": 200000,
+      "shipping_address": "HW06 disposable address 20260821204959"
+    },
+    {
+      "id": 5,
+      "email": "hw06-20260822140813205-api02-ai-035-a@example.test",
+      "total_amount": 200000.01,
+      "shipping_address": "HW06 disposable address 20260821204959"
+    },
+    {
+      "id": 6,
+      "email": "hw06-20260822140813205-api02-stu-001-a@example.test",
+      "total_amount": 200000,
+      "shipping_address": "HW06 disposable address 20260821204959"
+    },
+    {
+      "id": 7,
+      "email": "hw06-20260822140813205-api02-stu-002-a@example.test",
+      "total_amount": 50000,
+      "shipping_address": "HW06 disposable address 20260821204959"
+    },
+    {
+      "id": 8,
+      "email": "hw06-20260822140813205-api02-stu-003-a@example.test",
+      "total_amount": "0; DROP TABLE orders; --",
+      "shipping_address": "'; DROP TABLE users; --"
+    },
+    {
+      "id": 9,
+      "email": "hw06-20260822140813205-api02-stu-005-a@example.test",
+      "total_amount": 50000,
+      "shipping_address": "HW06 disposable address 20260821204959"
+    },
+    {
+      "id": 10,
+      "email": "hw06-20260822140813205-api02-stu-005-b@example.test",
+      "total_amount": 200000,
+      "shipping_address": "HW06 disposable address 20260821204959"
+    },
+    {
+      "id": 11,
+      "email": "hw06-20260822140813205-api02-stu-006-a@example.test",
+      "total_amount": 50000,
+      "shipping_address": "HW06 disposable address 20260821204959"
+    }
+  ],
+  "products": [
+    {
+      "id": 6,
+      "name": "HW06-20260822140813205-API03-AI-016-A",
+      "price": 10000
+    },
+    {
+      "id": 7,
+      "name": "HW06-20260822140813205-API03-AI-016-B",
+      "price": 20000
+    },
+    {
+      "id": 8,
+      "name": "HW06-20260822140813205-API03-STU-004-A1",
+      "price": 10000
+    },
+    {
+      "id": 9,
+      "name": "HW06-20260822140813205-API03-STU-004-A2",
+      "price": 20000
+    },
+    {
+      "id": 10,
+      "name": "HW06-20260822140813205-API03-STU-004-B1",
+      "price": 10000
+    },
+    {
+      "id": 11,
+      "name": "HW06-20260822140813205-API03-STU-004-B2",
+      "price": -1
+    },
+    {
+      "id": 12,
+      "name": "HW06-20260822140813205-API03-STU-006-A1",
+      "price": 10000
+    },
+    {
+      "id": 13,
+      "name": "HW06-20260822140813205-API03-STU-006-A2",
+      "price": 20000
+    },
+    {
+      "id": 14,
+      "name": "HW06-20260822140813205-API03-STU-006-B1",
+      "price": 10000
+    },
+    {
+      "id": 15,
+      "name": "HW06-20260822140813205-API03-STU-006-B2",
+      "price": -1
+    }
+  ]
+}

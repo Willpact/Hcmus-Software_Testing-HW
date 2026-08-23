@@ -1,0 +1,10 @@
+{
+  "smoke_required": true,
+  "smoke_reason": "Corrected reusable isolated-fixture and sequence harness",
+  "run_id": "run-002",
+  "smoke_sut_pid": 3580,
+  "smoke_exit_code": 0,
+  "run002_sut_pid": 9652,
+  "run002_exit_code": 0,
+  "status": "PASS"
+}

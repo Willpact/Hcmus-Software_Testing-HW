@@ -1,0 +1,376 @@
+{
+  "run_001_preserved": true,
+  "run_002_targeted": true,
+  "cases": [
+    {
+      "case_id": "API01-AI-002",
+      "run_001_status": "BLOCKED",
+      "run_001_classification": "TEST_DATA_DEFECT",
+      "human_run_001_final_classification": "TEST_DATA_DEFECT",
+      "correction_applied": "YES",
+      "run_002_status": "PASS",
+      "run_002_classification": "PASS",
+      "final_recommendation": "ACCEPT_RUN_002_PASS"
+    },
+    {
+      "case_id": "API01-AI-007",
+      "run_001_status": "BLOCKED",
+      "run_001_classification": "TEST_DATA_DEFECT",
+      "human_run_001_final_classification": "TEST_DATA_DEFECT",
+      "correction_applied": "YES",
+      "run_002_status": "FAIL",
+      "run_002_classification": "PRODUCT_DEFECT_CANDIDATE",
+      "final_recommendation": "HUMAN_DEFECT_REVIEW_REQUIRED"
+    },
+    {
+      "case_id": "API01-AI-009",
+      "run_001_status": "BLOCKED",
+      "run_001_classification": "TEST_DATA_DEFECT",
+      "human_run_001_final_classification": "TEST_DATA_DEFECT",
+      "correction_applied": "YES",
+      "run_002_status": "FAIL",
+      "run_002_classification": "PRODUCT_DEFECT_CANDIDATE",
+      "final_recommendation": "HUMAN_DEFECT_REVIEW_REQUIRED"
+    },
+    {
+      "case_id": "API01-AI-010",
+      "run_001_status": "BLOCKED",
+      "run_001_classification": "TEST_DATA_DEFECT",
+      "human_run_001_final_classification": "TEST_DATA_DEFECT",
+      "correction_applied": "YES",
+      "run_002_status": "PASS",
+      "run_002_classification": "PASS",
+      "final_recommendation": "ACCEPT_RUN_002_PASS"
+    },
+    {
+      "case_id": "API01-AI-012",
+      "run_001_status": "BLOCKED",
+      "run_001_classification": "TEST_DATA_DEFECT",
+      "human_run_001_final_classification": "TEST_DATA_DEFECT",
+      "correction_applied": "YES",
+      "run_002_status": "PASS",
+      "run_002_classification": "PASS",
+      "final_recommendation": "ACCEPT_RUN_002_PASS"
+    },
+    {
+      "case_id": "API01-AI-014",
+      "run_001_status": "BLOCKED",
+      "run_001_classification": "TEST_DATA_DEFECT",
+      "human_run_001_final_classification": "TEST_DATA_DEFECT",
+      "correction_applied": "YES",
+      "run_002_status": "PASS",
+      "run_002_classification": "PASS",
+      "final_recommendation": "ACCEPT_RUN_002_PASS"
+    },
+    {
+      "case_id": "API01-AI-016",
+      "run_001_status": "BLOCKED",
+      "run_001_classification": "TEST_DATA_DEFECT",
+      "human_run_001_final_classification": "TEST_DATA_DEFECT",
+      "correction_applied": "NO",
+      "run_002_status": "BLOCKED",
+      "run_002_classification": "TEST_DATA_DEFECT",
+      "final_recommendation": "HUMAN_REVIEW_REQUIRED"
+    },
+    {
+      "case_id": "API01-AI-018",
+      "run_001_status": "BLOCKED",
+      "run_001_classification": "TEST_DATA_DEFECT",
+      "human_run_001_final_classification": "TEST_DATA_DEFECT",
+      "correction_applied": "YES",
+      "run_002_status": "FAIL",
+      "run_002_classification": "PRODUCT_DEFECT_CANDIDATE",
+      "final_recommendation": "HUMAN_DEFECT_REVIEW_REQUIRED"
+    },
+    {
+      "case_id": "API01-AI-019",
+      "run_001_status": "BLOCKED",
+      "run_001_classification": "TEST_DATA_DEFECT",
+      "human_run_001_final_classification": "TEST_DATA_DEFECT",
+      "correction_applied": "YES",
+      "run_002_status": "PASS",
+      "run_002_classification": "PASS",
+      "final_recommendation": "ACCEPT_RUN_002_PASS"
+    },
+    {
+      "case_id": "API01-AI-021",
+      "run_001_status": "BLOCKED",
+      "run_001_classification": "TEST_DATA_DEFECT",
+      "human_run_001_final_classification": "TEST_DATA_DEFECT",
+      "correction_applied": "YES",
+      "run_002_status": "FAIL",
+      "run_002_classification": "PRODUCT_DEFECT_CANDIDATE",
+      "final_recommendation": "HUMAN_DEFECT_REVIEW_REQUIRED"
+    },
+    {
+      "case_id": "API01-AI-022",
+      "run_001_status": "BLOCKED",
+      "run_001_classification": "TEST_DATA_DEFECT",
+      "human_run_001_final_classification": "TEST_DATA_DEFECT",
+      "correction_applied": "YES",
+      "run_002_status": "FAIL",
+      "run_002_classification": "PRODUCT_DEFECT_CANDIDATE",
+      "final_recommendation": "HUMAN_DEFECT_REVIEW_REQUIRED"
+    },
+    {
+      "case_id": "API01-AI-023",
+      "run_001_status": "BLOCKED",
+      "run_001_classification": "TEST_DATA_DEFECT",
+      "human_run_001_final_classification": "TEST_DATA_DEFECT",
+      "correction_applied": "YES",
+      "run_002_status": "FAIL",
+      "run_002_classification": "PRODUCT_DEFECT_CANDIDATE",
+      "final_recommendation": "HUMAN_DEFECT_REVIEW_REQUIRED"
+    },
+    {
+      "case_id": "API01-AI-024",
+      "run_001_status": "BLOCKED",
+      "run_001_classification": "TEST_DATA_DEFECT",
+      "human_run_001_final_classification": "TEST_DATA_DEFECT",
+      "correction_applied": "YES",
+      "run_002_status": "FAIL",
+      "run_002_classification": "PRODUCT_DEFECT_CANDIDATE",
+      "final_recommendation": "HUMAN_DEFECT_REVIEW_REQUIRED"
+    },
+    {
+      "case_id": "API01-AI-027",
+      "run_001_status": "POSTMAN_PASS_EXTERNAL_PENDING",
+      "run_001_classification": "EXTERNAL_VERIFICATION_PENDING",
+      "human_run_001_final_classification": "EXTERNAL_VERIFICATION_PENDING",
+      "correction_applied": "EXTERNAL_VERIFICATION_ONLY",
+      "run_002_status": "PASS",
+      "run_002_classification": "PASS",
+      "final_recommendation": "ACCEPT_RUN_002_PASS"
+    },
+    {
+      "case_id": "API01-AI-029",
+      "run_001_status": "BLOCKED",
+      "run_001_classification": "TEST_DATA_DEFECT",
+      "human_run_001_final_classification": "TEST_DATA_DEFECT",
+      "correction_applied": "YES",
+      "run_002_status": "PASS",
+      "run_002_classification": "PASS",
+      "final_recommendation": "ACCEPT_RUN_002_PASS"
+    },
+    {
+      "case_id": "API01-AI-035",
+      "run_001_status": "BLOCKED",
+      "run_001_classification": "TEST_DATA_DEFECT",
+      "human_run_001_final_classification": "TEST_DATA_DEFECT",
+      "correction_applied": "YES",
+      "run_002_status": "FAIL",
+      "run_002_classification": "PRODUCT_DEFECT_CANDIDATE",
+      "final_recommendation": "HUMAN_DEFECT_REVIEW_REQUIRED"
+    },
+    {
+      "case_id": "API01-STU-001",
+      "run_001_status": "BLOCKED",
+      "run_001_classification": "TEST_DEFECT",
+      "human_run_001_final_classification": "TEST_DEFECT",
+      "correction_applied": "YES",
+      "run_002_status": "PASS",
+      "run_002_classification": "PASS",
+      "final_recommendation": "ACCEPT_RUN_002_PASS"
+    },
+    {
+      "case_id": "API01-STU-002",
+      "run_001_status": "BLOCKED",
+      "run_001_classification": "TEST_DEFECT",
+      "human_run_001_final_classification": "TEST_DEFECT",
+      "correction_applied": "YES",
+      "run_002_status": "FAIL",
+      "run_002_classification": "PRODUCT_DEFECT_CANDIDATE",
+      "final_recommendation": "HUMAN_DEFECT_REVIEW_REQUIRED"
+    },
+    {
+      "case_id": "API01-STU-003",
+      "run_001_status": "BLOCKED",
+      "run_001_classification": "TEST_DEFECT",
+      "human_run_001_final_classification": "TEST_DEFECT",
+      "correction_applied": "YES",
+      "run_002_status": "PASS",
+      "run_002_classification": "PASS",
+      "final_recommendation": "ACCEPT_RUN_002_PASS"
+    },
+    {
+      "case_id": "API01-STU-004",
+      "run_001_status": "BLOCKED",
+      "run_001_classification": "TEST_DEFECT",
+      "human_run_001_final_classification": "TEST_DEFECT",
+      "correction_applied": "YES",
+      "run_002_status": "PASS",
+      "run_002_classification": "PASS",
+      "final_recommendation": "ACCEPT_RUN_002_PASS"
+    },
+    {
+      "case_id": "API01-STU-005",
+      "run_001_status": "BLOCKED",
+      "run_001_classification": "TEST_DEFECT",
+      "human_run_001_final_classification": "TEST_DEFECT",
+      "correction_applied": "YES",
+      "run_002_status": "PASS",
+      "run_002_classification": "PASS",
+      "final_recommendation": "ACCEPT_RUN_002_PASS"
+    },
+    {
+      "case_id": "API02-AI-001",
+      "run_001_status": "FAIL",
+      "run_001_classification": "PRODUCT_DEFECT_CANDIDATE",
+      "human_run_001_final_classification": "TEST_DATA_DEFECT",
+      "correction_applied": "YES",
+      "run_002_status": "FAIL",
+      "run_002_classification": "CONFIRMED_PRODUCT_DEFECT",
+      "final_recommendation": "MAP_TO_RC-02-02"
+    },
+    {
+      "case_id": "API02-AI-009",
+      "run_001_status": "FAIL",
+      "run_001_classification": "PRODUCT_DEFECT_CANDIDATE",
+      "human_run_001_final_classification": "TEST_DATA_DEFECT",
+      "correction_applied": "YES",
+      "run_002_status": "FAIL",
+      "run_002_classification": "CONFIRMED_PRODUCT_DEFECT",
+      "final_recommendation": "MAP_TO_RC-02-02"
+    },
+    {
+      "case_id": "API02-AI-016",
+      "run_001_status": "FAIL",
+      "run_001_classification": "PRODUCT_DEFECT_CANDIDATE",
+      "human_run_001_final_classification": "TEST_DEFECT",
+      "correction_applied": "YES",
+      "run_002_status": "FAIL",
+      "run_002_classification": "CONFIRMED_PRODUCT_DEFECT",
+      "final_recommendation": "MAP_TO_RC-02-01_AND_RC-02-02"
+    },
+    {
+      "case_id": "API02-AI-018",
+      "run_001_status": "BLOCKED",
+      "run_001_classification": "TEST_DEFECT",
+      "human_run_001_final_classification": "TEST_DEFECT",
+      "correction_applied": "YES",
+      "run_002_status": "PASS",
+      "run_002_classification": "PASS",
+      "final_recommendation": "ACCEPT_RUN_002_PASS"
+    },
+    {
+      "case_id": "API02-AI-024",
+      "run_001_status": "BLOCKED",
+      "run_001_classification": "TEST_DATA_DEFECT",
+      "human_run_001_final_classification": "TEST_DATA_DEFECT",
+      "correction_applied": "YES",
+      "run_002_status": "PASS",
+      "run_002_classification": "PASS",
+      "final_recommendation": "ACCEPT_RUN_002_PASS"
+    },
+    {
+      "case_id": "API02-AI-034",
+      "run_001_status": "FAIL",
+      "run_001_classification": "PRODUCT_DEFECT_CANDIDATE",
+      "human_run_001_final_classification": "TEST_DATA_DEFECT",
+      "correction_applied": "YES",
+      "run_002_status": "FAIL",
+      "run_002_classification": "CONFIRMED_PRODUCT_DEFECT",
+      "final_recommendation": "MAP_TO_RC-02-02"
+    },
+    {
+      "case_id": "API02-AI-035",
+      "run_001_status": "FAIL",
+      "run_001_classification": "PRODUCT_DEFECT_CANDIDATE",
+      "human_run_001_final_classification": "TEST_DATA_DEFECT",
+      "correction_applied": "YES",
+      "run_002_status": "FAIL",
+      "run_002_classification": "CONFIRMED_PRODUCT_DEFECT",
+      "final_recommendation": "MAP_TO_RC-02-01_AND_RC-02-02"
+    },
+    {
+      "case_id": "API02-STU-001",
+      "run_001_status": "BLOCKED",
+      "run_001_classification": "TEST_DEFECT",
+      "human_run_001_final_classification": "TEST_DEFECT",
+      "correction_applied": "YES",
+      "run_002_status": "FAIL",
+      "run_002_classification": "CONFIRMED_PRODUCT_DEFECT",
+      "final_recommendation": "MAP_TO_RC-02-02"
+    },
+    {
+      "case_id": "API02-STU-002",
+      "run_001_status": "FAIL",
+      "run_001_classification": "PRODUCT_DEFECT_CANDIDATE",
+      "human_run_001_final_classification": "TEST_DATA_DEFECT",
+      "correction_applied": "YES",
+      "run_002_status": "FAIL",
+      "run_002_classification": "CONFIRMED_PRODUCT_DEFECT",
+      "final_recommendation": "MAP_TO_RC-02-01_AND_RC-02-02"
+    },
+    {
+      "case_id": "API02-STU-003",
+      "run_001_status": "FAIL",
+      "run_001_classification": "PRODUCT_DEFECT_CANDIDATE",
+      "human_run_001_final_classification": "TEST_DEFECT",
+      "correction_applied": "YES",
+      "run_002_status": "FAIL",
+      "run_002_classification": "CONFIRMED_PRODUCT_DEFECT",
+      "final_recommendation": "MAP_TO_RC-02-01_AND_RC-02-02"
+    },
+    {
+      "case_id": "API02-STU-005",
+      "run_001_status": "FAIL",
+      "run_001_classification": "PRODUCT_DEFECT_CANDIDATE",
+      "human_run_001_final_classification": "TEST_DEFECT",
+      "correction_applied": "YES",
+      "run_002_status": "FAIL",
+      "run_002_classification": "CONFIRMED_PRODUCT_DEFECT",
+      "final_recommendation": "MAP_TO_RC-02-01_AND_RC-02-02"
+    },
+    {
+      "case_id": "API02-STU-006",
+      "run_001_status": "FAIL",
+      "run_001_classification": "PRODUCT_DEFECT_CANDIDATE",
+      "human_run_001_final_classification": "TEST_DEFECT",
+      "correction_applied": "YES",
+      "run_002_status": "FAIL",
+      "run_002_classification": "CONFIRMED_PRODUCT_DEFECT",
+      "final_recommendation": "MAP_TO_RC-02-01_AND_RC-02-02"
+    },
+    {
+      "case_id": "API03-AI-016",
+      "run_001_status": "BLOCKED",
+      "run_001_classification": "TEST_DEFECT",
+      "human_run_001_final_classification": "TEST_DEFECT",
+      "correction_applied": "YES",
+      "run_002_status": "PASS",
+      "run_002_classification": "PASS",
+      "final_recommendation": "ACCEPT_RUN_002_PASS"
+    },
+    {
+      "case_id": "API03-AI-025",
+      "run_001_status": "BLOCKED",
+      "run_001_classification": "TEST_DATA_DEFECT",
+      "human_run_001_final_classification": "TEST_DATA_DEFECT",
+      "correction_applied": "YES",
+      "run_002_status": "PASS",
+      "run_002_classification": "PASS",
+      "final_recommendation": "ACCEPT_RUN_002_PASS"
+    },
+    {
+      "case_id": "API03-STU-004",
+      "run_001_status": "BLOCKED",
+      "run_001_classification": "TEST_DEFECT",
+      "human_run_001_final_classification": "TEST_DEFECT",
+      "correction_applied": "YES",
+      "run_002_status": "FAIL",
+      "run_002_classification": "CONFIRMED_PRODUCT_DEFECT",
+      "final_recommendation": "MAP_TO_RC-03-01_AND_RC-03-02"
+    },
+    {
+      "case_id": "API03-STU-006",
+      "run_001_status": "BLOCKED",
+      "run_001_classification": "TEST_DEFECT",
+      "human_run_001_final_classification": "TEST_DEFECT",
+      "correction_applied": "YES",
+      "run_002_status": "FAIL",
+      "run_002_classification": "CONFIRMED_PRODUCT_DEFECT",
+      "final_recommendation": "MAP_TO_RC-03-01_AND_RC-03-03"
+    }
+  ]
+}
