@@ -1,0 +1,272 @@
+{
+  "summary": {
+    "planned": 26,
+    "completed": 23,
+    "passed": 1,
+    "failed": 22,
+    "pending": 1,
+    "blocked": 2
+  },
+  "cases": [
+    {
+      "case_id": "API01-AI-027",
+      "api_id": "API-01",
+      "status": "PENDING",
+      "evidence": [
+        "test-results/hw06/run-001/newman.json",
+        "test-results/hw06/run-001/external-postcheck.newman.json",
+        "test-results/hw06/runtime/sut-db-003/database.sqlite (read-only inspection)"
+      ]
+    },
+    {
+      "case_id": "API01-AI-035",
+      "api_id": "API-01",
+      "status": "BLOCKED",
+      "evidence": [
+        "test-results/hw06/run-001/newman.json",
+        "test-results/hw06/run-001/external-postcheck.newman.json",
+        "test-results/hw06/runtime/sut-db-003/database.sqlite (read-only inspection)"
+      ]
+    },
+    {
+      "case_id": "API02-AI-001",
+      "api_id": "API-02",
+      "status": "FAIL",
+      "evidence": [
+        "test-results/hw06/run-001/newman.json",
+        "test-results/hw06/run-001/external-postcheck.newman.json",
+        "test-results/hw06/runtime/sut-db-003/database.sqlite (read-only inspection)"
+      ]
+    },
+    {
+      "case_id": "API02-AI-002",
+      "api_id": "API-02",
+      "status": "FAIL",
+      "evidence": [
+        "test-results/hw06/run-001/newman.json",
+        "test-results/hw06/run-001/external-postcheck.newman.json",
+        "test-results/hw06/runtime/sut-db-003/database.sqlite (read-only inspection)"
+      ]
+    },
+    {
+      "case_id": "API02-AI-003",
+      "api_id": "API-02",
+      "status": "FAIL",
+      "evidence": [
+        "test-results/hw06/run-001/newman.json",
+        "test-results/hw06/run-001/external-postcheck.newman.json",
+        "test-results/hw06/runtime/sut-db-003/database.sqlite (read-only inspection)"
+      ]
+    },
+    {
+      "case_id": "API02-AI-004",
+      "api_id": "API-02",
+      "status": "FAIL",
+      "evidence": [
+        "test-results/hw06/run-001/newman.json",
+        "test-results/hw06/run-001/external-postcheck.newman.json",
+        "test-results/hw06/runtime/sut-db-003/database.sqlite (read-only inspection)"
+      ]
+    },
+    {
+      "case_id": "API02-AI-005",
+      "api_id": "API-02",
+      "status": "FAIL",
+      "evidence": [
+        "test-results/hw06/run-001/newman.json",
+        "test-results/hw06/run-001/external-postcheck.newman.json",
+        "test-results/hw06/runtime/sut-db-003/database.sqlite (read-only inspection)"
+      ]
+    },
+    {
+      "case_id": "API02-AI-006",
+      "api_id": "API-02",
+      "status": "FAIL",
+      "evidence": [
+        "test-results/hw06/run-001/newman.json",
+        "test-results/hw06/run-001/external-postcheck.newman.json",
+        "test-results/hw06/runtime/sut-db-003/database.sqlite (read-only inspection)"
+      ]
+    },
+    {
+      "case_id": "API02-AI-007",
+      "api_id": "API-02",
+      "status": "FAIL",
+      "evidence": [
+        "test-results/hw06/run-001/newman.json",
+        "test-results/hw06/run-001/external-postcheck.newman.json",
+        "test-results/hw06/runtime/sut-db-003/database.sqlite (read-only inspection)"
+      ]
+    },
+    {
+      "case_id": "API02-AI-009",
+      "api_id": "API-02",
+      "status": "FAIL",
+      "evidence": [
+        "test-results/hw06/run-001/newman.json",
+        "test-results/hw06/run-001/external-postcheck.newman.json",
+        "test-results/hw06/runtime/sut-db-003/database.sqlite (read-only inspection)"
+      ]
+    },
+    {
+      "case_id": "API02-AI-010",
+      "api_id": "API-02",
+      "status": "FAIL",
+      "evidence": [
+        "test-results/hw06/run-001/newman.json",
+        "test-results/hw06/run-001/external-postcheck.newman.json",
+        "test-results/hw06/runtime/sut-db-003/database.sqlite (read-only inspection)"
+      ]
+    },
+    {
+      "case_id": "API02-AI-014",
+      "api_id": "API-02",
+      "status": "FAIL",
+      "evidence": [
+        "test-results/hw06/run-001/newman.json",
+        "test-results/hw06/run-001/external-postcheck.newman.json",
+        "test-results/hw06/runtime/sut-db-003/database.sqlite (read-only inspection)"
+      ]
+    },
+    {
+      "case_id": "API02-AI-016",
+      "api_id": "API-02",
+      "status": "FAIL",
+      "evidence": [
+        "test-results/hw06/run-001/newman.json",
+        "test-results/hw06/run-001/external-postcheck.newman.json",
+        "test-results/hw06/runtime/sut-db-003/database.sqlite (read-only inspection)"
+      ]
+    },
+    {
+      "case_id": "API02-AI-017",
+      "api_id": "API-02",
+      "status": "FAIL",
+      "evidence": [
+        "test-results/hw06/run-001/newman.json",
+        "test-results/hw06/run-001/external-postcheck.newman.json",
+        "test-results/hw06/runtime/sut-db-003/database.sqlite (read-only inspection)"
+      ]
+    },
+    {
+      "case_id": "API02-AI-025",
+      "api_id": "API-02",
+      "status": "FAIL",
+      "evidence": [
+        "test-results/hw06/run-001/newman.json",
+        "test-results/hw06/run-001/external-postcheck.newman.json",
+        "test-results/hw06/runtime/sut-db-003/database.sqlite (read-only inspection)"
+      ]
+    },
+    {
+      "case_id": "API02-AI-026",
+      "api_id": "API-02",
+      "status": "FAIL",
+      "evidence": [
+        "test-results/hw06/run-001/newman.json",
+        "test-results/hw06/run-001/external-postcheck.newman.json",
+        "test-results/hw06/runtime/sut-db-003/database.sqlite (read-only inspection)"
+      ]
+    },
+    {
+      "case_id": "API02-AI-034",
+      "api_id": "API-02",
+      "status": "FAIL",
+      "evidence": [
+        "test-results/hw06/run-001/newman.json",
+        "test-results/hw06/run-001/external-postcheck.newman.json",
+        "test-results/hw06/runtime/sut-db-003/database.sqlite (read-only inspection)"
+      ]
+    },
+    {
+      "case_id": "API02-AI-035",
+      "api_id": "API-02",
+      "status": "FAIL",
+      "evidence": [
+        "test-results/hw06/run-001/newman.json",
+        "test-results/hw06/run-001/external-postcheck.newman.json",
+        "test-results/hw06/runtime/sut-db-003/database.sqlite (read-only inspection)"
+      ]
+    },
+    {
+      "case_id": "API02-AI-037",
+      "api_id": "API-02",
+      "status": "FAIL",
+      "evidence": [
+        "test-results/hw06/run-001/newman.json",
+        "test-results/hw06/run-001/external-postcheck.newman.json",
+        "test-results/hw06/runtime/sut-db-003/database.sqlite (read-only inspection)"
+      ]
+    },
+    {
+      "case_id": "API02-STU-001",
+      "api_id": "API-02",
+      "status": "BLOCKED",
+      "evidence": [
+        "test-results/hw06/run-001/newman.json",
+        "test-results/hw06/run-001/external-postcheck.newman.json",
+        "test-results/hw06/runtime/sut-db-003/database.sqlite (read-only inspection)"
+      ]
+    },
+    {
+      "case_id": "API02-STU-002",
+      "api_id": "API-02",
+      "status": "FAIL",
+      "evidence": [
+        "test-results/hw06/run-001/newman.json",
+        "test-results/hw06/run-001/external-postcheck.newman.json",
+        "test-results/hw06/runtime/sut-db-003/database.sqlite (read-only inspection)"
+      ]
+    },
+    {
+      "case_id": "API02-STU-003",
+      "api_id": "API-02",
+      "status": "FAIL",
+      "evidence": [
+        "test-results/hw06/run-001/newman.json",
+        "test-results/hw06/run-001/external-postcheck.newman.json",
+        "test-results/hw06/runtime/sut-db-003/database.sqlite (read-only inspection)"
+      ]
+    },
+    {
+      "case_id": "API02-STU-005",
+      "api_id": "API-02",
+      "status": "FAIL",
+      "evidence": [
+        "test-results/hw06/run-001/newman.json",
+        "test-results/hw06/run-001/external-postcheck.newman.json",
+        "test-results/hw06/runtime/sut-db-003/database.sqlite (read-only inspection)"
+      ]
+    },
+    {
+      "case_id": "API02-STU-006",
+      "api_id": "API-02",
+      "status": "FAIL",
+      "evidence": [
+        "test-results/hw06/run-001/newman.json",
+        "test-results/hw06/run-001/external-postcheck.newman.json",
+        "test-results/hw06/runtime/sut-db-003/database.sqlite (read-only inspection)"
+      ]
+    },
+    {
+      "case_id": "API03-AI-029",
+      "api_id": "API-03",
+      "status": "PASS",
+      "evidence": [
+        "test-results/hw06/run-001/newman.json",
+        "test-results/hw06/run-001/external-postcheck.newman.json",
+        "test-results/hw06/runtime/sut-db-003/database.sqlite (read-only inspection)"
+      ]
+    },
+    {
+      "case_id": "API03-STU-003",
+      "api_id": "API-03",
+      "status": "FAIL",
+      "evidence": [
+        "test-results/hw06/run-001/newman.json",
+        "test-results/hw06/run-001/external-postcheck.newman.json",
+        "test-results/hw06/runtime/sut-db-003/database.sqlite (read-only inspection)"
+      ]
+    }
+  ]
+}

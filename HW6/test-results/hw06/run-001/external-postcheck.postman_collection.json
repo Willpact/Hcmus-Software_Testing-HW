@@ -1,0 +1,45 @@
+{
+  "info": {
+    "name": "HW06 Run 001 External Cart Postcheck",
+    "description": "Runtime-only read-only postcondition capture for primary and second-user carts.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "[RUN-POST-001] Capture primary cart after full run",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "X-Student-Id", "value": "{{studentId}}", "type": "text" }],
+        "auth": { "type": "bearer", "bearer": [{ "key": "token", "value": "{{userToken}}", "type": "string" }] },
+        "url": { "raw": "{{baseUrl}}/api/cart", "host": ["{{baseUrl}}"], "path": ["api", "cart"] },
+        "description": "Read-only postcondition helper; not a final testcase identity."
+      },
+      "event": [{
+        "listen": "test",
+        "script": { "type": "text/javascript", "exec": [
+          "const primaryResolvedStudentId = pm.variables.replaceIn('{{studentId}}');",
+          "pm.test('primary postcheck studentId is configured', () => { pm.expect(primaryResolvedStudentId).to.not.equal('{{studentId}}'); pm.expect(primaryResolvedStudentId).to.not.be.empty; });",
+          "pm.test('primary cart response captured', () => pm.expect(pm.response.code).to.be.a('number'));"
+        ] }
+      }]
+    },
+    {
+      "name": "[RUN-POST-002] Capture second-user cart after full run",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "X-Student-Id", "value": "{{studentId}}", "type": "text" }],
+        "auth": { "type": "bearer", "bearer": [{ "key": "token", "value": "{{otherUserToken}}", "type": "string" }] },
+        "url": { "raw": "{{baseUrl}}/api/cart", "host": ["{{baseUrl}}"], "path": ["api", "cart"] },
+        "description": "Read-only postcondition helper; not a final testcase identity."
+      },
+      "event": [{
+        "listen": "test",
+        "script": { "type": "text/javascript", "exec": [
+          "const secondaryResolvedStudentId = pm.variables.replaceIn('{{studentId}}');",
+          "pm.test('secondary postcheck studentId is configured', () => { pm.expect(secondaryResolvedStudentId).to.not.equal('{{studentId}}'); pm.expect(secondaryResolvedStudentId).to.not.be.empty; });",
+          "pm.test('secondary cart response captured', () => pm.expect(pm.response.code).to.be.a('number'));"
+        ] }
+      }]
+    }
+  ]
+}

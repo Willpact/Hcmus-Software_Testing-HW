@@ -1,0 +1,1902 @@
+{
+  "collection": {
+    "item": [
+      {
+        "id": "630e9781-280b-41ef-84c9-260b5efbc57d",
+        "name": "[RUN-POST-001] Capture primary cart after full run",
+        "request": {
+          "description": {
+            "content": "Read-only postcondition helper; not a final testcase identity.",
+            "type": "text/plain"
+          },
+          "url": {
+            "path": [
+              "api",
+              "cart"
+            ],
+            "host": [
+              "{{baseUrl}}"
+            ],
+            "query": [],
+            "variable": []
+          },
+          "header": [
+            {
+              "key": "X-Student-Id",
+              "value": "{{studentId}}"
+            }
+          ],
+          "method": "GET",
+          "auth": {
+            "type": "bearer",
+            "bearer": [
+              {
+                "type": "string",
+                "value": "{{userToken}}",
+                "key": "token"
+              }
+            ]
+          }
+        },
+        "response": [],
+        "event": [
+          {
+            "listen": "test",
+            "script": {
+              "id": "e4151d5a-76fc-4541-94ae-1ac267049d1c",
+              "type": "text/javascript",
+              "exec": [
+                "const primaryResolvedStudentId = pm.variables.replaceIn('{{studentId}}');",
+                "pm.test('primary postcheck studentId is configured', () => { pm.expect(primaryResolvedStudentId).to.not.equal('{{studentId}}'); pm.expect(primaryResolvedStudentId).to.not.be.empty; });",
+                "pm.test('primary cart response captured', () => pm.expect(pm.response.code).to.be.a('number'));"
+              ],
+              "_lastExecutionId": "951350da-e767-4dd7-a102-dccace3c5c6b"
+            }
+          }
+        ]
+      },
+      {
+        "id": "979a6242-9cde-47e7-a6c7-30db0a58e51f",
+        "name": "[RUN-POST-002] Capture second-user cart after full run",
+        "request": {
+          "description": {
+            "content": "Read-only postcondition helper; not a final testcase identity.",
+            "type": "text/plain"
+          },
+          "url": {
+            "path": [
+              "api",
+              "cart"
+            ],
+            "host": [
+              "{{baseUrl}}"
+            ],
+            "query": [],
+            "variable": []
+          },
+          "header": [
+            {
+              "key": "X-Student-Id",
+              "value": "{{studentId}}"
+            }
+          ],
+          "method": "GET",
+          "auth": {
+            "type": "bearer",
+            "bearer": [
+              {
+                "type": "string",
+                "value": "{{otherUserToken}}",
+                "key": "token"
+              }
+            ]
+          }
+        },
+        "response": [],
+        "event": [
+          {
+            "listen": "test",
+            "script": {
+              "id": "60762dbb-5dfe-46cc-b374-20bc2f994879",
+              "type": "text/javascript",
+              "exec": [
+                "const secondaryResolvedStudentId = pm.variables.replaceIn('{{studentId}}');",
+                "pm.test('secondary postcheck studentId is configured', () => { pm.expect(secondaryResolvedStudentId).to.not.equal('{{studentId}}'); pm.expect(secondaryResolvedStudentId).to.not.be.empty; });",
+                "pm.test('secondary cart response captured', () => pm.expect(pm.response.code).to.be.a('number'));"
+              ],
+              "_lastExecutionId": "12763d70-5990-415f-bfc3-499d4e3db81c"
+            }
+          }
+        ]
+      }
+    ],
+    "event": [],
+    "variable": [],
+    "info": {
+      "_postman_id": "cb301add-87ba-4541-8b8e-91800c1c1656",
+      "name": "HW06 Run 001 External Cart Postcheck",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+      "description": {
+        "content": "Runtime-only read-only postcondition capture for primary and second-user carts.",
+        "type": "text/plain"
+      }
+    }
+  },
+  "environment": {
+    "_": {
+      "postman_variable_scope": "environment",
+      "postman_exported_at": "2026-08-22T12:46:47.756Z",
+      "postman_exported_using": "Newman/6.2.2"
+    },
+    "id": "hw06-local-runtime",
+    "name": "HW06 Local Runtime (git-ignored)",
+    "values": [
+      {
+        "type": "any",
+        "value": "http://localhost:3000",
+        "key": "baseUrl"
+      },
+      {
+        "type": "any",
+        "value": "23127107",
+        "key": "studentId"
+      },
+      {
+        "type": "any",
+        "value": "test@eshop.com",
+        "key": "userEmail"
+      },
+      {
+        "type": "any",
+        "value": "Test1234!",
+        "key": "userPassword"
+      },
+      {
+        "type": "any",
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6InVzZXIiLCJpYXQiOjE3ODc0MDI4MDR9.CH_ytsGSIRpboiYq3hsv-QjVV0KXFqlwWEYN6YrPHo4",
+        "key": "userToken"
+      },
+      {
+        "type": "any",
+        "value": "hw06-other-20260821204959@example.test",
+        "key": "otherUserEmail"
+      },
+      {
+        "type": "any",
+        "value": "DisposableOther1!",
+        "key": "otherUserPassword"
+      },
+      {
+        "type": "any",
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6InVzZXIiLCJpYXQiOjE3ODc0MDI4MDF9.vWMev3UkypjW3mey9-pBdIwR7h1jBGkDbm8kEL8Yego",
+        "key": "otherUserToken"
+      },
+      {
+        "type": "any",
+        "value": "",
+        "key": "otherUserId"
+      },
+      {
+        "type": "any",
+        "value": "admin@eshop.com",
+        "key": "adminEmail"
+      },
+      {
+        "type": "any",
+        "value": "Admin123!",
+        "key": "adminPassword"
+      },
+      {
+        "type": "any",
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzg3NDAyODA0fQ.SXzT6G2Xs19DklBx7nH1m6DdGLBmZGYnDfgltPbGPjY",
+        "key": "adminToken"
+      },
+      {
+        "type": "any",
+        "value": "",
+        "key": "expiredUserToken"
+      },
+      {
+        "type": "any",
+        "value": "hw06-reset-20260821204959@example.test",
+        "key": "resetEmail"
+      },
+      {
+        "type": "any",
+        "value": "6603",
+        "key": "resetToken"
+      },
+      {
+        "type": "any",
+        "value": "",
+        "key": "unusedResetToken"
+      },
+      {
+        "type": "any",
+        "value": "",
+        "key": "usedResetToken"
+      },
+      {
+        "type": "any",
+        "value": "",
+        "key": "expiredResetToken"
+      },
+      {
+        "type": "any",
+        "value": "000000",
+        "key": "wrongResetToken"
+      },
+      {
+        "type": "any",
+        "value": "DisposableChanged1!",
+        "key": "newPassword"
+      },
+      {
+        "type": "any",
+        "value": "weak",
+        "key": "weakPassword"
+      },
+      {
+        "type": "any",
+        "value": "HW06 disposable address 20260821204959",
+        "key": "shippingAddress"
+      },
+      {
+        "type": "any",
+        "value": "1",
+        "key": "productId"
+      },
+      {
+        "type": "any",
+        "value": "1",
+        "key": "categoryId"
+      },
+      {
+        "type": "any",
+        "value": "200000",
+        "key": "clientTotal"
+      },
+      {
+        "type": "any",
+        "value": "50000",
+        "key": "otherCartTotal"
+      },
+      {
+        "type": "any",
+        "value": "20260821204959",
+        "key": "testRunId"
+      },
+      {
+        "type": "any",
+        "value": "DisposableReset1!",
+        "key": "resetUserPassword"
+      },
+      {
+        "type": "any",
+        "value": "200",
+        "key": "observed_API01-AI-001_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"message\":\"Password reset successfully\"}",
+        "key": "observed_API01-AI-001_body"
+      },
+      {
+        "type": "any",
+        "value": "400",
+        "key": "observed_API01-AI-002_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"error\":\"Invalid token or email\"}",
+        "key": "observed_API01-AI-002_body"
+      },
+      {
+        "type": "any",
+        "value": "400",
+        "key": "observed_API01-AI-003_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"error\":\"Invalid token or email\"}",
+        "key": "observed_API01-AI-003_body"
+      },
+      {
+        "type": "any",
+        "value": "400",
+        "key": "observed_API01-AI-004_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"error\":\"Invalid token or email\"}",
+        "key": "observed_API01-AI-004_body"
+      },
+      {
+        "type": "any",
+        "value": "400",
+        "key": "observed_API01-AI-005_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"error\":\"Invalid token or email\"}",
+        "key": "observed_API01-AI-005_body"
+      },
+      {
+        "type": "any",
+        "value": "400",
+        "key": "observed_API01-AI-006_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"error\":\"Invalid token or email\"}",
+        "key": "observed_API01-AI-006_body"
+      },
+      {
+        "type": "any",
+        "value": "400",
+        "key": "observed_API01-AI-007_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"error\":\"Invalid token or email\"}",
+        "key": "observed_API01-AI-007_body"
+      },
+      {
+        "type": "any",
+        "value": "400",
+        "key": "observed_API01-AI-008_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"error\":\"Invalid token or email\"}",
+        "key": "observed_API01-AI-008_body"
+      },
+      {
+        "type": "any",
+        "value": "400",
+        "key": "observed_API01-AI-009_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"error\":\"Invalid token or email\"}",
+        "key": "observed_API01-AI-009_body"
+      },
+      {
+        "type": "any",
+        "value": "400",
+        "key": "observed_API01-AI-010_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"error\":\"Invalid token or email\"}",
+        "key": "observed_API01-AI-010_body"
+      },
+      {
+        "type": "any",
+        "value": "400",
+        "key": "observed_API01-AI-011_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"error\":\"Invalid token or email\"}",
+        "key": "observed_API01-AI-011_body"
+      },
+      {
+        "type": "any",
+        "value": "400",
+        "key": "observed_API01-AI-012_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"error\":\"Invalid token or email\"}",
+        "key": "observed_API01-AI-012_body"
+      },
+      {
+        "type": "any",
+        "value": "400",
+        "key": "observed_API01-AI-014_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"error\":\"Invalid token or email\"}",
+        "key": "observed_API01-AI-014_body"
+      },
+      {
+        "type": "any",
+        "value": "400",
+        "key": "observed_API01-AI-015_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"error\":\"Invalid token or email\"}",
+        "key": "observed_API01-AI-015_body"
+      },
+      {
+        "type": "any",
+        "value": "400",
+        "key": "observed_API01-AI-016_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"error\":\"Invalid token or email\"}",
+        "key": "observed_API01-AI-016_body"
+      },
+      {
+        "type": "any",
+        "value": "400",
+        "key": "observed_API01-AI-018_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"error\":\"Invalid token or email\"}",
+        "key": "observed_API01-AI-018_body"
+      },
+      {
+        "type": "any",
+        "value": "400",
+        "key": "observed_API01-AI-019_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"error\":\"Invalid token or email\"}",
+        "key": "observed_API01-AI-019_body"
+      },
+      {
+        "type": "any",
+        "value": "400",
+        "key": "observed_API01-AI-021_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"error\":\"Invalid token or email\"}",
+        "key": "observed_API01-AI-021_body"
+      },
+      {
+        "type": "any",
+        "value": "400",
+        "key": "observed_API01-AI-022_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"error\":\"Invalid token or email\"}",
+        "key": "observed_API01-AI-022_body"
+      },
+      {
+        "type": "any",
+        "value": "400",
+        "key": "observed_API01-AI-023_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"error\":\"Invalid token or email\"}",
+        "key": "observed_API01-AI-023_body"
+      },
+      {
+        "type": "any",
+        "value": "400",
+        "key": "observed_API01-AI-024_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"error\":\"Invalid token or email\"}",
+        "key": "observed_API01-AI-024_body"
+      },
+      {
+        "type": "any",
+        "value": "400",
+        "key": "observed_API01-AI-027_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"error\":\"Invalid token or email\"}",
+        "key": "observed_API01-AI-027_body"
+      },
+      {
+        "type": "any",
+        "value": "400",
+        "key": "observed_API01-AI-028_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"error\":\"Invalid token or email\"}",
+        "key": "observed_API01-AI-028_body"
+      },
+      {
+        "type": "any",
+        "value": "400",
+        "key": "observed_API01-AI-029_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"error\":\"Invalid token or email\"}",
+        "key": "observed_API01-AI-029_body"
+      },
+      {
+        "type": "any",
+        "value": "400",
+        "key": "observed_API01-AI-035_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"error\":\"Invalid token or email\"}",
+        "key": "observed_API01-AI-035_body"
+      },
+      {
+        "type": "any",
+        "value": "400",
+        "key": "observed_API01-STU-001_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"error\":\"Invalid token or email\"}",
+        "key": "observed_API01-STU-001_body"
+      },
+      {
+        "type": "any",
+        "value": "400",
+        "key": "observed_API01-STU-002_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"error\":\"Invalid token or email\"}",
+        "key": "observed_API01-STU-002_body"
+      },
+      {
+        "type": "any",
+        "value": "400",
+        "key": "observed_API01-STU-003_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"error\":\"Invalid token or email\"}",
+        "key": "observed_API01-STU-003_body"
+      },
+      {
+        "type": "any",
+        "value": "400",
+        "key": "observed_API01-STU-004_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"error\":\"Invalid token or email\"}",
+        "key": "observed_API01-STU-004_body"
+      },
+      {
+        "type": "any",
+        "value": "400",
+        "key": "observed_API01-STU-005_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"error\":\"Invalid token or email\"}",
+        "key": "observed_API01-STU-005_body"
+      },
+      {
+        "type": "any",
+        "value": "[{\"id\":1,\"name\":\"HW06 20260821204959\",\"price\":100000,\"quantity\":2},{\"id\":1,\"name\":\"HW06 20260821204959\",\"price\":100000,\"quantity\":2}]",
+        "key": "primaryCartSnapshot"
+      },
+      {
+        "type": "any",
+        "value": "[{\"id\":1,\"name\":\"HW06 other 20260821204959\",\"price\":50000,\"quantity\":1}]",
+        "key": "otherCartSnapshot"
+      },
+      {
+        "type": "any",
+        "value": "200",
+        "key": "observed_API02-AI-001_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"message\":\"Checkout successful\",\"orderId\":2}",
+        "key": "observed_API02-AI-001_body"
+      },
+      {
+        "type": "any",
+        "value": "200",
+        "key": "observed_API02-AI-002_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"message\":\"Checkout successful\",\"orderId\":3}",
+        "key": "observed_API02-AI-002_body"
+      },
+      {
+        "type": "any",
+        "value": "200",
+        "key": "observed_API02-AI-003_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"message\":\"Checkout successful\",\"orderId\":4}",
+        "key": "observed_API02-AI-003_body"
+      },
+      {
+        "type": "any",
+        "value": "200",
+        "key": "observed_API02-AI-004_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"message\":\"Checkout successful\",\"orderId\":5}",
+        "key": "observed_API02-AI-004_body"
+      },
+      {
+        "type": "any",
+        "value": "200",
+        "key": "observed_API02-AI-005_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"message\":\"Checkout successful\",\"orderId\":6}",
+        "key": "observed_API02-AI-005_body"
+      },
+      {
+        "type": "any",
+        "value": "200",
+        "key": "observed_API02-AI-006_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"message\":\"Checkout successful\",\"orderId\":7}",
+        "key": "observed_API02-AI-006_body"
+      },
+      {
+        "type": "any",
+        "value": "200",
+        "key": "observed_API02-AI-007_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"message\":\"Checkout successful\",\"orderId\":8}",
+        "key": "observed_API02-AI-007_body"
+      },
+      {
+        "type": "any",
+        "value": "200",
+        "key": "observed_API02-AI-009_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"message\":\"Checkout successful\",\"orderId\":9}",
+        "key": "observed_API02-AI-009_body"
+      },
+      {
+        "type": "any",
+        "value": "200",
+        "key": "observed_API02-AI-010_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"message\":\"Checkout successful\",\"orderId\":10}",
+        "key": "observed_API02-AI-010_body"
+      },
+      {
+        "type": "any",
+        "value": "200",
+        "key": "observed_API02-AI-014_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"message\":\"Checkout successful\",\"orderId\":11}",
+        "key": "observed_API02-AI-014_body"
+      },
+      {
+        "type": "any",
+        "value": "200",
+        "key": "observed_API02-AI-016_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"message\":\"Checkout successful\",\"orderId\":12}",
+        "key": "observed_API02-AI-016_body"
+      },
+      {
+        "type": "any",
+        "value": "200",
+        "key": "observed_API02-AI-017_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"message\":\"Checkout successful\",\"orderId\":13}",
+        "key": "observed_API02-AI-017_body"
+      },
+      {
+        "type": "any",
+        "value": "200",
+        "key": "observed_API02-AI-018_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"message\":\"Checkout successful\",\"orderId\":14}",
+        "key": "observed_API02-AI-018_body"
+      },
+      {
+        "type": "any",
+        "value": "401",
+        "key": "observed_API02-AI-021_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"error\":\"Unauthorized\"}",
+        "key": "observed_API02-AI-021_body"
+      },
+      {
+        "type": "any",
+        "value": "200",
+        "key": "observed_API02-AI-022_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"message\":\"Checkout successful\",\"orderId\":15}",
+        "key": "observed_API02-AI-022_body"
+      },
+      {
+        "type": "any",
+        "value": "403",
+        "key": "observed_API02-AI-023_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"error\":\"Forbidden\"}",
+        "key": "observed_API02-AI-023_body"
+      },
+      {
+        "type": "any",
+        "value": "401",
+        "key": "observed_API02-AI-024_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"error\":\"Unauthorized\"}",
+        "key": "observed_API02-AI-024_body"
+      },
+      {
+        "type": "any",
+        "value": "200",
+        "key": "observed_API02-AI-025_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"message\":\"Checkout successful\",\"orderId\":16}",
+        "key": "observed_API02-AI-025_body"
+      },
+      {
+        "type": "any",
+        "value": "200",
+        "key": "observed_API02-AI-026_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"message\":\"Checkout successful\",\"orderId\":17}",
+        "key": "observed_API02-AI-026_body"
+      },
+      {
+        "type": "any",
+        "value": "200",
+        "key": "observed_API02-AI-027_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"message\":\"Checkout successful\",\"orderId\":18}",
+        "key": "observed_API02-AI-027_body"
+      },
+      {
+        "type": "any",
+        "value": "200",
+        "key": "observed_API02-AI-029_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"message\":\"Checkout successful\",\"orderId\":19}",
+        "key": "observed_API02-AI-029_body"
+      },
+      {
+        "type": "any",
+        "value": "200",
+        "key": "observed_API02-AI-034_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"message\":\"Checkout successful\",\"orderId\":20}",
+        "key": "observed_API02-AI-034_body"
+      },
+      {
+        "type": "any",
+        "value": "200",
+        "key": "observed_API02-AI-035_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"message\":\"Checkout successful\",\"orderId\":21}",
+        "key": "observed_API02-AI-035_body"
+      },
+      {
+        "type": "any",
+        "value": "200",
+        "key": "observed_API02-AI-036_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"message\":\"Checkout successful\",\"orderId\":22}",
+        "key": "observed_API02-AI-036_body"
+      },
+      {
+        "type": "any",
+        "value": "200",
+        "key": "observed_API02-AI-037_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"message\":\"Checkout successful\",\"orderId\":23}",
+        "key": "observed_API02-AI-037_body"
+      },
+      {
+        "type": "any",
+        "value": "403",
+        "key": "observed_API02-STU-001_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"error\":\"Forbidden\"}",
+        "key": "observed_API02-STU-001_body"
+      },
+      {
+        "type": "any",
+        "value": "200",
+        "key": "observed_API02-STU-002_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"message\":\"Checkout successful\",\"orderId\":24}",
+        "key": "observed_API02-STU-002_body"
+      },
+      {
+        "type": "any",
+        "value": "200",
+        "key": "observed_API02-STU-003_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"message\":\"Checkout successful\",\"orderId\":25}",
+        "key": "observed_API02-STU-003_body"
+      },
+      {
+        "type": "any",
+        "value": "200",
+        "key": "observed_API02-STU-005_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"message\":\"Checkout successful\",\"orderId\":26}",
+        "key": "observed_API02-STU-005_body"
+      },
+      {
+        "type": "any",
+        "value": "200",
+        "key": "observed_API02-STU-006_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"message\":\"Checkout successful\",\"orderId\":27}",
+        "key": "observed_API02-STU-006_body"
+      },
+      {
+        "type": "any",
+        "value": "[{\"id\":1,\"name\":\"iPhone 15 Pro Max\",\"price\":30000000,\"description\":\"Điện thoại cao cấp của Apple\",\"imageUrl\":\"https://placehold.co/300x300/png?text=iPhone+15\",\"category_id\":1},{\"id\":2,\"name\":\"Samsung Galaxy S24 Ultra\",\"price\":28000000,\"description\":\"Màn hình hiển thị xuất sắc, camera siêu zoom\",\"imageUrl\":\"https://placehold.co/300x300/png?text=Samsung+S24\",\"category_id\":1},{\"id\":3,\"name\":\"MacBook Pro M3\",\"price\":45000000,\"description\":\"Laptop chuyên nghiệp mạnh mẽ\",\"imageUrl\":\"https://placehold.co/300x300/png?text=Macbook+Pro\",\"category_id\":2},{\"id\":4,\"name\":\"Tai nghe AirPods Pro 2\",\"price\":6000000,\"description\":\"Chống ồn chủ động xuất sắc\",\"imageUrl\":\"https://placehold.co/300x300/png?text=AirPods+Pro\",\"category_id\":3},{\"id\":5,\"name\":\"Bàn phím cơ Keychron Q1\",\"price\":4000000,\"description\":\"Gõ cực sướng, thiết kế kim loại\",\"imageUrl\":\"https://placehold.co/300x300/png?text=Keychron+Q1\",\"category_id\":3},{\"id\":6,\"name\":\"HW06-20260821204959-API03-AI-001-A\",\"price\":10000,\"description\":\"Disposable fixture for API03-AI-001\",\"imageUrl\":\"\",\"category_id\":1}]",
+        "key": "productBaseline"
+      },
+      {
+        "type": "any",
+        "value": "200",
+        "key": "observed_API03-AI-001_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"message\":\"Import hoàn tất: 1/1 sản phẩm được thêm\",\"inserted\":1,\"errors\":[]}",
+        "key": "observed_API03-AI-001_body"
+      },
+      {
+        "type": "any",
+        "value": "200",
+        "key": "observed_API03-AI-002_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"message\":\"Import hoàn tất: 2/2 sản phẩm được thêm\",\"inserted\":2,\"errors\":[]}",
+        "key": "observed_API03-AI-002_body"
+      },
+      {
+        "type": "any",
+        "value": "400",
+        "key": "observed_API03-AI-003_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"error\":\"Không có dữ liệu để import\"}",
+        "key": "observed_API03-AI-003_body"
+      },
+      {
+        "type": "any",
+        "value": "400",
+        "key": "observed_API03-AI-004_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"error\":\"Không có dữ liệu để import\"}",
+        "key": "observed_API03-AI-004_body"
+      },
+      {
+        "type": "any",
+        "value": "400",
+        "key": "observed_API03-AI-005_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"error\":\"Không có dữ liệu để import\"}",
+        "key": "observed_API03-AI-005_body"
+      },
+      {
+        "type": "any",
+        "value": "200",
+        "key": "observed_API03-AI-007_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"message\":\"Import hoàn tất: 0/1 sản phẩm được thêm\",\"inserted\":0,\"errors\":[\"Hàng 2: Thiếu tên sản phẩm\"]}",
+        "key": "observed_API03-AI-007_body"
+      },
+      {
+        "type": "any",
+        "value": "200",
+        "key": "observed_API03-AI-008_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"message\":\"Import hoàn tất: 0/1 sản phẩm được thêm\",\"inserted\":0,\"errors\":[\"Hàng 2: Thiếu tên sản phẩm\"]}",
+        "key": "observed_API03-AI-008_body"
+      },
+      {
+        "type": "any",
+        "value": "200",
+        "key": "observed_API03-AI-009_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"message\":\"Import hoàn tất: 1/1 sản phẩm được thêm\",\"inserted\":1,\"errors\":[]}",
+        "key": "observed_API03-AI-009_body"
+      },
+      {
+        "type": "any",
+        "value": "200",
+        "key": "observed_API03-AI-010_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"message\":\"Import hoàn tất: 1/1 sản phẩm được thêm\",\"inserted\":1,\"errors\":[]}",
+        "key": "observed_API03-AI-010_body"
+      },
+      {
+        "type": "any",
+        "value": "200",
+        "key": "observed_API03-AI-011_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"message\":\"Import hoàn tất: 1/1 sản phẩm được thêm\",\"inserted\":1,\"errors\":[]}",
+        "key": "observed_API03-AI-011_body"
+      },
+      {
+        "type": "any",
+        "value": "200",
+        "key": "observed_API03-AI-016_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"message\":\"Import hoàn tất: 1/1 sản phẩm được thêm\",\"inserted\":1,\"errors\":[]}",
+        "key": "observed_API03-AI-016_body"
+      },
+      {
+        "type": "any",
+        "value": "200",
+        "key": "observed_API03-AI-017_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"message\":\"Import hoàn tất: 1/2 sản phẩm được thêm\",\"inserted\":1,\"errors\":[\"Hàng 2: Thiếu tên sản phẩm\"]}",
+        "key": "observed_API03-AI-017_body"
+      },
+      {
+        "type": "any",
+        "value": "200",
+        "key": "observed_API03-AI-018_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"message\":\"Import hoàn tất: 2/2 sản phẩm được thêm\",\"inserted\":2,\"errors\":[]}",
+        "key": "observed_API03-AI-018_body"
+      },
+      {
+        "type": "any",
+        "value": "200",
+        "key": "observed_API03-AI-019_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"message\":\"Import hoàn tất: 1/2 sản phẩm được thêm\",\"inserted\":1,\"errors\":[\"Hàng 3: Thiếu tên sản phẩm\"]}",
+        "key": "observed_API03-AI-019_body"
+      },
+      {
+        "type": "any",
+        "value": "200",
+        "key": "observed_API03-AI-020_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"message\":\"Import hoàn tất: 1/2 sản phẩm được thêm\",\"inserted\":1,\"errors\":[\"Hàng 3: Thiếu tên sản phẩm\"]}",
+        "key": "observed_API03-AI-020_body"
+      },
+      {
+        "type": "any",
+        "value": "200",
+        "key": "observed_API03-AI-021_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"message\":\"Import hoàn tất: 1/1 sản phẩm được thêm\",\"inserted\":1,\"errors\":[]}",
+        "key": "observed_API03-AI-021_body"
+      },
+      {
+        "type": "any",
+        "value": "200",
+        "key": "observed_API03-AI-022_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"message\":\"Import hoàn tất: 2/2 sản phẩm được thêm\",\"inserted\":2,\"errors\":[]}",
+        "key": "observed_API03-AI-022_body"
+      },
+      {
+        "type": "any",
+        "value": "401",
+        "key": "observed_API03-AI-023_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"error\":\"Unauthorized\"}",
+        "key": "observed_API03-AI-023_body"
+      },
+      {
+        "type": "any",
+        "value": "403",
+        "key": "observed_API03-AI-024_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"error\":\"Forbidden\"}",
+        "key": "observed_API03-AI-024_body"
+      },
+      {
+        "type": "any",
+        "value": "401",
+        "key": "observed_API03-AI-025_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"error\":\"Unauthorized\"}",
+        "key": "observed_API03-AI-025_body"
+      },
+      {
+        "type": "any",
+        "value": "200",
+        "key": "observed_API03-AI-026_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"message\":\"Import hoàn tất: 1/1 sản phẩm được thêm\",\"inserted\":1,\"errors\":[]}",
+        "key": "observed_API03-AI-026_body"
+      },
+      {
+        "type": "any",
+        "value": "200",
+        "key": "observed_API03-AI-027_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"message\":\"Import hoàn tất: 1/1 sản phẩm được thêm\",\"inserted\":1,\"errors\":[]}",
+        "key": "observed_API03-AI-027_body"
+      },
+      {
+        "type": "any",
+        "value": "200",
+        "key": "observed_API03-AI-028_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"message\":\"Import hoàn tất: 1/1 sản phẩm được thêm\",\"inserted\":1,\"errors\":[]}",
+        "key": "observed_API03-AI-028_body"
+      },
+      {
+        "type": "any",
+        "value": "200",
+        "key": "observed_API03-AI-029_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"message\":\"Import hoàn tất: 1/1 sản phẩm được thêm\",\"inserted\":1,\"errors\":[]}",
+        "key": "observed_API03-AI-029_body"
+      },
+      {
+        "type": "any",
+        "value": "200",
+        "key": "observed_API03-AI-031_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"message\":\"Import hoàn tất: 1/1 sản phẩm được thêm\",\"inserted\":1,\"errors\":[]}",
+        "key": "observed_API03-AI-031_body"
+      },
+      {
+        "type": "any",
+        "value": "200",
+        "key": "observed_API03-AI-035_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"message\":\"Import hoàn tất: 1/1 sản phẩm được thêm\",\"inserted\":1,\"errors\":[]}",
+        "key": "observed_API03-AI-035_body"
+      },
+      {
+        "type": "any",
+        "value": "200",
+        "key": "observed_API03-AI-038_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"message\":\"Import hoàn tất: 2/2 sản phẩm được thêm\",\"inserted\":2,\"errors\":[]}",
+        "key": "observed_API03-AI-038_body"
+      },
+      {
+        "type": "any",
+        "value": "200",
+        "key": "observed_API03-AI-039_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"message\":\"Import hoàn tất: 1/1 sản phẩm được thêm\",\"inserted\":1,\"errors\":[]}",
+        "key": "observed_API03-AI-039_body"
+      },
+      {
+        "type": "any",
+        "value": "200",
+        "key": "observed_API03-STU-001_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"message\":\"Import hoàn tất: 1/2 sản phẩm được thêm\",\"inserted\":1,\"errors\":[\"Hàng 2: Thiếu tên sản phẩm\"]}",
+        "key": "observed_API03-STU-001_body"
+      },
+      {
+        "type": "any",
+        "value": "200",
+        "key": "observed_API03-STU-002_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"message\":\"Import hoàn tất: 1/2 sản phẩm được thêm\",\"inserted\":1,\"errors\":[\"Hàng 2: Thiếu tên sản phẩm\"]}",
+        "key": "observed_API03-STU-002_body"
+      },
+      {
+        "type": "any",
+        "value": "200",
+        "key": "observed_API03-STU-003_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"message\":\"Import hoàn tất: 2/2 sản phẩm được thêm\",\"inserted\":2,\"errors\":[]}",
+        "key": "observed_API03-STU-003_body"
+      },
+      {
+        "type": "any",
+        "value": "200",
+        "key": "observed_API03-STU-004_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"message\":\"Import hoàn tất: 2/2 sản phẩm được thêm\",\"inserted\":2,\"errors\":[]}",
+        "key": "observed_API03-STU-004_body"
+      },
+      {
+        "type": "any",
+        "value": "200",
+        "key": "observed_API03-STU-006_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"message\":\"Import hoàn tất: 2/2 sản phẩm được thêm\",\"inserted\":2,\"errors\":[]}",
+        "key": "observed_API03-STU-006_body"
+      }
+    ]
+  },
+  "globals": {
+    "id": "7f943070-289e-4d7c-9259-f6748b11f118",
+    "values": []
+  },
+  "run": {
+    "stats": {
+      "iterations": {
+        "total": 1,
+        "pending": 0,
+        "failed": 0
+      },
+      "items": {
+        "total": 2,
+        "pending": 0,
+        "failed": 0
+      },
+      "scripts": {
+        "total": 2,
+        "pending": 0,
+        "failed": 0
+      },
+      "prerequests": {
+        "total": 2,
+        "pending": 0,
+        "failed": 0
+      },
+      "requests": {
+        "total": 2,
+        "pending": 0,
+        "failed": 0
+      },
+      "tests": {
+        "total": 2,
+        "pending": 0,
+        "failed": 0
+      },
+      "assertions": {
+        "total": 4,
+        "pending": 0,
+        "failed": 0
+      },
+      "testScripts": {
+        "total": 2,
+        "pending": 0,
+        "failed": 0
+      },
+      "prerequestScripts": {
+        "total": 0,
+        "pending": 0,
+        "failed": 0
+      }
+    },
+    "timings": {
+      "responseAverage": 13.5,
+      "responseMin": 3,
+      "responseMax": 24,
+      "responseSd": 10.5,
+      "dnsAverage": 0,
+      "dnsMin": 0,
+      "dnsMax": 0,
+      "dnsSd": 0,
+      "firstByteAverage": 0,
+      "firstByteMin": 0,
+      "firstByteMax": 0,
+      "firstByteSd": 0,
+      "started": 1787402957314,
+      "completed": 1787402957515
+    },
+    "executions": [
+      {
+        "cursor": {
+          "position": 0,
+          "iteration": 0,
+          "length": 2,
+          "cycles": 1,
+          "empty": false,
+          "eof": false,
+          "bof": true,
+          "cr": false,
+          "ref": "4678c87e-3222-4be6-8990-c887b8687277",
+          "httpRequestId": "013d838f-8307-4278-ae84-e3bae72d22eb"
+        },
+        "item": {
+          "id": "630e9781-280b-41ef-84c9-260b5efbc57d",
+          "name": "[RUN-POST-001] Capture primary cart after full run",
+          "request": {
+            "description": {
+              "content": "Read-only postcondition helper; not a final testcase identity.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "cart"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "type": "string",
+                  "value": "{{userToken}}",
+                  "key": "token"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "e4151d5a-76fc-4541-94ae-1ac267049d1c",
+                "type": "text/javascript",
+                "exec": [
+                  "const primaryResolvedStudentId = pm.variables.replaceIn('{{studentId}}');",
+                  "pm.test('primary postcheck studentId is configured', () => { pm.expect(primaryResolvedStudentId).to.not.equal('{{studentId}}'); pm.expect(primaryResolvedStudentId).to.not.be.empty; });",
+                  "pm.test('primary cart response captured', () => pm.expect(pm.response.code).to.be.a('number'));"
+                ],
+                "_lastExecutionId": "951350da-e767-4dd7-a102-dccace3c5c6b"
+              }
+            }
+          ]
+        },
+        "request": {
+          "description": {
+            "content": "Read-only postcondition helper; not a final testcase identity.",
+            "type": "text/plain"
+          },
+          "url": {
+            "protocol": "http",
+            "port": "3000",
+            "path": [
+              "api",
+              "cart"
+            ],
+            "host": [
+              "localhost"
+            ],
+            "query": [],
+            "variable": []
+          },
+          "header": [
+            {
+              "key": "X-Student-Id",
+              "value": "23127107"
+            },
+            {
+              "key": "Authorization",
+              "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6InVzZXIiLCJpYXQiOjE3ODc0MDI4MDR9.CH_ytsGSIRpboiYq3hsv-QjVV0KXFqlwWEYN6YrPHo4",
+              "system": true
+            },
+            {
+              "key": "User-Agent",
+              "value": "PostmanRuntime/7.39.1",
+              "system": true
+            },
+            {
+              "key": "Accept",
+              "value": "*/*",
+              "system": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache",
+              "system": true
+            },
+            {
+              "key": "Postman-Token",
+              "value": "0d94a8ac-c9fe-4026-b59a-9555128a254b",
+              "system": true
+            },
+            {
+              "key": "Host",
+              "value": "localhost:3000",
+              "system": true
+            },
+            {
+              "key": "Accept-Encoding",
+              "value": "gzip, deflate, br",
+              "system": true
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "system": true
+            }
+          ],
+          "method": "GET",
+          "auth": {
+            "type": "bearer",
+            "bearer": [
+              {
+                "type": "string",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6InVzZXIiLCJpYXQiOjE3ODc0MDI4MDR9.CH_ytsGSIRpboiYq3hsv-QjVV0KXFqlwWEYN6YrPHo4",
+                "key": "token"
+              }
+            ]
+          }
+        },
+        "response": {
+          "id": "eb2645f6-cb35-4257-a202-609c0d55724b",
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "133"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"85-NuotEtllRus4yCoxeYB+viObdlA\""
+            },
+            {
+              "key": "Date",
+              "value": "Sat, 22 Aug 2026 12:49:17 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "stream": {
+            "type": "Buffer",
+            "data": [
+              91,
+              123,
+              34,
+              105,
+              100,
+              34,
+              58,
+              49,
+              44,
+              34,
+              110,
+              97,
+              109,
+              101,
+              34,
+              58,
+              34,
+              72,
+              87,
+              48,
+              54,
+              32,
+              50,
+              48,
+              50,
+              54,
+              48,
+              56,
+              50,
+              49,
+              50,
+              48,
+              52,
+              57,
+              53,
+              57,
+              34,
+              44,
+              34,
+              112,
+              114,
+              105,
+              99,
+              101,
+              34,
+              58,
+              49,
+              48,
+              48,
+              48,
+              48,
+              48,
+              44,
+              34,
+              113,
+              117,
+              97,
+              110,
+              116,
+              105,
+              116,
+              121,
+              34,
+              58,
+              50,
+              125,
+              44,
+              123,
+              34,
+              105,
+              100,
+              34,
+              58,
+              49,
+              44,
+              34,
+              110,
+              97,
+              109,
+              101,
+              34,
+              58,
+              34,
+              72,
+              87,
+              48,
+              54,
+              32,
+              50,
+              48,
+              50,
+              54,
+              48,
+              56,
+              50,
+              49,
+              50,
+              48,
+              52,
+              57,
+              53,
+              57,
+              34,
+              44,
+              34,
+              112,
+              114,
+              105,
+              99,
+              101,
+              34,
+              58,
+              49,
+              48,
+              48,
+              48,
+              48,
+              48,
+              44,
+              34,
+              113,
+              117,
+              97,
+              110,
+              116,
+              105,
+              116,
+              121,
+              34,
+              58,
+              50,
+              125,
+              93
+            ]
+          },
+          "cookie": [],
+          "responseTime": 24,
+          "responseSize": 133
+        },
+        "id": "630e9781-280b-41ef-84c9-260b5efbc57d",
+        "assertions": [
+          {
+            "assertion": "primary postcheck studentId is configured",
+            "skipped": false
+          },
+          {
+            "assertion": "primary cart response captured",
+            "skipped": false
+          }
+        ]
+      },
+      {
+        "cursor": {
+          "ref": "ce851193-900e-4e0b-ae73-717ec1334bdf",
+          "length": 2,
+          "cycles": 1,
+          "position": 1,
+          "iteration": 0,
+          "httpRequestId": "680b838d-a55e-404c-a0f4-78cbdce6359a"
+        },
+        "item": {
+          "id": "979a6242-9cde-47e7-a6c7-30db0a58e51f",
+          "name": "[RUN-POST-002] Capture second-user cart after full run",
+          "request": {
+            "description": {
+              "content": "Read-only postcondition helper; not a final testcase identity.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "cart"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "type": "string",
+                  "value": "{{otherUserToken}}",
+                  "key": "token"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "60762dbb-5dfe-46cc-b374-20bc2f994879",
+                "type": "text/javascript",
+                "exec": [
+                  "const secondaryResolvedStudentId = pm.variables.replaceIn('{{studentId}}');",
+                  "pm.test('secondary postcheck studentId is configured', () => { pm.expect(secondaryResolvedStudentId).to.not.equal('{{studentId}}'); pm.expect(secondaryResolvedStudentId).to.not.be.empty; });",
+                  "pm.test('secondary cart response captured', () => pm.expect(pm.response.code).to.be.a('number'));"
+                ],
+                "_lastExecutionId": "12763d70-5990-415f-bfc3-499d4e3db81c"
+              }
+            }
+          ]
+        },
+        "request": {
+          "description": {
+            "content": "Read-only postcondition helper; not a final testcase identity.",
+            "type": "text/plain"
+          },
+          "url": {
+            "protocol": "http",
+            "port": "3000",
+            "path": [
+              "api",
+              "cart"
+            ],
+            "host": [
+              "localhost"
+            ],
+            "query": [],
+            "variable": []
+          },
+          "header": [
+            {
+              "key": "X-Student-Id",
+              "value": "23127107"
+            },
+            {
+              "key": "Authorization",
+              "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6InVzZXIiLCJpYXQiOjE3ODc0MDI4MDF9.vWMev3UkypjW3mey9-pBdIwR7h1jBGkDbm8kEL8Yego",
+              "system": true
+            },
+            {
+              "key": "User-Agent",
+              "value": "PostmanRuntime/7.39.1",
+              "system": true
+            },
+            {
+              "key": "Accept",
+              "value": "*/*",
+              "system": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache",
+              "system": true
+            },
+            {
+              "key": "Postman-Token",
+              "value": "ce2248eb-799f-4959-a6a0-c14bbbd9c825",
+              "system": true
+            },
+            {
+              "key": "Host",
+              "value": "localhost:3000",
+              "system": true
+            },
+            {
+              "key": "Accept-Encoding",
+              "value": "gzip, deflate, br",
+              "system": true
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "system": true
+            }
+          ],
+          "method": "GET",
+          "auth": {
+            "type": "bearer",
+            "bearer": [
+              {
+                "type": "string",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6InVzZXIiLCJpYXQiOjE3ODc0MDI4MDF9.vWMev3UkypjW3mey9-pBdIwR7h1jBGkDbm8kEL8Yego",
+                "key": "token"
+              }
+            ]
+          }
+        },
+        "response": {
+          "id": "2645f2ee-6a26-4b2b-a8e5-362c0ae7661f",
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "72"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"48-vCEYdfNxssq+1Yq74b01ZlDtvuM\""
+            },
+            {
+              "key": "Date",
+              "value": "Sat, 22 Aug 2026 12:49:17 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "stream": {
+            "type": "Buffer",
+            "data": [
+              91,
+              123,
+              34,
+              105,
+              100,
+              34,
+              58,
+              49,
+              44,
+              34,
+              110,
+              97,
+              109,
+              101,
+              34,
+              58,
+              34,
+              72,
+              87,
+              48,
+              54,
+              32,
+              111,
+              116,
+              104,
+              101,
+              114,
+              32,
+              50,
+              48,
+              50,
+              54,
+              48,
+              56,
+              50,
+              49,
+              50,
+              48,
+              52,
+              57,
+              53,
+              57,
+              34,
+              44,
+              34,
+              112,
+              114,
+              105,
+              99,
+              101,
+              34,
+              58,
+              53,
+              48,
+              48,
+              48,
+              48,
+              44,
+              34,
+              113,
+              117,
+              97,
+              110,
+              116,
+              105,
+              116,
+              121,
+              34,
+              58,
+              49,
+              125,
+              93
+            ]
+          },
+          "cookie": [],
+          "responseTime": 3,
+          "responseSize": 72
+        },
+        "id": "979a6242-9cde-47e7-a6c7-30db0a58e51f",
+        "assertions": [
+          {
+            "assertion": "secondary postcheck studentId is configured",
+            "skipped": false
+          },
+          {
+            "assertion": "secondary cart response captured",
+            "skipped": false
+          }
+        ]
+      }
+    ],
+    "transfers": {
+      "responseTotal": 205
+    },
+    "failures": [],
+    "error": null
+  }
+}
