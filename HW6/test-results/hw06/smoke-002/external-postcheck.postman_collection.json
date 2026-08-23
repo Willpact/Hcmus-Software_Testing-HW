@@ -1,0 +1,56 @@
+{
+  "info": {
+    "name": "HW06 Smoke 002 External Postcheck",
+    "description": "Runtime-only read-only HTTP postcondition capture for API02-AI-001.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "[SMOKE-POST-001] Capture primary cart after checkout",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-Student-Id",
+            "value": "{{studentId}}",
+            "type": "text"
+          }
+        ],
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{userToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/cart",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "cart"
+          ]
+        },
+        "description": "Read-only postcondition helper; not a final testcase identity."
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "const resolvedStudentId = pm.variables.replaceIn('{{studentId}}');",
+              "pm.test('studentId is configured', () => { pm.expect(resolvedStudentId).to.not.equal('{{studentId}}'); pm.expect(resolvedStudentId).to.not.be.empty; });",
+              "pm.test('cart postcondition response is available', () => { pm.expect(pm.response.code).to.be.a('number'); });"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

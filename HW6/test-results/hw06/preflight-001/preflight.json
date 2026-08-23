@@ -1,0 +1,936 @@
+{
+  "preflight_id": "preflight-001",
+  "timestamp": "2026-08-21 20:32:37 +07:00",
+  "execution_status": "BLOCKED",
+  "blockers": [
+    "STUDENT_ID_NOT_CONFIGURED",
+    "REQUIRED_DISPOSABLE_CREDENTIALS_NOT_CONFIGURED",
+    "NEWMAN_UNAVAILABLE",
+    "SUT_NOT_RUNNING"
+  ],
+  "student_id": {
+    "present": true,
+    "non_empty": false,
+    "value_logged": false
+  },
+  "tools": {
+    "node": "v22.18.0",
+    "npm": "10.9.3",
+    "newman": "UNAVAILABLE"
+  },
+  "sut": {
+    "base_url": "http://localhost:3000",
+    "listener_before_execution": false,
+    "started": false,
+    "request_sent": false,
+    "database": "../eshop-sut/backend/database.sqlite",
+    "environment_kind": "local homework SUT"
+  },
+  "smoke": "BLOCKED",
+  "full_execution": "NOT_RUN",
+  "newman_started": false,
+  "results": {
+    "total": 93,
+    "pass": 0,
+    "fail": 0,
+    "postman_pass_external_pending": 0,
+    "blocked": 93,
+    "not_run": 0
+  },
+  "preliminary_classification": {
+    "product_defect_candidate": 0,
+    "test_defect": 0,
+    "test_data_defect": 0,
+    "environment_defect": 93,
+    "spec_ambiguity": 0,
+    "external_verification_pending": 0,
+    "needs_human_review": 0
+  },
+  "external_verification": {
+    "planned": 26,
+    "completed": 0,
+    "passed": 0,
+    "failed": 0,
+    "pending": 26
+  },
+  "per_api": {
+    "API-01": {
+      "total": 30,
+      "pass": 0,
+      "fail": 0,
+      "postman_pass_external_pending": 0,
+      "blocked": 30,
+      "not_run": 0
+    },
+    "API-02": {
+      "total": 30,
+      "pass": 0,
+      "fail": 0,
+      "postman_pass_external_pending": 0,
+      "blocked": 30,
+      "not_run": 0
+    },
+    "API-03": {
+      "total": 33,
+      "pass": 0,
+      "fail": 0,
+      "postman_pass_external_pending": 0,
+      "blocked": 33,
+      "not_run": 0
+    }
+  },
+  "approved_input_hashes_sha256": {
+    "postman/collections/HW06-API-Testing.postman_collection.json": "A778144BF198CCAD0408777A5672189150396457238B3C28535D48395C6BB0DB",
+    "postman/environments/HW06-Local.postman_environment.json": "152C28286BAD3ABDA09EB8DE448970EE0C5275C1CACFC48814EFA0B0D057EC55",
+    "postman/data/api-01-reset-password.json": "C3572A809D82C94EBF3E4812FE570F239C504BC4ADB5361C8DC9ECE350FD94E9",
+    "postman/data/api-02-checkout.json": "8582ED5AAED819CAE1701B902FA0BCA29F8F52067F1BB2CD9C14A70D6A072F47",
+    "postman/data/api-03-import-products.json": "1E255EB00EB455514530095DA8E491FE50F2396177F1198662E15CBC594A144E",
+    "docs/postman/execution-manifest.md": "4B7100AAFD3BAF011112A83A57F0ABDB266D75F1F9A1EA9DFF354D35BFA15E4A",
+    "docs/postman/external-verification-plan.md": "EAB0DE038042FE7D1D92327BDB695D0C42969A5F17905A045B7E6FCE11D99964"
+  },
+  "cases": {
+    "API-01": [
+      {
+        "case_id": "API01-AI-001",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API01-AI-002",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API01-AI-003",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API01-AI-004",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API01-AI-005",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API01-AI-006",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API01-AI-007",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API01-AI-008",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API01-AI-009",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API01-AI-010",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API01-AI-011",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API01-AI-012",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API01-AI-014",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API01-AI-015",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API01-AI-016",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API01-AI-018",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API01-AI-019",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API01-AI-021",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API01-AI-022",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API01-AI-023",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API01-AI-024",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API01-AI-027",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API01-AI-028",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API01-AI-029",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API01-AI-035",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API01-STU-001",
+        "source": "STUDENT_ADDED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API01-STU-002",
+        "source": "STUDENT_ADDED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API01-STU-003",
+        "source": "STUDENT_ADDED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API01-STU-004",
+        "source": "STUDENT_ADDED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API01-STU-005",
+        "source": "STUDENT_ADDED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      }
+    ],
+    "API-02": [
+      {
+        "case_id": "API02-AI-001",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API02-AI-002",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API02-AI-003",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API02-AI-004",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API02-AI-005",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API02-AI-006",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API02-AI-007",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API02-AI-009",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API02-AI-010",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API02-AI-014",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API02-AI-016",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API02-AI-017",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API02-AI-018",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API02-AI-021",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API02-AI-022",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API02-AI-023",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API02-AI-024",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API02-AI-025",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API02-AI-026",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API02-AI-027",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API02-AI-029",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API02-AI-034",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API02-AI-035",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API02-AI-036",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API02-AI-037",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API02-STU-001",
+        "source": "STUDENT_ADDED",
+        "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API02-STU-002",
+        "source": "STUDENT_ADDED",
+        "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API02-STU-003",
+        "source": "STUDENT_ADDED",
+        "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API02-STU-005",
+        "source": "STUDENT_ADDED",
+        "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API02-STU-006",
+        "source": "STUDENT_ADDED",
+        "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      }
+    ],
+    "API-03": [
+      {
+        "case_id": "API03-AI-001",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API03-AI-002",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API03-AI-003",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API03-AI-004",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API03-AI-005",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API03-AI-007",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API03-AI-008",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API03-AI-009",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API03-AI-010",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API03-AI-011",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API03-AI-016",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API03-AI-017",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API03-AI-018",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API03-AI-019",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API03-AI-020",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API03-AI-021",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API03-AI-022",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API03-AI-023",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API03-AI-024",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API03-AI-025",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API03-AI-026",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API03-AI-027",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API03-AI-028",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API03-AI-029",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API03-AI-031",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API03-AI-035",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API03-AI-038",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API03-AI-039",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API03-STU-001",
+        "source": "STUDENT_ADDED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API03-STU-002",
+        "source": "STUDENT_ADDED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API03-STU-003",
+        "source": "STUDENT_ADDED",
+        "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API03-STU-004",
+        "source": "STUDENT_ADDED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      },
+      {
+        "case_id": "API03-STU-006",
+        "source": "STUDENT_ADDED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "STUDENT_ID_NOT_CONFIGURED",
+        "request_sent": false
+      }
+    ]
+  }
+}

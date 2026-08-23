@@ -1,0 +1,687 @@
+{
+  "info": {
+    "_postman_id": "9f085bf6-4c01-49f9-924c-79d71ac1e0e3",
+    "name": "HW06 Real Smoke 001",
+    "description": "Runtime-only smoke derived from the approved 93-case collection. Includes documented fixture registration and one stable testcase identity per API.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "if (!pm.environment.get('testRunId')) {",
+          "  pm.environment.set('testRunId', `${Date.now()}-${Math.floor(Math.random() * 100000)}`);",
+          "}"
+        ]
+      }
+    }
+  ],
+  "item": [
+    {
+      "name": "Runtime Fixture Bootstrap",
+      "item": [
+        {
+          "name": "[SMOKE-SETUP-001] Register reset user",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"HW06 disposable {{testRunId}}\",\n  \"email\": \"{{resetEmail}}\",\n  \"password\": \"{{resetUserPassword}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/register",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "register"
+              ]
+            },
+            "description": "Runtime-only documented fixture registration helper; not a final testcase identity."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Disposable fixture registration succeeds', () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "[SMOKE-SETUP-002] Register second user",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"HW06 disposable {{testRunId}}\",\n  \"email\": \"{{otherUserEmail}}\",\n  \"password\": \"{{otherUserPassword}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/register",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "register"
+              ]
+            },
+            "description": "Runtime-only documented fixture registration helper; not a final testcase identity."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Disposable fixture registration succeeds', () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "API-01 Reset Password Smoke",
+      "item": [
+        {
+          "name": "[SETUP-API01-001] Issue reset OTP",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/forgot-password",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "forgot-password"
+              ]
+            },
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "Reusable setup/precheck helper. It is not a final testcase identity and must use disposable fixtures.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"{{resetEmail}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "x-helper": true,
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Documented forgot-password success is 200 when the fixture is valid', () => pm.response.to.have.status(200));",
+                  "const data = pm.response.json();",
+                  "if (data.resetToken) pm.environment.set('resetToken', String(data.resetToken));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "[API01-AI-014] Luồng issued đến reset thành công",
+          "description": "CASE_ID: API01-AI-014\nSOURCE: AI_CORRECTED\nREQUIREMENT_IDS: API01-REQ-003, API01-REQ-009, API01-REQ-010\nPRIMARY_TECHNIQUE: STATE_TRANSITION\nORACLE_BASIS: AUTHORITATIVE\nEXECUTION_MODE: POSTMAN_WITH_PRECONDITION_SETUP\nSETUP_REQUIREMENTS: Email đã đăng ký | Use POST /api/forgot-password when an issued OTP is required\nEXTERNAL_VERIFICATION: NONE\nORDER_DEPENDENT: YES\nDEPENDENCY: Execute only the explicit state-transition sequence described by the testcase preconditions/objective using isolated fixtures.\nBUSINESS_ORACLE: Reset hợp lệ đổi mật khẩu đúng một lần.\nSTATE_ORACLE: OTP chuyển từ issued sang invalidated.\nEVIDENCE_BOUNDARY: No unspecified response status or schema is asserted. Execute setup/postcondition or external verification before deciding PASS/FAIL.",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"{{resetEmail}}\",\n  \"resetToken\": \"{{resetToken}}\",\n  \"newPassword\": \"{{newPassword}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/reset-password",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "reset-password"
+              ]
+            },
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "CASE_ID: API01-AI-014\nSOURCE: AI_CORRECTED\nREQUIREMENT_IDS: API01-REQ-003, API01-REQ-009, API01-REQ-010\nPRIMARY_TECHNIQUE: STATE_TRANSITION\nORACLE_BASIS: AUTHORITATIVE\nEXECUTION_MODE: POSTMAN_WITH_PRECONDITION_SETUP\nSETUP_REQUIREMENTS: Email đã đăng ký | Use POST /api/forgot-password when an issued OTP is required\nEXTERNAL_VERIFICATION: NONE\nORDER_DEPENDENT: YES\nDEPENDENCY: Execute only the explicit state-transition sequence described by the testcase preconditions/objective using isolated fixtures.\nBUSINESS_ORACLE: Reset hợp lệ đổi mật khẩu đúng một lần.\nSTATE_ORACLE: OTP chuyển từ issued sang invalidated.\nEVIDENCE_BOUNDARY: No unspecified response status or schema is asserted. Execute setup/postcondition or external verification before deciding PASS/FAIL."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const caseId = \"API01-AI-014\";",
+                  "const resolvedStudentId = pm.variables.replaceIn('{{studentId}}');",
+                  "pm.test(`[${caseId}] studentId is configured`, function () {",
+                  "  pm.expect(resolvedStudentId).to.not.equal('{{studentId}}');",
+                  "  pm.expect(resolvedStudentId).to.not.be.empty;",
+                  "});",
+                  "pm.test(`[${caseId}] response captured for approved oracle workflow`, function () {",
+                  "  pm.expect(pm.response).to.exist;",
+                  "  pm.expect(pm.response.code).to.be.a('number');",
+                  "});",
+                  "pm.environment.set(`observed_${caseId}_status`, String(pm.response.code));",
+                  "pm.environment.set(`observed_${caseId}_body`, pm.response.text());",
+                  "// Business/state PASS requires the setup, postcondition, and external checks declared in the request description.",
+                  "// No undocumented status code or response-field assertion is introduced here."
+                ]
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "x-case-id": "API01-AI-014",
+          "x-case-source": "AI_CORRECTED",
+          "x-execution-mode": "POSTMAN_WITH_PRECONDITION_SETUP"
+        }
+      ]
+    },
+    {
+      "name": "API-02 Checkout Smoke",
+      "item": [
+        {
+          "name": "[SETUP-API02-001] Login primary user",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "login"
+              ]
+            },
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "Reusable setup/precheck helper. It is not a final testcase identity and must use disposable fixtures.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"{{userEmail}}\",\n  \"password\": \"{{userPassword}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "x-helper": true,
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Documented login success is 200 when credentials are valid', () => pm.response.to.have.status(200));",
+                  "const data = pm.response.json();",
+                  "if (data.token) pm.environment.set('userToken', data.token);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "[SETUP-API02-003] Prepare primary cart",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/cart",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "cart"
+              ]
+            },
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{userToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "description": "Reusable setup/precheck helper. It is not a final testcase identity and must use disposable fixtures.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": {{productId}},\n  \"name\": \"HW06 {{testRunId}}\",\n  \"price\": 100000,\n  \"quantity\": 2\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "x-helper": true
+        },
+        {
+          "name": "[SETUP-API02-005] Capture primary cart",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/cart",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "cart"
+              ]
+            },
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{userToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "description": "Reusable setup/precheck helper. It is not a final testcase identity and must use disposable fixtures."
+          },
+          "x-helper": true,
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.environment.set('primaryCartSnapshot', pm.response.text());"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "[API02-AI-001] Checkout hợp lệ với cart có hàng",
+          "description": "CASE_ID: API02-AI-001\nSOURCE: AI_CORRECTED\nREQUIREMENT_IDS: API02-REQ-002, API02-REQ-005, API02-REQ-006, API02-REQ-007\nPRIMARY_TECHNIQUE: DOMAIN_PARTITION\nORACLE_BASIS: AUTHORITATIVE\nEXECUTION_MODE: POSTMAN_PLUS_EXTERNAL_VERIFICATION\nSETUP_REQUIREMENTS: User đã đăng nhập | Cart của user có hàng | Use documented login/cart helpers with isolated user carts\nEXTERNAL_VERIFICATION: Read-only isolated verification: independently calculate cart total and inspect the persisted order total/user binding.\nORDER_DEPENDENT: NO\nDEPENDENCY: NONE; reusable setup creates an isolated fixture before the testcase action.\nBUSINESS_ORACLE: Checkout đủ điều kiện; tổng có thẩm quyền là tổng backend tính từ cart.\nSTATE_ORACLE: Nếu thành công, cart của user được xóa.\nEVIDENCE_BOUNDARY: No unspecified response status or schema is asserted. Execute setup/postcondition or external verification before deciding PASS/FAIL.",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"total_amount\": {{clientTotal}},\n  \"shipping_address\": \"{{shippingAddress}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/checkout",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "checkout"
+              ]
+            },
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{userToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "description": "CASE_ID: API02-AI-001\nSOURCE: AI_CORRECTED\nREQUIREMENT_IDS: API02-REQ-002, API02-REQ-005, API02-REQ-006, API02-REQ-007\nPRIMARY_TECHNIQUE: DOMAIN_PARTITION\nORACLE_BASIS: AUTHORITATIVE\nEXECUTION_MODE: POSTMAN_PLUS_EXTERNAL_VERIFICATION\nSETUP_REQUIREMENTS: User đã đăng nhập | Cart của user có hàng | Use documented login/cart helpers with isolated user carts\nEXTERNAL_VERIFICATION: Read-only isolated verification: independently calculate cart total and inspect the persisted order total/user binding.\nORDER_DEPENDENT: NO\nDEPENDENCY: NONE; reusable setup creates an isolated fixture before the testcase action.\nBUSINESS_ORACLE: Checkout đủ điều kiện; tổng có thẩm quyền là tổng backend tính từ cart.\nSTATE_ORACLE: Nếu thành công, cart của user được xóa.\nEVIDENCE_BOUNDARY: No unspecified response status or schema is asserted. Execute setup/postcondition or external verification before deciding PASS/FAIL."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const caseId = \"API02-AI-001\";",
+                  "const resolvedStudentId = pm.variables.replaceIn('{{studentId}}');",
+                  "pm.test(`[${caseId}] studentId is configured`, function () {",
+                  "  pm.expect(resolvedStudentId).to.not.equal('{{studentId}}');",
+                  "  pm.expect(resolvedStudentId).to.not.be.empty;",
+                  "});",
+                  "pm.test(`[${caseId}] response captured for approved oracle workflow`, function () {",
+                  "  pm.expect(pm.response).to.exist;",
+                  "  pm.expect(pm.response.code).to.be.a('number');",
+                  "});",
+                  "pm.environment.set(`observed_${caseId}_status`, String(pm.response.code));",
+                  "pm.environment.set(`observed_${caseId}_body`, pm.response.text());",
+                  "// Business/state PASS requires the setup, postcondition, and external checks declared in the request description.",
+                  "// No undocumented status code or response-field assertion is introduced here."
+                ]
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "x-case-id": "API02-AI-001",
+          "x-case-source": "AI_CORRECTED",
+          "x-execution-mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION"
+        }
+      ]
+    },
+    {
+      "name": "API-03 Import Products Smoke",
+      "item": [
+        {
+          "name": "[SETUP-API03-001] Login admin",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "login"
+              ]
+            },
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "Reusable setup/precheck helper. It is not a final testcase identity and must use disposable fixtures.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"{{adminEmail}}\",\n  \"password\": \"{{adminPassword}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "x-helper": true,
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Documented login success is 200 when credentials are valid', () => pm.response.to.have.status(200));",
+                  "const data = pm.response.json();",
+                  "if (data.token) pm.environment.set('adminToken', data.token);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "[SETUP-API03-003] Capture product baseline",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/products",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "products"
+              ]
+            },
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "Reusable setup/precheck helper. It is not a final testcase identity and must use disposable fixtures."
+          },
+          "x-helper": true,
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.environment.set('productBaseline', pm.response.text());"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "[API03-AI-001] Admin import một product hợp lệ",
+          "description": "CASE_ID: API03-AI-001\nSOURCE: AI_CORRECTED\nREQUIREMENT_IDS: API03-REQ-002, API03-REQ-004, API03-REQ-007, API03-REQ-009\nPRIMARY_TECHNIQUE: DOMAIN_PARTITION\nORACLE_BASIS: AUTHORITATIVE\nEXECUTION_MODE: POSTMAN_WITH_PRECONDITION_SETUP\nSETUP_REQUIREMENTS: Admin JWT hợp lệ | Use documented login and GET /api/products baseline helper\nEXTERNAL_VERIFICATION: NONE\nORDER_DEPENDENT: NO\nDEPENDENCY: NONE; reusable setup creates an isolated fixture before the testcase action.\nBUSINESS_ORACLE: Batch hợp lệ đủ điều kiện import.\nSTATE_ORACLE: Toàn bộ một item được commit và report được tạo.\nEVIDENCE_BOUNDARY: No unspecified response status or schema is asserted. Execute setup/postcondition or external verification before deciding PASS/FAIL.",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"products\": [\n    {\n      \"name\": \"HW06-{{testRunId}}-API03-AI-001-A\",\n      \"price\": 10000,\n      \"description\": \"Disposable fixture for API03-AI-001\",\n      \"imageUrl\": \"\",\n      \"category_id\": {{categoryId}}\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/admin/import-products",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "import-products"
+              ]
+            },
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{adminToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "description": "CASE_ID: API03-AI-001\nSOURCE: AI_CORRECTED\nREQUIREMENT_IDS: API03-REQ-002, API03-REQ-004, API03-REQ-007, API03-REQ-009\nPRIMARY_TECHNIQUE: DOMAIN_PARTITION\nORACLE_BASIS: AUTHORITATIVE\nEXECUTION_MODE: POSTMAN_WITH_PRECONDITION_SETUP\nSETUP_REQUIREMENTS: Admin JWT hợp lệ | Use documented login and GET /api/products baseline helper\nEXTERNAL_VERIFICATION: NONE\nORDER_DEPENDENT: NO\nDEPENDENCY: NONE; reusable setup creates an isolated fixture before the testcase action.\nBUSINESS_ORACLE: Batch hợp lệ đủ điều kiện import.\nSTATE_ORACLE: Toàn bộ một item được commit và report được tạo.\nEVIDENCE_BOUNDARY: No unspecified response status or schema is asserted. Execute setup/postcondition or external verification before deciding PASS/FAIL."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const caseId = \"API03-AI-001\";",
+                  "const resolvedStudentId = pm.variables.replaceIn('{{studentId}}');",
+                  "pm.test(`[${caseId}] studentId is configured`, function () {",
+                  "  pm.expect(resolvedStudentId).to.not.equal('{{studentId}}');",
+                  "  pm.expect(resolvedStudentId).to.not.be.empty;",
+                  "});",
+                  "pm.test(`[${caseId}] response captured for approved oracle workflow`, function () {",
+                  "  pm.expect(pm.response).to.exist;",
+                  "  pm.expect(pm.response.code).to.be.a('number');",
+                  "});",
+                  "pm.environment.set(`observed_${caseId}_status`, String(pm.response.code));",
+                  "pm.environment.set(`observed_${caseId}_body`, pm.response.text());",
+                  "// Business/state PASS requires the setup, postcondition, and external checks declared in the request description.",
+                  "// No undocumented status code or response-field assertion is introduced here."
+                ]
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "x-case-id": "API03-AI-001",
+          "x-case-source": "AI_CORRECTED",
+          "x-execution-mode": "POSTMAN_WITH_PRECONDITION_SETUP"
+        }
+      ]
+    }
+  ]
+}

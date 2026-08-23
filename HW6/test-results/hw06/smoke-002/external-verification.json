@@ -1,0 +1,39 @@
+{
+  "smoke_id": "smoke-002",
+  "mode": "READ_ONLY_EXTERNAL_VERIFICATION",
+  "database": "test-results/hw06/runtime/sut-db-003/database.sqlite",
+  "secrets_logged": false,
+  "student_id_logged": false,
+  "api_01": {
+    "case_id": "API01-AI-014",
+    "reset_response_code": 200,
+    "otp_invalidated": true,
+    "valid_flow_status": "PASS",
+    "additional_requirement_backed_observation": {
+      "case_id": "API01-AI-035",
+      "plaintext_equal": "YES",
+      "status": "FAIL",
+      "preliminary_classification": "PRODUCT_DEFECT_CANDIDATE"
+    }
+  },
+  "api_02": {
+    "case_id": "API02-AI-001",
+    "checkout_response_code": 200,
+    "cart_lines_before": 1,
+    "cart_lines_after": 1,
+    "cart_cleared": false,
+    "independently_derived_cart_total": 200000.0,
+    "persisted_order_total": 200000,
+    "persisted_total_matches_derived": true,
+    "order_user_binding_matches_authenticated_user": true,
+    "status": "FAIL",
+    "preliminary_classification": "PRODUCT_DEFECT_CANDIDATE"
+  },
+  "api_03": {
+    "case_id": "API03-AI-001",
+    "import_response_code": 200,
+    "reported_inserted": 1,
+    "matching_products_persisted": 1,
+    "status": "PASS"
+  }
+}

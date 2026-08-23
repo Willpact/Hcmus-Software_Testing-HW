@@ -1,0 +1,607 @@
+{
+  "collection": {
+    "item": [
+      {
+        "id": "0a93cd2a-a567-4033-ad06-92efa6a42c23",
+        "name": "[SMOKE-POST-001] Capture primary cart after checkout",
+        "request": {
+          "description": {
+            "content": "Read-only postcondition helper; not a final testcase identity.",
+            "type": "text/plain"
+          },
+          "url": {
+            "path": [
+              "api",
+              "cart"
+            ],
+            "host": [
+              "{{baseUrl}}"
+            ],
+            "query": [],
+            "variable": []
+          },
+          "header": [
+            {
+              "key": "X-Student-Id",
+              "value": "{{studentId}}"
+            }
+          ],
+          "method": "GET",
+          "auth": {
+            "type": "bearer",
+            "bearer": [
+              {
+                "type": "string",
+                "value": "{{userToken}}",
+                "key": "token"
+              }
+            ]
+          }
+        },
+        "response": [],
+        "event": [
+          {
+            "listen": "test",
+            "script": {
+              "id": "c1f0c6ed-b2f5-44ad-9d68-1ace49b3bb1f",
+              "type": "text/javascript",
+              "exec": [
+                "const resolvedStudentId = pm.variables.replaceIn('{{studentId}}');",
+                "pm.test('studentId is configured', () => { pm.expect(resolvedStudentId).to.not.equal('{{studentId}}'); pm.expect(resolvedStudentId).to.not.be.empty; });",
+                "pm.test('cart postcondition response is available', () => { pm.expect(pm.response.code).to.be.a('number'); });"
+              ],
+              "_lastExecutionId": "46a7b2f3-ab1a-400d-933f-4c37a7529f2b"
+            }
+          }
+        ]
+      }
+    ],
+    "event": [],
+    "variable": [],
+    "info": {
+      "_postman_id": "7de0d9ac-71c5-4c29-90b1-7422ec364027",
+      "name": "HW06 Smoke 002 External Postcheck",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+      "description": {
+        "content": "Runtime-only read-only HTTP postcondition capture for API02-AI-001.",
+        "type": "text/plain"
+      }
+    }
+  },
+  "environment": {
+    "_": {
+      "postman_variable_scope": "environment",
+      "postman_exported_at": "2026-08-22T12:42:58.142Z",
+      "postman_exported_using": "Newman/6.2.2"
+    },
+    "id": "hw06-local-runtime",
+    "name": "HW06 Local Runtime (git-ignored)",
+    "values": [
+      {
+        "type": "any",
+        "value": "http://localhost:3000",
+        "key": "baseUrl"
+      },
+      {
+        "type": "any",
+        "value": "23127107",
+        "key": "studentId"
+      },
+      {
+        "type": "any",
+        "value": "test@eshop.com",
+        "key": "userEmail"
+      },
+      {
+        "type": "any",
+        "value": "Test1234!",
+        "key": "userPassword"
+      },
+      {
+        "type": "any",
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6InVzZXIiLCJpYXQiOjE3ODc0MDI1Nzd9.483xeE-bDZQHVViakpzy-zLPttdIFBF3s5wSAXu-JnU",
+        "key": "userToken"
+      },
+      {
+        "type": "any",
+        "value": "hw06-other-20260821204959@example.test",
+        "key": "otherUserEmail"
+      },
+      {
+        "type": "any",
+        "value": "DisposableOther1!",
+        "key": "otherUserPassword"
+      },
+      {
+        "type": "any",
+        "value": "",
+        "key": "otherUserToken"
+      },
+      {
+        "type": "any",
+        "value": "",
+        "key": "otherUserId"
+      },
+      {
+        "type": "any",
+        "value": "admin@eshop.com",
+        "key": "adminEmail"
+      },
+      {
+        "type": "any",
+        "value": "Admin123!",
+        "key": "adminPassword"
+      },
+      {
+        "type": "any",
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzg3NDAyNTc3fQ.HFvPbzo3OQ7I6EnPQEMwhBnMSDMn7A2Z6kwqvLnT6Vw",
+        "key": "adminToken"
+      },
+      {
+        "type": "any",
+        "value": "",
+        "key": "expiredUserToken"
+      },
+      {
+        "type": "any",
+        "value": "hw06-reset-20260821204959@example.test",
+        "key": "resetEmail"
+      },
+      {
+        "type": "any",
+        "value": "1680",
+        "key": "resetToken"
+      },
+      {
+        "type": "any",
+        "value": "",
+        "key": "unusedResetToken"
+      },
+      {
+        "type": "any",
+        "value": "",
+        "key": "usedResetToken"
+      },
+      {
+        "type": "any",
+        "value": "",
+        "key": "expiredResetToken"
+      },
+      {
+        "type": "any",
+        "value": "000000",
+        "key": "wrongResetToken"
+      },
+      {
+        "type": "any",
+        "value": "DisposableChanged1!",
+        "key": "newPassword"
+      },
+      {
+        "type": "any",
+        "value": "weak",
+        "key": "weakPassword"
+      },
+      {
+        "type": "any",
+        "value": "HW06 disposable address 20260821204959",
+        "key": "shippingAddress"
+      },
+      {
+        "type": "any",
+        "value": "1",
+        "key": "productId"
+      },
+      {
+        "type": "any",
+        "value": "1",
+        "key": "categoryId"
+      },
+      {
+        "type": "any",
+        "value": "200000",
+        "key": "clientTotal"
+      },
+      {
+        "type": "any",
+        "value": "50000",
+        "key": "otherCartTotal"
+      },
+      {
+        "type": "any",
+        "value": "20260821204959",
+        "key": "testRunId"
+      },
+      {
+        "type": "any",
+        "value": "DisposableReset1!",
+        "key": "resetUserPassword"
+      },
+      {
+        "type": "any",
+        "value": "200",
+        "key": "observed_API01-AI-014_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"message\":\"Password reset successfully\"}",
+        "key": "observed_API01-AI-014_body"
+      },
+      {
+        "type": "any",
+        "value": "[{\"id\":1,\"name\":\"HW06 20260821204959\",\"price\":100000,\"quantity\":2}]",
+        "key": "primaryCartSnapshot"
+      },
+      {
+        "type": "any",
+        "value": "200",
+        "key": "observed_API02-AI-001_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"message\":\"Checkout successful\",\"orderId\":1}",
+        "key": "observed_API02-AI-001_body"
+      },
+      {
+        "type": "any",
+        "value": "[{\"id\":1,\"name\":\"iPhone 15 Pro Max\",\"price\":30000000,\"description\":\"Điện thoại cao cấp của Apple\",\"imageUrl\":\"https://placehold.co/300x300/png?text=iPhone+15\",\"category_id\":1},{\"id\":2,\"name\":\"Samsung Galaxy S24 Ultra\",\"price\":28000000,\"description\":\"Màn hình hiển thị xuất sắc, camera siêu zoom\",\"imageUrl\":\"https://placehold.co/300x300/png?text=Samsung+S24\",\"category_id\":1},{\"id\":3,\"name\":\"MacBook Pro M3\",\"price\":45000000,\"description\":\"Laptop chuyên nghiệp mạnh mẽ\",\"imageUrl\":\"https://placehold.co/300x300/png?text=Macbook+Pro\",\"category_id\":2},{\"id\":4,\"name\":\"Tai nghe AirPods Pro 2\",\"price\":6000000,\"description\":\"Chống ồn chủ động xuất sắc\",\"imageUrl\":\"https://placehold.co/300x300/png?text=AirPods+Pro\",\"category_id\":3},{\"id\":5,\"name\":\"Bàn phím cơ Keychron Q1\",\"price\":4000000,\"description\":\"Gõ cực sướng, thiết kế kim loại\",\"imageUrl\":\"https://placehold.co/300x300/png?text=Keychron+Q1\",\"category_id\":3}]",
+        "key": "productBaseline"
+      },
+      {
+        "type": "any",
+        "value": "200",
+        "key": "observed_API03-AI-001_status"
+      },
+      {
+        "type": "any",
+        "value": "{\"message\":\"Import hoàn tất: 1/1 sản phẩm được thêm\",\"inserted\":1,\"errors\":[]}",
+        "key": "observed_API03-AI-001_body"
+      }
+    ]
+  },
+  "globals": {
+    "id": "c255349c-f342-459e-8e26-45cec10a2ba5",
+    "values": []
+  },
+  "run": {
+    "stats": {
+      "iterations": {
+        "total": 1,
+        "pending": 0,
+        "failed": 0
+      },
+      "items": {
+        "total": 1,
+        "pending": 0,
+        "failed": 0
+      },
+      "scripts": {
+        "total": 1,
+        "pending": 0,
+        "failed": 0
+      },
+      "prerequests": {
+        "total": 1,
+        "pending": 0,
+        "failed": 0
+      },
+      "requests": {
+        "total": 1,
+        "pending": 0,
+        "failed": 0
+      },
+      "tests": {
+        "total": 1,
+        "pending": 0,
+        "failed": 0
+      },
+      "assertions": {
+        "total": 2,
+        "pending": 0,
+        "failed": 0
+      },
+      "testScripts": {
+        "total": 1,
+        "pending": 0,
+        "failed": 0
+      },
+      "prerequestScripts": {
+        "total": 0,
+        "pending": 0,
+        "failed": 0
+      }
+    },
+    "timings": {
+      "responseAverage": 22,
+      "responseMin": 22,
+      "responseMax": 22,
+      "responseSd": 0,
+      "dnsAverage": 0,
+      "dnsMin": 0,
+      "dnsMax": 0,
+      "dnsSd": 0,
+      "firstByteAverage": 0,
+      "firstByteMin": 0,
+      "firstByteMax": 0,
+      "firstByteSd": 0,
+      "started": 1787402650209,
+      "completed": 1787402650322
+    },
+    "executions": [
+      {
+        "cursor": {
+          "position": 0,
+          "iteration": 0,
+          "length": 1,
+          "cycles": 1,
+          "empty": false,
+          "eof": false,
+          "bof": true,
+          "cr": false,
+          "ref": "95e4aaee-6917-45ab-89ba-c69c2599614b",
+          "httpRequestId": "e355b02a-a819-48e8-bb5c-60ead33e72bd"
+        },
+        "item": {
+          "id": "0a93cd2a-a567-4033-ad06-92efa6a42c23",
+          "name": "[SMOKE-POST-001] Capture primary cart after checkout",
+          "request": {
+            "description": {
+              "content": "Read-only postcondition helper; not a final testcase identity.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "cart"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "type": "string",
+                  "value": "{{userToken}}",
+                  "key": "token"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "c1f0c6ed-b2f5-44ad-9d68-1ace49b3bb1f",
+                "type": "text/javascript",
+                "exec": [
+                  "const resolvedStudentId = pm.variables.replaceIn('{{studentId}}');",
+                  "pm.test('studentId is configured', () => { pm.expect(resolvedStudentId).to.not.equal('{{studentId}}'); pm.expect(resolvedStudentId).to.not.be.empty; });",
+                  "pm.test('cart postcondition response is available', () => { pm.expect(pm.response.code).to.be.a('number'); });"
+                ],
+                "_lastExecutionId": "46a7b2f3-ab1a-400d-933f-4c37a7529f2b"
+              }
+            }
+          ]
+        },
+        "request": {
+          "description": {
+            "content": "Read-only postcondition helper; not a final testcase identity.",
+            "type": "text/plain"
+          },
+          "url": {
+            "protocol": "http",
+            "port": "3000",
+            "path": [
+              "api",
+              "cart"
+            ],
+            "host": [
+              "localhost"
+            ],
+            "query": [],
+            "variable": []
+          },
+          "header": [
+            {
+              "key": "X-Student-Id",
+              "value": "23127107"
+            },
+            {
+              "key": "Authorization",
+              "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6InVzZXIiLCJpYXQiOjE3ODc0MDI1Nzd9.483xeE-bDZQHVViakpzy-zLPttdIFBF3s5wSAXu-JnU",
+              "system": true
+            },
+            {
+              "key": "User-Agent",
+              "value": "PostmanRuntime/7.39.1",
+              "system": true
+            },
+            {
+              "key": "Accept",
+              "value": "*/*",
+              "system": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache",
+              "system": true
+            },
+            {
+              "key": "Postman-Token",
+              "value": "d6e2a66a-7e3a-4de6-9d22-67148e8fa7d2",
+              "system": true
+            },
+            {
+              "key": "Host",
+              "value": "localhost:3000",
+              "system": true
+            },
+            {
+              "key": "Accept-Encoding",
+              "value": "gzip, deflate, br",
+              "system": true
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "system": true
+            }
+          ],
+          "method": "GET",
+          "auth": {
+            "type": "bearer",
+            "bearer": [
+              {
+                "type": "string",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6InVzZXIiLCJpYXQiOjE3ODc0MDI1Nzd9.483xeE-bDZQHVViakpzy-zLPttdIFBF3s5wSAXu-JnU",
+                "key": "token"
+              }
+            ]
+          }
+        },
+        "response": {
+          "id": "fbd76725-85da-47f7-a57b-3af764ded8a5",
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "67"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"43-N5Zx/F7h43SFa8jxvH1UcyjwCCw\""
+            },
+            {
+              "key": "Date",
+              "value": "Sat, 22 Aug 2026 12:44:10 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "stream": {
+            "type": "Buffer",
+            "data": [
+              91,
+              123,
+              34,
+              105,
+              100,
+              34,
+              58,
+              49,
+              44,
+              34,
+              110,
+              97,
+              109,
+              101,
+              34,
+              58,
+              34,
+              72,
+              87,
+              48,
+              54,
+              32,
+              50,
+              48,
+              50,
+              54,
+              48,
+              56,
+              50,
+              49,
+              50,
+              48,
+              52,
+              57,
+              53,
+              57,
+              34,
+              44,
+              34,
+              112,
+              114,
+              105,
+              99,
+              101,
+              34,
+              58,
+              49,
+              48,
+              48,
+              48,
+              48,
+              48,
+              44,
+              34,
+              113,
+              117,
+              97,
+              110,
+              116,
+              105,
+              116,
+              121,
+              34,
+              58,
+              50,
+              125,
+              93
+            ]
+          },
+          "cookie": [],
+          "responseTime": 22,
+          "responseSize": 67
+        },
+        "id": "0a93cd2a-a567-4033-ad06-92efa6a42c23",
+        "assertions": [
+          {
+            "assertion": "studentId is configured",
+            "skipped": false
+          },
+          {
+            "assertion": "cart postcondition response is available",
+            "skipped": false
+          }
+        ]
+      }
+    ],
+    "transfers": {
+      "responseTotal": 67
+    },
+    "failures": [],
+    "error": null
+  }
+}

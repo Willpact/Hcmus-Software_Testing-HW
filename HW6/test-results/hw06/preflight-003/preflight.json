@@ -1,0 +1,61 @@
+{
+  "preflight_id": "preflight-003",
+  "timestamp": "2026-08-22T12:34:03.880Z",
+  "status": "PASS",
+  "previous_preflights": [
+    {
+      "id": "preflight-001",
+      "preserved": true,
+      "preflight_json_sha256": "F192D78C4AB7C4E4235AC90ED0855B25A97D695E5CA13851FCF3A787228FCE89",
+      "execution_metadata_sha256": "43864A6AE67FA6F65F06AE31A774F475270F3DA8CB8004F3C068076187C74075"
+    },
+    {
+      "id": "preflight-002",
+      "preserved": true,
+      "preflight_json_sha256": "76066DF891D932E1D1FAE2FF60E5ED2C52DF11E4410A2F7EECCE48466C571529",
+      "execution_metadata_sha256": "CB0BFE751C3B2CF56BEA011AA3FEAD649DC2770BB744EC03E7B81ADBB42236A9"
+    }
+  ],
+  "student_id": {
+    "status": "READY_NON_EMPTY",
+    "value_logged": false
+  },
+  "credentials": {
+    "normal_user": "READY",
+    "second_user": "READY_TO_REGISTER_VIA_DOCUMENTED_ENDPOINT",
+    "admin": "READY",
+    "reset_user": "READY_TO_REGISTER_VIA_DOCUMENTED_ENDPOINT",
+    "secrets_logged": false
+  },
+  "runtime_environment": {
+    "status": "READY",
+    "path": "test-results/hw06/runtime/HW06-Local.runtime.postman_environment.json",
+    "intended_for_commit": false,
+    "mandatory_values_non_empty": true
+  },
+  "tooling": {
+    "newman": "6.2.2",
+    "executable": ".tools/newman/node_modules/.bin/newman.cmd",
+    "html_reporter": "newman-reporter-htmlextra 1.23.1",
+    "install_action_performed": false
+  },
+  "postman_guard": {
+    "testcase_identities": 93,
+    "total_requests": 103,
+    "x_student_id_static_coverage": "103/103",
+    "missing_or_invalid": [],
+    "runtime_student_id_resolves_non_empty": true
+  },
+  "sut": {
+    "startup_strategy": "READY",
+    "workdir": "../eshop-sut/backend",
+    "start_command": "node server.js",
+    "base_url": "http://localhost:3000",
+    "server_syntax": "PASS",
+    "database": "SAFE_LOCAL_TEST_DATABASE",
+    "database_type": "SQLite",
+    "database_path": "../eshop-sut/backend/database.sqlite",
+    "database_sha256_before_start": "DA80C06114CA5B35EA062894529422F912713914B1FE96D6264FE660B0491658"
+  },
+  "real_requests_executed": 0
+}

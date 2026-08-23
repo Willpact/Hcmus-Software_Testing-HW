@@ -1,0 +1,936 @@
+{
+  "preflight_id": "preflight-002",
+  "timestamp": "2026-08-21 20:46:43 +07:00",
+  "previous_preflight": {
+    "id": "preflight-001",
+    "preserved": true,
+    "preflight_json_sha256": "F192D78C4AB7C4E4235AC90ED0855B25A97D695E5CA13851FCF3A787228FCE89",
+    "metadata_sha256": "43864A6AE67FA6F65F06AE31A774F475270F3DA8CB8004F3C068076187C74075"
+  },
+  "execution_recovery_status": "BLOCKED",
+  "student_id": {
+    "configured": true,
+    "value_logged": false,
+    "sources": [
+      "HW1/[student-id]_HW01_AI_Survey_98/AI_Disclosure_Form.md",
+      "HW1/[student-id]_HW01_AI_Survey_98/report.md",
+      "HW4/Inclass/[student-id]_MINILAB_POSTGRES/REPORT.md"
+    ],
+    "sources_agree": true
+  },
+  "credentials": {
+    "normal_user": "READY_FROM_SEED",
+    "second_user": "READY_TO_REGISTER_VIA_DOCUMENTED_ENDPOINT",
+    "admin": "READY_FROM_SEED",
+    "reset_user": "READY_TO_REGISTER_VIA_DOCUMENTED_ENDPOINT",
+    "secrets_logged": false
+  },
+  "runtime_environment": {
+    "path": "test-results/hw06/runtime/HW06-Local.runtime.postman_environment.json",
+    "intended_for_commit": false,
+    "all_mandatory_values_non_empty": true
+  },
+  "tools": {
+    "node": "v22.18.0",
+    "npm": "10.9.3",
+    "newman": "UNAVAILABLE",
+    "html_reporter": "UNAVAILABLE",
+    "newman_existing_local_or_global": false,
+    "offline_install": "FAILED_ENOTCACHED",
+    "registry_install": "FAILED_EACCES_NETWORK_PERMISSION"
+  },
+  "sut": {
+    "status": "PREPARED_NOT_STARTED",
+    "server_syntax": "PASS",
+    "dependencies": "PASS",
+    "start_command": "node server.js",
+    "base_url": "http://localhost:3000",
+    "database_type": "SQLite",
+    "database_path": "../eshop-sut/backend/database.sqlite",
+    "local_test_environment_confirmed": true,
+    "requests_sent": 0
+  },
+  "smoke": {
+    "run_id": "NONE",
+    "status": "BLOCKED",
+    "harness_corrections": []
+  },
+  "full_execution": {
+    "run": false,
+    "run_id": "NONE"
+  },
+  "results": {
+    "total": 93,
+    "pass": 0,
+    "fail": 0,
+    "postman_pass_external_pending": 0,
+    "blocked": 93,
+    "not_run": 0
+  },
+  "external_verification": {
+    "planned": 26,
+    "completed": 0,
+    "passed": 0,
+    "failed": 0,
+    "pending": 0,
+    "blocked": 26
+  },
+  "preliminary_classification": {
+    "product_defect_candidate": 0,
+    "test_defect": 0,
+    "test_data_defect": 0,
+    "environment_defect": 93,
+    "spec_ambiguity": 0,
+    "external_verification_pending": 0,
+    "needs_human_review": 0
+  },
+  "blockers": [
+    "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+    "HTML_REPORTER_UNAVAILABLE"
+  ],
+  "cases": {
+    "API-01": [
+      {
+        "case_id": "API01-AI-001",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API01-AI-002",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API01-AI-003",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API01-AI-004",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API01-AI-005",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API01-AI-006",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API01-AI-007",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API01-AI-008",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API01-AI-009",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API01-AI-010",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API01-AI-011",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API01-AI-012",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API01-AI-014",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API01-AI-015",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API01-AI-016",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API01-AI-018",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API01-AI-019",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API01-AI-021",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API01-AI-022",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API01-AI-023",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API01-AI-024",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API01-AI-027",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API01-AI-028",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API01-AI-029",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API01-AI-035",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API01-STU-001",
+        "source": "STUDENT_ADDED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API01-STU-002",
+        "source": "STUDENT_ADDED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API01-STU-003",
+        "source": "STUDENT_ADDED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API01-STU-004",
+        "source": "STUDENT_ADDED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API01-STU-005",
+        "source": "STUDENT_ADDED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      }
+    ],
+    "API-02": [
+      {
+        "case_id": "API02-AI-001",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API02-AI-002",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API02-AI-003",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API02-AI-004",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API02-AI-005",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API02-AI-006",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API02-AI-007",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API02-AI-009",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API02-AI-010",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API02-AI-014",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API02-AI-016",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API02-AI-017",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API02-AI-018",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API02-AI-021",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API02-AI-022",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API02-AI-023",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API02-AI-024",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API02-AI-025",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API02-AI-026",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API02-AI-027",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API02-AI-029",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API02-AI-034",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API02-AI-035",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API02-AI-036",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API02-AI-037",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API02-STU-001",
+        "source": "STUDENT_ADDED",
+        "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API02-STU-002",
+        "source": "STUDENT_ADDED",
+        "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API02-STU-003",
+        "source": "STUDENT_ADDED",
+        "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API02-STU-005",
+        "source": "STUDENT_ADDED",
+        "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API02-STU-006",
+        "source": "STUDENT_ADDED",
+        "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      }
+    ],
+    "API-03": [
+      {
+        "case_id": "API03-AI-001",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API03-AI-002",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API03-AI-003",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API03-AI-004",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API03-AI-005",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API03-AI-007",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API03-AI-008",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API03-AI-009",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API03-AI-010",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API03-AI-011",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API03-AI-016",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API03-AI-017",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API03-AI-018",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API03-AI-019",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API03-AI-020",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API03-AI-021",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API03-AI-022",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API03-AI-023",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API03-AI-024",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API03-AI-025",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API03-AI-026",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API03-AI-027",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API03-AI-028",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API03-AI-029",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API03-AI-031",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API03-AI-035",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API03-AI-038",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API03-AI-039",
+        "source": "AI_CORRECTED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API03-STU-001",
+        "source": "STUDENT_ADDED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API03-STU-002",
+        "source": "STUDENT_ADDED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API03-STU-003",
+        "source": "STUDENT_ADDED",
+        "execution_mode": "POSTMAN_PLUS_EXTERNAL_VERIFICATION",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API03-STU-004",
+        "source": "STUDENT_ADDED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      },
+      {
+        "case_id": "API03-STU-006",
+        "source": "STUDENT_ADDED",
+        "execution_mode": "POSTMAN_WITH_PRECONDITION_SETUP",
+        "runtime_status": "BLOCKED",
+        "preliminary_classification": "ENVIRONMENT_DEFECT",
+        "reason": "NEWMAN_LOCAL_INSTALL_UNAVAILABLE_IN_CURRENT_SANDBOX",
+        "request_sent": false
+      }
+    ]
+  }
+}
