@@ -3,10 +3,12 @@
 const crypto = require('crypto');
 const fs = require('fs');
 const path = require('path');
+const { runtimeLayout } = require('./hw06-runtime-layout');
 
 const root = path.resolve(__dirname, '..', '..');
-const sutRoot = path.resolve(root, '..', 'eshop-sut');
-const out = path.join(root, 'test-results', 'hw06', 'run-002');
+const layout = runtimeLayout(root);
+const sutRoot = layout.sutRoot;
+const out = layout.runOut;
 const databasePath = path.join(out, 'runtime-db', 'database.sqlite');
 const collectionPath = path.join(out, 'targeted-collection.json');
 const environmentPath = path.join(out, 'runtime-input.postman_environment.json');
@@ -34,7 +36,7 @@ const environment = readJson(environmentPath);
 const env = Object.fromEntries(environment.values.map((entry) => [entry.key, entry.value]));
 const external = {
   run_id: 'run-002',
-  db_path: 'test-results/hw06/run-002/runtime-db/database.sqlite',
+  db_path: path.relative(root, databasePath).replace(/\\/g, '/'),
   secrets_logged: false,
   stable_case_db_hashes: {},
 };
@@ -97,22 +99,31 @@ run.on('done', async (err, summary) => {
     fs.writeFileSync(path.join(out, 'external-hook-evidence.json'), `${JSON.stringify(external, null, 2)}\n`, 'utf8');
 
     const endedAt = new Date();
+    const intentional = layout.mode === 'intentional-fail';
+    const assertionFailures = summary.run.failures.length;
+    if (intentional && assertionFailures !== 1) {
+      throw new Error(`Intentional-fail mode expected exactly one Newman assertion failure; observed failures=${assertionFailures}`);
+    }
+    if (!intentional && err) {
+      throw err;
+    }
     const result = {
-      status: err ? 'NEWMAN_RUNTIME_ERROR' : 'COMPLETED',
+      status: intentional ? 'INTENTIONAL_FAILURE_VERIFIED' : 'COMPLETED',
       run_id: 'run-002',
+      ci_run_mode: layout.mode,
       started_at: startedAt.toISOString(),
       ended_at: endedAt.toISOString(),
       duration_seconds: Number((endedAt - startedAt) / 1000),
       requests_executed: summary.run.executions.length,
       assertions: summary.run.stats.assertions.total,
-      assertion_failures: summary.run.failures.length,
+      assertion_failures: assertionFailures,
       skipped_requests: summary.run.stats.requests.pending,
       reports: ['newman.json', 'newman.html'],
       secrets_logged: false,
     };
     fs.writeFileSync(path.join(out, 'runner-result.json'), `${JSON.stringify(result, null, 2)}\n`, 'utf8');
     console.log(JSON.stringify(result, null, 2));
-    process.exitCode = err ? 2 : 0;
+    process.exitCode = intentional ? 1 : 0;
   } catch (postError) {
     console.error(postError.stack || postError.message);
     process.exitCode = 3;

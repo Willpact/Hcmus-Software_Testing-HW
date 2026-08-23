@@ -4,12 +4,14 @@ const fs = require('fs');
 const http = require('http');
 const path = require('path');
 const { spawn } = require('child_process');
+const { runtimeLayout } = require('./hw06-runtime-layout');
 
 const root = path.resolve(__dirname, '..', '..');
-const sutRoot = path.resolve(root, '..', 'eshop-sut', 'backend');
-const runOut = path.join(root, 'test-results', 'hw06', 'run-002');
-const smokeOut = path.join(root, 'test-results', 'hw06', 'smoke-rerun-001');
-const redirect = path.join(runOut, 'sqlite-path-redirect.cjs');
+const layout = runtimeLayout(root);
+const sutRoot = path.join(layout.sutRoot, 'backend');
+const runOut = layout.runOut;
+const smokeOut = layout.smokeOut;
+const redirect = path.join(root, 'postman', 'scripts', 'sqlite-path-redirect.cjs');
 const newmanJs = path.join(root, '.tools', 'newman', 'node_modules', 'newman', 'bin', 'newman.js');
 
 function delay(ms) {
@@ -51,11 +53,25 @@ async function waitReady(child) {
 }
 
 function startSut(outputDir) {
-  fs.mkdirSync(path.join(runOut, 'runtime-db'), { recursive: true });
   fs.mkdirSync(outputDir, { recursive: true });
+  const runtimeDbDir = path.join(outputDir, 'runtime-db');
+  const runtimeDb = path.join(runtimeDbDir, 'database.sqlite');
+  const sourceDb = path.join(sutRoot, 'database.sqlite');
+  if (!fs.existsSync(sourceDb)) throw new Error(`SUT source database is missing: ${sourceDb}`);
+  if (!fs.existsSync(path.join(sutRoot, 'server.js'))) throw new Error(`SUT server is missing: ${sutRoot}`);
+  fs.mkdirSync(runtimeDbDir, { recursive: true });
+  fs.copyFileSync(sourceDb, runtimeDb);
   const stdout = fs.createWriteStream(path.join(outputDir, 'sut.stdout.log'));
   const stderr = fs.createWriteStream(path.join(outputDir, 'sut.stderr.log'));
-  const child = spawn(process.execPath, ['--require', redirect, 'server.js'], { cwd: sutRoot, windowsHide: true });
+  const child = spawn(process.execPath, ['--require', redirect, 'server.js'], {
+    cwd: sutRoot,
+    windowsHide: true,
+    env: {
+      ...process.env,
+      HW06_SUT_DATABASE_PATH: sourceDb,
+      HW06_RUNTIME_DATABASE_PATH: runtimeDb,
+    },
+  });
   child.stdout.pipe(stdout);
   child.stderr.pipe(stderr);
   child._hw6Streams = [stdout, stderr];
@@ -84,7 +100,13 @@ function runProcess(file, args, cwd, stdoutPath, stderrPath) {
 
 async function main() {
   await ensurePortFree();
-  const result = { smoke_required: true, smoke_reason: 'Corrected reusable isolated-fixture and sequence harness', run_id: 'run-002' };
+  const intentional = layout.mode === 'intentional-fail';
+  const result = {
+    smoke_required: true,
+    smoke_reason: 'Corrected reusable isolated-fixture and sequence harness',
+    run_id: 'run-002',
+    ci_run_mode: layout.mode,
+  };
   let sut;
   try {
     sut = startSut(smokeOut);
@@ -98,13 +120,15 @@ async function main() {
     await waitReady(sut);
     result.run002_sut_pid = sut.pid;
     result.run002_exit_code = await runProcess(process.execPath, [path.join(root, 'postman', 'scripts', 'run-targeted-run-002.js')], root, path.join(runOut, 'stdout.log'), path.join(runOut, 'stderr.log'));
-    if (result.run002_exit_code !== 0) throw new Error(`run-002 wrapper failed: ${result.run002_exit_code}`);
-    result.status = 'PASS';
+    if (intentional && result.run002_exit_code !== 1) throw new Error(`intentional-fail wrapper expected exit 1; observed ${result.run002_exit_code}`);
+    if (!intentional && result.run002_exit_code !== 0) throw new Error(`run-002 wrapper failed: ${result.run002_exit_code}`);
+    result.status = intentional ? 'INTENTIONAL_FAILURE_VERIFIED' : 'PASS';
   } finally {
     await stopSut(sut);
   }
   fs.writeFileSync(path.join(runOut, 'orchestration-result.json'), `${JSON.stringify(result, null, 2)}\n`, 'utf8');
   console.log(JSON.stringify(result, null, 2));
+  if (intentional) process.exitCode = 1;
 }
 
 main().catch((error) => {

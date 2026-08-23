@@ -45,28 +45,27 @@ jobs:
           mkdir -p .tools/newman
           npm --prefix .tools/newman install --no-save newman@6.2.2 newman-reporter-htmlextra
       - name: Prepare approved targeted run inputs
+        env:
+          HW06_CI_ARTIFACT_ROOT: test-results/hw06/ci-runtime
+          HW06_CI_RUN_MODE: ${{ inputs.run_mode }}
         run: |
           mkdir -p test-results/hw06/runtime
-          mkdir -p test-results/hw06/run-002
+          mkdir -p test-results/hw06/ci-runtime
           cp test-results/hw06/ci/runtime-input.postman_environment.json \
             test-results/hw06/runtime/HW06-Local.runtime.postman_environment.json
           node postman/scripts/prepare-targeted-run-002.js
-      - name: Execute healthy API/Newman target
-        if: ${{ inputs.run_mode != 'intentional-fail' }}
+      - name: Execute API/Newman target
+        env:
+          HW06_CI_ARTIFACT_ROOT: test-results/hw06/ci-runtime
+          HW06_CI_RUN_MODE: ${{ inputs.run_mode }}
         run: node postman/scripts/orchestrate-run-002.js
-      - name: Intentional CI demonstration failure
-        if: ${{ inputs.run_mode == 'intentional-fail' }}
-        run: |
-          echo 'INTENTIONAL_CI_DEMONSTRATION_FAILURE: this mode proves GitHub Actions failure reporting only.'
-          exit 1
-      - name: Upload safe CI outputs
+      - name: Upload safe CI metadata
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: hw06-ci-${{ github.run_id }}
           path: |
-            HW6/test-results/hw06/run-002/newman.json
-            HW6/test-results/hw06/run-002/newman.html
-            HW6/test-results/hw06/run-002/runner-result.json
-            HW6/test-results/hw06/run-002/orchestration-result.json
+            HW6/test-results/hw06/ci-runtime/run-002/runner-result.json
+            HW6/test-results/hw06/ci-runtime/run-002/orchestration-result.json
+            HW6/test-results/hw06/ci-runtime/run-002/targeted-scope-guard.json
           if-no-files-found: warn

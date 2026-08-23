@@ -1,0 +1,10 @@
+.tools/
+
+test-results/hw06/runtime/
+test-results/hw06/ci-runtime/
+test-results/hw06/ci-local-simulation*/
+test-results/hw06/**/runtime-input.postman_environment.json
+test-results/hw06/**/runtime-output.postman_environment.json
+
+test-results/hw06/**/*.stdout.log
+test-results/hw06/**/*.stderr.log

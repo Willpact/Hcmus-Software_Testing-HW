@@ -3,13 +3,15 @@
 const crypto = require('crypto');
 const fs = require('fs');
 const path = require('path');
+const { runtimeLayout } = require('./hw06-runtime-layout');
 
 const root = path.resolve(__dirname, '..', '..');
-const sutRoot = path.resolve(root, '..', 'eshop-sut');
-const out = path.join(root, 'test-results', 'hw06', 'run-002');
-const smokeOut = path.join(root, 'test-results', 'hw06', 'smoke-rerun-001');
+const layout = runtimeLayout(root);
+const sutRoot = layout.sutRoot;
+const out = layout.runOut;
+const smokeOut = layout.smokeOut;
 const sourceCollectionPath = path.join(root, 'postman', 'collections', 'HW06-API-Testing.postman_collection.json');
-const sourceEnvironmentPath = path.join(root, 'test-results', 'hw06', 'runtime', 'HW06-Local.runtime.postman_environment.json');
+const sourceEnvironmentPath = layout.runtimeEnvironment;
 
 const targetIds = [
   'API01-AI-002', 'API01-AI-007', 'API01-AI-009', 'API01-AI-010', 'API01-AI-012',
@@ -328,6 +330,20 @@ const collection = {
   ],
 };
 
+if (layout.mode === 'intentional-fail') {
+  collection.item.push({
+    name: 'CI Intentional Failure Demonstration',
+    item: [makeRequest('[CI-INTENTIONAL-FAIL-001] Controlled Newman assertion failure', 'GET', '/api/products', {
+      tests: [
+        "pm.test('CI controlled failure: exactly one intentionally failing testcase', () => {",
+        '  pm.expect(true).to.equal(false);',
+        '});',
+      ],
+      description: 'CI-only controlled failure. It is not an HW06 testcase, Product Defect, or business oracle.',
+    })],
+  });
+}
+
 const stableNames = [];
 const allRequests = [];
 (function walk(items) {
@@ -372,6 +388,8 @@ writeJson(path.join(out, 'targeted-scope-guard.json'), {
   collection_stable_ids: stableNames.length, total_collection_requests: allRequests.length,
   x_student_id_static_coverage: `${allRequests.length}/${allRequests.length}`,
   intentionally_skipped: ['API01-AI-016'], product_defect_cases_from_run_001_included: 0,
+  ci_run_mode: layout.mode,
+  expected_ci_assertion_failures: layout.mode === 'intentional-fail' ? 1 : 0,
 });
 
 const smokeIds = ['API01-AI-010', 'API02-AI-018', 'API03-AI-016'];
