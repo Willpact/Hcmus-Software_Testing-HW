@@ -24,6 +24,10 @@ coverage = map_requirements_and_techniques(extract, unique)
 return { cases: unique, coverage: coverage, checkpoint: GENERATOR_OUTPUT_REVIEW_REQUIRED }
 ```
 
-## Textual layout suggestion for a student-drawn diagram
+## Final Human-created diagram
 
-Use a left-to-right flow of five boxes: `Specification reader`, `Analysis modules`, `Candidate builder`, `Deduplication`, `Coverage + Human review`. Put the six analysis techniques inside or beneath `Analysis modules`. This is a textual aid only; it is not a submission-ready diagram.
+The completed Human-controlled final artifact is [api-test-generator-diagram.png](../../../docs/agent-skill/api-test-generator-diagram.png). It was created/exported by the student using Mermaid.io and is integrated into the final HW06 report. This document retains the design rationale and pseudocode; it does not generate or alter the diagram.
+
+## Textual layout suggestion for the Human-created diagram
+
+The completed figure follows a left-to-right logical flow of `Specification reader`, `Analysis modules`, `Candidate builder`, `Deduplication`, and `Coverage + Human review`. The six analysis techniques are shown inside `Analysis modules`. This textual rationale is retained for traceability; the PNG is the Human-created submission artifact.

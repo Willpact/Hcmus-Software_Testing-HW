@@ -23,7 +23,7 @@ Do not infer required behavior from implementation observations. Label extractio
 
 Deduplicate using a deterministic fingerprint of method/path, normalized input partition, precondition/state, authorization context, expected assertion, and requirement IDs. Merge only semantically identical candidates while retaining their source trace; do not delete a human-approved case. Create a technique/requirement coverage summary and return `GENERATOR_OUTPUT_REVIEW_REQUIRED` if source coverage is incomplete, a non-verifiable expectation was detected, or a human has not approved downstream use.
 
-For detailed pseudocode and report-ready textual flow, read [references/generator-design.md](references/generator-design.md). It intentionally supplies no diagram. The final assignment diagram remains student-drawn.
+For detailed pseudocode and report-ready textual flow, read [references/generator-design.md](references/generator-design.md). The Human-controlled final diagram is [api-test-generator-diagram.png](../../docs/agent-skill/api-test-generator-diagram.png); it documents the workflow but is not generated or modified by this skill.
 
 Use `log-ai-audit` for a substantive generated artifact only when that audit workflow is initialized. Do not audit smoke fixtures as coursework artifacts.
 
@@ -35,7 +35,7 @@ Before returning a generator result, verify that every candidate has the shared 
 
 ## Usage / demonstration
 
-Provide one generic specification and an output directory, then invoke the logical pipeline in **Input, pipeline, and output**. The reusable design and pseudocode are in [references/generator-design.md](references/generator-design.md); a student-drawn-diagram handoff is in [diagram-handoff.md](diagram-handoff.md). The included smoke test demonstrates only generic schema/deduplication shape.
+Provide one generic specification and an output directory, then invoke the logical pipeline in **Input, pipeline, and output**. The reusable design and pseudocode are in [references/generator-design.md](references/generator-design.md); the Human-created final workflow figure is linked above, and [diagram-handoff.md](diagram-handoff.md) preserves its original design handoff. The included smoke test demonstrates only generic schema/deduplication shape.
 
 ## Limitations
 

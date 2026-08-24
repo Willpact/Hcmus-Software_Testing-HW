@@ -1,8 +1,10 @@
-# Agent Skill diagram handoff — HUMAN_ACTION_REQUIRED
+# Agent Skill diagram handoff — COMPLETED
 
-`AGENT_SKILL_DIAGRAM: HUMAN_ACTION_REQUIRED`
+`AGENT_SKILL_DIAGRAM: COMPLETE`
 
-File này chỉ là specification để sinh viên tự vẽ sơ đồ. Không phải sơ đồ nộp bài và không thay thế hình do sinh viên tự tạo.
+## Final Human-created artifact
+
+[Figure — Workflow of the reusable AI-driven API Test Generator Agent Skill](../../docs/agent-skill/api-test-generator-diagram.png) là sơ đồ final do Human tạo/export bằng Mermaid.io. File này chỉ giữ design handoff gốc để traceability; không thay thế hoặc tái tạo hình final.
 
 ## Nodes cần vẽ
 
@@ -36,4 +38,3 @@ Vẽ theo chiều trái sang phải, dùng một swimlane `AI-assisted generatio
 - Phân biệt requirement với implementation observation.
 - Chỉ Human review mới nối sang output usable.
 - Không vẽ AI như một thành phần tự quyết định PASS/FAIL hoặc Product Defect.
-
