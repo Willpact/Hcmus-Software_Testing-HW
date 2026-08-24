@@ -8,3 +8,17 @@ test-results/hw06/**/runtime-output.postman_environment.json
 
 test-results/hw06/**/*.stdout.log
 test-results/hw06/**/*.stderr.log
+
+# Generated/local finalization artifacts
+docs/final/__pycache__/
+*.pyc
+
+test-results/hw06/**/*.log
+test-results/hw06/**/runtime-db/
+test-results/hw06/**/sqlite-path-redirect.cjs
+test-results/hw06/smoke-rerun-*/
+
+# Credential-bearing raw Newman artifacts. Publish only docs/execution-results/redacted-newman/.
+test-results/hw06/run-*/newman.html
+test-results/hw06/run-*/newman.json
+test-results/hw06/run-*/external-postcheck.newman.json

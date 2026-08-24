@@ -23,7 +23,7 @@
           "header": [
             {
               "key": "X-Student-Id",
-              "value": "{{studentId}}"
+              "value": "[REDACTED_STUDENT_ID]"
             }
           ],
           "method": "GET",
@@ -32,7 +32,7 @@
             "bearer": [
               {
                 "type": "string",
-                "value": "{{userToken}}",
+                "value": "[REDACTED_TOKEN]",
                 "key": "token"
               }
             ]
@@ -46,8 +46,8 @@
               "id": "e4151d5a-76fc-4541-94ae-1ac267049d1c",
               "type": "text/javascript",
               "exec": [
-                "const primaryResolvedStudentId = pm.variables.replaceIn('{{studentId}}');",
-                "pm.test('primary postcheck studentId is configured', () => { pm.expect(primaryResolvedStudentId).to.not.equal('{{studentId}}'); pm.expect(primaryResolvedStudentId).to.not.be.empty; });",
+                "const primaryResolvedStudentId = pm.variables.replaceIn('[REDACTED_STUDENT_ID]');",
+                "pm.test('primary postcheck studentId is configured', () => { pm.expect(primaryResolvedStudentId).to.not.equal('[REDACTED_STUDENT_ID]'); pm.expect(primaryResolvedStudentId).to.not.be.empty; });",
                 "pm.test('primary cart response captured', () => pm.expect(pm.response.code).to.be.a('number'));"
               ],
               "_lastExecutionId": "951350da-e767-4dd7-a102-dccace3c5c6b"
@@ -77,7 +77,7 @@
           "header": [
             {
               "key": "X-Student-Id",
-              "value": "{{studentId}}"
+              "value": "[REDACTED_STUDENT_ID]"
             }
           ],
           "method": "GET",
@@ -86,7 +86,7 @@
             "bearer": [
               {
                 "type": "string",
-                "value": "{{otherUserToken}}",
+                "value": "[REDACTED_TOKEN]",
                 "key": "token"
               }
             ]
@@ -100,8 +100,8 @@
               "id": "60762dbb-5dfe-46cc-b374-20bc2f994879",
               "type": "text/javascript",
               "exec": [
-                "const secondaryResolvedStudentId = pm.variables.replaceIn('{{studentId}}');",
-                "pm.test('secondary postcheck studentId is configured', () => { pm.expect(secondaryResolvedStudentId).to.not.equal('{{studentId}}'); pm.expect(secondaryResolvedStudentId).to.not.be.empty; });",
+                "const secondaryResolvedStudentId = pm.variables.replaceIn('[REDACTED_STUDENT_ID]');",
+                "pm.test('secondary postcheck studentId is configured', () => { pm.expect(secondaryResolvedStudentId).to.not.equal('[REDACTED_STUDENT_ID]'); pm.expect(secondaryResolvedStudentId).to.not.be.empty; });",
                 "pm.test('secondary cart response captured', () => pm.expect(pm.response.code).to.be.a('number'));"
               ],
               "_lastExecutionId": "12763d70-5990-415f-bfc3-499d4e3db81c"
@@ -138,7 +138,7 @@
       },
       {
         "type": "any",
-        "value": "23127107",
+        "value": "[REDACTED_STUDENT_ID]",
         "key": "studentId"
       },
       {
@@ -148,12 +148,12 @@
       },
       {
         "type": "any",
-        "value": "Test1234!",
+        "value": "[REDACTED_PASSWORD]",
         "key": "userPassword"
       },
       {
         "type": "any",
-        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6InVzZXIiLCJpYXQiOjE3ODc0MDI4MDR9.CH_ytsGSIRpboiYq3hsv-QjVV0KXFqlwWEYN6YrPHo4",
+        "value": "[REDACTED_JWT]",
         "key": "userToken"
       },
       {
@@ -163,12 +163,12 @@
       },
       {
         "type": "any",
-        "value": "DisposableOther1!",
+        "value": "[REDACTED_PASSWORD]",
         "key": "otherUserPassword"
       },
       {
         "type": "any",
-        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6InVzZXIiLCJpYXQiOjE3ODc0MDI4MDF9.vWMev3UkypjW3mey9-pBdIwR7h1jBGkDbm8kEL8Yego",
+        "value": "[REDACTED_JWT]",
         "key": "otherUserToken"
       },
       {
@@ -183,12 +183,12 @@
       },
       {
         "type": "any",
-        "value": "Admin123!",
+        "value": "[REDACTED_PASSWORD]",
         "key": "adminPassword"
       },
       {
         "type": "any",
-        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzg3NDAyODA0fQ.SXzT6G2Xs19DklBx7nH1m6DdGLBmZGYnDfgltPbGPjY",
+        "value": "[REDACTED_JWT]",
         "key": "adminToken"
       },
       {
@@ -203,7 +203,7 @@
       },
       {
         "type": "any",
-        "value": "6603",
+        "value": "[REDACTED_RESET_TOKEN]",
         "key": "resetToken"
       },
       {
@@ -223,18 +223,18 @@
       },
       {
         "type": "any",
-        "value": "000000",
+        "value": "[REDACTED_RESET_TOKEN]",
         "key": "wrongResetToken"
       },
       {
         "type": "any",
-        "value": "DisposableChanged1!",
+        "value": "[REDACTED_PASSWORD]",
         "key": "newPassword"
       },
       {
         "type": "any",
-        "value": "weak",
-        "key": "weakPassword"
+        "value": "[REDACTED_PASSWORD]",
+        "key": "[REDACTED_PASSWORD]Password"
       },
       {
         "type": "any",
@@ -883,7 +883,7 @@
       },
       {
         "type": "any",
-        "value": "[{\"id\":1,\"name\":\"iPhone 15 Pro Max\",\"price\":30000000,\"description\":\"Điện thoại cao cấp của Apple\",\"imageUrl\":\"https://placehold.co/300x300/png?text=iPhone+15\",\"category_id\":1},{\"id\":2,\"name\":\"Samsung Galaxy S24 Ultra\",\"price\":28000000,\"description\":\"Màn hình hiển thị xuất sắc, camera siêu zoom\",\"imageUrl\":\"https://placehold.co/300x300/png?text=Samsung+S24\",\"category_id\":1},{\"id\":3,\"name\":\"MacBook Pro M3\",\"price\":45000000,\"description\":\"Laptop chuyên nghiệp mạnh mẽ\",\"imageUrl\":\"https://placehold.co/300x300/png?text=Macbook+Pro\",\"category_id\":2},{\"id\":4,\"name\":\"Tai nghe AirPods Pro 2\",\"price\":6000000,\"description\":\"Chống ồn chủ động xuất sắc\",\"imageUrl\":\"https://placehold.co/300x300/png?text=AirPods+Pro\",\"category_id\":3},{\"id\":5,\"name\":\"Bàn phím cơ Keychron Q1\",\"price\":4000000,\"description\":\"Gõ cực sướng, thiết kế kim loại\",\"imageUrl\":\"https://placehold.co/300x300/png?text=Keychron+Q1\",\"category_id\":3},{\"id\":6,\"name\":\"HW06-20260821204959-API03-AI-001-A\",\"price\":10000,\"description\":\"Disposable fixture for API03-AI-001\",\"imageUrl\":\"\",\"category_id\":1}]",
+        "value": "[{\"id\":1,\"name\":\"iPhone 15 Pro Max\",\"price\":3[REDACTED_RESET_TOKEN]0,\"description\":\"Điện thoại cao cấp của Apple\",\"imageUrl\":\"https://placehold.co/300x300/png?text=iPhone+15\",\"category_id\":1},{\"id\":2,\"name\":\"Samsung Galaxy S24 Ultra\",\"price\":28[REDACTED_RESET_TOKEN],\"description\":\"Màn hình hiển thị xuất sắc, camera siêu zoom\",\"imageUrl\":\"https://placehold.co/300x300/png?text=Samsung+S24\",\"category_id\":1},{\"id\":3,\"name\":\"MacBook Pro M3\",\"price\":45[REDACTED_RESET_TOKEN],\"description\":\"Laptop chuyên nghiệp mạnh mẽ\",\"imageUrl\":\"https://placehold.co/300x300/png?text=Macbook+Pro\",\"category_id\":2},{\"id\":4,\"name\":\"Tai nghe AirPods Pro 2\",\"price\":6[REDACTED_RESET_TOKEN],\"description\":\"Chống ồn chủ động xuất sắc\",\"imageUrl\":\"https://placehold.co/300x300/png?text=AirPods+Pro\",\"category_id\":3},{\"id\":5,\"name\":\"Bàn phím cơ Keychron Q1\",\"price\":4[REDACTED_RESET_TOKEN],\"description\":\"Gõ cực sướng, thiết kế kim loại\",\"imageUrl\":\"https://placehold.co/300x300/png?text=Keychron+Q1\",\"category_id\":3},{\"id\":6,\"name\":\"HW06-20260821204959-API03-AI-001-A\",\"price\":10000,\"description\":\"Disposable fixture for API03-AI-001\",\"imageUrl\":\"\",\"category_id\":1}]",
         "key": "productBaseline"
       },
       {
@@ -1322,7 +1322,7 @@
             "header": [
               {
                 "key": "X-Student-Id",
-                "value": "{{studentId}}"
+                "value": "[REDACTED_STUDENT_ID]"
               }
             ],
             "method": "GET",
@@ -1331,7 +1331,7 @@
               "bearer": [
                 {
                   "type": "string",
-                  "value": "{{userToken}}",
+                  "value": "[REDACTED_TOKEN]",
                   "key": "token"
                 }
               ]
@@ -1345,8 +1345,8 @@
                 "id": "e4151d5a-76fc-4541-94ae-1ac267049d1c",
                 "type": "text/javascript",
                 "exec": [
-                  "const primaryResolvedStudentId = pm.variables.replaceIn('{{studentId}}');",
-                  "pm.test('primary postcheck studentId is configured', () => { pm.expect(primaryResolvedStudentId).to.not.equal('{{studentId}}'); pm.expect(primaryResolvedStudentId).to.not.be.empty; });",
+                  "const primaryResolvedStudentId = pm.variables.replaceIn('[REDACTED_STUDENT_ID]');",
+                  "pm.test('primary postcheck studentId is configured', () => { pm.expect(primaryResolvedStudentId).to.not.equal('[REDACTED_STUDENT_ID]'); pm.expect(primaryResolvedStudentId).to.not.be.empty; });",
                   "pm.test('primary cart response captured', () => pm.expect(pm.response.code).to.be.a('number'));"
                 ],
                 "_lastExecutionId": "951350da-e767-4dd7-a102-dccace3c5c6b"
@@ -1375,11 +1375,11 @@
           "header": [
             {
               "key": "X-Student-Id",
-              "value": "23127107"
+              "value": "[REDACTED_STUDENT_ID]"
             },
             {
               "key": "Authorization",
-              "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6InVzZXIiLCJpYXQiOjE3ODc0MDI4MDR9.CH_ytsGSIRpboiYq3hsv-QjVV0KXFqlwWEYN6YrPHo4",
+              "value": "[REDACTED_AUTHORIZATION]",
               "system": true
             },
             {
@@ -1399,7 +1399,7 @@
             },
             {
               "key": "Postman-Token",
-              "value": "0d94a8ac-c9fe-4026-b59a-9555128a254b",
+              "value": "[REDACTED_POSTMAN_TOKEN]",
               "system": true
             },
             {
@@ -1424,7 +1424,7 @@
             "bearer": [
               {
                 "type": "string",
-                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6InVzZXIiLCJpYXQiOjE3ODc0MDI4MDR9.CH_ytsGSIRpboiYq3hsv-QjVV0KXFqlwWEYN6YrPHo4",
+                "value": "[REDACTED_JWT]",
                 "key": "token"
               }
             ]
@@ -1653,7 +1653,7 @@
             "header": [
               {
                 "key": "X-Student-Id",
-                "value": "{{studentId}}"
+                "value": "[REDACTED_STUDENT_ID]"
               }
             ],
             "method": "GET",
@@ -1662,7 +1662,7 @@
               "bearer": [
                 {
                   "type": "string",
-                  "value": "{{otherUserToken}}",
+                  "value": "[REDACTED_TOKEN]",
                   "key": "token"
                 }
               ]
@@ -1676,8 +1676,8 @@
                 "id": "60762dbb-5dfe-46cc-b374-20bc2f994879",
                 "type": "text/javascript",
                 "exec": [
-                  "const secondaryResolvedStudentId = pm.variables.replaceIn('{{studentId}}');",
-                  "pm.test('secondary postcheck studentId is configured', () => { pm.expect(secondaryResolvedStudentId).to.not.equal('{{studentId}}'); pm.expect(secondaryResolvedStudentId).to.not.be.empty; });",
+                  "const secondaryResolvedStudentId = pm.variables.replaceIn('[REDACTED_STUDENT_ID]');",
+                  "pm.test('secondary postcheck studentId is configured', () => { pm.expect(secondaryResolvedStudentId).to.not.equal('[REDACTED_STUDENT_ID]'); pm.expect(secondaryResolvedStudentId).to.not.be.empty; });",
                   "pm.test('secondary cart response captured', () => pm.expect(pm.response.code).to.be.a('number'));"
                 ],
                 "_lastExecutionId": "12763d70-5990-415f-bfc3-499d4e3db81c"
@@ -1706,11 +1706,11 @@
           "header": [
             {
               "key": "X-Student-Id",
-              "value": "23127107"
+              "value": "[REDACTED_STUDENT_ID]"
             },
             {
               "key": "Authorization",
-              "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6InVzZXIiLCJpYXQiOjE3ODc0MDI4MDF9.vWMev3UkypjW3mey9-pBdIwR7h1jBGkDbm8kEL8Yego",
+              "value": "[REDACTED_AUTHORIZATION]",
               "system": true
             },
             {
@@ -1730,7 +1730,7 @@
             },
             {
               "key": "Postman-Token",
-              "value": "ce2248eb-799f-4959-a6a0-c14bbbd9c825",
+              "value": "[REDACTED_POSTMAN_TOKEN]",
               "system": true
             },
             {
@@ -1755,7 +1755,7 @@
             "bearer": [
               {
                 "type": "string",
-                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6InVzZXIiLCJpYXQiOjE3ODc0MDI4MDF9.vWMev3UkypjW3mey9-pBdIwR7h1jBGkDbm8kEL8Yego",
+                "value": "[REDACTED_JWT]",
                 "key": "token"
               }
             ]
