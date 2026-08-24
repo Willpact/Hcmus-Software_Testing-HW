@@ -1,33 +1,46 @@
 # CI/CD cho HW06 API Testing
 
-## Trạng thái hiện tại
+## Trạng thái đã xác minh
 
-`WORKFLOW_READY: YES` — [workflow](../../../.github/workflows/hw06-api-newman.yml) đã dùng Newman `6.2.2`, lấy SUT không sửa đổi từ `ttbhanh/eshop-sut`, và chỉ nhận runtime environment qua GitHub Secret.
+Workflow `HW06 API Newman` đã có ba GitHub Actions run genuine theo đúng chuỗi `normal` → `intentional-fail` → `normal`. Ngày 2026-08-24, metadata run và safe artifact của từng run được kiểm tra trực tiếp bằng GitHub CLI. Artifact chỉ gồm `runner-result.json`, `orchestration-result.json` và `targeted-scope-guard.json`; không cần tải hoặc công bố raw Newman JSON/HTML có thể chứa request body hay runtime token.
 
-`PASS_RUN: NO`, `INTENTIONAL_FAIL_RUN: NO`, `FINAL_STATE_HEALTHY: NO` vì repository hiện không có secret `HW06_RUNTIME_ENV_B64`; không có CI result nào được tạo hay suy diễn trong tài liệu này.
+| Loại run | Run ID / URL | Mode | Request | Assertion | Assertion failure | Kết quả đã xác minh |
+| --- | --- | --- | ---: | ---: | ---: | --- |
+| Healthy PASS | [#32660557339](https://github.com/Willpact/Hcmus-Software_Testing-HW/actions/runs/32660557339) | `normal` | 179 | 116 | 0 | GitHub conclusion `success`; orchestration `PASS`. |
+| Intentional FAIL | [#32660601543](https://github.com/Willpact/Hcmus-Software_Testing-HW/actions/runs/32660601543) | `intentional-fail` | 180 | 117 | **1** | GitHub conclusion `failure`; runner và orchestration cùng `INTENTIONAL_FAILURE_VERIFIED`. |
+| Final healthy PASS | [#32660658460](https://github.com/Willpact/Hcmus-Software_Testing-HW/actions/runs/32660658460) | `normal` | 179 | 116 | 0 | GitHub conclusion `success`; orchestration `PASS`. |
 
-Hai run push đầu tiên (https://github.com/Willpact/Hcmus-Software_Testing-HW/actions/runs/32592624334 và https://github.com/Willpact/Hcmus-Software_Testing-HW/actions/runs/32592678214) kết thúc `failure` không có job/log. Chúng là lỗi cấu hình workflow ban đầu, **không phải** intentional FAIL evidence. Workflow đã được sửa thành manual dispatch-only để không tự tạo failure khi chưa có secret.
+Trong intentional run, `orchestration-result.json` ghi `smoke_exit_code: 0` và `run002_exit_code: 1`; `targeted-scope-guard.json` ghi `expected_ci_assertion_failures: 1`. Vì vậy failure đúng là một Newman assertion failure có kiểm soát, không phải lỗi hạ tầng hay lỗi cấu hình. Final normal run PASS xác nhận pipeline đã trở lại healthy.
 
-## Guard bí mật
+Các configuration-error run cũ, bao gồm [#32630260002](https://github.com/Willpact/Hcmus-Software_Testing-HW/actions/runs/32630260002), chỉ là lỗi workflow trước repair và **không được tính** là intentional failed run hay evidence testcase.
 
-Secret `HW06_RUNTIME_ENV_B64` là base64 của môi trường Postman runtime dùng disposable fixtures. Nó không được commit, in log, upload dưới dạng environment file, hay thêm vào issue. Workflow chỉ upload Newman reports và result metadata khi chúng tồn tại.
+## Repair cho clean runner
 
-## Quy trình Human bắt buộc
+- Workflow dùng `HW06_CI_ARTIFACT_ROOT=test-results/hw06/ci-runtime`, nên không đọc/ghi `run-002` lịch sử.
+- `postman/scripts/hw06-runtime-layout.js` resolve artifact root, runtime environment và SUT root bằng path cross-platform, có default local tương thích.
+- `postman/scripts/sqlite-path-redirect.cjs` là source-controlled. SUT process chỉ dùng redirect khi orchestration truyền source DB và destination DB explicit qua environment variables.
+- Orchestration copy source `database.sqlite` vào một isolated DB mới cho **mỗi** smoke/targeted phase; không phụ thuộc `test-results/hw06/run-002/sqlite-path-redirect.cjs`, runtime DB cũ, smoke artifact cũ hay Windows-only path.
+- `.gitignore` loại `ci-runtime/` và local simulation outputs vì chúng có runtime environment/output không thuộc delivery surface.
+- Workflow chỉ upload metadata an toàn nêu trên. Raw Newman JSON/HTML có thể chứa request body/runtime token nên không upload.
 
-1. Tạo GitHub Actions secret `HW06_RUNTIME_ENV_B64` từ **một environment file disposable** đã được kiểm tra không chứa Student ID, JWT, password hoặc credential nộp cùng repository.
-2. Push workflow ở trạng thái `normal`, mở **Run workflow**, chọn `normal`, rồi lưu URL/run ID của run xanh vào bảng dưới đây.
-3. Trên một commit tạm thời chỉ đổi input workflow sang `intentional-fail` (không đổi SUT/test behavior), chạy manual dispatch `intentional-fail`, lưu URL/run ID FAIL.
-4. Revert commit tạm thời, push trạng thái workflow `normal`, và chạy/kiểm tra một PASS cuối. Không để `intentional-fail` là trạng thái cuối của repository.
+## Clean local simulation (genuine local execution)
 
-## Nhật ký genuine CI evidence
+Runtime environment được tạo mới bằng `postman/scripts/prepare-runtime-environment.py`; metadata xác nhận guard Student ID/credential mà không in giá trị. Hai simulation dùng directory mới, tách khỏi `run-001`/`run-002` lịch sử:
 
-| Loại run | Run ID / URL | Trạng thái | Ghi chú |
-| --- | --- | --- | --- |
-| Healthy PASS | `PENDING_HUMAN_RUN` | `PENDING` | Cần secret runtime và run thật. |
-| Intentional FAIL | `PENDING_HUMAN_RUN` | `PENDING` | Chỉ dùng manual dispatch tạm thời theo quy trình trên. |
-| Final healthy state | `PENDING_HUMAN_RUN` | `PENDING` | Phải là `normal`; không được suy diễn từ workflow syntax. |
+| Mode | Prepare | SUT ready | Smoke Newman | Targeted Newman | Orchestration |
+| --- | --- | --- | --- | --- | --- |
+| `normal` | PASS (37 stable IDs) | PASS | exit 0 | 179 request, 0 assertion failure | PASS / exit 0 |
+| `intentional-fail` | PASS | PASS | exit 0 | 180 request, exactly 1 assertion failure | `INTENTIONAL_FAILURE_VERIFIED` / exit 1 |
 
-## Kiểm tra cục bộ đã thực hiện
+Local simulation là validation reproducibility; ba run ở bảng đầu mới là genuine GitHub Actions evidence.
 
-- Workflow được review tĩnh: syntax YAML, `workflow_dispatch`, secret guard, dependency checkout, Newman tooling và artifact paths.
-- Không chạy Newman, không khởi động SUT và không gọi GitHub Actions từ máy cục bộ trong overnight run.
+## Controlled intentional-fail design
+
+`run_mode=intentional-fail` tạo đúng một CI-only request/testcase tên `[CI-INTENTIONAL-FAIL-001] Controlled Newman assertion failure`. Assertion cố ý `expect(true).to.equal(false)` chỉ được thêm vào collection generated trong mode này. Nó không có stable HW06 case ID, không sửa SUT/test oracle, không được đưa vào defect accounting và normal mode vẫn có 0 assertion failure.
+
+## Traceability và bảo mật evidence
+
+- Safe artifact GitHub Actions: `hw06-ci-32660557339`, `hw06-ci-32660601543`, `hw06-ci-32660658460`.
+- Trường đối chiếu: `ci_run_mode`, `requests_executed`, `assertions`, `assertion_failures`, `status`, smoke/targeted exit code và guard assertion failure kỳ vọng.
+- `HW06_RUNTIME_ENV_B64` đã được restore cho workflow nhưng giá trị không được log hoặc đưa vào artifact/tài liệu.
+
