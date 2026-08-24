@@ -1,6 +1,6 @@
 # AI Audit Report
 
-> Mandatory appendix for AI-assisted coursework. This log was provisionally initialized under an explicit immediate-audit request; it is not submission-ready until Student Information is provided and final review is complete.
+> Mandatory appendix for AI-assisted coursework. This log was provisionally initialized under an explicit immediate-audit request and is finalized after Student Information and Human review decisions were provided.
 
 ---
 
@@ -8,15 +8,16 @@
 
 | Field | Value |
 | --- | --- |
-| Student name (printed) | |
-| Student ID | |
-| Class / Cohort | |
+| Student name (printed) | Nguyễn Huy Quân |
+| Student ID | 23127107 |
+| Class / Cohort | 23CLC (K23 – Chương trình Chất lượng cao) |
 | Assignment ID | HW06 — API Testing |
-| Assignment date | |
-| AI tool(s) used | Codex |
-| AI assistance declared | |
+| Assignment date | 2026-08-24 |
+| Course | CS423 / CSC13003 — Software Testing |
+| AI tool(s) used | OpenAI Codex |
+| AI assistance declared | Yes |
 
-> Pending Student Information is intentionally left blank rather than fabricated.
+> Student Information was supplied and verified by the student on 2026-08-24.
 
 ---
 
@@ -848,12 +849,12 @@ Stored externally at the exact path above.
 
 | Field | Value |
 | --- | --- |
-| Student Decision | `CONTINUE_WITH_GIT_PERMISSION_RECOVERY` |
+| Student Decision | `ACCEPTED_AS_IS` |
 | Change Illustration | Human accepted the finalized Student Extension and authorized the documented Git-permission recovery fallback: preserve an exact pending-commit manifest and continue the non-Git Postman implementation when `.git` remains unavailable. |
 | Verification Method | `STATIC_REVIEW` |
 | Verification Result | `PASSED` |
 | Final File | `docs/test-extension/`; `test-cases/student-added/` |
-| Approval Status | `ACCEPTED_AS_IS` |
+| Approval Status | `APPROVED` |
 
 **Changes Made**
 
@@ -861,7 +862,7 @@ Student Extension content đã final hóa nhưng chưa thể commit. A-010 đã 
 
 **Correction Notes**
 
-Đây là environment/permission blocker, không phải test-design rejection. Recovery tiếp tục theo policy mới: không stage audit files, ghi chính xác pending commit set, và giữ `GIT_CHECKPOINT_STATUS` tách biệt với `CONTENT_WORKFLOW_STATUS`.
+Đây là environment/permission blocker, không phải test-design rejection. Recovery tiếp tục theo policy mới: không stage audit files, ghi chính xác pending commit set, và giữ `GIT_CHECKPOINT_STATUS` tách biệt với `CONTENT_WORKFLOW_STATUS`. Legacy enum spelling was normalized to the current canonical schema. Historical decision evidence and meaning remain unchanged.
 
 **Human Decision Evidence**
 
@@ -1271,8 +1272,8 @@ Stored externally at the exact path above.
 
 | Field | Value |
 | --- | --- |
-| Review Status | `PENDING_HUMAN_REVIEW` |
-| Verdict |  |
+| Review Status | `FINALIZED` |
+| Verdict | `VALID` |
 | Verdict Scope | A-014 finalization, preflight-003 evidence, runtime identity/header/tooling guards, and runtime-only smoke collection preparation |
 
 #### (4) Reasoning
@@ -1293,24 +1294,24 @@ Stored externally at the exact path above.
 
 | Field | Value |
 | --- | --- |
-| Student Decision | `PENDING_HUMAN_REVIEW` |
-| Change Illustration | Pending Human Review. |
+| Student Decision | `ACCEPTED_AS_IS` |
+| Change Illustration | No change required. |
 | Verification Method | `STATIC_REVIEW` |
-| Verification Result | `NOT_EXECUTED` |
+| Verification Result | `PASSED` |
 | Final File | `test-results/hw06/preflight-003/`; `test-results/hw06/smoke-001/smoke.postman_collection.json` |
-| Approval Status | `PENDING` |
+| Approval Status | `APPROVED` |
 
 **Changes Made**
 
-Pending Human Review.
+Human approved A-015 as-is; no correction was required.
 
 **Correction Notes**
 
-The preflight artifact is recorded before SUT startup; no runtime result is claimed in A-015.
+The preflight evidence consistently verifies tooling, runtime identity/header guards, and smoke preparation without claiming real execution. No correction is required within the stated scope.
 
 **Human Decision Evidence**
 
-Pending Human Review.
+`STUDENT_DECISION: ACCEPTED_AS_IS`; `VERDICT: VALID`; `VERIFICATION: STATIC_REVIEW / PASSED`; `APPROVAL: APPROVED`.
 
 ### Artifact A-016 — SUT Startup Recovery
 
@@ -1344,8 +1345,8 @@ Stored externally at the exact path above.
 
 | Field | Value |
 | --- | --- |
-| Review Status | `PENDING_HUMAN_REVIEW` |
-| Verdict |  |
+| Review Status | `FINALIZED` |
+| Verdict | `VALID` |
 | Verdict Scope | Startup diagnostics, preserved failure evidence, runtime-only SQLite path redirect, and verified local SUT readiness |
 
 #### (4) Reasoning
@@ -1366,24 +1367,24 @@ Stored externally at the exact path above.
 
 | Field | Value |
 | --- | --- |
-| Student Decision | `PENDING_HUMAN_REVIEW` |
-| Change Illustration | Pending Human Review. |
+| Student Decision | `ACCEPTED_AS_IS` |
+| Change Illustration | No change required. |
 | Verification Method | `EXECUTION_EVIDENCE_REVIEW` |
-| Verification Result | `NOT_EXECUTED` |
+| Verification Result | `PASSED` |
 | Final File | `test-results/hw06/runtime/sut-startup-metadata.md`; `test-results/hw06/runtime/sqlite-path-redirect.cjs` |
-| Approval Status | `PENDING` |
+| Approval Status | `APPROVED` |
 
 **Changes Made**
 
-Pending Human Review.
+Human approved A-016 as-is; no correction was required.
 
 **Correction Notes**
 
-The harness redirects only the SQLite file path into the writable HW6 runtime area; production source and the source database remain unchanged.
+The SQLite redirect is an environment-only harness correction. The SUT reached readiness while production source and source database remained unchanged, so the recovery evidence is accepted as-is.
 
 **Human Decision Evidence**
 
-Pending Human Review.
+`STUDENT_DECISION: ACCEPTED_AS_IS`; `VERDICT: VALID`; `VERIFICATION: EXECUTION_EVIDENCE_REVIEW / PASSED`; `APPROVAL: APPROVED`.
 
 ### Artifact A-017 — Real Smoke Execution and Harness Correction
 
@@ -1417,8 +1418,8 @@ Stored externally at the exact path above.
 
 | Field | Value |
 | --- | --- |
-| Review Status | `PENDING_HUMAN_REVIEW` |
-| Verdict |  |
+| Review Status | `FINALIZED` |
+| Verdict | `VALID` |
 | Verdict Scope | Genuine smoke evidence, harness-only correction, full-execution gate, and preliminary requirement-backed observations |
 
 #### (4) Reasoning
@@ -1439,24 +1440,24 @@ Stored externally at the exact path above.
 
 | Field | Value |
 | --- | --- |
-| Student Decision | `PENDING_HUMAN_REVIEW` |
-| Change Illustration | Pending Human Review. |
+| Student Decision | `ACCEPTED_AS_IS` |
+| Change Illustration | No change required. |
 | Verification Method | `EXECUTION_EVIDENCE_REVIEW` |
-| Verification Result | `NOT_EXECUTED` |
+| Verification Result | `PASSED` |
 | Final File | `test-results/hw06/smoke-001/`; `test-results/hw06/smoke-002/`; `postman/collections/HW06-API-Testing.postman_collection.json` |
-| Approval Status | `PENDING` |
+| Approval Status | `APPROVED` |
 
 **Changes Made**
 
-Pending Human Review.
+Human approved A-017 as-is; no correction was required.
 
 **Correction Notes**
 
-No production code or requirement oracle was changed. Preliminary product-defect candidates remain non-final pending Human Failure Triage.
+The failed smoke run was preserved, the harness defect was corrected without changing the requirement oracle, and smoke-002 passed with complete runtime X-Student-Id coverage. Preliminary defect candidates were correctly left non-final.
 
 **Human Decision Evidence**
 
-Pending Human Review.
+`STUDENT_DECISION: ACCEPTED_AS_IS`; `VERDICT: VALID`; `VERIFICATION: EXECUTION_EVIDENCE_REVIEW / PASSED`; `APPROVAL: APPROVED`.
 
 ### Artifact A-018 — Full HW06 Real Execution and Preliminary Triage
 
@@ -1847,8 +1848,8 @@ Stored externally at the exact path above.
 
 | Field | Value |
 | --- | --- |
-| Review Status | `PENDING_HUMAN_REVIEW` |
-| Verdict |  |
+| Review Status | `FINALIZED` |
+| Verdict | `VALID` |
 | Verdict Scope | A-021 Human-decision finalization; three new defect reports; exactly nine confirmed-defect matrix rows; unique 38-case accounting; nine-case manual screenshot plan; issue readiness and final execution accounting |
 
 #### (4) Reasoning
@@ -1873,24 +1874,24 @@ Stored externally at the exact path above.
 
 | Field | Value |
 | --- | --- |
-| Student Decision | `PENDING_HUMAN_REVIEW` |
-| Change Illustration | Pending Human Review. |
+| Student Decision | `ACCEPTED_AS_IS` |
+| Change Illustration | No change required. |
 | Verification Method | `EXECUTION_EVIDENCE_REVIEW` |
-| Verification Result | `NOT_EXECUTED` |
+| Verification Result | `PASSED` |
 | Final File | `docs/defects/`; `docs/execution-results/cross-api-execution-summary.md`; `docs/git/run-002-defect-report-commit-manifest.md` |
-| Approval Status | `PENDING` |
+| Approval Status | `APPROVED` |
 
 **Changes Made**
 
-Pending Human Review.
+Human approved A-022 as-is; no correction was required.
 
 **Correction Notes**
 
-No Human correction has been applied to A-022. The workflow stops before genuine screenshot capture and GitHub Issue creation.
+The output correctly applies the prior Human-confirmed defect decisions, preserves the nine-defect/38-evidence-case distinction, and stops before fabricating screenshots or GitHub Issues. No correction is required within the A-022 scope.
 
 **Human Decision Evidence**
 
-Pending Human Review.
+`STUDENT_DECISION: ACCEPTED_AS_IS`; `VERDICT: VALID`; `VERIFICATION: EXECUTION_EVIDENCE_REVIEW / PASSED`; `APPROVAL: APPROVED`.
 
 <!-- AUDIT_ENTRIES_END -->
 
@@ -1900,12 +1901,12 @@ Pending Human Review.
 
 | Metric | Count | Percentage |
 | --- | ---: | ---: |
-| Total AI-generated artifacts audited | 18 | 100% |
-| VALID — correct, accepted as-is | 15 | 83.33% |
-| INVALID — wrong, rejected | 0 | 0% |
-| INCOMPLETE — acceptable after edits | 3 | 16.67% |
+| Total AI-generated artifacts audited | 22 | 100% |
+| VALID — correct, accepted as-is | 19 | 86.36% |
+| INVALID — wrong, rejected | 0 | 0.00% |
+| INCOMPLETE — acceptable after edits | 3 | 13.64% |
 
-Entries with `PENDING_HUMAN_REVIEW` are not included in finalized verdict totals.
+`PENDING_HUMAN_REVIEW: 0` for the current A-001 through A-022 submission state. Historical quoted prompt/output text is preserved and is not a current pending decision.
 
 <!-- AUDIT_SUMMARY_END -->
 
@@ -1941,16 +1942,38 @@ Entries with `PENDING_HUMAN_REVIEW` are not included in finalized verdict totals
 
 ## 6. Conclusion — When Should AI Be Used or Not?
 
-Pending final audit review.
+AI hỗ trợ tốt cho việc phân tích yêu cầu, tạo và rà soát testcase, chuẩn hóa traceability, tổng hợp execution evidence và chuẩn bị tài liệu. Giá trị thực tế chỉ xuất hiện khi Human đối chiếu với requirement, state oracle và artifact gốc; AI không được tự xác nhận defect, thay thế evidence runtime hoặc suy diễn quyết định Human. Ba entry `INCOMPLETE` cho thấy output AI có thể cần Human-directed correction dù artifact cuối đã được approve. Với Newman, 0 assertion failure không phủ định Product Defect vì business/state oracle và external verification là lớp quyết định riêng. Quy trình giữ prompt/output, Human Decision và nguồn evidence tách bạch; Student Information, disclosure và printed-name confirmation bên dưới đã được Human cung cấp.
 
 ---
 
 ## 7. Mandatory Disclosure
 
-Pending student completion before submission.
+I used AI tools, primarily OpenAI Codex, to assist with requirement analysis,
+test-case generation, AI-assisted audit preparation, Postman/Newman test
+implementation and execution support, execution-result analysis, defect
+documentation, CI/CD preparation, Agent Skill development, and report drafting.
+
+I reviewed the AI-generated outputs and made the final Human decisions for
+test-case classification, corrections, requirement-gap handling, execution
+triage, defect confirmation, and submission content.
+
+The required genuine execution evidence, Newman results, X-Student-Id runtime
+evidence, defect screenshots, GitHub Actions runs, and other attributable
+runtime evidence were obtained from real executions and were not fabricated
+by AI. The detailed AI Audit Report documents the AI interactions and Human
+review decisions.
 
 ---
 
 ## 8. Student Confirmation
 
-Pending student completion before submission.
+The following administrative information is confirmed by the student for HW06.
+
+| Confirmation field | Value |
+| --- | --- |
+| Student name (printed) | Nguyễn Huy Quân |
+| Student ID | 23127107 |
+| Class / Cohort | 23CLC (K23 – Chương trình Chất lượng cao) |
+| Course | CS423 / CSC13003 — Software Testing |
+| Date | 2026-08-24 |
+| Signature | Nguyễn Huy Quân |
